@@ -1,0 +1,118 @@
+provide{
+    run-simulation: run-simulation
+}end
+include image
+include reactors
+include plot-list
+
+
+
+#Object {Position; Velocity}
+
+hor = rectangle(150, 5, "solid", "gray")
+vert = rectangle(5, 195, "solid", "gray")
+elevator = overlay(above-align("right", hor, vert),above-align("left", vert, hor))
+person = scale(100/136, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQQnBkNVRCZnhsOVU"))
+background = rectangle(150, 600, "solid", "white")
+
+Fg = 500
+Fn = 500
+
+#1 for standing still
+#2 for speeding up
+#3 for moving at constant velocity
+#4 for slowing down
+
+fun run-simulation(gf, nf, condition):
+
+  a = 7.5
+  delta-t = 1/20
+
+  fun update-object(obj):
+    {obj.{0} + (obj.{1} * delta-t); obj.{1} + obj.{2}; obj.{2}}
+  end
+
+  fun update-state(state):
+    {e; p} = state
+    {update-object(e); update-object(p)}
+  end
+
+  fun show(state):
+    {e; p} = state
+    x = 75
+    put-image(
+      person,
+      x, p.{0} + 55,
+      put-image(
+        elevator,
+        x, e.{0} + 100,
+        background))
+  end
+
+  fun stop(state):
+    (state.{0}.{0} >= 400) or (state.{1}.{0} >= 500)
+  end
+
+  vi =
+    if (condition == 1) or (condition == 2):
+      0
+    else:
+      400
+    end
+  ae = 
+    if (condition == 1) or (condition == 3):
+      0
+    else if condition == 2:
+      10
+    else if condition == 4:
+      -10
+    end
+
+  ap =
+    if gf == nf:
+      0
+    else if nf > gf:
+      10
+    else if gf > nf:
+      -10
+    end
+
+  initial = {{0; vi; ae}; {0; vi; ap}}
+
+  r = reactor:
+    init: initial,
+    on-tick: update-state,
+    seconds-per-tick: delta-t,
+    to-draw: show,
+    stop-when: stop,
+  end
+
+  raw = interact-trace(r)
+
+  mod = extend raw using tick, state:
+    time: tick * delta-t,
+    acceleration: state.{1}.{2},
+    net-force: nf - gf
+  end
+
+  t = extract time from mod end
+  acc = extract acceleration from mod end
+  net-force = extract net-force from mod end
+
+  t-labels = [list: 0, t.sort().last()].sort()
+  a-labels =
+    if acc.sort().last() == 0:
+      [list: -1, 1]
+    else:
+      [list: 0, acc.sort().last()].sort()
+    end
+  f-labels =
+    if net-force.sort().last() == 0:
+      [list: -1, 1]
+    else:
+      [list: 0, net-force.sort().last()].sort()
+    end
+  plota = plot(scatter-plot(t, acc)).x-min(t-labels.get(0)).x-max(t-labels.get(1)).y-min(a-labels.get(0)).y-max(a-labels.get(1)).title("Acceleration vs. Time").get-image()
+  plotb = plot(scatter-plot(t, net-force)).x-min(t-labels.get(0)).x-max(t-labels.get(1)).y-min(f-labels.get(0)).y-max(f-labels.get(1)).title("Net Force vs. Time").get-image()
+  beside(plotb, plota)
+end

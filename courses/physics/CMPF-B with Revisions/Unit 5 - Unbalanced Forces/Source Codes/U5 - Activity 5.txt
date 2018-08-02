@@ -1,0 +1,28 @@
+include shared-gdrive("U5 - Activity 5 (background)", "1T8qpHcLveHYNW2US0tni3YKwQE8sDuJZ")
+
+#########################
+#  Physical Parameters  #
+#########################
+MASS = 300 #kg
+THRUST = 25000 #N
+
+######################
+#  Motion Functions  #
+######################
+
+next-x :: (x :: Number, v-avg :: Number) -> Number
+
+
+next-v :: (v :: Number, a :: Number) -> Number
+
+
+find-a :: (thrust :: Number, drag :: Number, chute :: Number) -> Number
+
+
+
+
+
+###############################################
+#  This line runs the simulation. DO NOT EDIT #
+###############################################
+run-simulation(MASS, THRUST, next-x, next-v, find-a)

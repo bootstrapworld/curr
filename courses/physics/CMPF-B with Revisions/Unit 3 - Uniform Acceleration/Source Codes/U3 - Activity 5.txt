@@ -1,0 +1,29 @@
+include shared-gdrive("U3 - Activity 5 (background)", "1ZDJA9pfn0JvfnA_9MsqEZEZPTrdWLiML")
+
+##########################
+#  Parameters to change  #
+##########################
+
+accel = ... # m/s/s   Braking Limit of car = -10
+
+v-init = ... # m/s     SPEED LIMIT = 25
+
+position-to-start-braking = ... # m
+# The horses are standing at x = 100 m
+
+######################
+#  Motion Functions  #
+######################
+
+fun next-x(x, v-avg):
+  ...
+end
+
+fun next-v(v):
+  ...
+end
+
+#####################################################
+#  Function which runs the simulation. DO NOT EDIT  #
+#####################################################
+run-simulation(v-init, position-to-start-braking, next-x, next-v, accel)

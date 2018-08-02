@@ -1,0 +1,47 @@
+include shared-gdrive("U3 - Activity 3 (background)", "1waTvCoD49m3KtWWg4_H1RATtnAlYVhJA")
+
+
+#################################################################################
+#  Write a function called 'next-v' which produces the speed for the next tick  #
+#################################################################################
+
+fun next-v(...):
+  ...
+end
+
+
+###########################################################################
+#  Write a function called 'next-x1' which uses the previous velocity to  #
+#    determine the next position.                                         #
+###########################################################################
+
+fun next-x1(...):
+  ...
+end
+
+#######################################################################
+#  Write a function called 'next-x2' which uses the next velocity to  #
+#    determine the next position.                                     #
+#######################################################################
+
+fun next-x2(...):
+  ...
+end
+
+#######################################################################
+#  Write a function called 'next-x3' which uses the average velocity  #
+#    to determine the next position.                                  #
+#######################################################################
+
+fun next-x3(...):
+  ...
+end
+
+
+
+
+
+#################################################
+#  This line runs the simulation. DO NOT EDIT!  #
+#################################################
+run-simulation(next-x1, next-x2, next-x3, next-v)

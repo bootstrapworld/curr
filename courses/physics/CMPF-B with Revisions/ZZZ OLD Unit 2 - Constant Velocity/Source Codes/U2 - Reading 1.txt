@@ -1,0 +1,66 @@
+#######################################
+#  Sample Function 1 - double-number  #
+#######################################
+# A function which consumes a Number x and produces a Number which is twice as large
+
+# Contract
+double-number :: (x :: Number) -> Number
+
+# Examples
+examples:
+  double-number(10) is 20
+  double-number(0) is ...
+  double-number(...) is 15
+end
+
+#Instructions
+fun double-number(x):
+  2 * x
+end
+
+#########################################
+#  Sample Function 2 - find-difference  #
+#########################################
+# A function which consumes two Numbers x and y and produces a Number which is the difference between them.
+
+# Contract
+fund-difference :: (x :: Number, y :: Number) -> Number
+
+# Examples
+examples:
+  find-difference(10, 10) is 0
+  find-difference(5, -5) is 10
+  find-difference(20, 10) is 10
+  find-difference(10, 20) is 10
+end
+
+#Instructions
+fun find-difference(x, y):
+  ...
+end
+#######################################################################################################
+#                                               HINT                                                  #
+#  There is a predefined function called NUM-ABS in Pyret for finding the absolute value of a number  #
+#                                                                                                     #
+#  num-abs :: (n :: Number) -> Number                                                                 #
+#######################################################################################################
+
+######################################
+#  Sample Function 3 - find-average  #
+######################################
+# A function which consumes two Numbers a and b and produce a Number which is their average
+
+# Contract
+...
+
+# Examples
+examples:
+  ...
+  ...
+  ...
+end
+
+#Instructions
+fun find-average(...):
+  ...
+end

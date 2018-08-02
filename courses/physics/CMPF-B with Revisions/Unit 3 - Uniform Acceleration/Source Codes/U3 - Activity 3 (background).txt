@@ -1,0 +1,130 @@
+provide{
+    run-simulation : run-simulation,
+      delta-t : delta-t
+  }
+end
+
+
+include image
+include reactors
+include plot-list
+include image-structs
+
+
+############
+#  Images  #
+############
+car1 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQM1BwTzFUNENhS1U")
+
+car2 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQUE5wUFVVeHlYcW8")
+
+car3 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQcUpUZnNUVDhRZjQ")
+
+car4 = 
+  flip-horizontal(scale(0.084, (image-url("http://st.automobilemag.com/uploads/sites/10/2016/08/2017-chevrolet-camaro-2lt-coupe-side-view.png"))))
+
+Pace-car = text("Pace Car", 24, "red")
+
+background = overlay(
+  rectangle(500, 600, "outline", "black"),
+  put-image(rectangle(500, 1, "solid", "black"), 250, 99,
+  put-image(rectangle(500, 1, "solid", "black"), 250, 199,
+    put-image(rectangle(500, 1, "solid", "black"), 250, 299,
+        put-image(rectangle(500, 10, "solid", "black"), 250, 375,
+          put-image(Pace-car, 75, 575, 
+            rectangle(500, 600, "solid", "white" )))))))
+
+
+################
+#  Parameters  #
+################
+delta-t = 1
+
+y4 = 500
+
+y1 = 300
+
+y2 = 200
+
+y3 = 100
+
+####################
+#  Student Inputs  #
+####################
+#|
+  fun next1-v(v):
+  v + (20 * delta-t)
+end
+
+fun next1-x1(x, v):
+  x + (v * delta-t)
+end
+
+fun next1-x2(x, v):
+  x + (next1-v(v) * delta-t)
+end
+
+fun next1-x3(x, v):
+  x + (((v + next1-v(v)) / 2) * delta-t)
+end
+|#
+
+
+########################################
+#  Function which runs the simulation  #
+########################################
+fun run-simulation(move-function1, move-function2, move-function3, velocity-function):
+
+  fun next1-x4(t):
+  1/2 * 20 * t * t
+end 
+  
+  fun update-state({t; x1; x2; x3; x4; v}):
+    next-t = t.last() + delta-t
+    next-x1 = move-function1(x1.last(), v)
+    next-x2 = move-function2(x2.last(), v)
+    next-x3 = move-function3(x3.last(), v)
+    next-x4 = next1-x4(next-t)
+    next-v = velocity-function(v)
+    
+    {link(next-t, t).sort(); link(next-x1, x1).sort(); link(next-x2, x2).sort(); link(next-x3, x3).sort(); link(next-x4, x4).sort(); next-v}
+  end
+  
+  fun draw-scene({t; x1; x2; x3; x4; v}):
+    scene = 
+      put-image(car1, x1.last(), y1,
+        put-image(car2, x2.last(), y2,
+          put-image(car3, x3.last(), y3, 
+            put-image(car4, x4.last(), y4,
+              put-image(rectangle(1, 600, "solid", "orange"), (x4.last() + 72), 300,
+                background)
+          )
+        )
+        )
+        )
+    list-of-plots = [list:
+      scatter-plot(t, x1).color(black), scatter-plot(t, x2).color(blue), scatter-plot(t, x3).color(orange)]
+    
+    beside(scene, plots(list-of-plots).get-image())
+  end
+  x0 = [list: 0]
+  
+  fun stop({t; x1; x2; x3; x4; v}):
+    x1.last() > 500
+  end
+  
+  r = reactor:
+    init: {x0; x0; x0; x0; x0; 0},
+    on-tick: update-state,
+    seconds-per-tick: delta-t,
+    to-draw: draw-scene,
+    stop-when: stop
+  end
+  
+  interact(r)
+end
+
+#run-simulation(next1-x1, next1-x2, next1-x3, next1-v)

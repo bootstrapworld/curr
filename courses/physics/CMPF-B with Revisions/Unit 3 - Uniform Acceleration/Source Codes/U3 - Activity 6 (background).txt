@@ -1,0 +1,118 @@
+provide{
+    run-simulation: run-simulation,
+    delta-t: delta-t
+}end
+include image
+include reactors
+
+############
+#  Images  #
+############
+hole = 
+  circle(20, "solid", "black")
+bowl = 
+  circle(18, "outline", "gray")
+
+ball = 
+  scale(0.05, image-url("https://images.onlinelabels.com/images/clip-art/casino/Golf%20ball-191510.png"))
+
+###############
+#  Constants  #
+###############
+delta-t = 1/25
+a1 = -20
+a2 = -10
+a3 = -5
+a4 = -30
+
+hole-x = 800
+
+########################################
+#  Function which runs the simulation  #
+########################################
+fun run-simulation(hole-numb, x-init, v-init, position-function, velocity-function):
+
+  grass-color =
+    if hole-numb == 1: "lawn-green"
+    else if hole-numb == 2: "olive"
+    else if hole-numb == 3: "medium-goldenrod"
+    else if hole-numb == 4: "lime-green"
+    else: raise("invalid hole")
+    end
+  green = 
+    put-image(bowl, 800, 200,
+      put-image(hole, 800, 200, 
+        (rectangle(1000, 400, "solid", grass-color))))
+
+  ######################################
+  #  Function which updates the state  #
+  ######################################
+  fun next-state({t; x; v}):
+    acc =
+      if hole-numb == 1: a1
+      else if hole-numb == 2: a2
+      else if hole-numb == 3: a3
+      else if hole-numb == 4: a4
+      else: raise("invalid hole")
+      end
+
+    ### update time
+    next-t = t + delta-t
+
+    ### update velocity x
+    next-v =
+      velocity-function(v, acc)
+
+    # define average vx
+    avg-v = (v + next-v) / 2
+
+    # define next-x
+    next-x = position-function(x, avg-v)
+
+    # build the new tuple for the state.
+    {next-t; next-x; next-v}
+  end
+
+  # illustrate success or failure
+  fun draw-scene({t; x; v}):
+    if (v <= 0) and (x >= 785) and (x <= 815):
+      overlay(text("SUCCESS!!!", 50, "white"), 
+        overlay(scale(0.18, image-url("https://standrewsrarebooks.files.wordpress.com/2013/07/h152t-s-0028-cd-1.jpg")),
+          put-image(ball, 800, 200, green)))
+    else if (v <= 0) and (x < 785):
+      overlay(image-url("https://s-media-cache-ak0.pinimg.com/736x/03/0a/8a/030a8aef948d63b52db45ddde7dcf31d.jpg"), green)
+    else if ((v <= 0) and (x > 815)) or (x > 1000):
+      overlay(image-url("http://www.relatably.com/m/img/happy-gilmore-memes/6v6en.jpg"), green)
+    else:
+      put-image(ball, x, 200, green)
+    end
+
+  end
+
+  # conditions to end the simulation
+  fun stop({t; x; v}):
+    if (v <= 0) and (x >= 785) and (x <= 815):
+      true
+    else if (v <= 0) and (x < 785):
+      true
+    else if ((v <= 0) and (x > 815)) or (x > 1000):
+      true  
+    else:false
+    end
+  end
+
+  # reactor
+  golf-sim = 
+    reactor:
+      init:              {0; x-init; v-init},        # tuple
+      on-tick:           next-state,  # move to next 'state' in reactor... 
+      to-draw:           draw-scene,  # OUTPUT!
+      seconds-per-tick:  delta-t,     # matches 'computer time' to 'real time'
+      stop-when:         stop
+    end
+  if x-init > 400:
+    raise("Come on, challenge yourself a bit more than that!")
+  else:
+    interact(golf-sim)
+  end
+end

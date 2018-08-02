@@ -1,0 +1,34 @@
+include shared-gdrive("U2 - Activity 5 (background)", "1PVxVYD47Cvhl_9Biode6kC3zEzcShfrv")
+
+###########################
+#  Simulation Parameters  #
+###########################
+delta-t = ... #s
+produce-graph = true
+produce-data-table = false
+
+########################
+#  Initial Conditions  #
+########################
+x-initial = ... #m
+v = ... #m/s
+
+#####################
+#  next-x function  #
+#####################
+
+fun next-x(x):
+  ...
+end
+
+
+
+
+
+
+
+################################################
+#  This line runs the simulation. Do not edit  #
+################################################
+
+run-simulation(next-x, delta-t, produce-graph, produce-data-table, x-initial, v)

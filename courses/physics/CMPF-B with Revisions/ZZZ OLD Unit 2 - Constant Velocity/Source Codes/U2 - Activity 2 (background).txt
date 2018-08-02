@@ -1,0 +1,134 @@
+provide{
+    run-simulation: run-simulation
+} end
+include reactors
+include image
+
+
+############
+#  Images  #
+############
+window = rectangle(600, 100, "solid", "sky-blue")
+target1 = scale(0.15, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1G68c4_Ip8M-NbckCZyirRnRHreU-wjDH"))
+target2 = scale(0.1, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1aoCxKOaVyRwoOdZS_70oNWclUB0qq-Ej"))
+boat1 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=15UIrItc85wO3l7SwFR6sgMl8UZpWAsub")
+boat2 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1oMI3wN7xpjukVC3O0JOPZnj8btFjUXc0")
+boat3 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1-Y0UgpnLeamzQCZsTYzS75Lt3kzdPkRd")
+boat4 = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1zwKWYDi01agLijlYfjFFE3arIjqjeZud")
+
+###########
+#  Timer  #
+###########
+fun timer(t :: Number) -> Image:
+  t-window = overlay(
+    rectangle(50, 20, "outline", "black"),
+    rectangle(50, 20, "solid", "gray")
+    )
+  reading = text(num-to-string-digits(t, 1), 18, "black")
+  box = scale(2, overlay(reading, t-window))
+  above(
+    text("Time", 32, "black"),
+    box
+    )
+end
+
+#############################################
+#  Function which adds a label to an image  #
+#############################################
+fun add-label(n :: Number, img :: Image) -> Image:
+  label = text(num-to-string(n), 20, "black")
+  above(img, label)
+end
+
+#########################################
+#  Function which produces the targets  #
+#########################################
+fun make-targets(spacing :: Number, targets :: Number) -> Image:
+  blank = range(0, targets - 1)
+  spacings = map(lam(e): (e) * spacing end, blank)
+  all-but-last = fold(lam(curr, e): put-image(add-label(e, target1), (e + spacing), 60, curr) end, window, spacings)
+  put-image(add-label(spacing * (targets - 1), target2), spacing * targets, 50, all-but-last)
+end
+
+#####################
+#  Test parameters  #
+#####################
+delta-t = 2
+delta-x = 100
+problem = 1
+fun move-dot(x :: Number) -> Number:
+  x + delta-x
+end
+
+########################################
+#  Function which runs the simulation  #
+########################################
+fun run-simulation(choice :: Number, dt :: Number, move-function):
+
+  fun choose-problem(n):
+    if n == 1:
+      {75; 7; 75; scale(0.1, boat1)}
+    else if n == 2:
+      {100; 5; 80; scale(0.1, boat2)}
+    else if n == 3:
+      {120; 4; 40; scale(0.1, boat3)}
+    else if n == 4:
+      {50; 9; 64; scale(0.1, boat4)}
+    end
+  end
+
+  {spacing; targets; speed; pc} = choose-problem(choice)
+
+  target-time = (spacing * (targets - 1)) / speed
+  background = make-targets(spacing, targets)
+
+  fun place-dot({x; t}) -> Image:
+    full = above(timer(t), background)
+    a = put-image(pc, x, 30, full)
+
+    if x < (spacing * targets):
+      a
+    else if (x == (spacing * targets)) and (t == target-time):
+      overlay(
+        overlay(
+          text("Success", 100, "black"),
+          rectangle(580, 150, "solid", "gold")
+          ),
+        a
+        )
+    else:
+      overlay(
+        overlay(
+          text("Try Again", 100, "black"),
+          rectangle(580, 150, "solid", "silver")
+          ),
+        a
+        )
+    end
+  end
+
+  fun update-state({x; t}):
+    {move-function(x); t + dt}
+  end
+
+  r = reactor:
+    init: {spacing; 0},
+    on-tick: update-state,
+    seconds-per-tick: dt,
+    to-draw: place-dot,
+    stop-when: lam({x; t}): x >= (spacing * targets) end
+  end
+  raw = interact-trace(r)
+
+  select time, position from extend raw using state:
+      time: state.{1},
+      position: state.{0}
+    end
+  end
+end
+
+#run-simulation(problem, delta-t, move-dot)
