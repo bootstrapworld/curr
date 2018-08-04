@@ -47,43 +47,14 @@
                               @activity[#:forevidence "BS-IDE&1&1"]{
                                 Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1Z0jE9BugpJlcuRMlHxpLe9FgToJZoU4m" "new copy"].)
                               }
-                              Turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
                         }
                         @teacher{
                                 
                         }
                 }
                 @point{
-                        @student{
-                                These visualizations tell us about the value of each row in our table. Bar charts tell us the precise value of each row, and pie charts tell us the fraction - or percent - of the total value that each row takes up. In both charts, every row in the table is represented by a unique bar or pie slice. But what if we want to talk about @italic{frequency} in our dataset?
-                        }
-                        @teacher{
-                        
-                        }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Frequency Bar Charts"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
-     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
                       @student{
-                              Let's look at an example table, sampled from the @code{animals-table}...
+                              Let's look at an sample table taken from the @code{animals-table}...
 
                               @build-table/cols[
                                     '("name" "species" "age" "pounds")
@@ -111,6 +82,26 @@
 
                       }
                 }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Frequency Bar Charts"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
+     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
                 @point{
                       @student{
                               @bitmap{images/freq-bar.png}
@@ -155,7 +146,7 @@
   }
   @lesson/studteach[
      #:title "Histograms"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]

@@ -195,7 +195,7 @@
             }
             @point{
                     @student{
-                            Data can be categorical or quantitative, depending on how it is used. It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
+                            @bannerline{Data can be categorical or quantitative, depending on how it is used.} It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
                             @activity[#:forevidence (list )]{
                                 For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
@@ -251,10 +251,10 @@
                                         Numbers and Strings evaluate to themselves.
                                     }
                                     @item{
-                                        Anything in quotes is a String value, even something like @code{"42"}. Data scientists care about the difference between Numbers and Strings. ZIP codes, for example, contain only numbers, but the ZIP code 02125 is definitely not the same as the number 2125!
+                                        Anything in quotes is a String, even something like @code{"42"}.
                                     }
                                     @item{
-                                        Strings must have quotation marks on both sides. Having only one is an error.
+                                        Strings @italic{must} have quotation marks on both sides.
                                     }
                                     @item{
                                         Operators like @code{+}, @code{-}, @code{*}, and @code{/} need spaces around them.
@@ -489,11 +489,12 @@
             }
             @point{
                     @student{
-                            These three parts make up a @vocab{contract} for each function. Let's take a look at the Name, Domain, and Range of @code{triangle}:
+                            These three parts make up a @vocab{contract} for each function. Let's take a look at the Name, Domain, and Range of @code{num-sqrt} and @code{triangle}:
                             @code[#:multi-line #t]{
+                                    #num-sqrt :: (n :: Number) -> Number
                                     # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
-                            The first part of a contract is the function's name. In this example, our function is named @code{triangle}.
+                            The first part of a contract is the function's name. In this example, our functions are named @code{num-sqrt} and @code{triangle}.
 
                             The second part is the @vocab{Domain}, or the names and types of arguments the function expects. @code{triangle} has a Number and two Strings as variables, representing the length of each side, the mode, and the color. We write name-type pairs with double-colons, with commas between each one.
 
@@ -509,23 +510,23 @@
             @point{
                     @student{
                           @activity{
-                              Turn to the back of your workbook, and get some practice reading and using contracts! Make sure you try out @italic{at least} the following functions:
+                              Turn to the back of your workbook, and get some practice reading and using contracts! Make sure you try out the following functions:
                               @itemlist[
                                   @item{ @code{text} }
                                   @item{ @code{circle} }
                                   @item{ @code{ellipse} }
-                                  @item{ @code{num-sqrt} }
+                                  @item{ @code{star} }
                               ]
                           }
                     }
                     @teacher{
-                    
+
                     }
             }
             @point{
                     @student{
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                              Here's the contract for another new function. Can you figure out how to use it in the Interactions Area?
+                              Here's the @vocab{contract} for another new function. Can you figure out how to use it in the Interactions Area?
                                 @code[#:multi-line #t]{
                                     # string-repeat :: (s :: String, n :: Number) -> String
                               }
@@ -538,9 +539,9 @@
             @point{
                     @student{
                             @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                              Here's an example of another function. Type it into the Interactions Area to see what it does. Can you figure out the contract?
+                              Here's an @italic{example} of another function. Type it into the Interactions Area to see what it does. Can you figure out the contract, based on the example?
                                 @code[#:multi-line #t]{
-                                    # string-contains("apples, pears, milk", "pears")
+                                    string-contains("apples, pears, milk", "pears")
                               }
                             }
                     }
@@ -592,6 +593,16 @@
                         
                     }
             }
+            @point{
+                      @student{
+                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
+                                  In the Interactions Area, type @code{pie-chart(shapes-table, "name", "corners")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
+                              }
+                      }
+                      @teacher{
+                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
+                      }
+                }
             @point{
                     @student{
                         The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{shapes} table as our dataset, and made a pie chart showing the distribition of @code{corners} across the table. 
@@ -659,7 +670,7 @@
               }
               @point{
                       @student{
-                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column. Here are two examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are two examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
                               @code[#:multi-line #t]{
                                       shapes.row-n(0)["name"]      # "triangle"
                                       shapes.row-n(0)["corners"]   # 3

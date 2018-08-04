@@ -44,7 +44,7 @@
         @points[
                 @point{
                       @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at the entire @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
                       }
                       @teacher{
 
@@ -52,7 +52,7 @@
                 }
                 @point{
                       @student{
-                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 6 weeks to be adopted.} @activity[#:forevidence (list )]{
+                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.} @activity[#:forevidence (list )]{
                             Does that mean most pets wait more than a month to find homes? Why or why not?
                           }
                       }
@@ -62,7 +62,7 @@
                 }
                 @point{
                       @student{
-                              "The average pet waits 6 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
+                              "The average pet waits 5.8 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
                               @itemlist[
                                   @item{ 
                                       Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
@@ -87,7 +87,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "6 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data.
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to see if there are clusters or patterns in the data.
                       }
                       @teacher{
 
@@ -119,6 +119,7 @@
         @points[
                 @point{
                       @student{
+                              @bitmap{images/points-on-line.png}
                               If we plotted all the @code{weeks} values as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center".
                       }
                       @teacher{
@@ -135,7 +136,7 @@
                 }
                 @point{
                       @student{
-                              Pyret has a way for us to compute the @vocab{mean} of any column in a Table:
+                              Pyret has a way for us to compute the @vocab{mean} of any column in a Table. It consumes a Table and the name of the column you want to measure, and produces the mean - or average - of the numbers in that column.
                               @code[#:multi-line #t]{
                                 # mean :: (t :: Table, col :: String) -> Number
                               }
@@ -161,7 +162,7 @@
                 }
                 @point{
                       @student{
-                              You computed the mean of that list to be just 6 weeks. That IS the average, but if we look at the dots on our number line, we can see that most of the animals in the table waited for less than 4 weeks! What is throwing off the average so much?
+                              You computed the mean of that list to be just 5.8 weeks. That IS the average, but if we look at the dots on our number line, we can see that most of the animals in the table waited for less than 5 weeks! What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.
@@ -227,7 +228,7 @@
                 }
                 @point{
                       @student{
-                              The third and last measure of center is the @vocab{mode}. The @vocab{modes} of a list are all the elements that appear @italic{most often} in the list. Median and Mean always produce one number. Mode is different than the other measures, since a list can have multiple modes - or even no modes at all!
+                              The third and last measure of center is the @vocab{modes} of a dataset. The @vocab{modes} of a  are all the elements that appear @italic{most often} in the list. Median and Mean always produce one number. Mode is different than the other measures, since a column can have multiple modes - or even no modes at all!
                       }
                       @teacher{
 
@@ -259,12 +260,12 @@
                 }
                 @point{
                       @student{
-                              In Pyret, the mode list is calculated by the @code{modes} function, which consumes a List of Numbers and produces a List of Numbers. 
+                              In Pyret, the modes are calculated by the @code{modes} function, which consumes a Table and the name of the column you want to measure, and produces a List of Numbers. 
                               @code[#:multi-line #t]{
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                  Compute the @code{modes} of the @code{weeks} column, and add it to @worksheet-link[#:name "Summarizing-Weeks"]. What did you get? The most common number of weeks an animal waits is only @code{1}! That's well below our mean, which is further proof that there must be some outliers skewing the results.
+                                  Compute the @code{modes} of the @code{weeks} column, and add it to @worksheet-link[#:name "Summarizing-Weeks"]. What did you get? The most common number of weeks an animal waits is either @code{1} or @code{3}! Both of those are well below our mean, which is further proof that there must be some outliers skewing the results.
                               }
                       }
                       @teacher{
@@ -276,9 +277,9 @@
                               At this point, we have a lot of evidence that suggests the Bureau's summary is misleading. Our mean wait time agrees with their findings, but we have two reasons to doubt the validity of their measurement:
                               @itemlist[
                                   @item{ The median is only 4 weeks, meaning half the animals wait less than a month! }
-                                  @item{ The mode of our dataset is only 1, which means there's a cluster of animals that are adopted in just one week! }
+                                  @item{ The modes of our dataset is only 1 and 3, which means there are clusters of animals that are adopted in just one or three weeks! }
                               ]
-                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} over 6 weeks. But then they drew a conclusion without checking to see if that was the right statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to trust the Bureau.
+                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} about 5.8 weeks. But then they drew a conclusion without checking to see if that was the right statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to trust the Bureau.
                       }
                       @teacher{
                               
@@ -387,10 +388,10 @@
                                   The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
                               }
                               @item{
-                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the all the smaller half of the values}. In the @code{weeks} column, that's 2.5 weeks.
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the smaller half of the values}. In the @code{weeks} column, that's 2.5 weeks.
                               }
                               @item{
-                                  The @bold{Third Quartile (Q3)} (the bottom edge of the box), which is computed by taking  @italic{the median of the all the larger half of the values}. That's 8 weeks in our dataset.
+                                  The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 8 weeks in our dataset.
                               }
                           ]
                       }
@@ -413,93 +414,18 @@
                       @student{
                           Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              Find the @vocab{interquartile range} of this dataset.
+                              Find the @vocab{interquartile range} of this dataset. @bold{ What percentage of animals fall within the interquartile range? }
                           }
                       }
                       @teacher{
-                          @math{8 - 2.5 = 5.5 weeks}
+                          @math{8 - 2 = 6 weeks}
                       }
                 }
                 @point{
                       @student{
-                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 5.5 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minimum}.
+                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 6 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minimum}.
                           @activity{
                             On page @worksheet-link[#:name "Summarizing-Weeks"], write down your conclusion for this box-plot.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Table Plans"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students use Table Plans to create measures and visualizations of center and variation}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          Let's put some of our new measures of center to work at the animal shelter...
-                          @activity[#:forevidence (list )]{
-                            Turn to @worksheet-link[#:name "Variation-Dog-Age"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          This time, our Result isn't a Table -- it's an @italic{Image}: the box-plot of the ages for all the dogs in the Sample Table. 
-                          @activity[#:forevidence (list )]{
-                            Draw a rough sketch of the plot you expect. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
-                          }
-                      }
-                      @teacher{
-                          
-                      }
-                }
-                @point{
-                      @student{
-                          We've got most of our function written:
-                          @code[#:multi-line #t]{
-                          # variation-dog-age :: (animals :: Table) -> Image
-                          # Consumes a table and produces a box plot showing the variation in dogs' ages
-                          fun variation-dog-age(animals):
-                            t = animals.filter(is-dog)  # define the table
-                            ...                         # produce our result
-                          end
-                          }
-                          This time, our result uses the @code{box-plot} function to visualize the five numbers that help us summarize the variation.
-                      }
-                      @teacher{
-                          If there's only one method being used, it's convention to put the method call on the same line as the table.
-                      }
-                }
-                @point{
-                      @student{
-                          Putting it all together, we get:
-                          @code[#:multi-line #t]{
-                          # variation-dog-age :: (animals :: Table) -> Image
-                          # Consumes a table and produces the median age of all the dogs
-                          fun median-dog-age(animals):
-                            t = animals.filter(is-dog)  # define the table
-                            box-plot(t, "age")          # produce our result
-                          end
                           }
                       }
                       @teacher{

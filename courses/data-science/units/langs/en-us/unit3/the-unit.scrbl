@@ -72,7 +72,7 @@
                           }
                     }
                     @teacher{
-                      OPTIONAL: Show students how to write @code{is-kitten} @italic{using} the @italic{is-cat} and @code{is-young} functions they defined before. 
+
                     }
                 }
                 @point{
@@ -85,7 +85,7 @@
 
   @lesson/studteach[
      #:title "Building Columns"
-     #:duration "10 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn how to compute new columns in Pyret}]
      #:evidence-statements @itemlist[]
@@ -115,7 +115,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
-                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{nametag} column, which contains an image of the nametag for each pet.
+                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{born} column, which contains the year each animal was born.
                               }
                       }
                       @teacher{
@@ -157,31 +157,24 @@
               }
               @point{
                     @student{
-                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}"" to make it more readable. Here's the exact same code, written with line breaks:
+                        @bannerline{Order matters.}
+                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! When chaining methods, it's important to build first, then filter, and then order.
+
+                    }
+              }
+              @point{
+                    @student{
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}"" to make it more readable. Here's the exact same code, written with each method on it's own line:
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
-                            animals-table.build-column("label", nametag)
+                            animals-table
+                              .build-column("label", nametag)
                               .filter(is-fixed)
                               .order-by("species", true)
                         }
                     }
                     @teacher{
                     
-                    }
-              }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              Can you chain these methods together correctly to answer the following questions?
-                              @itemlist[
-                                  @item{Show a table of only cats, sorted oldest-to-youngest.}
-                                  @item{Show a table of only fixed animals, in ascending order of the number of weeks they've been at the shelter}
-                                  @item{Show a table of only young animals with a new column called @code{label} that shows the image of every animal's nametag.}
-                              ]
-                          }
-                    }
-                    @teacher{
-
                     }
               }
               @point{
@@ -197,7 +190,7 @@
 
 
   @lesson/studteach[
-     #:title "Introducing Table Plans"
+     #:title "Table Plans"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn how to define functions using Table Plans}]
@@ -282,12 +275,14 @@
               @point{
                     @student{
                         @bannerline{Step 2: Examples}
-                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Sample Table. This sample should contain all of the @italic{relevant} columns, and enough rows to give us an idea for how the function should work. Then, on the righthand side, we write or sketch what we expect to get back.
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called an Example Table. This example should contain all of the @italic{relevant} columns, and enough rows to give us an idea for how the function should work. Then, on the righthand side, we write or sketch what we expect to get back.
                         @itemlist[
                             @item{ What columns do we care about? }
-                            @item{ If we pass this table into sorted-age-bar (@code{sorted-age-bar(table)}), what do we expect to get back? }
+                            @item{ In the Interactions Area, how would you @italic{use} this function, passing in the @code{example-table}? }
+                            @item{ What would @code{sorted-age-bar(table)} evaluate to? }
                         ]
                     }
+                    In this case, we care about the name and age columns. According to our contract we would need to call the function's name and pass in only a table. According to the purpose statement, typing @code{sorted-age-bar(example-table)} into the Interactions Area should give us a bar chart of all the animal's ages, sorted by name.
                     @teacher{
 
                     }
@@ -436,7 +431,7 @@
                     @student{
                         Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart! To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
                         @activity{
-                            Turn to @worksheet-link[#:name "age-adopted-scatter"] in your Student Workbook, and practice using a Table Plan to solve this problem!
+                            Turn to @worksheet-link[#:name "age-adopted-scatter"] in your Student Workbook, and practice using a Table Plan write this function! Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
                         }
                     }
                     @teacher{

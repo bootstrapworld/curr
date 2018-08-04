@@ -23,8 +23,104 @@
 
 
   @lesson/studteach[
+   #:title "Review"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+      @points[
+            @point{
+                @student{
+                    @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
+                        Look at the pie and bar charts on @worksheet-link[#:name "Visualizing-Quantity"], and write down what you notice and wonder. @bold{ Why are some questions easier to answer with one kind of chart or another? }
+                    }
+                }       
+                @teacher{
+                    Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                }              
+            }
+            @point{
+                  @student{
+                          You've now seen two kinds of charts for visualizing @italic{quantity}: @vocab{bar charts} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
+                  }
+                  @teacher{
+                  
+                  }
+            }
+      ]
+  }
+
+
+
+  @lesson/studteach[
+     #:title "Defining sample tables"
+     #:duration "15 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
+                        @itemlist[
+                              @item{
+                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
+                              }
+                              @item{
+                                  A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
+                              }
+                              @item{
+                                  A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
+                              }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                  @student{
+                        @activity[#:forevidence (list )]{
+                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
+                        }
+                  }
+                  @teacher{
+                        If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
+                  }
+              }
+              @point{
+                  @student{
+                        Can you come up with a good sample table of your own? Turn to @worksheet-link[#:name "pie-pounds-weight"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                  }
+              }
+        ]
+  }
+
+
+
+  @lesson/studteach[
      #:title "Choose Your Dataset"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -39,6 +135,14 @@
                 )
       ]{
         @points[
+                @point{
+                      @student{
+                          So far, you've had a chance to run some simple analyses on the Animals Dataset. You've made charts, written functions using the Design Recipe and then used them with methods to filter rows and build columns. You've used Table Plans to map out your analysis, tying together the Design Recipe and methods.
+                      }
+                      @teacher{
+                          If students need more practice with the Design Recipe, now's the time. Do NOT proceed past this point without making sure they are comfortable writing simple functions.
+                      }
+                }
                 @point{
                       @student{
                           Now it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
@@ -69,7 +173,7 @@
                                   @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "1HpAIsC_3sDWYgtIj0iwgch81MllIa-Yy" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Dataset") (and the @editor-link[#:public-id "https://code.pyret.org/editor#share=1h3pCuuc0AchFZidLV-9553kGhpRKyYxP" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Dataset") (and the @editor-link[#:public-id "1h3pCuuc0AchFZidLV-9553kGhpRKyYxP" "Starter file"] for this dataset)
                                    }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1H3-aDMoCNCJtRoUpJfPFRUy2JuhmBNFJ" "Starter file"] for this dataset)
@@ -107,10 +211,7 @@
                                       Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
                                   }
                                   @item{
-                                      Complete @worksheet-link[#:name "My-Dataset"]. Brainstorm a few questions you would like to ask of this dataset. Be sure to check off the ones that CAN be answered! For the ones that can't, what kind of data would you need?
-                                  }
-                                  @item{
-                                      In the Definitions Area, use @code{.row-n} to define @bold{at least two} values, representing different rows in your table. Call them @code{sample1}, @code{sample2}, and so on.
+                                      Complete @worksheet-link[#:name "My-Dataset"]. Brainstorm a few questions you would like to ask of this dataset. What kinds of questions are they?
                                   }
                               ]
                           }
@@ -123,15 +224,15 @@
   }
 
   @lesson/studteach[
-     #:title "Visualizing Quantity"
-     #:duration "25 minutes"
+     #:title "Exploring Your Dataset"
+     #:duration "45 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students make pie and bar charts for their datasets, and write up their findings}]
-     #:standards (list "Data 3.1.2")
+     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
+     #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -139,234 +240,56 @@
                 )
       ]{
         @points[
-              @point{
+                @point{
+                      @student{
+                          Think about all the different ways you might want to look at your dataset. Would you want to sort it by one column or another? Filter it into different subsets, like we did with the Animals Dataset? Would you want to build new columns?
+                          @activity{
+                              @itemlist[
+                                  @item{ 
+                                      Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "Dataset-Plans"]. 
+                                  }
+                                  @item{
+                                      In the Interactions Area, use @code{.order-by} to sort your dataset according to what you wrote on @worksheet-link[#:name "Dataset-Plans"].
+                                  }
+                                  @item{
+                                      In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
+                                  }
+                              ]
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          @activity{
+                              Turn to @worksheet-link[#:name "Filtering-Recipes"], and use the Design Recipe to write the filter functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area and use the @code{.filter} method to define your new tables.
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          @activity{
+                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write the builder functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area.
+                          }
+                      }
+                      @teacher{
+                          It's okay if the functions they design aren't useful - this is for practice.
+                      }
+                }
+                @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Try making a bar or pie chart of a column in your dataset, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
+                            Take 10min to make at least one bar and pie chart of columns in one of your tables, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
                         }
                     }       
                     @teacher{
-                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                        Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
                     }              
-              }
-              @point{
-                    @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
-                        }
-                    }
-                    @teacher{
-                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }
-              }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Bar & Pie Charts"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to visualize quantity with Pie and Bar charts}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students answer questions using pie and bar charts}]
-     #:standards (list "Data 3.1.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1Z0jE9BugpJlcuRMlHxpLe9FgToJZoU4m" "new copy"].)
-                              }
-
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              Let's take a look at their contracts...
-                              @code[#:multi-line #t]{
-                                    # bar-chart :: (t :: Table, label :: String, value :: String) -> Image
-                                    # pie-chart :: (t :: Table, label :: String, value :: String) -> Image
-                              }
-                              The last two functions first consume the @italic{Table} that we want to look at, and their other arguments tell us @italic{which columns to look at} for both the labels and the values.
-                      }
-                      @teacher{
-                        
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
-                              }
-                      }
-                      @teacher{
-                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Create a bar and pie chart showing the age of every animal in the shelter.
-                                              }
-                                              @item{
-                                                    Create a bar and pie chart showing the weight of every animal in the shelter.
-                                              }
-                                      ]
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Table Plan Practice"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                            Turn to @worksheet-link[#:name "Pie-Dog-Weight"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @bitmap{images/pie.png}
-                          This time, our Result isn't a Table -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
-                          @activity[#:forevidence (list )]{
-                              Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
-                          }
-                      }
-                      @teacher{
-                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Sample Table.
-                      }
-                }
-                @point{
-                      @student{
-                          We've got most of our function written:
-                          @code[#:multi-line #t]{
-                          # pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            ...                            # produce our result
-                          end
-                          }
-                          What expression will produce our result? Our purpose statement tells us we need to make a @code{pie-chart}, so we can start there. Which table should we use? Which column gives us our labels? Our values?
-                      }
-                      @teacher{
-                          If there's only one method being used, it's convention to put the method call on the same line as the table.
-                      }
-                }
-                @point{
-                      @student{
-                          Putting it all together, we get:
-                          @code[#:multi-line #t]{
-                          # pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            pie-chart(t, "name", "pounds") # produce our result
-                          end
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              When your teacher has checked your paper, type in this function and try it! @bold{Based on this pie chart, does it look like some dogs are a lot heavier than others, or are the weights @italic{evenly distributed}?}
-                          }
-                          Not at all! Kujo and Mr. Peanutbutter each take up more than 13% of the total weight, but almost every other dog's share is 7% or less.
-                      }
-                      @teacher{
-                          Hit this point hard. Seeing the pie slices gives us a feel for the @italic{distribution} of the dataset.
-                      }
-                }
-                @point{
-                      @student{
-                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                          @itemlist[
-                                @item{
-                                    @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                                }
-                                @item{
-                                    A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                                }
-                                @item{
-                                    A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
-                                }
-                          ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                                It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                          }
-                    }
-                    @teacher{
-                          If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                    }
-              }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              @bitmap{images/bar.png}
-                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
-                          }
-                    }
-                    @teacher{
-                          Be sure to check the Sample Tables, and even have students trade workbooks and grade each other's Sample Tables.
-                    }
-              }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              Once your teacher has checked your Sample Table, type in the code for this function and try it out!
-                          }
-                    }
-                    @teacher{
-                    
-                    }
               }
         ]
   }
@@ -400,5 +323,5 @@
                    }
               }
         ]
-  }
+    }
 }

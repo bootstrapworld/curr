@@ -175,7 +175,7 @@
                         As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
                         You can add your own definitions, for example:
                         @code[#:multi-line #t]{
-                            name = "Nancy"
+                            name = "Maya"
                             sum = 2 + 2
                             img = triangle(10, "solid", "red")
                         }
@@ -184,7 +184,6 @@
                             @itemlist[
                               @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
                               @item{Define a value with name @code{year}, whose value is a Number representing the current year}
-                              @item{Define a value with name @code{color}, whose value is an Image drawn in your favorite color}
                               @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
                             ]
                         }
@@ -271,7 +270,7 @@
             }
             @point{
                   @student{
-                          Lookup questions are easy to answer: just find the right row and column, and read out the answer! You learned how to do lookups in Pyret in Unit 1. This time, let's practice that using value definitions, where each row is defined separately.
+                          Lookup questions are easy to answer: just find the right row and column, and read out the answer! You learned how to do lookups in Pyret in Unit 1. This time, let's practice lookups using value definitions, where each row is defined separately.
                           @activity{
                               Complete the activity on @worksheet-link[#:name "Lookup-Animals"].
                           }
