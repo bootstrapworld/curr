@@ -341,7 +341,7 @@
                       @student{
                             To build our own functions, we'll use a series of steps called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. 
                             @activity{
-                              Turn to page @worksheet-link[#:name "Design-Recipe-1"] in your Student Workbook.
+                              Turn to page @worksheet-link[#:name "Design-Recipe-Lookup"] in your Student Workbook.
                             }
                       }
                       @teacher{
@@ -353,7 +353,7 @@
                             @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and look up the value in the @code{fixed} column. A Purpose Statement is just a description of what the function does:
                             @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
+                              # Consumes an animal, and looks up the value in the fixed column
                             }
                       }
                       @teacher{
@@ -365,7 +365,7 @@
                             @bannerline{Step 2: Write Examples} Examples are a way for us to tell the computer how our function should behave for a @italic{specific} input. We can write as many examples as we want, but they must all be wrapped in an @code{examples:} block and an @code{end} statement. Examples start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
                             @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
+                              # Consumes an animal, and looks up the value in the fixed column
                               examples:
                                 is-fixed(animalA) is animalA["fixed"]
                                 is-fixed(animalB) is animalB["fixed"]
@@ -410,7 +410,7 @@
                           @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
-                              # Consumes an animal, and looks up whether it is fixed
+                              # Consumes an animal, and looks up the value in the fixed column
                               examples:
                                 is-fixed(animalA) is animalA["fixed"]
                                 is-fixed(animalB) is animalB["fixed"]

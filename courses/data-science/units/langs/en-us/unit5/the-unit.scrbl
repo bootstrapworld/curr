@@ -436,6 +436,38 @@
   }
 
   @lesson/studteach[
+     #:title "Table Plans"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[
+          @item{Students learn different measures of variation, including range, and interquartile range}
+          @item{Students practice describing variation using these concepts}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                          @activity{
+                              Turn to page @worksheet-link[#:name "Fixed-Weeks-Box"], and complete the Table Plan you find there. You'll need to come up with your own sample table this time: what columns will you need? What rows matter?
+                          }
+                      }
+                      @teacher{
+                          
+                      }
+                }
+      ]
+  }
+
+  @lesson/studteach[
      #:title "Your Dataset"
      #:duration "20 minutes"
      #:overview ""

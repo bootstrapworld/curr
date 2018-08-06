@@ -192,7 +192,7 @@
                                 @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
-                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the dogs? What does this difference mean?
+                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
                                             }
                                             @item{
                                                 What does it mean when a data point is @italic{above} the predictor line?
@@ -222,14 +222,14 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        Show a scatter plot and line-of-best-fit for the following relationships:
+                                        In the Interactions Area, compute a scatter plot and line-of-best-fit for the following relationships:
 
                                         @itemlist[
                                                 @item{
-                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the dogs in the shelter.
+                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
                                                 }
                                                 @item{
-                                                        The @code{pounds} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                        The @code{pounds} vs. @code{weeks} waiting for adoption, but just for young animals in the shelter.
                                                 }
                                                 @item{
                                                         The @code{age} vs. @code{pounds} of the animals, but just for animals that have been fixed.
@@ -243,7 +243,7 @@
                 }
                 @point{
                         @student{
-                                When looking at just the dogs, we found that our predictor had an r-squared value of about 0.25. That means that 25% of the variation in adoption times is due to the age of the dogs. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
+                                When looking at just the cats, we found that our predictor had an r-squared value of about 0.321. That means that 32.1% of the variation in adoption times is due to the age of the cats. We also saw that the slope of the predictor function was .23, meaning that for every year older a cats is, we expect a .23-week increase in the time taken to adopt that cat. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1")]{
                                       Write up two other findings from the linear regressions you performed on this dataset.
                                 }
@@ -271,7 +271,7 @@
 
   @lesson/studteach[
      #:title "Your Dataset"
-     #:duration "30 minutes"
+     #:duration "40 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

@@ -63,8 +63,8 @@
 
 
   @lesson/studteach[
-     #:title "Defining sample tables"
-     #:duration "15 minutes"
+     #:title "Table Plan"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -110,7 +110,7 @@
               }
               @point{
                   @student{
-                        Can you come up with a good sample table of your own? Turn to @worksheet-link[#:name "pie-pounds-weight"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                        Can you come up with a good sample table of your own? Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
                   }
               }
         ]
@@ -120,7 +120,7 @@
 
   @lesson/studteach[
      #:title "Choose Your Dataset"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -225,7 +225,7 @@
 
   @lesson/studteach[
      #:title "Exploring Your Dataset"
-     #:duration "45 minutes"
+     #:duration "40 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

@@ -26,7 +26,7 @@
 
   @lesson/studteach[
    #:title "Review"
-   #:duration "30 minutes"
+   #:duration "25 minutes"
    #:overview ""
    #:learning-objectives @itemlist[]
    #:evidence-statements @itemlist[]
@@ -66,7 +66,7 @@
                                   Define a function called @code{nametag}, which prints out each animal's name in big red letters.
                               }
                               @item{ 
-                                  Define a function called @code{is-kitten}, which consumes a Row of the @code{animals-table} and produces @code{true} if it's a cat @italic{and} is less than 2 years old.
+                                  Define a function called @code{birth-year}, which consumes a Row of the @code{animals-table} and produces the year the kitten was born.
                               }
                             ]
                           }
@@ -125,7 +125,7 @@
         ]
   }
 
-   @lesson/studteach[
+  @lesson/studteach[
      #:title "Chaining Methods"
      #:duration "20 minutes"
      #:overview ""
@@ -157,14 +157,7 @@
               }
               @point{
                     @student{
-                        @bannerline{Order matters.}
-                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! When chaining methods, it's important to build first, then filter, and then order.
-
-                    }
-              }
-              @point{
-                    @student{
-                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}"" to make it more readable. Here's the exact same code, written with each method on it's own line:
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}" to make it more readable. Here's the exact same code, written with each method on it's own line:
                         @code[#:multi-line #t]{
                             # get a table with the nametags of all the fixed animals, order by species
                             animals-table
@@ -184,6 +177,13 @@
                       @teacher{
                           Have students discuss their answers.
                       }
+              }
+              @point{
+                    @student{
+                        @bannerline{Order matters.}
+                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! When chaining methods, it's important to build first, then filter, and then order. 
+                        @italic{ So how do we know when we need which method, and in what order? }
+                    }
               }
         ]
   }
@@ -243,7 +243,7 @@
               }
               @point{
                     @student{
-                        Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "sorted-age-bar"].
+                        Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "Sorted-Age-Bar"].
                     }
                     @teacher{
                         Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
@@ -281,8 +281,8 @@
                             @item{ In the Interactions Area, how would you @italic{use} this function, passing in the @code{example-table}? }
                             @item{ What would @code{sorted-age-bar(table)} evaluate to? }
                         ]
+                        In this case, we care about the name and age columns. According to our contract we would need to call the function's name and pass in only a table. According to the purpose statement, typing @code{sorted-age-bar(example-table)} into the Interactions Area should give us a bar chart of all the animal's ages, sorted by name.
                     }
-                    In this case, we care about the name and age columns. According to our contract we would need to call the function's name and pass in only a table. According to the purpose statement, typing @code{sorted-age-bar(example-table)} into the Interactions Area should give us a bar chart of all the animal's ages, sorted by name.
                     @teacher{
 
                     }
@@ -354,7 +354,7 @@
                         Now that we have our new table, @code{t} defined, what do we need to do with it? According to our purpose statement, we need to @italic{make a bar chart}.
                         @code[#:multi-line #t]{
                             # sorted-age-bar :: (animals :: Table) -> Table
-                            # cConsume a table of animals, and compute a bar chart 
+                            # Consume a table of animals, and compute a bar chart 
                             # showing their ages, in alphabetical order
                             fun sorted-age-bar(animals):
                                 t = animals # define the table
@@ -369,7 +369,7 @@
               }
               @point{
                   @student{
-                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{sorted-age-bar(animals-table)}. That's the code that should give us the result, so let's type it in!
                       @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
                           Type in the code and hit Enter. Did you get back the same result you expected?
                       }
@@ -383,7 +383,7 @@
 
   @lesson/studteach[
      #:title "Looking for Relationships"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -431,7 +431,7 @@
                     @student{
                         Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart! To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
                         @activity{
-                            Turn to @worksheet-link[#:name "age-adopted-scatter"] in your Student Workbook, and practice using a Table Plan write this function! Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
+                            Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function! Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
                         }
                     }
                     @teacher{
