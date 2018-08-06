@@ -31,7 +31,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -134,7 +134,7 @@
                 }
                 @point{
                       @student{
-                          @activity{
+                          @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
                             Make at least one bar-chart and at least one pie-chart, using columns from the @code{animals-table}. What do you notice? What do you wonder?
                           }
                       }
@@ -158,7 +158,7 @@
      #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
-     #:standards (list "BS-PL.3")
+     #:standards (list "BS-PL.3&1&1")
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -286,7 +286,7 @@
      #:learning-objectives @itemlist[@item{Students learn how to define functions using the Design Recipe}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students define several functions over rows from the animals table}]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+     #:standards (list "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2" "BS-PL.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -473,7 +473,7 @@
                 }
                 @point{
                     @student{
-                        @activity[#:forevidence (list "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.1&2&1" "BS-DR.1&2&2" "BS-DR.1&2" "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
                           Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
                           @itemlist[
                             @item{ Is this a lookup, compute or analyze question?}
@@ -567,7 +567,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]
      #:pacings (list 
@@ -593,7 +593,7 @@
               @point{
                     @student{
                           Find the contract for @code{.filter} in your contracts page. The @code{.filter} method is taking in a @italic{function}, calling it on every row in the table, and producing a new table with only the rows for which it returns @code{true}.
-                          @activity{
+                          @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
                               Try using the @code{gender} function to filter. What happens?
                           }
                           Notice that the Domain for @code{.filter} says that @code{test} must be a function (that's the arrow), which consumes a @code{Row} and produces a @code{Boolean}. If the function we pass in produces anything else, we'll get an error.

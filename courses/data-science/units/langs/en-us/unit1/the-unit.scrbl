@@ -222,7 +222,7 @@
      #:learning-objectives @itemlist[@item{Students learn about different types of values, and operators on those values.}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students add columns to a Pyret table}]
-     #:standards (list)
+     #:standards (list "BS-PL.1&1&1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -349,7 +349,7 @@
                         (make-exercise-locator/file "Applying-Functions" "MatchingExpressions1" "Matching Expressions")
                         (make-exercise-locator/file "Applying-Functions" "MatchingExpressions2" "Matching Expressions"))
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 

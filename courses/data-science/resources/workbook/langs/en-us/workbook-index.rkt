@@ -24,8 +24,8 @@
  ("Unit-3-Blank" 	 	 		14 )
  ("Design-Recipe-3" 			15 )
  ("Playing-With-Methods" 		16 )
- ("Sorted-Ages-Chart"			17 )
- ("Padding-Unit-3" 				18 )
+ ("Sorted-Age-Bar"				17 )
+ ("Age-Adopted-Scatter" 		18 )
 
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
  ("Unit-4-Notes" 	 			19 )
@@ -44,8 +44,8 @@
  ("Unit-5-Blank" 				30 )
  ("Summarizing-Weeks" 			31 )
  ("Interpreting-Variation" 		32 )
- ("Summarizing-My-Dataset" 		33 )
- ("Padding-Unit-3" 				34 )
+ ("Fixed-Weeks-Box" 			33 )
+ ("Summarizing-My-Dataset" 		34 )
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
  ("Unit-6-Notes" 	 			35 )
@@ -62,7 +62,7 @@
  ("Unit-7-Blank"				44 )
  ("Cuter-Adoption" 	 			45 )
  ("Make-Scatter-Plot"  			46 )
- ("Age-v-Weeks-Dogs" 			47 )
+ ("Age-v-Weeks-Cats" 			47 )
  ("Drawing-Predictors" 			48 )
  ("Correlations-My-Dataset" 	49 )
  ("Padding-Unit-7" 				50 )
@@ -77,26 +77,20 @@
 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;
  ("Unit-9-Notes" 	 			57 )
- ("Threats-to-Validity-1"       58 )
- ("Threats-to-Validity-2"       59 )
- ("Fake-News" 		 			60 )
-
- ("Column-Statements" 			61 )
- ("Pie-Dog-Weight" 				62 )
- ("Bar-Kitten-Adoption"			63 )
- ("Blank-Table-Plan-1"			64 )
- ("Blank-Table-Plan-2"			65 )
- 
+ ("Unit-9-Blank" 	 			58 )
+ ("Threats-to-Validity-1"       59 )
+ ("Threats-to-Validity-2"       60 )
+ ("Fake-News" 		 			61 ) 
  
 
 ;;;;;;;;;;;;;;; The End ;;;;;;;;;;;;;
- ("The-End" 				 	75 )
- ("Blank-Design-Recipes-1" 	 	76 )
- ("Blank-Design-Recipes-2" 	 	77 )
- ("Blank-Design-Recipes-3" 	 	78 )
- ("Blank-Table-Plan-3" 		 	79 )
- ("Blank-Table-Plan-4" 		 	80 )
- ("Blank-Table-Plan-5" 		 	81 )
- ("Contracts-1" 				82 )
- ("Contracts-2" 				83 )
+ ("The-End" 				 	62 )
+ ("Blank-Design-Recipes-1" 	 	63 )
+ ("Blank-Design-Recipes-2" 	 	64 )
+ ("Blank-Design-Recipes-3" 	 	65 )
+ ("Blank-Table-Plan-3" 		 	66 )
+ ("Blank-Table-Plan-4" 		 	67 )
+ ("Blank-Table-Plan-5" 		 	68 )
+ ("Contracts-1" 				69 )
+ ("Contracts-2" 				70 )
  )

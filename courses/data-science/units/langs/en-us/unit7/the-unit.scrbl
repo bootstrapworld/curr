@@ -236,7 +236,7 @@
                                 Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
 
                                 @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
-                                        Turn to @worksheet-link[#:name "Age-v-Weeks-Dogs"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
+                                        Turn to @worksheet-link[#:name "Age-v-Weeks-Cats"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
                                 }
                         }
                         @teacher{
