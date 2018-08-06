@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
-     In the process, they learn how to write their own definitions, first defining static values and then complete functions. They are also introduced to the Design Recipe: a structured approach to solving word problems and defining functions.
+     Students continue practicing the Design Recipe, and explore scatter plots as a means of visualizing potential relationships between columns. They also learn how to build new columns, chain methods, and are introduced to Table Plans.
   }
 }
 @unit-lessons{

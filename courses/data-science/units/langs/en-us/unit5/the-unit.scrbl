@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, pie-chart, bar-chart}
                                               ""))]{
   @unit-descr{
-    Students learn how to measure central tendency (using mean, median, and mode), as well as variation (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results in their research papers.
+    Students learn how to measure central tendency (using mean, median, and mode), as well as variation (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
   }
 }
 @unit-lessons{
@@ -41,7 +41,16 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[
+        @points[@point{
+                        @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1mhIjMpk3PM6D9EeY8-6VI95kDLVAPFy5" "new copy"].)
+                              }
+                        }
+                        @teacher{
+                                
+                        }
+                }
                 @point{
                       @student{
                               Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.

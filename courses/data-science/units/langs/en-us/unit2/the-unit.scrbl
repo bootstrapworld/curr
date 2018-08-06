@@ -18,7 +18,7 @@
                                               @code{.row-n}
                                               ""))]{
   @unit-descr{
-      Students are introduced to the Animals dataset, consider the kinds of questions that can be asked of the dataset, and learn about threats to validity while examining claims. Finally, they choose their dataset, and come up with questions of their own.
+      Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked of a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
   }
 }
 @unit-lessons{
@@ -55,7 +55,7 @@
                                         This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
                                     }
                                     @item{
-                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                        Open up the @editor-link[#:public-id "1uOIyrIU-sOczXu49807OJiDHlf4UGcYB" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                                     }
                                 ]
                             }

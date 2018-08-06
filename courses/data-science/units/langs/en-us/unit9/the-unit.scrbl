@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
                                                 ""))]{
   @unit-descr{
-    Students investigate scatter plots as a method of visualizing the relationship between two axes, and begin searching for correlations in their dataset.
+    Students consider possible threats to the validity of their analysis
   }
 }
 @unit-lessons{
@@ -82,8 +82,8 @@
   }
 
   @lesson/studteach[
-     #:title "Closing"
-     #:duration "10 minutes"
+     #:title "Your research paper"
+     #:duration "flexible"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -100,7 +100,10 @@
         @points[
                 @point{
                         @student{
-                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broken down separately by animal. 
+                              Now that you've completed your analysis, it's time to write up your findings! 
+                              @activity{
+                                Open the @(hyperlink "https://docs.google.com/document/d/1tNoeLK7Us6dZcxpxwedFjLlnBMDzOdgkG7txAWuP4nQ/" "Research Paper") template, and save a copy to your Google Drive.
+                              }
                         }
                         @teacher{
                         
@@ -108,7 +111,7 @@
                 }
                 @point{
                         @student{
-                              You've started to look for correlations in your dataset, and now you know how to create scatter plots to visualize them. But how do we know if a correlation is @italic{strong enough} to be useful? Eyeballing charts isn't good enough! In the next Unit, you'll learn how to calculate the strength of a correlation, and you'll investigate the correlations in your research that you mapped out here.
+                              Each section of the research paper refers back to the work you've done in the Student Workbook. Use these pages and your program to write your findings!
                         }
                         @teacher{
 
