@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# echo -n "Building curriculum"
+# echo
+
+# racket -l errortrace -t build.rkt
+
+echo -n "Building course pages"
+echo
+
+racket -l errortrace -t my-build.rkt
+
+# echo -n "Copying contents of courses directory"
+# echo
+
+# cp -r distribution/courses ~/intro-site
+
+echo -n "Copying contents of index directory"
+echo
+
+cp -r distribution/index/. ~/intro-site
+
+# cp -r distribution/lib ~/intro-site

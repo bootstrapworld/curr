@@ -46,6 +46,7 @@
                                  ("data-science" "en-us")
                                  ("physics" "en-us")
                                  ("intro" "en-us")
+                                 ("internet" "en-us")
                                  ))
 #;(define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
@@ -129,7 +130,7 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-(define courses (list "intro" "algebra" "data-science")) ; "algebra" "reactive" "data-science" "physics"))
+(define courses (list "internet" "algebra" "data-science")) ; "algebra" "reactive" "data-science" "physics"))
 ;(define courses available-courses)
 
 (units '())
@@ -707,7 +708,7 @@
               (workbook-styling-on))
           )
           (when (equal? course "internet")
-            @;(putenv "TARGET-LANG" "racket")
+            ;(putenv "TARGET-LANG" "racket")
             (if (build-exercises?)
                 (begin (build-exercise-handouts) ; not needed for reactive
                      (workbook-styling-on)
@@ -728,7 +729,17 @@
                      (build-extra-pdf-exercises))
               (workbook-styling-on))
           )
-        (textbook-styling-on)
+	(when (equal? course "intro")
+          (putenv "TARGET-LANG" "racket")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) ; not needed for reactive
+                     (workbook-styling-on)
+                     ;; when did we move the following into units?
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
+              (workbook-styling-on))
+          )
+	(textbook-styling-on)
         (update-resource-paths)
         (build-course-units)
         (copy-resources)

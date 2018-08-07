@@ -15,15 +15,16 @@ blockquote{margin: 0px;}
 .SIntrapara, li>p{display: inline;}
 
 body{
-	padding:      0px;
-	margin:       0px;
-	font-family: 	'Lato', Arial, Helvetica, sans-serif;
-	color: #000;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    color: #000;
+    background-color:#FFCED6;
 }
 
 a{
-	color: 			#75328A;
-	text-decoration: none;
+    color:#26ACE0;
+    text-decoration: none;
 }
 
 a:hover {
@@ -46,7 +47,11 @@ a:hover {
     z-index:      2;
 }
 .TitleUnitNum {display: block;}
-.BootstrapTitle   img{float: left;}
+
+.BootstrapTitle   img{
+    display:none;
+    float: left;
+}
 
 table td{
   border: 1px solid black;

@@ -1,4 +1,5 @@
 #+STARTUP: showall
+
 * School Vision
 The Academy for Software Engineering is a high school that seeks to
 provide instruction that could put students onto a path towards a
@@ -21,236 +22,72 @@ studies in our high school courses. Your high school education
 immerses you in the major topics that have shaped civilization. The
 study of that civilization and the development of your mind has become
 inextriably intertwined with the study and products of computing.
-* Computing Studies Sequence
 * Course Overview 
-Introduction to Computer Sciences explores the relationship between computational thinking and the standard high school curriculum through building games and animations, analyzing and presenting data, and sharing ourselves and our learning with the world. The course is organized into three modules, which we cycle throughout the year. Each module is further broken down into one week mini-units. In the *Algebra* module students create a simple video game and discover the relationships between math and computer science. In *Data Science* students explore a dataset they are interested in to and produce a detailed report on their analysis. Our work is collected into learning blogs that are enhanced by our studies of the *Internet* and its structures. Introduction to Computing is the first course in the AFSE computing sequence. The course aims to provide a initial foundation for future study in computing. Three pillars of the introductory course are academic habits, motivation/disposition/interest, and concepts. 
-** Concepts
-- The study of computing is built on the ability to interact with
-  problems. Each computational problem is a question of how to harness
-  the power of computational process to achieve some end that we care
-  about. The ability to take a problem and restate it as a
-  computational solution is an essential component to success in computing.
-- 
-*** Units/Big Picture
-* Units
-** HTML/Internet
-Course begins with portfolio web making. GitHub pages with
-markdown. What are the norms that I want to instill? Create the
-container for collecting work. Not only the best work. Create a record
-of learning. Learning blog. Your grade is the richness of your
-learning 
-*** TODO Create learning blog rubric
-** Algebra
-Follows Bootstrap Algebra with modifications to enhance alignment with mathematics
-*** TODO Write email to Ashley about use of "simplify" vs "evaluate"
-** Data Science
-Follows the Bootstrap data science curriculum. Students explore data
-through programming, visualization, and discussion. Students produce a
-data analysis report.
-* Norms
-** Academic Habits
-** Culture 
-The way we act and treat others is an expression of culture. People forms groups and naturally create normal way of behaving, which supports the goals of the group.
-** Classrooms
-The nature of the classroom imposes certain cultural norms that govern how we act in the
-classroom. Very practical demands own a large share. We are a large
-group in a relatively small space. Think of riding on the subway. How much you can move, how loudly you speak are norms set by
-the culture of that environment. Working together in classrooms will
-demand that we recognize its cultural demands.
-** Speaking
-Our classroom culture has demands on our speaking. Our voices are
-powerful tools for communication. By speaking to others we activate
-their eardrums by creating vibrations in the air with our vocal
-chords. Our voices are unique in how they sound and in what we choose
-to say. We can honor the power of our voice by asking what it means to have voice.
-** Our space
-Each of us sharing this classroom space have a right to a piece that
-we own for the time we are here. In this space I can store my belonginings without worrying about them. I can know that the
-group respects that this space is mine. I have the right to focus and produce in that space.
-** Learning
-The act of learning, deliberate learning, defines our culture. Coming
-together to prepare young people for the challenges and demands of
-adulthood is our primary purpose. Toward that goal we put the needs of
-learning first. To learn you must feel safe, you must have mental
-clarity, physical well-being (it's hard to learn when your hungry),
-focus, motivation, and prior knowledge. Learning is fragile and
-demands our full attention and committement if it is to succeed.
-** The Golden Rule
-All of our personal needs are also shared responsibilities for the
-needs of others. Each member of our community has the same rights to
-space, safety, and focus as every other. 
-** The teacher
-The teacher strives to foster a culture of learning in which each
-member of the community holds a place as valuable, visible,
-honored. The teacher attempts this facilitation as a way of modeling
-the learning process for the community. Anyone can be the teacher. [1] 
+Introduction to Computer Sciences explores the relationship between
+computational thinking and the standard high school curriculum through building
+games and animations, analyzing and presenting data, and sharing ourselves and
+our learning with the world. The course is organized into three modules, which
+we cycle throughout the year. Each module is further broken down into one week
+mini-units. In the *Algebra* module students create a simple video game and
+discover the relationships between math and computer science. In *Data Science*
+students explore a dataset they are interested in to and produce a detailed
+report on their analysis. Our work is collected into learning blogs that are
+enhanced by our studies of the *Internet* and its structures. Introduction to
+Computing is the first course in the AFSE computing sequence. The course aims to
+provide a initial foundation for future study in computing. Three pillars of the
+introductory course are academic habits, motivation/disposition/interest, and
+concepts.
+** Goals
+The introductory course in the AFSE computing sequence is designed to provide a
+foundation in the computing concepts that will be built upon in later courses.
 
-** Motivation
-* Goals
-- Interfacing/interacting with problems
-- Making observations and inferences
-- Become the human/computer interface
-- 
-* Behaviors
-- Talk
-- Listen
-- Write
-- Read
-- Reiterate/Recall
-- Think
-- Explore
-- Learn
-- Attempt
-- Reflect
-- Analyze
-- Deduce/Infer
-- Critique
-- Formulate
-- Weigh/Evaluate/Judge
-- Predict
-- Design
+The study of computing is built on the ability to interact with problems. Each
+computational problem is a question of how to harness the power of computational
+process to achieve some end that we care about. The ability to take a problem
+and restate it as a computational solution is an essential component to success
+in computing.
 
-* Algebra
-** Topics
-- Racket language syntax
-- Circles of Evaluation
-- Clock math, modulo
-- Data Types (Numbers, Strings, Images, Booleans, Lists)
-- Recursion
-- Expressions
-- Functions
-- Examples
-- Function Design
-- Decode Problems
-- Iterate
-** Product outcomes
-- Follow a design recipe to build abstractions over simple data (data may be conditional)
-- (+) Follow a design recipe to build abstractions over lists
-- Design computations based on data
-- Evaluate expressions with/without computer
-- Predict output of batch programs
-- Design image compositions
-- Collaborate to create a video game narrative
-- Function design reflection performance task
-** Knowledge
+The fundamental concept in computer science is the development of abstractions
+to solve problems using real world data. This could mean writing a program that
+responds to a controller or keyboard, or it could be data stored in a
+spreadsheet or data base. We learn to recognize the shape and structure of data
+and to build programs that compute that data.
 
-* Data
-** Topics
-- Spreadsheet functions
-- Table plans
-- Function design
-- Survey creation
-- Analysis
-- Interpretation
-- Basic statistics (measures of central tendency, regression, correlation)
-** Product Outcomes
-- Follow a design recipe to build abstractions over tables
-- Explore data to determine questions
-** Knowledge
-- Correlation not causation
-- Explore to find questions before finding answers, data can't answer all questions
-- Claims about populations can be made from samples
-** Skills
-** Problems
+Students should expect to interact with a variety of problems some of which the
+student will be asked to solve on their own. We frequently work together to make
+observations and inferences and to share those with our classmates. Ultimately,
+students in this course learn to be the interface between a world of rick and
+interesting problems and the power of computing machines to produce useful
+solutions.
 
-* Internet
-** Topics
-- HTML
-- CSS
-- Structure
-- Style
-- Inheritance
-- Programmatic page creation
-- Rendering
-- HTTP
-- TCP/IP
-- DNS
-- Fault tolerance
-** Product Outcomes
-- Create a web page ad campaign
-- re-style a web page
-- Create a portfolio page
-- 
-** Knowledge
--
-** Skills
--
-** Problems
--
-
-* Structured Documents as Data
-* Impact
-** Topics
-- Applied mathematics
-- History of Computing
-- 
-** Product Outcomes
-- 
-** Knowledge
-- 
-** Skills
-- 
-** Problems
-- 
-* Nos and What ifs
-** No ...
-- cell phone
-- charging phone
-- 
-** What ifs
-- parent/student contract
-- tracker
-- restorative meeting
-- restorative parent meeting
-- Friday after school homework/restorative convo
-- 
-
-* Modes of learning
-- Lecture/Mini-lesson: - a well planned and rehearsed delivery of content, which may invoke participation, must be timed
-- Think, pair, share
-- Instruction Routines
+** Modes of learning and assessment
+We use several modes to instruct, practice, and reflect on our
+learning. Students should be prepared to interact with the teacher and classmates in each of these modes. 
+- Lecture/Mini-lesson :: Direct instruction from the teacher at the front of the room takes up about a quarter of the learning time in the classroom. These well planned and rehearsed deliveries of content are meant to support readings and problem sets with instructions and explanations. In the mini-lesson mode we regularly invoke thinking through questions, peer discussions, problem solving and note taking. We will practice these skills daily. However, should be practicing the maturity and concentration required to get the most out of this mode of learning.
+- Articulating Goals ::
+- Thinking Focused Prompts :: 
+- Multiple Modalities and Representations :: 
+- Final Practice Reflection :: 
+- Full Group Discussion of Ideas :: 
+- Partner Work :: Think, pair, share and Pair programming are two styles of parter work that you should expect to see in the classroom. 
+- Individual Think Time ::
+- The Four Rs :: repeat, rephrase, reword, record 
+- Sentence Frames and Starters :: 
+- Annotation :: 
+- Ask-yourself Questions :: 
+- Instructional Routines
   - Capturing Quantities
   - Connecting Representations
   - Recognizing Repetition
   - Three Reads
-- Learning journals, periodic reflections
-- Modeling/Whiteboarding
-- Gallery Walk
-- Self asking
-- POGIL
-* Thinking Practices
-- Modeling/Abstracting
-- Collaborating
-- Connecting Concepts
-- Creativity, Artifact Creation
-- Problem Literacy and Perseverance
-- Thinking abstractly and using quantities
-- Making use of structure
-- 
-
-* Mastery Skills
-- Contracts and examples, expresions, nesting, test cases
-- Program reading/tracing, predicting, evaluating complex expressions
-- 
-
-* Habits
-** Note taking, Cornell
-** Studying
-- Successful people keep a journal: rapper, mathematician, principal. Look to leaders in our own profession: AP Mac is a role model. Look to leaders in our own profession.
-** Memorization
-* Materials
-- 3 ring binder
-- Journal (are journal pages embedded in the workbook?)
-- Pencil and pen and colors
-
-* Classroom Roles
-- Meta data technician (structure vs rendering vs meta data applies to classroom learning)
-- Class empathizer
-- Homework helpers
-- Partner pairs
-- 
-* Learning Objectives
-** AP CS Principles
+- Learning Blogs :: Students will maintain a learning blog throughout the course to share not just their best work, but their reflections and growth throughout the learning process.
+- Modeling/Whiteboarding :: Students will be asked to work together to model different systems and programs using whiteboards. The whiteboard serves as a thinking space that can be shared by two or three students. The whiteboard then also serves as a convenient presentation space for sharing thinking with the whole class.
+- Gallery Walk :: During presentatios students will examine the thinking of others and look for similarities and differences in approaches to problems and situations.
+- POGIL :: Process Oriented Guided Inquiry Learning is a fancy way of saying that students will sometimes be asked to follow a process of inquiry with the aid of a guide. These opportunities give students a chance to build knowledge at the their own pace before sharing their learning with the class.
+** Learning Objectives and Alignment
+*** AFSE Mastery Skills
+*** Common Core Mathematics Practices
+*** AP CS Principles
 | Covered? |   Tag | Learning Objective                                                                                                                                 | Skill |
 |----------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------|
 | Y        | 1.1.1 | Apply a creative development process when creating computational artifacts. [P2]                                                                   |     2 |
@@ -295,8 +132,23 @@ the learning process for the community. Anyone can be the teacher. [1]
 | Y        | 7.2.1 | Explain how computing has impacted innovations in other fields. [P1]                                                                               |     1 |
 | N        | 7.3.1 | Analyze the beneficial and harmful effects of computing. [P4]                                                                                      |     4 |
 | N        | 7.4.1 | Explain the connections between computing and economic, social, and cultural contexts. [P1]                                                        |     1 |
-
-* Assignments/Activities
+** Thinking Practices
+- Modeling/Abstracting
+- Collaborating
+- Connecting Concepts
+- Creativity, Artifact Creation
+- Problem Literacy and Perseverance
+- Thinking abstractly and using quantities
+- Making use of structure
+** Computing Studies Sequence
+* Q/A
+** What do I do if an assignment is late?
+** I don't know what assignment is currently due?
+** I didn't understand the lesson or I'm struggling to solve my assignment problems.
+** Why don't we use [fill in the blank well known programming environment]
+** 
+* Lessons and Assignments Calendar
+** Assignments/Activities
 - MS_[tag(s) ...]_[PRO,PRAC,APP,NOV,INS]_title_[mode/type]_[description]
 - an assignment is a ...
   - one or more mastery skill tagsaZ
@@ -308,7 +160,235 @@ the learning process for the community. Anyone can be the teacher. [1]
   - a criterion
   - a weight
 - it is difficult to measure a single task as being accomplished to a degree like many rubrics describe. This may be the case with performance tasks and labs, where an open ended prompt is elaborated by a rubric that is tied to evaluation criteria. Items more generally take place in a context and demand a certain level of skill and knowledge transfer, which means that each item can generally be tagged with both a skill, a knowledge component and a criterion level indicating its depth of knowledge.
-* Assessment
+** Calendar
+| Week Number | Lesson/curriculum | Assessments | Extended Learning | Deadlines |
+|-------------+-------------------+-------------+-------------------+-----------|
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+|             |                   |             |                   |           |
+
+* Units/Big Picture Links to Curriculum
+** HTML/Internet
+Course begins with portfolio web making. GitHub pages with
+markdown. What are the norms that I want to instill? Create the
+container for collecting work. Not only the best work. Create a record
+of learning. Learning blog. Your grade is the richness of your
+learning 
+*** TODO Create learning blog rubric
+** Algebra
+Follows Bootstrap Algebra with modifications to enhance alignment with mathematics
+*** TODO Write email to Ashley about use of "simplify" vs "evaluate"
+** Data Science
+Follows the Bootstrap data science curriculum. Students explore data
+through programming, visualization, and discussion. Students produce a
+data analysis report.
+** Topics
+- Racket language syntax
+- Circles of Evaluation
+- Clock math, modulo
+- Data Types (Numbers, Strings, Images, Booleans, Lists)
+- Recursion
+- Expressions
+- Functions
+- Examples
+- Function Design
+- Decode Problems
+- Iterate
+** Product outcomes
+- Follow a design recipe to build abstractions over simple data (data may be conditional)
+- (+) Follow a design recipe to build abstractions over lists
+- Design computations based on data
+- Evaluate expressions with/without computer
+- Predict output of batch programs
+- Design image compositions
+- Collaborate to create a video game narrative
+- Function design reflection performance task
+** Knowledge
+** Internet
+
+*** Structured Documents as Data
+** Topics
+- HTML
+- CSS
+- Structure
+- Style
+- Inheritance
+- Programmatic page creation
+- Rendering
+- HTTP
+- TCP/IP
+- DNS
+- Fault tolerance
+** Product Outcomes
+- Create a web page ad campaign
+- re-style a web page
+- Create a portfolio page
+- 
+** Knowledge
+-
+** Skills
+-
+** Problems
+-
+** Data
+** Topics
+- Spreadsheet functions
+- Table plans
+- Function design
+- Survey creation
+- Analysis
+- Interpretation
+- Basic statistics (measures of central tendency, regression, correlation)
+** Product Outcomes
+- Follow a design recipe to build abstractions over tables
+- Explore data to determine questions
+** Knowledge
+- Correlation not causation
+- Explore to find questions before finding answers, data can't answer all questions
+- Claims about populations can be made from samples
+** Skills
+** Problems
+** Impact
+** Topics
+- Applied mathematics
+- History of Computing
+- 
+** Product Outcomes
+- 
+** Knowledge
+- 
+** Skills
+- 
+** Problems
+- 
+* Norms and Policies
+** Habits (from Elevate)
+- Note taking :: Note taking is an essential skill for students 
+*Cornell Notes* detailed first then capture big ideas and summarize.
+*Split Page* sparse first then illustrate.
+- Dynamic Reading ::
+- Time Management ::
+- Memorization :: 
+- Studying :: Preparing for assessments like exams and performance tasks is an important skill that changes the closer you get to the assessment.
+** Behaviors
+- Talk
+- Listen
+- Write
+- Read
+- Reiterate/Recall
+- Think
+- Explore
+- Learn
+- Attempt
+- Reflect
+- Analyze
+- Deduce/Infer
+- Critique
+- Formulate
+- Weigh/Evaluate/Judge
+- Predict
+- Design
+** Nos and What ifs
+Students sign a cell phone contract that parents sign to agree to the policy regarding cell phones in the classroom.
+** No ...
+- Cell phones are not permitted in the learning environment
+- charging phone
+- 
+** What ifs
+- parent/student contract
+- tracker
+- restorative meeting
+- restorative parent meeting
+- Friday after school homework/restorative convo
+- 
+** Norms
+** Academic Habits
+** Culture 
+The way we act and treat others is an expression of culture. People forms groups and naturally create normal way of behaving, which supports the goals of the group.
+** Classrooms
+The nature of the classroom imposes certain cultural norms that govern how we act in the
+classroom. Very practical demands own a large share. We are a large
+group in a relatively small space. Think of riding on the subway. How much you can move, how loudly you speak are norms set by
+the culture of that environment. Working together in classrooms will
+demand that we recognize its cultural demands.
+** Speaking
+Our classroom culture has demands on our speaking. Our voices are
+powerful tools for communication. By speaking to others we activate
+their eardrums by creating vibrations in the air with our vocal
+chords. Our voices are unique in how they sound and in what we choose
+to say. We can honor the power of our voice by asking what it means to have voice.
+** Our space
+Each of us sharing this classroom space have a right to a piece that
+we own for the time we are here. In this space I can store my belonginings without worrying about them. I can know that the
+group respects that this space is mine. I have the right to focus and produce in that space.
+** Learning
+The act of learning, deliberate learning, defines our culture. Coming
+together to prepare young people for the challenges and demands of
+adulthood is our primary purpose. Toward that goal we put the needs of
+learning first. To learn you must feel safe, you must have mental
+clarity, physical well-being (it's hard to learn when your hungry),
+focus, motivation, and prior knowledge. Learning is fragile and
+demands our full attention and committement if it is to succeed.
+** The Golden Rule
+All of our personal needs are also shared responsibilities for the
+needs of others. Each member of our community has the same rights to
+space, safety, and focus as every other. 
+** The teacher
+The teacher strives to foster a culture of learning in which each
+member of the community holds a place as valuable, visible,
+honored. The teacher attempts this facilitation as a way of modeling
+the learning process for the community. Anyone can be the teacher. [1] 
+
+** Motivation
+** Habits
+** Note taking, Cornell
+** Studying
+- Successful people keep a journal: rapper, mathematician, principal. Look to leaders in our own profession: AP Mac is a role model. Look to leaders in our own profession.
+** Memorization
+** Materials
+- 3 ring binder
+- Journal (are journal pages embedded in the workbook?)
+- Pencil and pen and colors
+
+** Classroom Roles
+- Meta data technician (structure vs rendering vs meta data applies to classroom learning)
+- Class empathizer
+- Homework helpers
+- Partner pairs
+- 
+* Assessment and Grades
 - assessment for learning. Learning means collecting data, analyzing the data to produce information, making a plan based on that data, implementing the plan, and collecting new data to begin the cycle again.
 - periodicity? daily, weekly, end of unit?, end of semesters, midterm/final
 - summative assessments? (exams)
@@ -320,10 +400,9 @@ At the novice level of engagement with a skill the student has donstrated famili
 ** Apprenctice
 ** Practitioner
 ** Professional
-* Q/A
-** What do I do if an assignment is late?
-** I don't know what assignment is currently due?
-** I didn't understand the lesson or I'm struggling to solve my assignment problems.
-** Why don't we use [fill in the blank well known programming environment]
-** 
-
+** Mastery Skills
+- Contracts and examples, expresions, nesting, test cases
+- Program reading/tracing, predicting, evaluating complex expressions
+- 
+* Discrimination Policy
+* For Parents

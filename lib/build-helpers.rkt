@@ -15,6 +15,7 @@
                                  ("data-science" "en-us")
                                  ("physics" "en-us")
                                  ("internet" "en-us")
+				 ("intro" "en-us")
                                  ))
 (define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
