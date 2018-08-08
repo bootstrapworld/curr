@@ -251,7 +251,7 @@
               }
               @point{
                     @student{
-                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which ties together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. How do we get started?
+                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's use our filtered bar chart as an example, which ties together all the pieces you've seen before.
                     }
                     @teacher{
                         Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
@@ -260,7 +260,7 @@
               @point{
                     @student{
                         @bannerline{Step 1: Contract and Purpose}
-                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{sorted-age-bar}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
+                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're getting an alphabetically-sorted bar chart of their ages, we'll call it @code{sorted-age-bar}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
 
                         @code[#:multi-line #t]{
                             # sorted-age-bar :: (animals :: Table) -> Table

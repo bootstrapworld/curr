@@ -120,7 +120,10 @@
               }
               @point{
                   @student{
-                        Can you come up with a good sample table of your own? Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                        Can you come up with a good sample table of your own? 
+                        @activity{
+                          Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                        }
                   }
               }
         ]
