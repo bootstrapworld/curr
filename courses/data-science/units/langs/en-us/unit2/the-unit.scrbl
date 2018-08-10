@@ -202,7 +202,7 @@
                         }
                         What happens when you evaluate @code{animalA} in the Interactions Area?
                         @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            Define at least two additional values to be animals from the @code{animals-table}.
+                            Define @italic{at least two} additional values to be animals from the @code{animals-table}, called @code{animalC} and @code{animalD}.
                         }
                   }
                   @teacher{
@@ -314,7 +314,8 @@
                       @student{
                             Lookups are easy, but they can get really repetitive! 
                             @activity{
-                                What would you type to see if @code{animalA} is fixed or not? What would you type to see if @code{animalB} is fixed or not? @code{animalC}? @code{animalD}? Suppose I wanted to do this for every animal in the table?
+                                In the Interactions Area, type the code that will look up if @code{animalA} is fixed or not.
+                                Then type the code to look up if @code{animalB} is fixed or not. Repeat for @code{animalC} and @code{animalD}. Suppose I wanted to do this for every animal in the table?
                             }
                             This seems really repetitive, doesn't it? We keep typing the same thing over and over, but all that's really changing is the animal. Wouldn't it be great if Pyret had a function called @code{is-fixed}, that would do this for us?
                       }
