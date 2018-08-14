@@ -132,7 +132,7 @@
         @points[
             @point{
                     @student{
-                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header row}, which names each column in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
+                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header}, which names each column in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
                             @build-table/cols[
                                         '("name" "corners")
                                         '(("triangle" "square")
@@ -147,7 +147,7 @@
             }
             @point{
                     @student{
-                            After the header row, tables can have @vocab{data rows}. Each data row has values for every column (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
+                            After the header, tables can have @vocab{data rows}. Each data row has values for every column (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
                             @build-table/cols[
                                 '("name" "corners")
                                 '(())
