@@ -231,7 +231,7 @@
                             (= (length pspec) 3)
                             (string=? (first pspec) "exercise"))
                        (unless (file-exists? (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))
-                         (copy-file (build-path (lessons-dir) (third pspec) (second pspec))
+                         (copy-file (build-path (lessons-dir) (third pspec) "exercises" (second pspec))
                                     (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf"))))]
                       [else
                        (printf "Doing nothing for page ~a~n" pspec)
