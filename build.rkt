@@ -130,7 +130,7 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-(define courses (list "internet" "algebra" "data-science")) ; "algebra" "reactive" "data-science" "physics"))
+(define courses (list "internet" "algebra" "data-science" "reactive")) ; "algebra" "reactive" "data-science" "physics"))
 ;(define courses available-courses)
 
 (units '())

@@ -149,55 +149,74 @@ learning. Students should be prepared to interact with the teacher and classmate
 ** 
 * Lessons and Assignments Calendar
 ** Assignments/Activities
-- MS_[tag(s) ...]_[PRO,PRAC,APP,NOV,INS]_title_[mode/type]_[description]
+Assignments use the following convention. Learn how to read the
+assignment convention in order to connect your mastery feedback with
+the relevant learning activities and tasks.
+- MS_[tag(s)  ...]_[PRO,PRAC,APP,NOV,INS]_title_[mode/type]_[description]
 - an assignment is a ...
-  - one or more mastery skill tagsaZ
-  - an assessment level (each assignment should only have one assessment level multiple choice items can demonstrate levels of mastery. However multiple choice item correctness has an element of chance. MC items are also difficult to protect from cheating or copying. Assessing with validity using multiple choice ites requires multiple questions assessing the same skil at the same level (at least 2?))
+  - one or more mastery skill tags
+  - an assessment level (each assignment should only have one
+    assessment level multiple choice items can demonstrate levels of
+    mastery. However multiple choice item correctness has an element
+    of chance. MC items are also difficult to protect from cheating or
+    copying. Assessing with validity using multiple choice ites
+    requires multiple questions assessing the same skil at the same
+    level (at least 2?))
   - a title
-  - a mode (either a multiple choice item, a lab with assistance available, a performance task without assistance available, a written explanation or free response item, ... )
+  - a mode (either a multiple choice item, a lab with assistance
+    available, a performance task without assistance available, a
+    written explanation or free response item, ... )
   - a description
-  - a duedate
+  - a due date
   - a criterion
   - a weight
-- it is difficult to measure a single task as being accomplished to a degree like many rubrics describe. This may be the case with performance tasks and labs, where an open ended prompt is elaborated by a rubric that is tied to evaluation criteria. Items more generally take place in a context and demand a certain level of skill and knowledge transfer, which means that each item can generally be tagged with both a skill, a knowledge component and a criterion level indicating its depth of knowledge.
+- it is difficult to measure a single task as being accomplished to a
+  degree like many rubrics describe. This may be the case with
+  performance tasks and labs, where an open ended prompt is elaborated
+  by a rubric that is tied to evaluation criteria. Items more
+  generally take place in a context and demand a certain level of
+  skill and knowledge transfer, which means that each item can
+  generally be tagged with both a skill, a knowledge component and a
+  criterion level indicating its depth of knowledge.
 ** Calendar
 | Week Number | Lesson/curriculum | Assessments | Extended Learning | Deadlines |
 |-------------+-------------------+-------------+-------------------+-----------|
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
-|             |                   |             |                   |           |
+|           1 |                   |             |                   |           |
+|           2 |                   |             |                   |           |
+|           3 |                   |             |                   |           |
+|           4 |                   |             |                   |           |
+|           5 |                   |             |                   |           |
+|           6 |                   |             |                   |           |
+|           7 |                   |             |                   |           |
+|           8 |                   |             |                   |           |
+|           9 |                   |             |                   |           |
+|          10 |                   |             |                   |           |
+|          11 |                   |             |                   |           |
+|          12 |                   |             |                   |           |
+|          13 |                   |             |                   |           |
+|          14 |                   |             |                   |           |
+|          15 |                   |             |                   |           |
+|          16 |                   |             |                   |           |
+|          17 |                   |             |                   |           |
+|          18 |                   |             |                   |           |
+|      S2: 19 |                   |             |                   |           |
+|          20 |                   |             |                   |           |
+|          21 |                   |             |                   |           |
+|          22 |                   |             |                   |           |
+|          23 |                   |             |                   |           |
+|          24 |                   |             |                   |           |
+|          25 |                   |             |                   |           |
+|          26 |                   |             |                   |           |
+|          27 |                   |             |                   |           |
+|          28 |                   |             |                   |           |
+|          29 |                   |             |                   |           |
+|          30 |                   |             |                   |           |
+|          31 |                   |             |                   |           |
+|          32 |                   |             |                   |           |
+|          33 |                   |             |                   |           |
+|          34 |                   |             |                   |           |
+|          35 |                   |             |                   |           |
+|          36 |                   |             |                   |           |
 
 * Units/Big Picture Links to Curriculum
 ** HTML/Internet
@@ -389,20 +408,112 @@ the learning process for the community. Anyone can be the teacher. [1]
 - Partner pairs
 - 
 * Assessment and Grades
-- assessment for learning. Learning means collecting data, analyzing the data to produce information, making a plan based on that data, implementing the plan, and collecting new data to begin the cycle again.
+** Assessment for learning
+Learning means collecting data, analyzing the data to produce information, making a plan based on that data, implementing the plan, and collecting new data to begin the cycle again. 
 - periodicity? daily, weekly, end of unit?, end of semesters, midterm/final
 - summative assessments? (exams)
 - surveys are a form of assessment to learn what our community thinks, where they are coming from, how they are reacting to the curriculum, how relationships are growing within our community. periodic surveys allows students to glimpse thier community outside of their lens, their assumptions, and their preconceptions. learning surveys can collect data on skills and knowledge. should there be a distinction between surveys for learning and surveys for community building. no, the learning community is convened for the purpose with supporting all students in the process of growing in skills and knowledge. the community confronts and responds to assumptions about how we learn.
 - problem sets are given weekly and are an important part of the learning process. A minimum of 2 hours per week or 24 minutes per weekday is require outside of class for students to practice their skills. Students have the option of distributing their mandatory work time during advisory, or during after school time. Weekly problemsets are provided for students to practice skills currently being learned as well as review skills that are in the learning process.
 - criteria levels for assessment feedback indicate the depth at which a student has demonstrated engagement of a skill, c.f. Webb DOK. 
-** Novice
-At the novice level of engagement with a skill the student has donstrated familiarity through recall or remembering. The student can accurately reproduce content that was covered during a learning activity where the context in which the student demonstrated the skill is the same as when it was introduced. Some recall assessments may be assessed at a higher level if they are sufficiently complex. All students pass through the novice level at some point in acquiring a skill. However, students connot stay at the novice level to meet the proficiency requirement for earning course credit. For example ...
-** Apprenctice
-** Practitioner
-** Professional
 ** Mastery Skills
 - Contracts and examples, expresions, nesting, test cases
 - Program reading/tracing, predicting, evaluating complex expressions
 - 
-* Discrimination Policy
+** Universal rubric for learning in computer science
+*** Novice
+At the novice level of engagement with a skill the student has donstrated familiarity through recall or remembering. The student can accurately reproduce content that was covered during a learning activity where the context in which the student demonstrated the skill is the same as when it was introduced. Some recall assessments may be assessed at a higher level if they are sufficiently complex. All students pass through the novice level at some point in acquiring a skill. However, students connot stay at the novice level to meet the proficiency requirement for earning course credit. For example ...
+*** Apprenctice
+*** Practitioner
+*** Professional
+* Diversity and Professionalism
+From the Brown University CS 019 diversity and professionalism statement:
+
+The lack of sufficient diversity is an important problem in computer science. In
+this course, we want to help improve the situation, not make it worse. The
+responsibility to do that lies both with us, the course staff, and with you, the
+students.
+
+College is a great time, and for many of you might offer a sense of new-found liberation. (I sure remember how liberating college felt for me!) It’s a space for exploration and experimentation of various kinds (legal, no doubt). However, this freedom can also be abused.
+
+Every now and then I hear disturbing statements from students about how they have been made to feel uncomfortable in class or in the department. I don’t mean intellectual discomfort—e.g., the kind you might get from having a heated debate about a technical subject with a fellow student—but the personal kind. These range from inappropriate comments and invitations to unsolicited physical contact.
+
+There’s a term for many of these behaviors: harassment. And let there be absolutely no doubt about this: harassment is against the law and it is completely against the norms of this course and this department. (See Brown’s Title IX Web site.) We—the university, the department, and this course’s staff—have absolutely zero tolerance for it.
+
+Some people might think the recipient should laugh it off, or they may make (or
+think) snide remarks about political correctness or jokes about consent or what
+have you. They might think people just need to grow a thicker skin or learn to
+take a joke.
+
+Unfortunately, the subject of harassment (and that’s what these remarks and
+actions are, harassment, even if you decide you would classify them as jokes) is
+forced, by the nature of classes and campus life, to be around the
+harasser. That can make them uncomfortable to the point of wanting to stay away,
+or focusing more on the harasser than on what they are here to learn. That hurts
+their education. That is not okay at all: the harasser has no right to steal
+their hard-won education away from them. And often the harm goes much deeper: it
+hurts them psychologically in subtle and long-standing ways. And that’s why
+these are not laughing matters.
+
+However, I prefer to think about this in positive terms. Your classmates are
+your colleagues. Someday you may be each others’ start-up partners or
+co-employees; one of you may even be the other’s interviewer or boss. So start
+treating one another like professionals, and I mean that in the best possible
+interpretation of that phrase.
+
+In short: Be safe, be happy, and have fun without taking away anyone else’s."
+
+6.2 About Course Staff Professionalism and respect for diversity are not just
+matters between students; they also apply to how the course staff treat the
+students. The staff of this course pledge to treat you in a way that respects
+our differences. However, despite our best efforts, we might slip up, hopefully
+inadvertently. When we do, please feel free to talk to us about it.
+
+Sometimes, you may not be comfortable bringing this up directly to us. If so,
+you are welcome to talk to Laura Dobler or to the department chair.
+
+As a department, we will take all complaints about unprofessional or
+discriminatory behavior seriously.
+
+6.3 Discussing Problems If you are running into personal difficulties in the
+course (e.g., being made uncomfortable by a fellow student), by all means come
+talk to me at any time. If you are having difficulties in other contexts and
+would like to talk about that, you are welcome to do so. In short, you are
+always open to come talk to me if you are facing any such issues.
+
+However, please note the following. Due to other positions I hold in the
+department and university, I am what Title IX calls a Responsible Employee. That
+means if you report a Title IX violation to me, I am required to report it to
+the university. This will result in you being contacted by a university
+official.
+
+I realize that not everyone may want to involve university officials, at least
+not right away. If you want your conversation to be kept in complete confidence,
+you should instead talk to one of the many resources listed here. Note also
+Brown’s SHARE Advocates, who also offer confidentiality.
+
+If you would like to learn more about Brown’s policies and resources, please see
+the university’s Title IX site.
 * For Parents
+Dear Parents,
+
+** Academic support
+The Academy for Software Engineering was established to introduce students to
+skills in computing regardless of prior knowledge or experience. That being
+said, high school curriculum that prepares students for college and career must
+be rigorous. High school students very much need your support organizing their
+tasks and deadlines. We offer a free comprehensive tutoring program after school
+three days per week. Students are expected to work at least two hours per week
+outside of class to review course notes, complete readings, practice problem
+solving techniques. If your student doesn't have a space where they can
+concentrate at home, please support them in using the tutoring program to
+complete their tasks.
+
+** Devices
+Cellular phones and other personal computing devices are not permitted to be powered on during class hours. Our suggestion is that students come to school with a simple feature phone. These inexpensive phones can be added to your plan and are resonably priced. You don't need to take away your students smart phone, but please consider that they don't need a powerful computing device during the school day. Most students love their devices and resist our policy of powering down phones during class hours. Please talk to them about the impact of computing devices on their ability to concentrate and succeed in school.
+
+** Professional Behaviors
+Insert notes about importance of attendance and making the most each day in class. Many questions are answered in the classroom resources and lessons. We ask you to work with your child to access these resources by reading them together, reviewing notes from each day, and asking your child to tell you the story of their learning by sharing their learning journey with you
+*** TODO make a form for certifying that learning blog was shared with parent or other adult.
+
+** Contact
+Please feel free to reach out to the course staff through Google Classroom, Remind, or @hyperlink{"email", "mailto: eallatta@afsenyc.org"}

@@ -7,6 +7,7 @@
 
 .main, .refcontent, .tocset, .tocview, .tocsub, .sroman, i {
     font-family:'Lato', Arial, Helvetica, sans-serif;
+    font-size:14px;
 }
 
 h1, h2, h3, h4, h5, h6, h7, h8 {
@@ -17,6 +18,14 @@ h2 {
     margin-top:0px;
 }
 
+h3 {
+    font-size:18px}
+
+h4 {
+    font-size:16px}
+h5 {
+    font-size:14px}
+
 img {
     float:right;
     width:150px;
@@ -25,18 +34,29 @@ img {
 }
 
 .tocset{
-    background-color:#26ACE0;
+    background-color:#25AAE1;
     padding-top: 30px;
 }
 
 .versionbox{
     display:none;
-    }
+}
+
+.navsettop, .navsetbottom {
+    left: 0;
+    width: 15rem;
+    height: 20px;
+    font-size: 0.9rem;
+    border-bottom: 0px solid hsl(216, 15%, 70%);
+    background-color: inherit;
+    padding: 0;
+}
 
 #00ADE2,#E7F053,#FAFF6D,#FFB86D,#F28C60
 
+#26ACE0,#E59437,#FFB95E,#F9D09D,#FFCED6
 
-#E59437,#FFB95E,#F9D09D,#26ACE0,#FFCED6
+#25AAE1,#51F3FF,#243671,#F7CE18,#C9E01F
 
 pre, p, .SIntrapara {
     padding: 0;
@@ -67,11 +87,11 @@ body {
 
 a, .toclink, .toptoclink, .tocviewlink, .tocviewselflink, .tocviewtoggle, .plainlink, 
 .techinside, .techoutside:hover, .techinside:hover {
-    color: #00ADE2;
+    color: #25AAE1;
 }
 
 a{
-    color: #00ADE2;
+    color: #25AAE1;
     text-decoration: none;
 }
 
