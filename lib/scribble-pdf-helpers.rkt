@@ -40,9 +40,9 @@
 ;; it was modified since its last scribbling or because the
 ;; css file was updated.
 ;; scrbl-file is just <file>.scrbl; path is the dir containing that file 
-(define (scribble-again? scrbl-file path)
+(define (scribble-again? scrbl-file path pagesdir)
   (let* ([fhtml (regexp-replace #px"\\.scrbl$" scrbl-file ".html")]
-         [fhtmlpath (build-path path fhtml)])
+         [fhtmlpath (build-path pagesdir fhtml)])
     (or (not (file-exists? fhtmlpath))
         (> (file-or-directory-modify-seconds (build-path path scrbl-file))
            (file-or-directory-modify-seconds fhtmlpath))
@@ -58,7 +58,7 @@
               (cond
                 [(and (string? f) 
                       (regexp-match #px".*\\.scrbl$" f)
-                      (scribble-again? f pagesdir))
+                      (scribble-again? f pagesdir pagesdir))
                  (run-scribble (build-path pagesdir f))
                  (let ([fhtml (regexp-replace #px"\\.scrbl$" f ".html")]
                        [fpdf (regexp-replace #px"\\.scrbl$" f ".pdf")])
@@ -68,7 +68,8 @@
                             (build-path pagesdir fpdf)))]
                 [(and (list? f) (= (length f) 3)
                       (regexp-match #px".*\\.scrbl$" (second f))
-                      (scribble-again? (second f) (build-path extra-exercises-dir (third f) "exercises"))
+                      (scribble-again? (second f) (build-path extra-exercises-dir (third f) "exercises")
+                                       pagesdir)
                       )
                  (let ([exercise-dir (build-path extra-exercises-dir (third f) "exercises")])
                    (run-scribble (build-path exercise-dir (second f)))
