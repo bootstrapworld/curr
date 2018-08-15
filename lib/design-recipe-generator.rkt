@@ -85,6 +85,10 @@
 ;;   by populating the example-list and configuring show-examples (keep reading)
 ;; example-list is a list of lists giving the input and output: e.g., (list (list 5 '(* 5 2)))
 ;;   the list contents can be num/string/sexp -- anything that format can convert to a string
+;;   - for Pyret, answers are intentionally generated with #:fmt-quotes #f,
+;;     so be sure to format your examples with args of any kind, then a single string as the
+;;     answer. The above example would be (list (list 5 "5 * 2"))
+;; answer: ie 
 ;; show-examples is a list of configurations of which parts of each elt in example-list to show
 ;;    - each configuration is either a boolean or a list of three booleans
 ;;    - e.g., show-examples of (list #f (list #t #f #t) #t) says
@@ -400,13 +404,14 @@
             ;(make-spacer ")")
             ))))) 
 
+
 (define (pyret-dr-example funname in-out-list
                     #:show-funname? (show-funname? #f) 
                     #:show-input? (show-input? #f)
                     #:show-output? (show-output? #f)
                     )
   (let ([input (if (empty? in-out-list) "" (list->comma-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
+        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list) #:fmt-quotes? #f))])
     (interleave-parbreaks/all
      (list (make-wrapper #:extra-class "hide-content"
             (make-indent)
