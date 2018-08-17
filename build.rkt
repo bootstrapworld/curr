@@ -260,7 +260,8 @@
        (delete-directory/files (build-path (current-deployment-dir) subdir)))]
     [else (when (directory-exists? (current-deployment-dir))
             (delete-directory/files (current-deployment-dir)))
-          (make-directory (current-deployment-dir))])
+          (make-directory (current-deployment-dir))
+          (make-directory (build-path (current-deployment-dir) "lessons"))])
 
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
@@ -696,7 +697,7 @@
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
         (process-teacher-contributions)
-        (when (equal? course "algebra")
+        (when (or (equal? course "algebra") (equal? course "algebra-pyret"))
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
