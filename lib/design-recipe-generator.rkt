@@ -276,7 +276,7 @@
 ; format the body of a design recipe worksheet -- formatting may depend on body contents
 (define (dr-body body #:show (show #f) #:lang (lang 'racket))
   (define clause-starter
-    (if (equal? lang 'racket) "[" "else if   "))
+    (if (equal? lang 'racket) "[" "else if"))
   (define clause-splitter
     (if (equal? lang 'racket) "" (make-spacer ":")))
   (define clause-class
