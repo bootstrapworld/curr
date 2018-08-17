@@ -44,7 +44,10 @@
                                      @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
                                     ]
      #:product-outcomes @itemlist[]
-     #:exercises (list )
+     #:exercises (list (make-exercise-locator/file "Booleans" "enough-cash-design-recipe-assess" "Check this Design Recipe: Do You Have Enough Cash?")
+                       (make-exercise-locator/file "Booleans" "long-name-design-recipe-assess" "Check this Design Recipe: Is This Name Long?")
+                       (make-exercise-locator/file "Booleans" "equal-length-design-recipe-assess" "Check this Design Recipe: Do Strings Have the Same Size?")
+                       (make-exercise-locator/file "Booleans" "enough-carpet-design-recipe-assess" "Check this Design Recipe: Do You Have Enough Carpet?"))
      #:standards (list "7.EE.3-4" "BS-IDE" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -196,7 +199,8 @@
                                      @item{Students can write code expressions that use @code{and} and @code{or}}
                                      @item{Students can determine the answers produced by expressions that use @code{and} and @code{or}}]
      #:product-outcomes @itemlist[]
-     #:exercises (list )
+     #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1-im")
+                       (make-exercise-locator "AndOr" "boolean-coe-to-code2-im"))
      #:standards (list)
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Class poster (List of rules, language table, course calendar)}
@@ -246,7 +250,7 @@
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
      #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
-     #:exercises (list )
+     #:exercises (list (make-exercise-locator/file "Onscreen2" "offscreen-design-recipe-assess" "Check this Design Recipe: Is a Character OffScreen?"))
      #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
