@@ -6,10 +6,11 @@
 			 #:range "Boolean"
 			 #:purpose "Sam is on the screen if his x-coordinate is safe on the left and safe on the right."
                          #:num-examples 2
-			 #:example-list '((10 (is-safe-left(10) and is-safe-right(10)))
-                        (-15 (is-safe-left(-15) and is-safe-right(-15))))
+			 #:example-list (list 
+                                (list 10 "is-safe-left(10) and is-safe-right(10)")
+                                (list -15 "is-safe-left(-15) and is-safe-right(-15)"))
                          #:param-list (list "x")
                          #:show-params? #f
-                         #:body '(is-safe-left?(x) and is-safe-right(x))
+                         #:body "is-safe-left(x) and is-safe-right(x)"
                          #:show-body? #f
                          )

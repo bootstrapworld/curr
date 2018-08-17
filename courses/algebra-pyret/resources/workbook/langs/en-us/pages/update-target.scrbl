@@ -6,9 +6,9 @@
 			 #:range "Number"
 			 #:purpose "Produce new coordinate by adding 50 to the given number"
                          #:num-examples 2
-			 #:example-list '((0 120 (+ 0 50)) (20 240 (+ 20 50)))
+			 #:example-list (list (list 0 120 "0 + 50") (list 20 240 "20 + 50"))
                          #:param-list (list "x" "y")
                          #:show-params? #f
-                         #:body '(+ x 50)
+                         #:body "x + 50"
                          #:show-body? #f
                          )
