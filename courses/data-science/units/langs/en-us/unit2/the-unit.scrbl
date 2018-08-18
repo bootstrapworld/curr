@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Validity and Analysis }
+@title{Unit 2: Defining Values and Functions }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -14,22 +14,24 @@
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       )]{
+                                       (list "Table"
+                                              @code{.row-n}
+                                              ""))]{
   @unit-descr{
-      Students are introduced to the Animals dataset, consider the kinds of questions that can be asked of the dataset, and learn about threats to validity while examining claims. Finally, they choose their dataset, and come up with questions of their own.
+      Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked of a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
   }
 }
 @unit-lessons{
 
 
   @lesson/studteach[
-     #:title "Review"
+     #:title "The Animals Dataset"
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -53,7 +55,7 @@
                                         This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
                                     }
                                     @item{
-                                        Open up the @editor-link[#:public-id "0BzzMl1BJlJDkYkhKMG51VlRiWk0" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                        Open up the @editor-link[#:public-id "1uOIyrIU-sOczXu49807OJiDHlf4UGcYB" "Animals Dataset"] starter file in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                                     }
                                 ]
                             }
@@ -79,7 +81,7 @@
                       @student{
                             On line 9, the @code{load-spreadsheet} function is used to load our animal shelter spreadsheet from Google Drive, and give that file a name: @code{shelter-sheet}. After that, we see the following code:
                             @code[#:multi-line #t]{
-                              # load the 'pets' sheet as a table called animals
+                              # load the 'pets' sheet as a table called animals-table
                               animals-table = load-table: name, species, age, fixed, legs
                                 source: pets-sheet.sheet-by-name("pets", true)
                               end
@@ -97,33 +99,126 @@
                               @item{How many columns does this table have?}
                               @item{For each column, is the data quantitative or categorical? }
                               @item{For each column, what datatype is being used? Numbers? Strings? Images? Booleans? }
-                              @item{How could you get the row for the animal named "Toggle"? }
-                              @item{How could you get the age of the animal named "Toggle" from that row? }
-                              @item{How could you get the species of the animal named "Fritz"? }
-                              @item{How could you get the number of legs of the animal named "Mittens"? }
                             ]
                       }
                       @teacher{
-                            Use the last four questions to review @code{get-row} and row-accessors (introduced in Unit 1) before proceeding. Review with the whole class.
+
                       }
                 }
                 @point{
                       @student{
-                            Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table in Question 2.
+                          @activity{
+                            Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table for Question 2.
+                          }
                       }
                       @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
+                            You already know about the @code{.row-n} method, which consumes a number and produces a row from a table. But tables have other methods too! The @code{.order-by} method consumes a String (the name of the column you want to order) and a Boolean (true for ascending, false for descending). Try typing the following expressions into the Interactions Area. What do you get?
+                            @code[#:multi-line #t]{
+                                animals-table.order-by("name", true)
+                                animals-table.order-by("age", false)
+                            }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            What is the Domain of @code{.order-by}? What is the Range? Find the contract for this method in your contracts table, and make sure it makes sense!
+                      }
+                }
+                @point{
+                      @student{
+                          @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
+                            Make at least one bar-chart and at least one pie-chart, using columns from the @code{animals-table}. What do you notice? What do you wonder?
+                          }
+                      }
+                      @teacher{
+                        Have students share their noticings and wonderings. Ideally, at least one student will wonder if there's a way to make charts using only a @italic{subset} of the data!
+                      }
+                }
+                @point{
+                      @student{
+                          You may already be wondering if there's a way to make charts using only a @italic{subset} of the rows in a table. For example: what if we want to make a bar chart showing only the ages of the cats at the shelter? To do this, we need to learn how to write functions of our own, which can tell us if an animal is a cat or not, fixed or not, and so on.
                       }
                 }
         ]
   }
 
-   @lesson/studteach[
+
+  @lesson/studteach[
+     #:title "Defining Values"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
+     #:standards (list "BS-PL.3&1&1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+            @point{
+                  @student{
+                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
+                        You can add your own definitions, for example:
+                        @code[#:multi-line #t]{
+                            name = "Maya"
+                            sum = 2 + 2
+                            img = triangle(10, "solid", "red")
+                        }
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
+                            With your partner, take turns adding definitions to this file:
+                            @itemlist[
+                              @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
+                              @item{Define a value with name @code{year}, whose value is a Number representing the current year}
+                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
+                            ]
+                        }
+
+                  }
+                  @teacher{
+                          
+                  }
+            }
+            @point{
+                  @student{
+                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{row-n} method to define values. Type the following lines of code into the Definitions Area and click "Run":
+                        @code[#:multi-line #t]{
+                          animalA = animals-table.row-n(1)
+                          animalB = animals-table.row-n(10)
+                        }
+                        What happens when you evaluate @code{animalA} in the Interactions Area?
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
+                            Define @italic{at least two} additional values to be animals from the @code{animals-table}, called @code{animalC} and @code{animalD}.
+                        }
+                  }
+                  @teacher{
+
+                  }
+            }
+      ]
+  }
+
+  @lesson/studteach[
      #:title "Question Types"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about different categories of questions}]
      #:evidence-statements @itemlist[]
+     #:exercises (list (make-exercise-locator/file "Question-Types" "What-can-you-answer" "What can you answer?"))
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
@@ -138,6 +233,9 @@
             @point{
                   @student{
                           Once we have a dataset, we can start answering questions! But how do you know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
+                           @activity{
+                              Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and write down your own questions under section 3.
+                          }
                   }
                   @teacher{
                           Have students brainstorm some questions they might ask of the animals table.
@@ -164,13 +262,7 @@
             }
             @point{
                   @student{
-                          On the bottom of @worksheet-link[#:name "Animals-Dataset"], there are a list of questions that we might have about the animals at the shelter. Can all of them be answered by this dataset?
-                          @activity{
-                              @itemlist[
-                                  @item{ For the ones that can, which kind of question are they? }
-                                  @item{ For ones that can't, what data is missing? }
-                              ]
-                          }
+                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Dataset"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Analyze question?
                   }
                   @teacher{
                           Have students share their findings with the class. Allow time for discussion!
@@ -178,25 +270,25 @@
             }
             @point{
                   @student{
-                          Being able to figure out what @italic{can} and @italic{can't} be answered by a dataset is an important skill. 
+                          Lookup questions are easy to answer: just find the right row and column, and read out the answer! You learned how to do lookups in Pyret in Unit 1. This time, let's practice lookups using value definitions, where each row is defined separately.
                           @activity{
-                            Turn to @worksheet-link[#:name "What-Can-You-Answer"] to practice. For the questions you CAN answer: what kind of question are they?
+                              Complete the activity on @worksheet-link[#:name "Lookup-Animals"].
                           }
                   }
             }
         ]
   }
 
-   @lesson/studteach[
-     #:title "Threats to Validity"
-     #:duration "20 minutes"
+  @lesson/studteach[
+     #:title "Defining Functions"
+     #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[@item{Students learn about threats to validity, such as sample size, confounding variables, etc.}]
-     #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:learning-objectives @itemlist[@item{Students learn how to define functions using the Design Recipe}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define several functions over rows from the animals table}]
+     #:standards (list "BS-PL.3&1&2" "BS-PL.3&1&3" "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2" "BS-PL.3")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -204,54 +296,279 @@
                 )
       ]{
         @points[
-            @point{
-                  @student{
-                          @bannerline{Survey says: "People prefer cats to dogs"}
-                          As good Data Scientists, the staff at the animal shelter is constantly gathering data about their animals, their volunteers, and the people who come to visit. But just because they @italic{have} data doesn't mean the conclusions they draw from it are correct! For example: suppose they surveyed 1,000 cat-owners and found that 95% of them thought cats were the best pet. Could they really claim that people generally prefer cats to dogs?
-                  }
-                  @teacher{
-                          Have students share back what they think. The issue here is that cat-owners are not a representative sample of the population, so the claim is invalid.
-                  }
-            }
-            @point{
-                  @student{
-                          There's more to data analysis than simply collecting data and crunching numbers. In the example of the cat-owning survey, the claim that "people prefer cats to dogs" is @bold{invalid} because the data itself wasn't representative of the whole population (of course cat-owners are partial to cats!). This is just one example of what are called @vocab{Threats to Validity}.
-                  }
-                  @teacher{
+                @point{
+                        @student{
+                              Suppose you work at the animal shelter, taking care of all the animals who live there. You want to make sure they're healthy, happy, and find good homes. For each animal, you might want to ask certain questions:
+                              @itemlist[
+                                @item{What kind of animal is it?}
+                                @item{Has it been fixed?}
+                                @item{When was it born?}
+                                @item{Is it a kitten?}
+                              ]
+                        }
+                        @teacher{
+                            Have students brainstorm additional questions!
+                        }
+                }
+                @point{
+                      @student{
+                            Lookups are easy, but they can get really repetitive! 
+                            @activity{
+                                In the Interactions Area, type the code that will look up if @code{animalA} is fixed or not.
+                                Then type the code to look up if @code{animalB} is fixed or not. Repeat for @code{animalC} and @code{animalD}. Suppose I wanted to do this for every animal in the table?
+                            }
+                            This seems really repetitive, doesn't it? We keep typing the same thing over and over, but all that's really changing is the animal. Wouldn't it be great if Pyret had a function called @code{is-fixed}, that would do this for us?
+                      }
+                      @teacher{
+                            Have a student @italic{act out} the @code{is-fixed} function. You give them an animal, and they tell you what they would type to find out if it is fixed.
+                      }
+                }
+                @point{ 
+                      @student{
+                            @activity{
+                                @itemlist[
+                                    @item{ What is the name of our function? }
+                                    @item{ What type of data did we have to give it? }
+                                    @item{ What type of data did it give us back? }
+                                ]
+                            }
+                            Unfortunately, Pyret doesn't have a function like this. But it has something even better: it lets us @italic{define new functions of our own!}
+                      }
+                      @teacher{
 
-                  }
-            }
-            @point{
-                  @student{
-                          @activity{
-                              On this page @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
+                      }
+                }
+                @point{
+                      @student{
+                            To build our own functions, we'll use a series of steps called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. 
+                            @activity{
+                              Turn to page @worksheet-link[#:name "Design-Recipe-Lookup"] in your Student Workbook.
+                            }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and look up the value in the @code{fixed} column. A Purpose Statement is just a description of what the function does:
+                            @code[#:multi-line #t]{
+                              # is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and looks up the value in the fixed column
+                            }
+                      }
+                      @teacher{
+                        Be sure to check students' contracts and purpose statements before having them move on!
+                      }
+                }
+                @point{
+                      @student{
+                            @bannerline{Step 2: Write Examples} Examples are a way for us to tell the computer how our function should behave for a @italic{specific} input. We can write as many examples as we want, but they must all be wrapped in an @code{examples:} block and an @code{end} statement. Examples start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
+                            @code[#:multi-line #t]{
+                              # is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and looks up the value in the fixed column
+                              examples:
+                                is-fixed(animalA) is animalA["fixed"]
+                                is-fixed(animalB) is animalB["fixed"]
+                              end
+                            }
+                      }
+                      @teacher{
+                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{sasha} and @code{fritz} came from the Domain in our contract, that (3) @code{animalA["fixed"]} came from our purpose statement, and the label also came from the variable name in our contract.
+                      }
+                }
+                @point{
+                      @student{
+                            Why didn't we just write @code{true} or @code{false} after the @code{is}? In programming, just like in any other class, it's more important to @italic{show your work} than to just write down the answer. This helps programmers organize their thinking, and can be a useful way of fixing bugs later on. (If you never wrote down what you were thinking, how will you know where you went wrong?)
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            @activity[#:forevidence (list "BS-PL.3&1&2")]{
+                                @itemlist[
+                                  @item{
+                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{animalA} and @code{animalB}.
+                                  }
+                                  @item{
+                                      Circle all of the parts in your example block that are changing.
+                                  }
+                                  @item{
+                                      What does the stuff you circled represent? Are @code{animalA} and @code{animalB} years? Legs? No - they are @italic{animals}! Let's label them...
+                                  }
+                                ]
+                                  
+                            }
+                      }
+                      @teacher{
+                            
+                      }
+                }
+                @point{
+                    @student{
+                          @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
+                          @code[#:multi-line #t]{
+                              # is-fixed :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and looks up the value in the fixed column
+                              examples:
+                                is-fixed(animalA) is animalA["fixed"]
+                                is-fixed(animalB) is animalB["fixed"]
+                              end
+                              fun is-fixed(animal): animal["fixed"]
+                              end
+                            }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                          Now that we've defined our function, we can click "Run" and actually use it!
+                          @activity[#:forevidence (list "BS-PL.3&1&3")]{
+                              After you've clicked run, try typing in the following expressions, and see what happens:
+                              @code[#:multi-line #t]{
+                                  is-fixed(animalA)
+                                  is-fixed(animalB)
+                                  is-fixed(animals-table.row-n(8))
+                                  is-fixed(animals-table.row-n(11))
+                              }
                           }
-                          
-                  }
-                  @teacher{
-                          Give students time to discuss and share back. @bold{Answers:} The dog-park survey is not a random sample, the dogs are friendlier towards whomever is giving them food, etc.
-                  }
-            }
-            @point{
-                  @student{
-                          Life is messy, and there are @italic{always} threats to validity. Data Science is about doing the best you can to minimize those threats, and to be up front about what they are whenever you publish a finding. When you do your own analysis, make sure you include a discussion of the threats to validity!
-                  }
-                  @teacher{
+                    }
+                    @teacher{
 
-                  }
-            }
+                    }
+                }
+                @point{
+                    @student{
+                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we made a mistake in our function definition, and accessed the wrong column:
+                        @code[#:multi-line #t]{
+                            fun is-fixed(animal): animal["age"]
+                            end
+                        }
+                        When we click "Run", the computer will tell us that our examples don't match the definition! It will literally @italic{check your work for you!}
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        @activity{
+                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Lookup"].
+                        }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But supposed we want to @italic{compute} with that value, to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.1&2&1" "BS-DR.1&2&2" "BS-DR.1&2" "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
+                          Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
+                          @itemlist[
+                            @item{ Is this a lookup, compute or analyze question?}
+                            @item{ What is the name of this function? What are it's Domain and Range? }
+                            @item{ Is Sasha a cat? @italic{What did you do to get that answer?} }
+                          ]
+                        }
+                    }
+                    @teacher{
+                        Have students explain their thinking carefully, step-by-step. Repeat this with other animals.
+                    }
+                }
+                @point{
+                    @student{
+                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us out first example:
+                        @code[#:multi-line #t]{
+                              # is-cat :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and compute whether the species is "cat"
+                              examples:
+                                is-cat(animalA) is animalA["species"] == "cat"
+                              end
+                            }
+                        @activity{ Add a second example. }
+                    }
+                    @teacher{
+                        Have students share their examples. Point out that the code is the same for all examples, aside from the name of the animal being tested.
+                    }
+                }
+                @point{
+                    @student{
+                        Just we've done before, let's look at our examples and circle the things that are change from one to the other.
+                        @itemlist[
+                          @item{ Do all our examples use @code{is-cat}? }
+                          @item{ Do all our examples use the same inputs? }
+                          @item{ Do all our examples look at the same column? }
+                          @item{ Do all our examples compare that column value to "cat"? }
+                        ]
+                        @activity{ What label should we use here? }
+                    }
+                    @teacher{
+                        Make sure students realize that the label is specified in the Domain.
+                    }
+                }
+                @point{
+                    @student{
+                        As before, we'll use the pattern from our examples to come up with our definition.
+                        @itemlist[
+                          @item{ What is the function name? }
+                          @item{ What is the name of the variable(s)? }
+                          @item{ What do we do in the body in the function? }
+                        ]
+                        @code[#:multi-line #t]{
+                              #is-cat :: (animal :: Row) -> Boolean
+                              # Consumes an animal, and compute whether the species is "cat"
+                              examples:
+                                is-cat(animalA) is animalA["species"] == "cat"
+                                is-cat(animalB) is animalB["species"] == "cat"
+                              end
+                              fun is-cat(animal): animal["species"] == "cat"
+                              end
+                            }
+                    }
+                }
+                @point{
+                    @student{
+                        @activity{
+                          Type this definition - and its examples! - into the Definitions Area, then click "Run" and try using it.
+                        }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        @activity{
+                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Compute"].
+                        }
+                    }
+                    @teacher{
+
+                    }
+                }
         ]
   }
 
-
   @lesson/studteach[
-     #:title "Choose Your Dataset"
-     #:duration "30 minutes"
+     #:title "Filtering Tables"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
-     #:standards (list)
+     #:product-outcomes @itemlist[]
+     #:standards (list "Data 3.1.1")
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]
      #:pacings (list 
@@ -261,97 +578,35 @@
                 )
       ]{
         @points[
-                @point{
-                      @student{
-                          Now it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
-                          Take 10 minutes to look through the following datasets, and choose one that interests you:
-                          @itemlist[
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "1KaHf2DSd5iJ17UsRd61jljsWR_HqRQY2" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1371QVz9uLJKCiX_Q3bR93ZZ5EKhAxZoR" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw" "US Income Dataset") (and the @editor-link[#:public-id "1lVDBQiAze_NjH69rWcFi15ApbNPZWXOk" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg" "US Presidents Dataset") (and the @editor-link[#:public-id "18Ux-O_c78jnZ4cFjTwvaZzaBJOch9cTK" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M" "Countries of the World Dataset") (and the @editor-link[#:public-id "1V1u_kINuc6PCOWZ0WF7a2oZSLbrzRitg" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1-mrDSjS-rWMdiMAIptFS_PHVUFO06lUpYNCiGkYj51s" "Music") (and the @editor-link[#:public-id "1EHpLimHbsZkSie23Dt-COhTDtNQ0_g1Z" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w" "State Demographics") (and the @editor-link[#:public-id "1okOF06x6_UtMgnM8yi6dIGH6ZfBrpEQM" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "1HpAIsC_3sDWYgtIj0iwgch81MllIa-Yy" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Dataset") (and the @editor-link[#:public-id "https://code.pyret.org/editor#share=1h3pCuuc0AchFZidLV-9553kGhpRKyYxP" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1H3-aDMoCNCJtRoUpJfPFRUy2JuhmBNFJ" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1WMJMNqkwuo1vbL0O_C81BPA-R2TFcLWEMUi7cn_ptow" "2016 Presidential Primary Election Dataset") (and the @editor-link[#:public-id "1U_R0ZoRRvUwKy58m9cgJ6AyDHWW1Oh7-" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "US Cancer Rates Dataset") (and the @editor-link[#:public-id "1Kd9Zi4Z0jKkyxV7rHCw4nNQqbhgpT2Qi" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/19bmTJd2soUvg6FUDIW546jPtiWOERFm2o9z7TLBNTbc" "Summer Olympic Medals Dataset") (and the @editor-link[#:public-id "1HubbGjtE96e3wt0EZqlVWtKstmyPpDd_" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1ZJ9d4BtF6xOqyBdGgjW-vCeJ7-rOHWIhGMiBNwqCEVo" "Winter Olympic Medals Dataset") (and the @editor-link[#:public-id "1QvKr16tceg0wQ9vLfu-iFiZEpUdw5I2L" "Starter file"] for this dataset)
-                                     }
-
-                              @item{
-                                @(new-tab "https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8" "MLB Hitting Stats Dataset") (and the @editor-link[#:public-id "1_d80_yLylUXz32QrEsN9EjtHEHJ8gB34" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  Or find your own dataset, and use this (@editor-link[#:public-id "1sRPS3wuExqrRE0aw-TnqVv25frjBBwii" "Blank Starter file"]) for your project.
-                              }
-                          ]
-                      }
-                      @teacher{
-                          Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              @itemlist[
-                                  @item{
-                                      Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
-                                  }
-                                  @item{
-                                      Take 5 minutes to fill in your name, and complete the top half of @worksheet-link[#:name "My-Dataset"].
-                                  }
-                                  @item{
-                                      In the Definitions Area, use @code{get-row} to define @bold{at least two} values, representing different rows in your table. Call them @code{sample1}, @code{sample2}, and so on.
-                                  }
-                              ]
+              @point{
+                    @student{
+                          You already know about the @code{.row-n} and @code{.order-by} methods. But suppose you want to get a table of only cats? Or a table of only animals that have been fixed? Try typing these expressions into the Interactions Area. What do you get?
+                          @code[#:multi-line #t]{
+                              animals-table.filter(is-fixed)
+                              animals-table.filter(is-cat)
+                              bar-chart(animals-table.filter(is-fixed))
                           }
-                      }       
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                            @activity{
-                              On the bottom of @worksheet-link[#:name "My-Dataset"], brainstorm a few questions you would like to ask of this dataset. Be sure to check off the ones that CAN be answered! For the ones that can't, what kind of data would you need? What threats to validity might be a part of this dataset? 
-                            }
-                            
-                      }
-                      @teacher{}
-                }
+                    }
+                    @teacher{
+                          If time allows, ask students to explain what they think is going on.
+                    }
+              }
+              @point{
+                    @student{
+                          Find the contract for @code{.filter} in your contracts page. The @code{.filter} method is taking in a @italic{function}, calling it on every row in the table, and producing a new table with only the rows for which it returns @code{true}.
+                          @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
+                              Try using the @code{gender} function to filter. What happens?
+                          }
+                          Notice that the Domain for @code{.filter} says that @code{test} must be a function (that's the arrow), which consumes a @code{Row} and produces a @code{Boolean}. If the function we pass in produces anything else, we'll get an error.
+                    }
+                    @teacher{
+                          If time allows: have them make a pie chart using a table of @italic{only cats}, or a bar chart of @italic{only the animals that have been fixed}.
+                    }
+              }
         ]
   }
+}
+
 
   @lesson/studteach[
      #:title "Closing"
