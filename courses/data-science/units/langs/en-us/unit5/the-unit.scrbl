@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 5: Table Plans }
+@title{Unit 5: Measuring Center and Variation}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{num-sqrt, num-sqr} 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -14,21 +14,23 @@
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       )]{
+                                       (list "Table"
+                                              @code{.row-n, .order-by, .filter, .build-column, pie-chart, bar-chart}
+                                              ""))]{
   @unit-descr{
-    Students are introduced to Table Plans (a structured approach to manipulating tables), and begin manipulating their own datasets.
+    Students learn how to measure central tendency (using mean, median, and mode), as well as variation (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
   }
 }
 @unit-lessons{
 
   @lesson/studteach[
-     #:title "Review"
-     #:duration "25 minutes"
+     #:title "Introduction"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list)
+     #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -39,47 +41,84 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[
-              @point{
-                  @student{
-                  }
-                  @teacher{
-                  
-                  }
-              }
-              @point{
-                  @student{
-                      @activity[#:forevidence "BS-IDE&1&1"]{
-                          Open the starter file you created for your dataset, and click "Run". In the Interactions Area, type the name of your table so you can see the dataset. Type the names of the two sample rows you defined: @code{sample1} and @code{sample2}.
+        @points[@point{
+                        @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1mhIjMpk3PM6D9EeY8-6VI95kDLVAPFy5" "new copy"].)
+                              }
+                        }
+                        @teacher{
+                                
+                        }
+                }
+                @point{
+                      @student{
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. What we want is a way to @italic{summarize} a dataset, so that we can describe the data quickly and easily.
                       }
-                  }
-                  @teacher{
-                      It is critical that every student have at least two sample rows!
-                  }
-              }
-              @point{
-                  @student{
-                      @activity[#:forevidence "BS-IDE&1&1"]{
-                          Turn to @worksheet-link[#:name "Animals-Plans"], and choose one of the criteria you wanted to us to @bold{filter} the dataset. Do you remember how to use the Design Recipe with Row Accessors? Open to @worksheet-link[#:name "Unit-5-Review"], and complete the activities there.
-                      }
-                  }
-                  @teacher{
+                      @teacher{
 
-                  }
-              }
+                      }
+                }
+                @point{
+                      @student{
+                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.} @activity[#:forevidence (list )]{
+                            Does that mean most pets wait more than a month to find homes? Why or why not?
+                          }
+                      }
+                      @teacher{
+                          Invite an open discussion for a few minutes.
+                      }
+                }
+                @point{
+                      @student{
+                              "The average pet waits 5.8 weeks" is a statement about the entire dataset, which summarizes a whole column of values into a single number. Summarizing a big dataset means that some information gets lost, so it's important to @italic{pick the right summary}. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are accurate or not?
+                              @itemlist[
+                                  @item{ 
+                                      Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
+                                  }
+                                  @item{
+                                      Schools are sometimes summarized by a few numbers - student pass rates and attendance, for example - which can determine whether or not the school gets shut down.
+                                  }
+                                  @item{ 
+                                      Adults are often summarized by a single number - like their credit score - which determines their ability to get a job or a home loan.
+                                  }
+                                  @item{
+                                      When buying uniforms for a sports team, a coach might look for the most-common size that their players wear.
+                                  }
+                              ]
+                              @activity[#:forevidence (list "6.SP.1-3&1&1")]{
+                                  Can you think of other examples where a number or two are used to summarize something complex?
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{accurately} is essential. In this lesson, we'll check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an accurate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to see if there are clusters or patterns in the data.
+                      }
+                      @teacher{
+
+                      }
+                }
         ]
   }
 
   @lesson/studteach[
-     #:title "Introducing Table Plans"
-     #:duration "30 minutes"
+     #:title "Measures of Center"
+     #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to define functions using Table Plans}]
+     #:learning-objectives @itemlist[
+          @item{Students learn different notions of "center", including mean, median and mode}
+          @item{Students explore how to properly talk about measures of center}
+      ]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students define functions that sort, filter, or extend the animals table}]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:exercises (list (make-exercise-locator/file "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
+     #:product-outcomes @itemlist[@item{Students take the mean, median and mode of various columns in the animals table}]
+     #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -87,228 +126,366 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                        @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1Z0jE9BugpJlcuRMlHxpLe9FgToJZoU4m" "new copy"].)
-                        }
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Problem 1: Duplicate code}
-                        Suppose we have a set of methods that we want to run on lots of tables, perhaps filtering and sorting many different tables from a shelter. We could write the same long chain of expressions over and over for each table, but that's problematic!
-                        @itemlist[
-                            @item{ It's a lot of extra typing }
-                            @item{ If we find a bug, we have to remember to fix it everywhere }
-                            @item{ Longer programs are harder to read and debug }
-                        ]
-                    }
-                    @teacher{
-                        
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Problem 2: Order-of-operations for Table Methods}
-                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! Therefore, @code{.build-column} always has to come first! 
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        The solution to both of these problems lies is something you've seen before: @vocab{functions}. Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "Kitten-Tags"].
-                    }
-                    @teacher{
-                        Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
-                    }
-              }
-              @point{
-                    @student{
-                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's do an example, which ties together all the pieces you've seen before. Suppose it's time to vaccinate all kittens, and the shelter wants a table that includes nametags for all the kittens in alphabetical order. How do we get started?
-                    }
-                    @teacher{
-                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Step 1: Contract and Purpose}
-                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're @italic{getting a table} of kittens with nametags, we'll call it @code{get-kittens-tags}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
-
-                        @code[#:multi-line #t]{
-                            # get-kittens-tags :: (animals :: Table) -> Table
-                            # consume a table of animals, and produce a table
-                            # of only kittens, with nametags, and sorted by name
-                        }
-                    }
-                    @teacher{
-                        Ask students to volunteer other names - but push them to keep the @code{get-} part of the name!
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Step 2: Examples}
-                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called a Sample Table. Then we write a sample result, which we'd get from calling @code{get-kittens-tags} on that Sample Table. For now, we've provided the Starter and Results for you.
-                        @itemlist[
-                            @item{ Does the Result have our new column? }
-                            @item{ Does the Result have only kittens? }
-                            @item{ Is the Result in alphabetical order? }
-                        ]
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Step 3: Define the Function @italic{in two parts}}
-                        The final step is to define a function that executes our Table Plan, but we'll do this in two parts. First, we'll define a table by applying our methods to the input. Then, we'll do something with that table to produce a result. We already know how to start:
-                        @code[#:multi-line #t]{
-                            # get-kittens-tags :: (animals :: Table) -> Table
-                            # consume a table of animals, and produce a table
-                            # of only kittens, with nametags, and sorted by name
-                            fun get-kittens-tags(animals):
-                                ...         # define the table
-                                ...         # produce the result
-                            end
-                        }
-                    }
-                    @teacher{
-                        Assessment opportunity: students should be able to write this code this based on what they know about the Design Recipe.
-                    }
-              }
-              @point{
-                    @student{
-                        To define this table, we'll ask ourselves three questions, in order:
-                        @itemlist[
-                            @item{ 
-                              Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
-                            }
-                            @item{ 
-                              Does our Result have fewer rows than our Sample Table? If so, we'll need to use @code{.filter}. 
-                            }
-                            @item{ 
-                              Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
-                            }
-                        ]
-                        @activity[#:forevidence (list "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
-                            If the answer to any of these questions is "no", @italic{cross out that line in the template}.
-                        }
-                    }
-                    @teacher{
-                        All three are needed.
-                    }
-              }
-              @point{
-                    @student{
-                        All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
-                        @code[#:multi-line #t]{
-                            # get-kittens-tags :: (animals :: Table) -> Table
-                            # consume a table of animals, and produce a table
-                            # of only kittens, with nametags, and sorted by name
-                            fun get-kittens-tags(animals):
-                                t = animals  # define the table
-                                  .build-column(...)
-                                  .filter(...)
-                                  .order-by(...)
-                                ...          # produce the result
-                            end
-                        }
-                    }
-                    @teacher{
-                        It may be helpful to start with all of these methods on one line, and have students see you break them up. Students should be reminded that both forms are valid, but encouraged to use the latter.
-                    }
-              }
-              @point{
-                    @student{
-                        Now we can fill in those @code{...} sections! 
-                        @itemlist[
-                          @item{ 
-                              For each Row, we know we need to build a column for the nametags: what should that column be called? Do we have a function that takes a Row and produces a nametag?
-                          }
-                          @item{ 
-                              We know we need to filter so that all of our Rows are kittens: Do we have a function that takes a Row and tells us whether or not it is a kitten?
-                          }
-                          @item{
-                              We know we need to order these rows: by what column should we order them? Ascending?
-                          }
-                        ]
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        Filling in these blanks, we get the following code:
-                        @code[#:multi-line #t]{
-                            # get-kittens-tags :: (animals :: Table) -> Table
-                            # consume a table of animals, and produce a table
-                            # of only kittens, with nametags, and sorted by name
-                            fun get-kittens-tags(animals):
-                                t = animals  # define the table
-                                  .build-column("tags", nametags)
-                                  .filter(is-kitten)
-                                  .order-by("name", true)
-                                ...          # produce the result
-                            end
-                        }
-                        Fortunately, the @code{nametags} and @code{is-kitten} functions are already defined! If we found that we needed to make news ones, however, we could use the Design Recipe to do it.
-                    }
-                    @teacher{
-                        If projecting onto a board, drawing arrows from the function names to their definitions would be really helpful here.
-                    }
-              }
-              @point{
-                  @student{
-                        The final step in the Table Plan is to produce the result. For now, that result is just the table we defined, @code{t}. Don't worry, you'll get to more interesting results later!
-                        @code[#:multi-line #t]{
-                            # get-kittens-tags :: (animals :: Table) -> Table
-                            # consume a table of animals, and produce a table
-                            # of only kittens, with nametags, and sorted by name
-                            fun get-kittens-tags(animals):
-                                t = animals  # define the table
-                                  .build-column("tags", nametags)
-                                  .filter(is-kitten)
-                                  .order-by("name", true)
-                                t            # produce the result
-                            end
-                        }
-                  }
-                  @teacher{
-                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it"!
-                  }
-              }
-              @point{
-                  @student{
-                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{get-kittens-tags(animals-table)}. That's the code that should give us the result, so let's type it in!
-                      @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
-                          Type in the code and hit Enter. Did you get back the same result you expected?
+                @point{
+                      @student{
+                              @bitmap{images/points-on-line.png}
+                              If we plotted all the @code{weeks} values as points on a number line, what could we say about where those points are clustered? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center".
                       }
-                  }
-                  @teacher{
-                  
-                  }
-              }
-        ]
-    }
+                      @teacher{
+                              Draw some sample points on a number line, and have students volunteer different ways to summarize the distribution.
+                      }
+                }
+                @point{
+                      @student{
+                              The Animal Shelter Bureau used one method of summary, called the @code{mean}, or @italic{average}. To take the average of a column, we add all the numbers in that column and divide by the number of rows.
+                      }
+                      @teacher{
+                              This lesson does not teach the algorithm for computing averages, but this would be an appropriate time to do so.
+                      }
+                }
+                @point{
+                      @student{
+                              Pyret has a way for us to compute the @vocab{mean} of any column in a Table. It consumes a Table and the name of the column you want to measure, and produces the mean - or average - of the numbers in that column.
+                              @code[#:multi-line #t]{
+                                # mean :: (t :: Table, col :: String) -> Number
+                              }
+                              @activity[#:forevidence (list )]{
+                                  What is its name? Domain? Range?
+                              }
+                              Notice that calculating the @vocab{mean} requires being able to add and divide, so the @vocab{mean} only makes sense for quantitative data.  For example, the mean of a list of Presidents doesn't make sense.  Same thing for a list of zip codes:  even though we can and divide the numbers of zip codes, the output doesn't correspond to some "center" zip code.
+                      }
+                      @teacher{
 
-    @lesson/studteach[
-     #:title "Practicing with Table Plans"
-     #:duration "30 minutes"
+                      }
+                }
+                @point{
+                      @student{
+                              Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this support the Bureau's claims?
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
+                                      Open your workbooks to @worksheet-link[#:name "Summarizing-Weeks"]. We've already decided on the answer to Question 1 (@code{weeks}). Under the "measures of center" section, fill in the computed mean.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              You computed the mean of that list to be just 5.8 weeks. That IS the average, but if we look at the dots on our number line, we can see that most of the animals in the table waited for less than 5 weeks! What is throwing off the average so much?
+                      }
+                      @teacher{
+                              Point students to Kujo and Mr. Peanutbutter.
+                      }
+                }
+                @point{
+                      @student{
+                              In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with huge outliers.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Another way to measure center is to line up all of the data points - in order - and find a point in the center where half of the values are smaller and the other half are larger. This is the @vocab{median}, or "middle" value of a list.
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              As an example, consider this list:
+
+                              @code[#:multi-line #t]{
+                                    2, 3, 1
+                              }
+
+                              Here @code{2} is the median, because it separates the "top half" (all values greater than @code{2}, which is just @code{3}), and the "bottom half" (all values less than or equal to 2).
+                      }
+                      @teacher{
+                              If students are not already familiar with median, we recommend the following
+                              "pencil and paper algorithm" for median finding over a list:
+
+                              @itemlist[
+                                      @item{
+                                            Cross out the highest number in the list.
+                                      }
+                                      @item{
+                                            Cross out the lowest number in the list.
+                                      }
+                                      @item{
+                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, @italic{take the mean of those numbers}.
+                                      }
+                              ]
+                               
+                      }
+                }
+                @point{
+                      @student{
+                              Pyret has a function to compute the median of a list as well, with the contract:
+
+                              @code{# median :: (t :: Table, col :: String) -> Number}
+
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
+                                    Compute the @code{median} for the @code{weeks} column in our dataset, and add this to @worksheet-link[#:name "Summarizing-Weeks"]. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              The third and last measure of center is the @vocab{modes} of a dataset. The @vocab{modes} of a  are all the elements that appear @italic{most often} in the list. Median and Mean always produce one number. Mode is different than the other measures, since a column can have multiple modes - or even no modes at all!
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @code[#:multi-line #t]{
+                                    1, 2, 3, 4
+                                    1, 2, 2, 3, 4
+                                    1, 1, 2, 3, 4, 4
+                              }
+
+                              @itemlist[
+                                @item{
+                                    The mode of the first value is @italic{empty}, because no element is repeated at all.
+                                }
+                                @item{
+                                    The mode list of the second value is @italic{2}, since 2 appears more than any other number.
+                                }
+                                @item{
+                                    The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
+                                }
+                              ]
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              In Pyret, the modes are calculated by the @code{modes} function, which consumes a Table and the name of the column you want to measure, and produces a List of Numbers. 
+                              @code[#:multi-line #t]{
+                                    # modes :: (t :: Table, col :: String) -> List<Number>
+                              }
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
+                                  Compute the @code{modes} of the @code{weeks} column, and add it to @worksheet-link[#:name "Summarizing-Weeks"]. What did you get? The most common number of weeks an animal waits is either @code{1} or @code{3}! Both of those are well below our mean, which is further proof that there must be some outliers skewing the results.
+                              }
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              At this point, we have a lot of evidence that suggests the Bureau's summary is misleading. Our mean wait time agrees with their findings, but we have two reasons to doubt the validity of their measurement:
+                              @itemlist[
+                                  @item{ The median is only 4 weeks, meaning half the animals wait less than a month! }
+                                  @item{ The modes of our dataset is only 1 and 3, which means there are clusters of animals that are adopted in just one or three weeks! }
+                              ]
+                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} about 5.8 weeks. But then they drew a conclusion without checking to see if that was the right statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to trust the Bureau.
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                            @activity[#:forevidence (list "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3")]{
+                                "In 2003, the average American family earned $43,000 a year - well above the poverty line! Therefore very few Americans were living in poverty." Do you trust this statement? Why or why not?
+                            }
+                            Consider how many policies or laws are informed by statistics like this! Knowing about measures of center helps us see through misleading statements.
+                      }
+                      @teacher{
+                            
+                      }
+                }
+                @point{
+                      @student{
+                              @bannerline{Variation Matters}
+                              You now have three different ways to measure center in a dataset. But how do you know which one to use? Depending on the variation in the dataset, a measure could be really useful or totally useless! Here are some guidelines for when to use one measurement over the other:
+
+                              @itemlist[
+                                      @item{
+                                            If the data is unlikely to have values occurring multiple times (like with decimals, or with grades), do not use mode.
+                                      }
+                                      @item{
+                                            If the data is more "coarse grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then the modes will be useful.
+                                      }
+                                      @item{
+                                            If the data is going to have lots of outliers, the median gives a better estimate of the center than mean.
+                                      }
+                              ]
+                      }
+                      @teacher{
+
+                      }
+                } 
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Measures of Variation"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[
+          @item{Students learn different measures of variation, including range, and interquartile range}
+          @item{Students practice describing variation using these concepts}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                          Measuring the "center" of a dataset is helpful, but we quickly found that it's also important to talk about the @italic{variation} in the dataset. So how do we do that?
+                      }
+                      @teacher{
+                          
+                      }
+                }
+                @point{
+                      @student{
+                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          @activity[#:forevidence (list )]{
+                              The first quartile (Q1) is the 25% of animals that waited the least amount of time. What do the other three quartiles represent?
+                          }
+                      }
+                      @teacher{
+                          Point out the five numbers that create these quartiles: the three medians, the minimum and the maximum.
+                      }
+                }
+                @point{
+                      @student{
+                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to summarize data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{weeks} column in the @code{animals-table}.
+                          @code[#:multi-line #t]{
+                            # box-plot :: (t :: Table, column :: String) -> Image
+                            # box-plot(animals-table, "weeks")
+                          }
+                          @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
+                              Type in this expression in the Interactions Area, and see the resulting plot.
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          @bitmap{images/box-plot.png}
+                          This plot shows us the variation in our dataset according to five numbers.
+                          @itemlist[
+                              @item{ 
+                                  The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 1 week.
+                              }
+                              @item{
+                                  The @bold{Second Quartile (Q2)} value (the line in the middle), which is the median of the whole dataset. We already computed this, as 4.
+                              }
+                              @item{ 
+                                  The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
+                              }
+                              @item{
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), which is computed by taking @italic{the median of the smaller half of the values}. In the @code{weeks} column, that's 2.5 weeks.
+                              }
+                              @item{
+                                  The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 8 weeks in our dataset.
+                              }
+                          ]
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. When we look at all the values between the smallest and largest in our dataset, we use the same term.
+                          @activity[#:forevidence (list "HSS.ID.A&1&2")]{
+                              On page @worksheet-link[#:name "Summarizing-Weeks"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{range} of this dataset. 
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
+                          @activity[#:forevidence (list "HSS.ID.A&1&2")]{
+                              Find the @vocab{interquartile range} of this dataset. @bold{ What percentage of animals fall within the interquartile range? }
+                          }
+                      }
+                      @teacher{
+                          @math{8 - 2 = 6 weeks}
+                      }
+                }
+                @point{
+                      @student{
+                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 6 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That tells us that there are definitely a lot of outliers. Looking at the first and third quartiles, we can conclude that the interquartile range is also @italic{skewed towards the minimum}.
+                          @activity{
+                            On page @worksheet-link[#:name "Summarizing-Weeks"], write down your conclusion for this box-plot.
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Table Plans"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[
+          @item{Students learn different measures of variation, including range, and interquartile range}
+          @item{Students practice describing variation using these concepts}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                      @student{
+                          @activity{
+                              Turn to page @worksheet-link[#:name "Fixed-Weeks-Box"], and complete the Table Plan you find there. You'll need to come up with your own sample table this time: what columns will you need? What rows matter?
+                          }
+                      }
+                      @teacher{
+                          
+                      }
+                }
+      ]
+  }
+
+  @lesson/studteach[
+     #:title "Your Dataset"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:product-outcomes @itemlist[@item{Students describe the centers and variation in their chosen dataset}]
+     #:standards (list "Data 3.2.1" "Data 3.2.1")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -316,42 +493,28 @@
                 )
       ]{
         @points[
-              @point{
+                @point{
+                      @student{
+                          Now that you're comfortable creating box plots and looking at measures of variation on the computer, it's time to put your skills to the test! 
+                          @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3")]{
+                            Turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
+                          }
+                      }
+                      @teacher{
+                          Review students' answers, especially to the question five.
+                      }
+                }
+                @point{
                     @student{
-                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.2&1&1" "BS-DR.1&1&2" "BS-DR.4&1&1" "BS-DR.4&1&2" "Data 3.1.1&1&1" "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
-                            @itemlist[
-                                @item{
-                                  Turn to @worksheet-link[#:name "Dogs-by-Age"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table. @bold{Note:} this time, you'll need to fill in more missing parts of the function definition!
-                                }
-                                @item{
-                                  Turn to @worksheet-link[#:name "Old-Dogs-Diet"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table. @bold{Note:} this time, you'll need to come up with your own Contract and Purpose!
-                                }
-                                @item{
-                                  Turn to @worksheet-link[#:name "Fixed-Birth"], and complete the Table Plan. When your teacher has checked your work, type in your code to create the table.
-                                }
-                            ]
-                        }
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        By now, you've had a chance to use Table Plans and Table Methods to:
-                        @itemlist[
-                            @item{ Extend data with computed columns }
-                            @item{ Filter rows to create @italic{subsets} of data (e.g. "only cats") }
-                            @item{ Order rows by a particular column, in ascending or descending order }
-                        ]
+                        By now, you've got a good handle on how to think about measures of center variation, and it's time to apply those skills to your dataset!
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Turn to @worksheet-link[#:name "Dataset-Plans"] in your Student Workbook, and fill out questions 3-5.
+                            Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
-                    }
+                    }       
                     @teacher{
 
-                    }
-              }
+                    }              
+                }
         ]
   }
 
@@ -364,7 +527,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -372,24 +535,14 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                        @activity[#:forevidence "BS-IDE&1&1"]{
-                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                        }
-                    }
-                    @teacher{
-                             If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
-                   }
-              }
-              @point{
-                    @student{
-                        You've already learned how to use the Design Recipe to write functions over simple data, like Numbers, Strings, Images and Booleans. Now you know how to use it to write functions over entire tables! The Design Recipe and Table Plans are the building blocks for all of the analysis you will do in this course.
-                    }
-                    @teacher{
-                    
-                    }
-              }
+                @point{
+                      @student{
+                          Data Scientists are skeptical people: they don't trust a claim unless they can see the data, or at least get some summary information about the center and variation in the dataset. In the next Unit, you'll investigate new ways to visualize variation and distribution.
+                      }
+                      @teacher{
+
+                      }
+                }
         ]
   }
 }
