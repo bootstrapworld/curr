@@ -237,7 +237,7 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1-im"
+     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1"
                        (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith1")
                        (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith2")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
@@ -434,10 +434,10 @@
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list 
-                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1-im")
+                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code2")
-                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1")
                        )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
