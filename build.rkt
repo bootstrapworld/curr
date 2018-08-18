@@ -98,6 +98,7 @@
                base)]))
   (define-values (base name dir?) (split-path scribble-file))
 
+<<<<<<< HEAD
 
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
 
@@ -117,6 +118,31 @@
                    (regexp-replace #px".scrbl$"
                                    (path->string name)
                                    ".html")))))
+=======
+  (define namestr (path->string name))
+
+  (when (scribble-again? namestr base output-dir)
+  
+    (define output-path 
+      (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" namestr ".html"))))
+    
+    (parameterize ([current-directory base]
+                   [current-namespace document-namespace]
+                   [current-document-output-path output-path])
+      (render (list (dynamic-require `(file ,namestr) 'doc))
+              (if outfile (list outfile) (list name))
+              #:dest-dir output-dir
+              ;; Comment out next line to use default scribble.css file
+              #:style-file (build-path root-path "lib" "css-files-units" "scribble.css")
+              )
+      (when (and (not never-generate-pdf?) (current-generate-pdf?))
+        (translate-html-to-pdf
+         (build-path output-dir
+                     (regexp-replace #px".scrbl$"
+                                     namestr
+                                     ".html")))))
+  )
+>>>>>>> upstream/new-master
   (void))
 
 
@@ -312,8 +338,13 @@
                                                 "units"
                                                 subdir "exercises")])
           (unless (directory-exists? deploy-exercises-dir)
+<<<<<<< HEAD
             ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units"))
 
+=======
+            ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units")))
+              
+>>>>>>> upstream/new-master
             (make-directory deploy-exercises-dir))
 
           (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
@@ -446,15 +477,16 @@
                                              ["es-mx" lessons-dir-alt-spa])
                                            lesson-name "exercises")]
                      [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
-                (parameterize [(current-deployment-dir exer-dir)]
-                  (scribble-to-pdf exer-files exer-dir))
-                (for ([exerfile exer-files])
-                  (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
-                         [exerfile-path (build-path exer-dir exerfile-pdf)])
-                    (copy-file exerfile-path
-                               (build-path exer-deploy-dir exerfile-pdf)
-                               #t)))
-                ))
+                (let ([fresh-pdfs-made?
+                        (parameterize [(current-deployment-dir exer-dir)]
+                          (scribble-to-pdf exer-files exer-dir))])
+                  (when fresh-pdfs-made?
+                    (for ([exerfile exer-files])
+                         (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
+                                [exerfile-path (build-path exer-dir exerfile-pdf)])
+                           (copy-file exerfile-path
+                                      (build-path exer-deploy-dir exerfile-pdf)
+                                      #t)))))))
             pdf-lesson-exercises))
 
 
@@ -726,7 +758,8 @@
           (if (build-exercises?)
               (begin (build-exercise-handouts)
                      (workbook-styling-on)
-                     (build-extra-pdf-exercises))
+                     ;(build-extra-pdf-exercises)
+                           )
               (workbook-styling-on))
           )
 	(when (equal? course "intro")
@@ -741,6 +774,9 @@
           )
 	(textbook-styling-on)
         (update-resource-paths)
+        (workbook-styling-on)
+        (build-extra-pdf-exercises)
+        (textbook-styling-on)
         (build-course-units)
         (copy-resources)
         ))))

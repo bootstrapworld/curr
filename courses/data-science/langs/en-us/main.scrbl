@@ -11,7 +11,7 @@ Information and knowledge can be gained through computational processes. An impo
 
 @(apply itemlist
         (append
-         (for/list ([n (in-range 1 12)])
+         (for/list ([n (in-range 1 10)])
            (unit-summary/links n))
         ))     
 

@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 8: Frequency Charts}
+@title{Unit 8: Linear Regression}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{+, -, *, /, num-sqrt} 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -15,22 +15,22 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, bar-chart, pie-chart, mean, median, modes} 
-                                              ""))]{
+                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, labeled-scatter-plot} 
+                                                ""))]{
   @unit-descr{
-    Students explore new visualizations in Pyret, this time focusing on the @italic{frequency} of observations in their dataset. They learn how to construct and interpret Frequency Bar Charts and Histograms, experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. 
+    Students compute the "line of best fit" using linear regression, and search for correlations in their own datasets.
   }
 }
 @unit-lessons{
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list )
+     #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -44,10 +44,132 @@
         @points[
                 @point{
                         @student{
+                                "Younger animals are cuter, and therefore get adopted faster". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
+                        }
+                        @teacher{
+                                   
+                        }
+                }
+                @point{
+                        @student{
+                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how good the predictor is").
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1Z0jE9BugpJlcuRMlHxpLe9FgToJZoU4m" "new copy"].)
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1mhIjMpk3PM6D9EeY8-6VI95kDLVAPFy5" "new copy"].)
                               }
-                              Turn to @worksheet-link[#:name "Visualizing-Quantity-Review"] in your Student Workbook, and answer the questions you find there. 
+                        }
+                        @teacher{
+                        
+                        }
+                }
+
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Linear Regression"
+     #:duration "30 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[
+        @item{Students learn about linear regression as a tool for quantifying correlations}
+        @item{Students learn how to interpret the results of a linear regression}
+     ]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students interpret linear regression data for the animals table}]
+     #:standards (list "S-ID.7-9" "HSS.ID.B" "HSS.ID.C" "Data 3.1.3" "Data 3.2.1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:exercises (list (make-exercise-locator/file "Linear-Regression" "Relationships1" "Describing Relationships")
+                        (make-exercise-locator/file "Linear-Regression" "Relationships2" "Describing Relationships"))
+
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                                @bitmap{images/age-vs-weeks.png}
+                                After our last Unit, we are left with two questions:
+                                @itemlist[
+                                    @item{
+                                        How do we make a prediction from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
+                                    }
+                                    @item{
+                                        How do we measure the accuracy of our prediction? In other words, "@italic{how well} does that line fit?"
+                                    }
+                                ]
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                @activity[#:forevidence (list )]{
+                                  You can see this in action, in this @(new-tab "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  @itemlist[
+                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
+                                      @item{What would the plot have to look like for SSE to be zero?}
+                                  ]
+                                }
+                        }
+                        @teacher{
+                                Give students some time to experiment here! Can your students come up with rules or suggestions for how to minimize error? 
+                        }
+                }
+                @point{
+                        @student{
+                                We can compute our own predictor line in Pyret, plot it on top of a scatterplot, and even get the equation for that line:
+
+                                @code[#:multi-line #t]{
+                                        # use linear regression to extract a predictor function
+                                        # lr-plot :: (t :: Table, xs :: String, ys :: String) -> Image
+                                        # labeled-lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
+                                }
+                                @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
+
+                                @activity[#:forevidence (list )]{
+                                    In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
+                                    You can learn more about how a predictor is created by watching @(new-tab "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
+                                }
+
+                        }
+                        @teacher{
+                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
+                        }
+                }
+                @point{
+                        @student{
+                                @bitmap{images/lr-explained.png}
+                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} - or our predictor function - drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
+                                @activity[#:forevidence (list "S-ID.7-9&1&1" "HSS.ID.C&1&1" "HSS.ID.C&1&2")]{
+                                    If an animal is 5 years old, how long would this line of best fit @italic{predict} they would wait to be adopted? What if they were a newborn, and 0 years old?
+                                }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make a useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
                         }
                         @teacher{
                                 
@@ -55,172 +177,106 @@
                 }
                 @point{
                         @student{
-                                These visualizations tell us about the value of each row in our table. Bar charts tell us the precise value of each row, and pie charts tell us the fraction - or percent - of the total value that each row takes up. In both charts, every row in the table is represented by a unique bar or pie slice. But what if we want to talk about @italic{frequency} in our dataset?
+                                These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
+                                @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
+                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between 0 and 1.
+                                }
                         }
                         @teacher{
-                        
+                                
                         }
                 }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Frequency Bar Charts"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
-     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
                 @point{
-                      @student{
-                              Let's look at an example table, sampled from the @code{animals-table}...
-
-                              @build-table/cols[
-                                    '("name" "species" "age" "pounds")
-                                    '(("\"Sasha\"" "\"Boo-boo\"" "\"Felix\"" "\"Buddy\"" "\"Nori\"" "\"Wade\"" "\"Nibblet\"" "\"Maple\"")
-                                      ("\"cat\"" "\"dog\"" "\"cat\"" "\"lizard\"" "\"dog\"" "\"cat\"" "\"rabbit\"" "\"dog\"")
-                                      ("1" "11" "16" "2" "6" "1" "6" "3")
-                                      ("6.5" "123" "9.2" "0.3" "35.3" "3.2" "4.3" "51.6"))
-                                     (lambda (r c) (para ""))
-                                     4 8
-                              ]
-                              What can we say about this table? How many rows and columns does it have? Are they categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
-                      }
-                      @teacher{
-
-                      }
+                        @student{
+                                The @vocab{r-squared} value for a predictor is a number that tells us @italic{"how much of the variation in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the variability in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the variability is explained by the predictor. 
+                                @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
+                                        @itemlist[
+                                            @item{
+                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
+                                            }
+                                            @item{
+                                                What does it mean when a data point is @italic{above} the predictor line?
+                                            }
+                                            @item{
+                                                What does it mean when a data point is @italic{below} the predictor line?
+                                            }
+                                            @item{
+                                                If you only have two data points, why will the r-squared value always be 1.0?
+                                            }
+                                        ]
+                                        
+                                } 
+                        }
+                        @teacher{
+                                It's always possible to draw a line between points, so any predictor for a 2-item dataset will be perfect! Of course, that's why we never trust correlations drawn from such a small sample size!
+                        }
                 }
                 @point{
-                      @student{
-                              @activity[#:forevidence (list "6.SP.4-5&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                    Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
-                              }
-                              What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
-                      }
-                      @teacher{
+                        @student{
+                                An r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered impressively strong!
+                        }
+                        @teacher{
 
-                      }
+                        }
                 }
                 @point{
-                      @student{
-                              @bitmap{images/freq-bar.png}
-                              The first chart is called a @vocab{frequency bar chart}. It uses the @vocab{categorical data} in a column as the labels, and then @italic{counts how often} those categories show up in the table. In other words, it shows us the frequency with which each category appears in the table.
-                      }
-                      @teacher{
-                              
-                      }
-                }
-                @point{
-                      @student{
-                              Here, we are looking at the @code{species} column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} with which each category occurs in our dataset. and that frequency relates to the length of each bar. Since there are 3 animals whose @code{species} is @code{"cat"}, the bar for Cat extends to 3 marks long.
-                      }
-                      @teacher{
-                      
-                      }
-                }
-                @point{
-                      @student{
-                              This works great for categorical data - there are only so many types of animals at our shelter! But what if we wanted to see a frequency of quantitative data, like the weights of each animal? There are so many unique weights in our table that we'd have a hundred different bars, all the same size! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
-                      }
-                      @teacher{
+                        @student{
+                                @activity[#:forevidence "BS-IDE&1&1"]{
+                                        In the Interactions Area, compute a scatter plot and line-of-best-fit for the following relationships:
 
-                      }
-                }
-                @point{
-                      @student{
-                              Here is the contract for @code{freq-bar-chart}, followed by an example of how use it:
-                              @code[#:multi-line #t]{
-                                # freq-bar-chart :: (t :: Table, values :: String) -> Image
-                                # freq-bar-chart(animals-table, "species")  # show frequency of each animal
-                              }
-                              @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
-                                  In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
-                              }
-                      }
-                      @teacher{
+                                        @itemlist[
+                                                @item{
+                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                }
+                                                @item{
+                                                        The @code{pounds} vs. @code{weeks} waiting for adoption, but just for young animals in the shelter.
+                                                }
+                                                @item{
+                                                        The @code{age} vs. @code{pounds} of the animals, but just for animals that have been fixed.
+                                                }
+                                        ]
+                                }
+                        }
+                        @teacher{
 
-                      }
+                        }
                 }
-        ]
-  }
-  @lesson/studteach[
-     #:title "Histograms"
-     #:duration "15 minutes"
-     #:overview ""
-    #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students create histograms using the animals dataset}]
-     #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
                 @point{
-                      @student{
-                              @bitmap{images/histogram.png}
-                              The second chart is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
+                        @student{
+                                When looking at just the cats, we found that our predictor had an r-squared value of about 0.321. That means that 32.1% of the variation in adoption times is due to the age of the cats. We also saw that the slope of the predictor function was .23, meaning that for every year older a cats is, we expect a .23-week increase in the time taken to adopt that cat. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
+                                @activity[#:forevidence (list "S-ID.7-9&1&1")]{
+                                      Write up two other findings from the linear regressions you performed on this dataset.
+                                }
+                        }
+                        @teacher{
+                                Have students read their text aloud, to get comfortable with the phrasing.
+                        }
+                }
+                @point{
+                        @student{
+                                @bannerline{Correlation does NOT imply causation.}
+                                It's worth revisiting this point again. It's easy to be seduced by large r-squared values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
                                 @itemlist[
-                                    @item{ Frequency bar charts are for categorical data, but histograms are for quantitative data }
-                                    @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }
-                                    @item{ The size of the bins is adjustable }
+                                    @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{r^2=0.952}) }
+                                    @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{r^2=0.899}) }
+                                    @item{ "Marriage rate in Wyoming" v. "Domestic production of cars" (@math{r^2=0.976}) }
                                 ]
-                              These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
-                      }
-                      @teacher{
-                              Each bin represents a range of 20 pounds.
-                      }
-                }
-                @point{
-                      @student{
-                               Here is the contract for @code{histogram}, followed by an example of how use it:
-                              @code[#:multi-line #t]{
-                                # histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
-                                histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
-                              }
-                              @activity[#:forevidence (list )]{
-                                  In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the bin-size. Is it useful to have a bin-size of 1? What about 100?
-                              }
-                      }
-                      @teacher{
-                              Debrief with your students, focusing on what it means to "choose a good bin size".
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence (list "S-ID.1-4&1&1" "Data 3.1.3&1&3" "Data 3.1.3&1&4")]{
-                                  How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
-                              }
-                      }
-                      @teacher{
-
-                      }
+                        }
+                        @teacher{
+                                All of these correlations come from the @(new-tab "http://tylervigen.com/" "Spurious Correlations") website. If time allows, have your students explore the site to see more!
+                        }
                 }
         ]
   }
 
   @lesson/studteach[
      #:title "Your Dataset"
-     #:duration "30 minutes"
+     #:duration "40 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students create visualizations of frequency using their chosen dataset, and write up their findings}]
-     #:standards (list "Data 3.1.2")
+     #:product-outcomes @itemlist[@item{Students use linear regression to quantify patterns in their chosen dataset, and write up their findings }]
+     #:standards (list "Data 3.2.1" )
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -230,32 +286,32 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
+                @point{
+                        @student{
+                            @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6")]{
+                                Turn back to @worksheet-link[#:name "Correlations-My-Dataset"], where you listed possible correlations. Use Table Plans and the Design Recipe to investigate these correlations. If you need blank Table Plans or Design Recipes, you can find them at the back your workbook, just before the Contracts.
+                            }
                         }
-                    }       
-                    @teacher{
-                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }
-              }
-              @point{
-                    @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
-                        }
-                    }
-                    @teacher{
+                        @teacher{
 
-                    }
-              }
+                        }
+                }
+                @point{
+                        @student{
+                              @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3" "Data 3.2.1&1&5" "Data 3.2.1&1&6" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
+                                  What correlations did you find? Did you need to filter out certain rows in order to get those correlations? Write up your findings by filling out @worksheet-link[#:name "Findings-My-Dataset"].
+                              }
+                        }
+                        @teacher{
+                              Have several students read their findings aloud.
+                        }
+                }
         ]
   }
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -270,17 +326,15 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
-                          @activity[#:forevidence (list )]{
-                                Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, draw a line to the kind of chart that would answer it best.
-                          }
-                    }
-                    @teacher{
-
-                    }
-              }
+                @point{
+                        @student{
+                                @bitmap{images/nonlinear.png}
+                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical models out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                        }
+                        @teacher{
+                        
+                        }
+                }
         ]
   }
 }
