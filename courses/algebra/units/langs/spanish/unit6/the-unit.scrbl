@@ -156,7 +156,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1")]{
                                                  Ve a la @worksheet-link[#:name "safe-left"] de tu libro. Usa las instrucciones de diseño para arreglar la función de tal manera que @code{safe-left?} tome la coordenada x- de Sam y retorne @code{true} o @code{false} 
                                                  dependiendo de dónde si se encuentra sea @italic{mayor que -50}.}
-                                           Una vez hayas digitado los Ejemplos y definición de @code{safe-left?}, haz clic en "Run" y observa si se evita que Sam pueda volar afuera por el lado izquierdo de la pantalla. Asegúrate de probar tu función en la ventana de interacciones,
+                                           Una vez hayas digitado los ejemplos y definición de @code{safe-left?}, haz clic en "Run" y observa si se evita que Sam pueda volar afuera por el lado izquierdo de la pantalla. Asegúrate de probar tu función en la ventana de interacciones,
                                            por ejemplo:
                                   @code[#:multi-line #t]{(safe-left? 50)
                                                          (safe-left? -100)
@@ -178,7 +178,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                                   @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
                                   }
                          }
-                 @point{@student{Una vez hayas digitado los Ejemplos y definición de @code{safe-right?}, haz clic en "Run" y observa si se evita que Sam pueda volar afuera por el lado derecho de la pantalla. ¡Te sorprenderás de lo que sucede! Prueba tu función en la ventana de Interacciones:
+                 @point{@student{Una vez hayas digitado los ejemplos y definición de @code{safe-right?}, haz clic en "Run" y observa si se evita que Sam pueda volar afuera por el lado derecho de la pantalla. ¡Te sorprenderás de lo que sucede! Prueba tu función en la ventana de Interacciones:
                                   @code[#:multi-line #t]{(safe-right? 50)
                                                          (safe-right? 810)
                                                          (onscreen? 50)
@@ -314,7 +314,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                        }
                 @point{@student{
 
-El código de detección de límites que escribiste (a través de @code{safe-left?} Y @code{safe-right?}) Es muy útil para videojuegos. Se puede utilizar para detener a un personaje de viajar a través de una pared, o para regenerar el carácter una vez que ha dejado la pantalla. @activity{Abre el archivo de juego y desplázate hacia abajo después de las funciones @code{update-} hasta que veas las definiciones de @code{safe-left?}, @code{safe-right?} y @code{onscreen?} . En este momento, todos ellos retornan "true". Puesto que su pantalla de juego tiene las mismas dimensiones que el patio de Sam (640x480), puedes utilizar el mismo código para cada una de estas tres funciones. Asegúrate de incluir EJEMPLOS, para que el código del juego pueda probar cada función por separado.}}
+El código de detección de límites que escribiste (a través de @code{safe-left?} Y @code{safe-right?}) Es muy útil para videojuegos. Se puede utilizar para detener a un personaje de viajar a través de una pared, o para regenerar el carácter una vez que ha dejado la pantalla. @activity{Abre el archivo de juego y desplázate hacia abajo después de las funciones @code{update-} hasta que veas las definiciones de @code{safe-left?}, @code{safe-right?} y @code{onscreen?} . En este momento, todos ellos retornan "true". Puesto que su pantalla de juego tiene las mismas dimensiones que el patio de Sam (640x480), puedes utilizar el mismo código para cada una de estas tres funciones. Asegúrate de incluir ejemplos, para que el código del juego pueda probar cada función por separado.}}
                        @teacher{}
                        }
                 ]}

@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "line-length" "Escribe una función llamada 'linea-longitud', que toma dos números y regresa la * diferencia positiva * entre ellos.
+@(design-recipe-exercise "line-length" "Escribe una función llamada 'line-length', que toma dos números y regresa la * diferencia positiva * entre ellos.
 Siempre debe restar el número más pequeño de la más grande, y si son iguales debe regresar un cero."
                          #:domain-list '("number" "number")
                          #:range "number"

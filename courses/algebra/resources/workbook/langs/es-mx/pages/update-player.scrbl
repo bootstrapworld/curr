@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "update-player" "Write a function called update-player, which takes in the player's y-coordinate and the name of the key pressed, and returns the new y-coordinate."
+@(design-recipe-exercise "update-player" "Escribe una función llamada ́update-player ́, que tome la coordenada Y del jugador y el nombre de la tecla presionada, y devuelva la nueva coordenada y."
 			 #:domain-list (list "number" "string")
 			 #:range "number"
 			 #:purpose "Produce new y-coordinate depending on key press"

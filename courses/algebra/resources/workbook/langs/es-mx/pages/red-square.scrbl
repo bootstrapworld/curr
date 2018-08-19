@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "red-square" "Use la receta de diseño para escribir una función 'cuadro-rojo', que toma un número (la longitud de cada lado del cuadrado) y regresa un rectángulo rojo sólido cuya longitud y ancho son del mismo tamaño."
+@(design-recipe-exercise "red-square" "Use la receta de diseño para escribir una función 'red-square', que toma un número (la longitud de cada lado del cuadrado) y regresa un rectángulo rojo sólido cuya longitud y ancho son del mismo tamaño."
 
 			 #:domain-list (list "number")
 			 #:range "image"

@@ -75,9 +75,9 @@
                                 @item{@code{safe-left?} siempre comparó la coordenada de entrada a -50, sin importar cuál era la entrada.}
                                 @item{@code{update-danger} siempre agregó o restó la misma cantidad}
                                 @item{y así...}]
-                     Esto fue evidente al pasar de los EJEMPLOS a la definición de la función: circundando lo que cambia esencialmente da
+                     Esto fue evidente al pasar de los ejemplos a la definición de la función: circundando lo que cambia esencialmente da
                      la definición, y el número de variables siempre coincidirá con el número de cosas en el Dominio. 
-                     @activity{Ve a la @worksheet-link[#:name "cost"], rellena el Contrato y los EJEMPLOS para esta función,
+                     @activity{Ve a la @worksheet-link[#:name "cost"], rellena el Contrato y los ejemplos para esta función,
                                luego marca con un círculo y etiqueta lo que cambia.}}
             @teacher{It may be worthwhile to have some EXAMPLEs and definitions written on the board, so students can follow along.}
            }

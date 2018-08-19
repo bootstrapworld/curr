@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "update-target" "Write a function 'update-target', which takes in the target's x-coordinate and produces the next x-coordinate, which is 50 pixels to the right."
+@(design-recipe-exercise "update-target" "Escribe la función 'update-target', que tome la coordenada X del objetivo y produzca la siguiente coordenada X, ubicada 50 píxeles a la derecha."
 			 #:domain-list (list "number")
 			 #:range "number"
 			 #:purpose "Produce new coordinate by adding 50 to the given number"

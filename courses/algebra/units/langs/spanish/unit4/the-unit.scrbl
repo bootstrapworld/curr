@@ -110,7 +110,7 @@
                  @point{@student{La Receta de Diseño permite al programador enfocarse en un paso del problema a la vez y usar los pasos anteriores para completar el siguiente.
                                  @activity{@itemlist[@item{¿Qué dice el @vocab{Contrato} a un programador acerca de una función?}
                                                        @item{¿Qué dice la @vocab{Declaración de Propósito} a un programador acerca de una función?}
-                                                       @item{¿Cómo el Contrato y la Declaración de Propósito ayudan a un programador a escribir @vocab{Ejemplos}?}
+                                                       @item{¿Cómo el Contrato y la Declaración de Propósito ayudan a un programador a escribir @vocab{EXAMPLE}?}
                                                        @item{¿Por qué es útil circundar y etiquetar las partes de los ejemplos que cambian?}
                                                        @item{¿Cómo todos estos pasos ayudan a un programador a definir una función?}]}
                                  }
@@ -136,7 +136,7 @@
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{¿Puedes ver el error que cometió el programador?}
                                  Sin ver múltiples ejemplos, este programador no se dio cuenta de que la altura del cohete debe calcularse para @italic{cada entrada}. En su lugar, sólo producen el mismo número cada vez (en este caso, cero). Como resultado, el cohete está siempre a cero, no importa cuántos segundos hayan pasado. 
                                  @activity{@itemlist[@item{Corrige el ejemplo de este programador para mostrar su trabajo.}
-                                                       @item{Escribe un segundo Ejemplo, debajo del primero.}
+                                                       @item{Escribe un segundo ejemplo, debajo del primero.}
                                                        @item{Corrige la definición de la función, de modo que multiplique el número de segundos por 7.}
                                                        @item{¡Haz clic en "Run", y luego usa la barra espaciadora para hacer que el cohete vuele!}]}
                                  }
@@ -196,7 +196,7 @@
                         }
                  @point{@student{Un contrato es la base de una función, que proporciona a los programadores la información suficiente para usarlos: el nombre de la función, los tipos de datos que espera y el tipo de datos que devuelve.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
-                                          Ahora que has completado los Contratos para los cuatro problemas de palabras, trata de generar dos Ejemplos para cada uno.}}
+                                          Ahora que has completado los Contratos para los cuatro problemas de palabras, trata de generar dos ejemplos para cada uno.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
                  @point{@student{Una vez que tengas dos o más ejemplos, debe ser fácil identificar lo que ha cambiado entre ellos. De hecho, el número de cosas que cambian debe coincidir con el número de cosas en el dominio de la función: si el dominio tiene un número y una cadena en él, entonces esos dos valores deben ser las cosas que difieren entre los ejemplos.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
@@ -217,19 +217,19 @@
                                            @itemlist[@item{Cada ejemplo comienza con el nombre de la función. ¿Dónde puedes encontrar el nombre de la función?}
                                                        @item{Cada ejemplo tiene que incluir entradas de muestra. ¿Dónde podrías encontrar cuántos insumos necesita esta función, y qué tipos son?}
                                                        @item{Cada ejemplo tiene que incluir una expresión para lo que la función debe @italic{hacer} cuando se le da una entrada. ¿Dónde puedes buscar para saber qué hace esta función?}
-                                                       @item{Escribe dos Ejemplos en tu papel, luego marca y etiqueta lo que está cambiando entre ellos.}]}}
+                                                       @item{Escribe dos ejemplos en tu papel, luego marca y etiqueta lo que está cambiando entre ellos.}]}}
                         @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
                         }
-                 @point{@student{Una vez que se escriben los dos Ejemplos y se etiquetan las variables (o variables), se hace fácil definir la función. 
+                 @point{@student{Una vez que se escriben los dos ejemplos y se etiquetan las variables (o variables), se hace fácil definir la función. 
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                           Usando el Contrato, la Declaración de Propósito y los Ejemplos, ve si puedes contestar las siguientes preguntas:
+                                           Usando el Contrato, la Declaración de Propósito y los ejemplos, ve si puedes contestar las siguientes preguntas:
                                            @itemlist[@item{Cada definición de función comienza con el nombre. ¿Dónde escribiste esto?}
                                                      @item{Cada definición tiene que incluir nombres de variables para las entradas. ¿Dónde escribiste esto?}
-                                                     @item{Toda definición debe funcionar exactamente como lo hicieron los Ejemplos. ¿Dónde puedes mirar para averiguar que debe @italic{hacer} la función?}
+                                                     @item{Toda definición debe funcionar exactamente como lo hicieron los ejemplos. ¿Dónde puedes mirar para averiguar que debe @italic{hacer} la función?}
                                                      @item{Escribe la definición de función en tu papel.}]}}
                         @teacher{}
                         }
-                 @point{@student{Cuando digitas en una definición de función, asegúrate de digitar las tres partes, El Contrato y Declaración de Propósito, los Ejemplos y la Definición.
+                 @point{@student{Cuando digitas en una definición de función, asegúrate de digitar las tres partes, El Contrato y Declaración de Propósito, los ejemplos y la Definición.
                                  Cuando haces clic en "Run", la computadora leerá la definición, evaluará tus ejemplos para asegurarse que funciona correctamente y entonces agregará la definición  a tu lenguaje.
                                  Una vez agregado, puedes usar la función como si hubiera sido construida dentro de la computadora.
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
@@ -258,7 +258,7 @@
                                                               @item{¿Cuántas cosas toma esta función como entrada? ¿Son números? ¿Instrumentos de cuerda? ¿Imágenes?}
                                                               @item{Escribe el @vocab{Contrato} para esta función, utilizando lo que subrayaste para ayudarte a encontrar el @vocab{Dominio} y @vocab{Rango}.}
                                                               @item{Debajo del Contrato, escribe la @vocab{Declaración de Propósito} resumiendo lo que hace la función en una sola oración.}
-                                                              @item{Escribe dos Ejemplos para esta función, luego rodea en circulo y etiqueta lo que varía entre ellos.}
+                                                              @item{Escribe dos ejemplos para esta función, luego rodea en circulo y etiqueta lo que varía entre ellos.}
                                                               @item{Escribe la Definición para esta función.}]}
                                  }
                          @teacher{If time allows, pass out extra Design Recipe worksheets [@resource-link[#:path "DesignRecipeWorksheet.pdf" #:label "PDF"]], and have students practice with other word problems. Practice variations on red-square, involving two inputs changing while other parameters stay fixed.}
@@ -296,8 +296,8 @@
                  @point{@student{La distancia que recorre un cohete se mide en números de millas, y el tiempo se mide en números de segundos. Esto nos da
                                   el contrato:
                                   @bannerline{@math{distance: Number \rightarrow Number}}
-                                  Al igual que antes, el Contrato nos da una fuerte pista sobre cómo escribir los Ejemplos. Aquí hay un ejemplo, escrito en
-                                  Código Racket: @code{(EJEMPLO (distance 5) (* 5 80))} Aquí está el mismo ejemplo, escrito en álgebra:
+                                  Al igual que antes, el Contrato nos da una fuerte pista sobre cómo escribir los ejemplos. Aquí hay un ejemplo, escrito en
+                                  Código Racket: @code{(EXAMPLE (distance 5) (* 5 80))} Aquí está el mismo ejemplo, escrito en álgebra:
                                   @math{distance (5) = 5 \times 80}
                                   @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                       Escribe dos ejemplos adicionales para esta función, usando la notación algebraica.}
@@ -306,9 +306,9 @@
                                   If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
                                   then convert them to Algebra by following the model shown here.}
                          }
-                 @point{@student{Como antes, las variables de una función pueden ser identificadas escribiendo dos Ejemplos, y mirando qué cambia entre ellos.
+                 @point{@student{Como antes, las variables de una función pueden ser identificadas escribiendo dos ejemplos, y mirando qué cambia entre ellos.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-	                                           Utilizando los Ejemplos que has escrito, identifica la(s) variable(s) para la función.
+	                                           Utilizando los ejemplos que has escrito, identifica la(s) variable(s) para la función.
                                             A continuación, define la función @italic{usando sintaxis algebraica}.}
                                  La Receta de Diseño ayuda a la transición de una descripción escrita de una función en una definición formal, 
                                  @bannerline{@math{distance(4) = 4 \times 80}
@@ -326,10 +326,10 @@
                                   @bold{only now we want be able to see the relationship from the opposite direction}: time in terms of 
                                   distance, rather than distance in terms of time.}
                          }
-            @point{@student{Una vez que tengamos el Contrato, es fácil escribir Ejemplos:
+            @point{@student{Una vez que tengamos el Contrato, es fácil escribir ejemplos:
                              @math{time : Number \rightarrow Number}
                             @activity[#:forevidence (list "F-BF.3-4&1&4" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                                       Utiliza el Contrato para escribir dos Ejemplos para esta función, luego identifica la(s) variable(s) para la función.
+                                       Utiliza el Contrato para escribir dos ejemplos para esta función, luego identifica la(s) variable(s) para la función.
                                        @itemlist[@item{¿Cuántas variables tiene esta función?}
                                                   @item{Nombre de la(s) variable(s).}
                                                   @item{Define esta función, usando la sintaxis algebraica.}]}}
@@ -351,7 +351,7 @@
                                    }
                             @point{@student{Si tuviéramos una función que computara el tiempo de colisión, sería fácil responder a esta pregunta simplemente tapando la distancia entre la Tierra y Marte. En lugar de empezar a preocuparte por la creación de una ecuación, ¡puedes utilizar la receta de diseño para construir la función en sí!
                                             @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
-                                                   Anota el contrato para esta función, luego escribe dos Ejemplos usando distancias diferentes.}}
+                                                   Anota el contrato para esta función, luego escribe dos ejemplos usando distancias diferentes.}}
                                     @teacher{}
                                     }
                             @point{@student{Por ahora, tienes el contrato para esta función y una buena declaración de propósito:
