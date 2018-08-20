@@ -162,7 +162,7 @@
                           Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
-                                  @(new-tab "https://code.pyret.org/editor#share=18y_TnH69lbvT1lQVh5k-cTEB9aVHaame&v=7865ced" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
                               }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1419VGxyYjd3XDPbgObUa-LMufZe3KDZa" "Starter file"] for this dataset)
