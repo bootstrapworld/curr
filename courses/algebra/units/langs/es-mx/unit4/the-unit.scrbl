@@ -159,8 +159,8 @@
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples2")
                        (make-exercise-locator/file "Practicing-the-Design-Recipe" "calc-pencils-assess-recipe" "Calculating Needed Pencils")
-                       (make-exercise-locator/file "Check this Design Recipe: Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
-                       (make-exercise-locator/file "Check this Design Recipe: Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Check this Design Recipe: Computing the Area of a Circle"))
+                       (make-exercise-locator/file "Practicing-the-Design-Recipe" "check-total-design-recipe-assess" "Totalling a Bill")
+                       (make-exercise-locator/file "Practicing-the-Design-Recipe" "circle-area-design-recipe-assess" "Computing the Area of a Circle"))
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}

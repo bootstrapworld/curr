@@ -71,7 +71,7 @@
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video")]}
+                        @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(hyperlink "https://www.youtube.com/watch?v=OMQO66wWqjk" "Video Lesson: Intro to Booleans")]}
                         }
                  @point{@student{The last expression, @code{(< 3 4)},
                                                       uses a new function that @italic{compares Numbers}, returning

@@ -60,7 +60,7 @@ when it prints out the glossary for a particular unit
     (("frequency" "frequencies") "how often a particular value appears in a data set")
     (("frequency bar chart" "frequency bar charts") "A bar chart in which each the length of each bar corresponds to the frequency of a particular value")
     ("handler" "Connects an event (like a tick or keypress) and a function within a reactor")
-    (("header row" "header rows") "the titles of each column of a table, usually shown at the top")
+    (("header" "headers") "the titles of each column of a table, usually shown at the top")
     ("helper function" "A small function that handles a specific part of another computation, and gets called from other functions")
     ("header" "The part of a table that identifies the names of each column")
     (("histogram" "histograms") "A special frequency bar chart in which each bar counts the frequency of values appearing that belong to a certain bin")

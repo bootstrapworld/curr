@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 6: Quantity Charts}
+@title{Unit 6: Measuring Frequency}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{+, -, *, /, num-sqrt, num-sqr} 
+                                              @code{+, -, *, /, num-sqrt} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -15,10 +15,10 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column}
+                                              @code{.row-n, .order-by, .filter, .build-column, bar-chart, pie-chart, mean, median, modes} 
                                               ""))]{
   @unit-descr{
-      Students construct Bar and Pie Charts in Pyret, to visualize the @italic{quantities} present in rows of their dataset. They experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. They also begin to write their own Sample Tables
+    Students explore new visualizations in Pyret, this time focusing on the @italic{frequency} of observations in their dataset. They learn how to construct and interpret Frequency Bar Charts and Histograms, experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. 
   }
 }
 @unit-lessons{
@@ -30,7 +30,7 @@
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.3")
+     #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[
         @item{Computer for each student (or pair), with access to the internet}
@@ -44,36 +44,55 @@
         @points[
                 @point{
                         @student{
-                                Tables are great when we want to find a specific piece of information, like "how old is Wade the cat?" or "how long was Nibblet in the shelter before being adopted?".
-                                @activity[#:forevidence (list )]{
-                                    Turn to @worksheet-link[#:name "Column-Statements"] in your Student Workbook, and answer the questions you find there. 
-                                }
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1mhIjMpk3PM6D9EeY8-6VI95kDLVAPFy5" "new copy"].)
+                              }
                         }
                         @teacher{
-                                    Debrief with the class.
+                                
                         }
                 }
                 @point{
-                        @student{
-                                @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                    Sometimes it's easier to @italic{visualize} your dataset using a chart or a graph. Turn to @worksheet-link[#:name "Visualizing-Quantity"] in your student workbook. This page contains two charts for a small sample of 7 animals. On the left, we have a bar chart of animals' ages. On the right, a pie chart showing their weight. We can make a lot of observations about these charts, and there are two of them written in the table at the bottom of the page. Can you add two more?
-                                }
-                        }
-                        @teacher{
-                                Debrief with the class, paying special attention to the last question: when @italic{is} one chart better than another?
-                        }
+                      @student{
+                              Let's look at an sample table taken from the @code{animals-table}...
+
+                              @build-table/cols[
+                                    '("name" "species" "age" "pounds")
+                                    '(("\"Sasha\"" "\"Boo-boo\"" "\"Felix\"" "\"Buddy\"" "\"Nori\"" "\"Wade\"" "\"Nibblet\"" "\"Maple\"")
+                                      ("\"cat\"" "\"dog\"" "\"cat\"" "\"lizard\"" "\"dog\"" "\"cat\"" "\"rabbit\"" "\"dog\"")
+                                      ("1" "11" "16" "2" "6" "1" "6" "3")
+                                      ("6.5" "123" "9.2" "0.3" "35.3" "3.2" "4.3" "51.6"))
+                                     (lambda (r c) (para ""))
+                                     4 8
+                              ]
+                              What can we say about this table? How many rows and columns does it have? Are they categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence (list "6.SP.4-5&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
+                                    Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
+                              }
+                              What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
+                      }
+                      @teacher{
+
+                      }
                 }
         ]
   }
 
   @lesson/studteach[
-     #:title "Bar & Pie Charts"
-     #:duration "15 minutes"
+     #:title "Frequency Bar Charts"
+     #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to visualize quantity with Pie and Bar charts}]
+     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students answer questions using pie and bar charts}]
-     #:standards (list "Data 3.1.3")
+     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
+     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -85,12 +104,16 @@
         @points[
                 @point{
                       @student{
-                              You've now seen two kinds of charts: @vocab{bar chart} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
-
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1Z0jE9BugpJlcuRMlHxpLe9FgToJZoU4m" "new copy"].)
-                              }
-
+                              @bitmap{images/freq-bar.png}
+                              The first chart is called a @vocab{frequency bar chart}. It uses the @vocab{categorical data} in a column as the labels, and then @italic{counts how often} those categories show up in the table. In other words, it shows us the frequency with which each category appears in the table.
+                      }
+                      @teacher{
+                              
+                      }
+                }
+                @point{
+                      @student{
+                              Here, we are looking at the @code{species} column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} with which each category occurs in our dataset. and that frequency relates to the length of each bar. Since there are 3 animals whose @code{species} is @code{"cat"}, the bar for Cat extends to 3 marks long.
                       }
                       @teacher{
                       
@@ -98,38 +121,21 @@
                 }
                 @point{
                       @student{
-                              Let's take a look at their contracts...
+                              This works great for categorical data - there are only so many types of animals at our shelter! But what if we wanted to see a frequency of quantitative data, like the weights of each animal? There are so many unique weights in our table that we'd have a hundred different bars, all the same size! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Here is the contract for @code{freq-bar-chart}, followed by an example of how use it:
                               @code[#:multi-line #t]{
-                                    # bar-chart :: (t :: Table, label :: String, value :: String) -> Image
-                                    # pie-chart :: (t :: Table, label :: String, value :: String) -> Image
+                                # freq-bar-chart :: (t :: Table, values :: String) -> Image
+                                # freq-bar-chart(animals-table, "species")  # show frequency of each animal
                               }
-                              The last two functions first consume the @italic{Table} that we want to look at, and their other arguments tell us @italic{which columns to look at} for both the labels and the values.
-                      }
-                      @teacher{
-                        
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                  In the Interactions Area, type @code{pie-chart(animals-table, "name", "age")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
-                              }
-                      }
-                      @teacher{
-                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence "BS-IDE&1&1"]{
-                                      @itemlist[
-                                              @item{
-                                                    Create a bar and pie chart showing the age of every animal in the shelter.
-                                              }
-                                              @item{
-                                                    Create a bar and pie chart showing the weight of every animal in the shelter.
-                                              }
-                                      ]
+                              @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
+                                  In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
                               }
                       }
                       @teacher{
@@ -138,15 +144,14 @@
                 }
         ]
   }
-
   @lesson/studteach[
-     #:title "Table Plans"
-     #:duration "30 minutes"
+     #:title "Histograms"
+     #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+    #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
-     #:standards (list)
+     #:product-outcomes @itemlist[@item{Students create histograms using the animals dataset}]
+     #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -158,129 +163,54 @@
         @points[
                 @point{
                       @student{
-                          @activity[#:forevidence (list )]{
-                            Turn to @worksheet-link[#:name "Pie-Dog-Weight"], and read the word problem carefully. Then write a Contract and Purpose Statement for this word problem.
-                          }
+                              @bitmap{images/histogram.png}
+                              The second chart is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
+                                @itemlist[
+                                    @item{ Frequency bar charts are for categorical data, but histograms are for quantitative data }
+                                    @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }
+                                    @item{ The size of the bins is adjustable }
+                                ]
+                              These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
+                      }
+                      @teacher{
+                              Each bin represents a range of 20 pounds.
+                      }
+                }
+                @point{
+                      @student{
+                               Here is the contract for @code{histogram}, followed by an example of how use it:
+                              @code[#:multi-line #t]{
+                                # histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
+                                histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)
+                              }
+                              @activity[#:forevidence (list )]{
+                                  In the Interactions Area, type in the example to make a histogram of the animals, broken down by weight into 20-pound bins. Then try playing with the bin-size. Is it useful to have a bin-size of 1? What about 100?
+                              }
+                      }
+                      @teacher{
+                              Debrief with your students, focusing on what it means to "choose a good bin size".
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence (list "S-ID.1-4&1&1" "Data 3.1.3&1&3" "Data 3.1.3&1&4")]{
+                                  How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
+                              }
                       }
                       @teacher{
 
                       }
                 }
-                @point{
-                      @student{
-                          @bitmap{images/pie.png}
-                          This time, our Result isn't a Table -- it's an @italic{Image}: a pie chart showing the weights of all the dogs in our shelter. @bold{Note:} When writing a Sample Table, it's okay to skip a few columns and focus on the ones you care about. Keep this in mind for the future!
-                          @activity[#:forevidence (list )]{
-                              Sketch a pie chart based on your Sample Table. When you're done, move on to defining the function, and fill out the methods to define the table. Do we need to build any columns? Filter any rows? Order the table?
-                          }
-                      }
-                      @teacher{
-                          Look to make sure students are drawing the right kind of chart, using the right labels, and have slices that are proportional to the data in their Sample Table.
-                      }
-                }
-                @point{
-                      @student{
-                          We've got most of our function written:
-                          @code[#:multi-line #t]{
-                          # pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            ...                            # produce our result
-                          end
-                          }
-                          What expression will produce our result? Our purpose statement tells us we need to make a @code{pie-chart}, so we can start there. Which table should we use? Which column gives us our labels? Our values?
-                      }
-                      @teacher{
-                          If there's only one method being used, it's convention to put the method call on the same line as the table.
-                      }
-                }
-                @point{
-                      @student{
-                          Putting it all together, we get:
-                          @code[#:multi-line #t]{
-                          # pie-dog-weight :: (animals :: Table) -> Number
-                          # Consume a table of animals, and produce a pie-chart showing the weight of the dogs
-                          fun pie-dog-weight(animals):
-                            t = animals.filter(is-dog)     # define the table
-                            pie-chart(t, "name", "pounds") # produce our result
-                          end
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              When your teacher has checked your paper, type in this function and try it! @bold{Based on this pie chart, does it look like some dogs are a lot heavier than others, or are the weights @italic{evenly distributed}?}
-                          }
-                          Not at all! Kujo and Mr. Peanutbutter each take up more than 13% of the total weight, but almost every other dog's share is 7% or less.
-                      }
-                      @teacher{
-                          Hit this point hard. Seeing the pie slices gives us a feel for the @italic{distribution} of the dataset.
-                      }
-                }
-                @point{
-                      @student{
-                          Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                          @itemlist[
-                                @item{
-                                    @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                                }
-                                @item{
-                                    A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                                }
-                                @item{
-                                    A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
-                                }
-                          ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                                It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                          }
-                    }
-                    @teacher{
-                          If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                    }
-              }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              @bitmap{images/bar.png}
-                              Turn to @worksheet-link[#:name "Bar-Kitten-Adoption"], and fill out the Contract and Purpose Statement. First, we'll provide a name that refers back to our dataset: @code{animals-table}. Then we need to provide a good Sample Table for this word problem. Fill out a good Sample Table and write your result.
-                          }
-                    }
-                    @teacher{
-                          Be sure to check the Sample Tables, and even have students trade workbooks and grade each other's Sample Tables.
-                    }
-              }
-              @point{
-                    @student{
-                          @activity[#:forevidence (list )]{
-                              Once your teacher has checked your Sample Table, type in the code for this function and try it out!
-                          }
-                    }
-                    @teacher{
-                    
-                    }
-              }
         ]
   }
+
   @lesson/studteach[
      #:title "Your Dataset"
-     #:duration "25 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students make pie and bar charts for their datasets, and write up their findings}]
+     #:product-outcomes @itemlist[@item{Students create visualizations of frequency using their chosen dataset, and write up their findings}]
      #:standards (list "Data 3.1.2")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -294,21 +224,21 @@
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Try making a bar or pie chart of a column in your dataset, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
+                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }       
                     @teacher{
-                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }              
+                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                    }
               }
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Do you notice that the outliers all of something in common? What new questions does this raise? Would you like to change your table by filtering it or building a new column? If so, go deeper into your data, using @worksheet-link[#:name "Blank-Table-Plan-1"] and @worksheet-link[#:name "Blank-Table-Plan-2"] to figure out how you want to change your dataset. Write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"].
+                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }
                     @teacher{
-                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+
                     }
               }
         ]
@@ -316,7 +246,7 @@
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "5 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -333,12 +263,15 @@
         @points[
               @point{
                     @student{
-                        Bar and Pie Charts are powerful tools that make it easy to talk about the amount (or relative amount) of quantitative data in our dataset. But what if we wanted to see @italic{how many dogs v. cats there are in our dataset}? This question is about @italic{frequency} - specifically how often the @code{species} column is @code{"cat"} or @code{"dog"}. What if we wanted to know how many animals were between 1-10 pounds, 11-20 pounds, 21-30 pounds, and so on? Once again, that's a question about how @italic{frequent} a particular weight range comes up.
-                    }       
+                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
+                          @activity[#:forevidence (list )]{
+                                Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, draw a line to the kind of chart that would answer it best.
+                          }
+                    }
                     @teacher{
 
-                    }              
+                    }
               }
         ]
-   }
+  }
 }

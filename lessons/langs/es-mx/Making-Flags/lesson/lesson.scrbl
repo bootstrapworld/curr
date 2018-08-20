@@ -50,7 +50,7 @@
                                     @code[#:multi-line #t]{; put-image: Image Number Number Image -> Image
                                                            ; places an image, at position (x, y), on an Image}
                                     @itemlist[@item{¿Cuántas cosas hay en el @vocab{Dominio} de esta función? }
-                                               @item{What is the @vocab{Range} of this function?}
+                                               @item{What is the @vocab{Rango} of this function?}
                                                @item{En la definición para @code{japan}, ¿qué imagen se está utilizando como primer argumento? ¿Qué se utiliza como el segundo?}]
                                     }}
                    @teacher{This is a good time to remind students about @bold{indenting}. Notice that all of the inputs to @code{put-image} line up with one another!}

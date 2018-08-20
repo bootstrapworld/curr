@@ -1,11 +1,12 @@
 #lang curr/lib
 @; Unit 7
 @(assess-design-recipe "turkey-price" 
-                       "The grocery store charges $2/pound for a turkey for the first 5 pounds, and then $1/pound for every 
-pound after that. Write a function that takes in the weight of a turkey and returns how much it will cost."
+                       "La tienda de comestibles cobra $ 2 / libra por un pavo por las primeras 5 libras, y luego
+$ 1 / libra por cada libra después de eso. Escribe una función que tome el peso de un pavo y
+devuelve cuánto costará."
                        #:domain-list (list "weight")
                        #:range "number"
-                       #:purpose "Return the price of the turkey."                 
+                       #:purpose "Devuelve el precio del pavo."                 
                        #:example-list '((3 (* 2 3))
                                         (6 (+ 10 (* 1 (- 6 5)))))
                        #:param-list (list "weight")
