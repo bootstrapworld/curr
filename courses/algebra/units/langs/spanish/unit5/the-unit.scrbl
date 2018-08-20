@@ -69,7 +69,7 @@
                                            Ve a la @worksheet-link[#:name "update-danger"] de tu libro de trabajo hasta la sección @code{update-danger}.
                                            @itemlist[@item{Lee el problema de palabra cuidadosamente, y presta atención a @italic{qué toma la función}.}
                                                       @item{Llena el @vocab{Contrato} y @vocab{Declaración de propósito} para la función, usando lo que encerraste para ayudarte a elegir el Dominio.}
-                                                      @item{Escribe dos @vocab{Ejemplos} para la función.}
+                                                      @item{Escribe dos @vocab{EXAMPLES} para la función.}
                                                       @item{Encierra y etiqueta lo que varía entre esos ejemplos, y etiquétalo con un nombre de @vocab{variable}.}
                                                       @item{Define la función.}]}}
                          @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each step in terms of a prior step. 
@@ -92,7 +92,7 @@
                                            Ve a la @worksheet-link[#:name "update-target"] de tu libro de trabajo hasta la sección @code{update-target}.
                                            @itemlist[@item{Lee el problema de palabra cuidadosamente, y presta atención a @italic{qué toma la función}.}
                                                       @item{Llena el @vocab{Contrato} y @vocab{Declaración de Propósito} para la función, usando lo que encerraste para ayudarte a elegir el Dominio.}
-                                                      @item{Escribe dos @vocab{Ejemplos} para la función.}
+                                                      @item{Escribe dos @vocab{EXAMPLES} para la función.}
                                                       @item{Encierra y etiqueta lo que varía entre esos ejemplos, y etiquétalo con un nombre de @vocab{variable}.}
                                                       @item{Define la función.}]}}
                          @teacher{For students who finish these quickly, have them experiment with making the Target and Danger move faster or slower, or change direction altogether. Be sure that they are typing in Examples, and updating those examples to keep up with any changes to their definition.}

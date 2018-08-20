@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @(design-recipe-exercise "onscreen?"
-"¿Utilizar la receta de diseño para escribir una función 'en pantalla?', Que toma en cuenta la coordenada x y comprueba si Sam está a salvo a la izquierda Y salvo a la derecha." 
+"¿Utilizar la receta de diseño para escribir una función 'onscreen?', Que toma en cuenta la coordenada x y comprueba si Sam está a salvo a la izquierda Y salvo a la derecha." 
 			 #:domain-list (list "number")
 			 #:range "boolean"
 			 #:purpose "Ver si cuando Sam esta en la pantalla su coordenada x esta salvo a la izquierda y salvo a la derecha."

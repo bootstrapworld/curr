@@ -39,7 +39,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Una vez que tengas un juego de trabajo (¡todos tus Contratos y EJEMPLOS incluidos, por supuesto!), Es hora de pensar cómo presentar tu trabajo a otros. Los programadores pasan mucho tiempo diseñando y escribiendo su código, pero también pasan tiempo explicando su trabajo a otros. Estos podrían ser otros programadores en su equipo, otros ingenieros dentro de la empresa, o incluso personas no técnicas. ¿Crees que puedes explicar tu código a otra persona?}
+       @points[@point{@student{Una vez que tengas un juego de trabajo (¡todos tus Contratos y @{code(EXAMPLES} incluidos, por supuesto!), Es hora de pensar cómo presentar tu trabajo a otros. Los programadores pasan mucho tiempo diseñando y escribiendo su código, pero también pasan tiempo explicando su trabajo a otros. Estos podrían ser otros programadores en su equipo, otros ingenieros dentro de la empresa, o incluso personas no técnicas. ¿Crees que puedes explicar tu código a otra persona?}
                        @teacher{Got time for a challenge? Try introducing them to @lesson-link[#:name "Structs" #:label "Data Structures"], to allow for 2-dimensional motion and more player control.}
                        }
                 @point{@student{@activity{¡Cree un póster de muestra para tu juego! Cada póster debe tener los siguientes elementos:

@@ -323,7 +323,7 @@ tome un número y produzca un triángulo verde sólido de cualquier tamaño que 
                                     @teacher{}
                                    }
                             @point{@student{@bannerline{Paso 2: Dar ejemplos}
-                                              Siempre es buena idea pensar algunos ejemplos antes de definir la función. Los ejemplos muestran el atajo que una función está intentando proporcionar. Este lenguaje de programación proporciona un constructor, llamado @code{EXAMPLE}, que le ayuda a anotar cómo se utiliza la función y lo que debe calcular. Puedes ver dos ejemplos de este tipo aquí, escrito bajo el contrato:
+                                              Siempre es buena idea pensar algunos ejemplos antes de definir la función. Los ejemplos muestran el atajo que una función está intentando proporcionar. Este lenguaje de programación proporciona un constructor, llamado @code{EXAMPLES}, que le ayuda a anotar cómo se utiliza la función y lo que debe calcular. Puedes ver dos ejemplos de este tipo aquí, escrito bajo el contrato:
                                              @code[#:multi-line ""]{; gt : Number -> Image
                                                                     (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
                                                                     (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
@@ -354,10 +354,10 @@ Por ejemplo, en nuestros dos ejemplos @code{gt}, hemos rodeado el @italic{size} 
                                              so the variables should appear in both the left and the right sides of the Example.}
                                     }
                             @point{@student{@bannerline{Paso 3: Definir la función}
-                                              Después de escribir el Contrato, dos Ejemplos y los círculos etiquetados, definir la función en sí es relativamente simple.
-                                              @itemlist[@item{Copia todo lo que permanece igual (todo lo que no estaba en un círculo) en una de tus líneas EJEMPLO (en papel o en tu editor)}
+                                              Después de escribir el Contrato, dos ejemplos y los círculos etiquetados, definir la función en sí es relativamente simple.
+                                              @itemlist[@item{Copia todo lo que permanece igual (todo lo que no estaba en un círculo) en una de tus líneas @code{EXAMPLE} (en papel o en tu editor)}
                                                         @item{En lugar de cada círculo, escribe la etiqueta que le dio a ese círculo}
-                                                        @item{Cambia @code{EJEMPLO} a @code{define}}]
+                                                        @item{Cambia @code{EXAMPLE} a @code{define}}]
                                              @code[#:multi-line ""]{; gt : Number -> Image
 (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
 (EXAMPLE (gt  100) (triangle  100 "solid" "green"))
@@ -366,7 +366,7 @@ Por ejemplo, en nuestros dos ejemplos @code{gt}, hemos rodeado el @italic{size} 
                                              (or @italic{vary-able}) are what determines when we need to use the @italic{variable}.}
                                     }
                             @point{@student{@activity[#:forevidence (list "BS-PL.3&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2")]{
-                                               @itemlist[@item{En tu papel, define la función @code{gt}, luego escribe el @vocab{contrato}, @vocab{ejemplos}
+                                               @itemlist[@item{En tu papel, define la función @code{gt}, luego escribe el @vocab{contrato}, @vocab{EXAMPLES}
                                                                 Y @code{denificion} en el área de Definiciones.}
                                                           @item{Haz clic en "Run", para que el equipo lea esta definición.}
                                                           @item{Utiliza la función que has definido, tecleando @code{(gt 100)} en el área de Interacciones.}
@@ -387,14 +387,14 @@ Por ejemplo, en nuestros dos ejemplos @code{gt}, hemos rodeado el @italic{size} 
                                                       @itemlist[@item{¿Cuál es el nombre de la función?}
                                                                  @item{¿Cuál es el dominio de la función?}
                                                                  @item{¿Cuál es el rango de la función?}]
-                                                      Utilizando el Contrato que has escrito, escribe dos @vocab{ejemplos} para la función.
+                                                      Utilizando el Contrato que has escrito, escribe dos @vocab{EXAMPLES} para la función.
                                                       @itemlist[@item{¿Qué parte del contrato te ayuda a llenar el lado izquierdo de un ejemplo?}
                                                                  @item{¿Qué parte del contrato te indica lo que la función necesita como entrada?}
                                                                  @item{¿Cómo puede el rango de una función ayudarte a escribir el ejemplo?}]
                                                       Mirando esos dos ejemplos, circula las partes que son @italic{change-able}, y luego etiqueta con un buen @vocab{nombre de variable}.
                                                       @itemlist[@item{¿Es el nombre de la variable que elegiste igual que el que elegiste para @code{gt}? ¿Por qué o por qué no?}
                                                                  @item{¿Por qué es útil elegir un nombre de variable antes de definir la función?}]
-                                                      Ahora escribe @vocab{definición de función}, usando los Ejemplos que has escrito.}
+                                                      Ahora escribe @vocab{definición de función}, usando los ejemplos que has escrito.}
                                             }
                                     @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify 
                                              each part of their @bold{Contract} by referring back to the Word Problem, to justify each step of their 
@@ -416,7 +416,7 @@ Por ejemplo, en nuestros dos ejemplos @code{gt}, hemos rodeado el @italic{size} 
                                                       @itemlist[@item{¿Cuál es el nombre de la función?}
                                                                  @item{¿Cuál es el dominio de la función?}
                                                                  @item{¿Cuál es el rango de la función?}]
-                                                      Utilizando el Contrato que has escrito, escribe dos @vocab{ejemplos} para la función, luego circula y etiqueta las variables.
+                                                      Utilizando el Contrato que has escrito, escribe dos @vocab{EXAMPLES} para la función, luego circula y etiqueta las variables.
                                                       @itemlist[@item{¿Qué parte del contrato te ayuda a llenar el lado izquierdo de un ejemplo?}
                                                                  @item{¿Qué parte del contrato te indica lo que la función necesita como entrada?}
                                                                  @item{¿Cómo puede el rango de una función ayudarte a escribir el ejemplo?}

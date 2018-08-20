@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @(design-recipe-exercise "cost" 
-"Luigi's Pizza lo ha contratado como programador y ofrece Pepperoni ($10.50), Queso ($9.00), Pollo ($11.25) y Brócoli ($10.25) Escribir una función llamada costo que toma el nombre de un topping y genera el costo de una pizza con esa cobertura."
+"Luigi's Pizza lo ha contratado como programador y ofrece Pepperoni ($10.50), Queso ($9.00), Pollo ($11.25) y Brócoli ($10.25) Escribir una función llamada 'cost' que toma el nombre de un topping y genera el costo de una pizza con esa cobertura."
 			 #:domain-list (list "string")
 			 #:range "number"
 			 #:purpose "Producir el costo de una pizza con topping dado"
