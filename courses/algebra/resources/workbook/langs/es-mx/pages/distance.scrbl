@@ -1,7 +1,7 @@
 #lang curr/lib
 
 @(design-recipe-exercise "distance" (list "Escribe una unción, “distance”, que toma CUATRO entradas:"
-@(itemlist @(item "px: La coordenada x del jugador")
+@(itemlist @(item "px: La coordenada X del jugador")
            @(item "py: La coordenada Y del jugador")
            @(item "cx: La coordenada X de otro personaje del juego")
            @(item "cy: La coordenada Y de otro personaje del juego"))
