@@ -3,7 +3,7 @@ python:
 - '3.4'
 branches:
   only:
-  - im-pyret
+  - pyret-sols
   - pyret-lesson
   - master
 env:
