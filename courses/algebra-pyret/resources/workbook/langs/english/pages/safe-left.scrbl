@@ -6,10 +6,12 @@
 			 #:range "Boolean"
 			 #:purpose "Determine whether given number is greater than -50"
                          #:num-examples 2
-			 #:example-list '((25 (25 > -50))
-                        (-51 (-51 > -50)))
+			 #:example-list (list 
+                                (list 25 "25 > -50")
+                                (list -51 "-51 > -50")
+                            )
                          #:param-list (list "x")
                          #:show-params? #f
-                         #:body '(x > -50)
+                         #:body "x > -50"
                          #:show-body? #f
                          )

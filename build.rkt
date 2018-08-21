@@ -9,6 +9,7 @@
          racket/list
          racket/match
          racket/vector
+         web-server/templates
          (for-syntax racket/base)
          (planet neil/csv:1:=7)
          "lib/system-parameters.rkt"
@@ -18,6 +19,7 @@
          "lib/scribble-pdf-helpers.rkt"
          "lib/pdf-lesson-exercises.rkt"
          "lib/warnings.rkt"
+         "lib/styles.rkt"
          scribble/render
          file/zip)
 
@@ -311,15 +313,23 @@
             (delete-directory/files (current-deployment-dir)))
           (make-directory (current-deployment-dir))])
 
-  
+  (copy-file overview-styles.css (build-path (current-deployment-dir) "styles.css"))
+
+  (when (not (directory-exists? (build-path (current-deployment-dir) "images")))
+    (make-directory (build-path (current-deployment-dir) "images")))
+
+  (copy-file "lib/logo.png" (build-path (current-deployment-dir) "images" "logo.png"))
+  (copy-file "lib/logo-icon.png" (build-path (current-deployment-dir) "images" "icon.png"))
   
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
     (define target-full-path (build-path (current-deployment-dir) base))
-    (when (or (file-exists? target-full-path)
-              (directory-exists? target-full-path))
-      (delete-directory/files target-full-path))
-    (copy-directory/files source-full-path target-full-path)))
+    (printf "Is ~a a directory? ~a\n" source-full-path (directory-exists? source-full-path))
+    (when (file-exists? source-full-path)
+      (copy-with-templates! (path->string source-full-path) target-full-path))
+    (when (directory-exists? target-full-path)
+      (delete-directory/files target-full-path)
+      (copy-directory/files source-full-path target-full-path))))
 
 #| 
 ;;;;;;;  DEAD CODE  ;;;;;;;;;;;;
@@ -329,6 +339,18 @@
   (printf "deployment path: ~s\n" (current-deployment-dir))
   (printf "-------\n"))
 |#
+
+
+; NOTE(joe): https://lists.racket-lang.org/users/archive/2013-June/058135.html
+(define menubar (file->string (build-path "lib/" "menubar.html")))
+(define (template-content template-path menubar)
+  (eval #`(let ([menubar #,menubar]) (include-template #:command-char #\` (file #,template-path)))))
+
+(define (copy-with-templates! source dest)
+  (define templated (template-content source menubar))
+  (define to-write (open-output-file dest))
+  (printf "Displaying to ~a\n" dest)
+  (display templated to-write))
 
 
 ;; Building the units of the course.
@@ -413,9 +435,17 @@
 
   ;; rename the course directory
   (printf "build.rkt: renaming directory for ~a \n" (current-course))
+  (copy-with-templates!
+    (path->string (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html"))
+    (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml"))
+
+
+#|
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "index.shtml")
                             #t)
+|#
+
   (unless (directory-exists? (get-units-dir)) 
      (WARNING (format "No units directory found for course ~a in language ~a" 
 		      (current-course) (getenv "LANGUAGE")) 'no-course-dir))
@@ -757,7 +787,7 @@
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
         (process-teacher-contributions)
-        (when (equal? course "algebra")
+        (when (or (equal? course "algebra") (equal? course "algebra-pyret"))
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive

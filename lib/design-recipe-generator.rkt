@@ -85,6 +85,10 @@
 ;;   by populating the example-list and configuring show-examples (keep reading)
 ;; example-list is a list of lists giving the input and output: e.g., (list (list 5 '(* 5 2)))
 ;;   the list contents can be num/string/sexp -- anything that format can convert to a string
+;;   - for Pyret, answers are intentionally generated with #:fmt-quotes #f,
+;;     so be sure to format your examples with args of any kind, then a single string as the
+;;     answer. The above example would be (list (list 5 "5 * 2"))
+;; answer: ie 
 ;; show-examples is a list of configurations of which parts of each elt in example-list to show
 ;;    - each configuration is either a boolean or a list of three booleans
 ;;    - e.g., show-examples of (list #f (list #t #f #t) #t) says
@@ -272,16 +276,16 @@
 ; format the body of a design recipe worksheet -- formatting may depend on body contents
 (define (dr-body body #:show (show #f) #:lang (lang 'racket))
   (define clause-starter
-    (if (equal? lang 'racket) "[" "  |"))
+    (if (equal? lang 'racket) "[" "else if"))
   (define clause-splitter
-    (if (equal? lang 'racket) "" (make-spacer "then:")))
+    (if (equal? lang 'racket) "" (make-spacer ":")))
   (define clause-class
     (if (equal? lang 'racket) "clause" "clause hide-content"))
   (define (build-from-clauselines-pyret clauselines)
      (interleave-parbreaks/all
       (list 
           (apply make-wrapper
-            (append (list (make-spacer "  ask:"))
+            (append 
                     (apply append clauselines)
                     (list (make-spacer "  end"))
                     )
@@ -299,26 +303,32 @@
       (let ([body-contents body]) ;(if (string? body) (with-input-from-string body read) body)])
         (cond [(atom? body-contents)
                (dr-student-answer "recipe_definition_body" #:show? show body)]
-              [(or (eq? (first body-contents) 'cond) (eq? (first body-contents) 'ask))
+              [(or (or (eq? (first body-contents) 'cond) (eq? (first body-contents) 'ask)) (and (eq? (first body-contents) 'if) (eq? lang 'pyret)))
                (let ([clauselines (map (lambda (c s) 
                                          (list 
                                           (make-clear)
-                                          (make-spacer clause-starter)
-                                          (if (equal? (first c) 'otherwise)
+                                          (cond 
+                                            [(equal? lang 'racket) (make-spacer clause-starter)])
+                                          (if (or (equal? (first c) 'otherwise) (equal? (first c) 'else))
                                             (make-wrapper #:extra-class clause-class
-                                                          (make-spacer " otherwise:")
-                                                          (dr-student-answer "answers" (second c) 
-                                                                             #:id? #f #:show? (if (list? s) (second s) s)
-                                                                             #:fmt-quotes? #t)
-                                                          )
+                                                          (if (and (equal? (first c) 'otherwise) (equal? lang 'racket)) (make-spacer " otherwise:") (make-spacer " else:"))
+                                                            (dr-student-answer "answers" (second c) 
+                                                                              #:id? #f #:show? (if (list? s) (second s) s)
+                                                                              #:fmt-quotes? (equal? lang 'racket))
+                                                            )  
                                             (make-wrapper #:extra-class clause-class
+                                                          (cond ;; skip clause-starter for first and last if pyret
+                                                            [(and (equal? lang 'pyret) (equal? c (second body-contents))) (make-spacer "if")]
+                                                            [(and (equal? lang 'pyret) (nor (equal? c (second body-contents)) (equal? c (last body-contents)))) (make-spacer clause-starter)] )
+                                                          
                                                           (dr-student-answer "questions" (first c) 
                                                                              #:id? #f #:show? (if (list? s) (first s) s)
-                                                                             #:fmt-quotes? #t)
+                                                                             #:fmt-quotes? (equal? lang 'racket)
+                                                                             #:add-space? (equal? lang 'pyret))
                                                           clause-splitter
                                                           (dr-student-answer "answers" (second c) 
                                                                              #:id? #f #:show? (if (list? s) (second s) s)
-                                                                             #:fmt-quotes? #t)
+                                                                             #:fmt-quotes? (equal? lang 'racket))
                                                           ))))
                                        (rest body-contents)
                                        ; show is either a single boolean or a list of specs with same length as number of clauses
@@ -400,13 +410,14 @@
             ;(make-spacer ")")
             ))))) 
 
+
 (define (pyret-dr-example funname in-out-list
                     #:show-funname? (show-funname? #f) 
                     #:show-input? (show-input? #f)
                     #:show-output? (show-output? #f)
                     )
   (let ([input (if (empty? in-out-list) "" (list->comma-string (all-but-last in-out-list)))]
-        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list)))])
+        [output (if (empty? in-out-list) "" (format-exercise-text (last in-out-list) #:fmt-quotes? #f))])
     (interleave-parbreaks/all
      (list (make-wrapper #:extra-class "hide-content"
             (make-indent)
@@ -426,8 +437,10 @@
                            #:extra-class (extra-class "")
                            #:extra-answer (extra-answer #f)
                            #:show? (show? #f) 
-                           #:fmt-quotes? (fmt-quotes? #f))
+                           #:fmt-quotes? (fmt-quotes? #f)
+                           #:add-space? (add-space? #f))
   (let* ([show? (or show? (solutions-mode?))]
+         [answer (if add-space? (string-append "   " answer) answer)] ;; add space for pyret
          [base-style (string-append (if show? 
                                         "studentAnswer solution" 
                                         "studentAnswer blank") 

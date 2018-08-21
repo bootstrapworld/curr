@@ -72,17 +72,24 @@
    [(or latex pdf)
     (elem #:style bs-free-response-style (number->string width) (number->string height))]))
 
+(define (contract-exercise/internal tag start-str colon-str #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
+  (cond-element [html
+                 (elem start-str (fill-in-the-blank #:id (format "~aname" tag) #:label (translate 'contract-name) #:class "contract-name studentAnswer")
+                       colon-str (fill-in-the-blank #:id (format "~aarg" tag) #:label (translate 'contract-domain) #:class "contract-domain studentAnswer")
+                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label (translate 'contract-range) #:class "contract-range studentAnswer"))]
+                [(or latex pdf)
+                 (elem #:style bs-contract-exercise-style "")]))
+
 ;; Inputs: string [string] [string] [string] -> element
 ;;         optional argument supply answers for the workbook
 ;; Produces element with blanks for an exercise to fill in a contract
 ;; only used by create-exercise-itemlist
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
-  (cond-element [html
-                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label (translate 'contract-name) #:class "contract-name studentAnswer")
-                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label (translate 'contract-domain) #:class "contract-domain studentAnswer")
-                       " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label (translate 'contract-range) #:class "contract-range studentAnswer"))]
-                [(or latex pdf)
-                 (elem #:style bs-contract-exercise-style "")]))
+  (contract-exercise/internal tag "; " ": " #:name name-ans #:domain domain-ans #:range range-ans))
+
+
+(define (contract-exercise/pyret tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
+  (contract-exercise/internal tag "" " :: " #:name name-ans #:domain domain-ans #:range range-ans))
 
 ;;;;;;;;;;;; Exercise itemlists ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -94,9 +101,9 @@
                                           c))
                         contents)))
 
-(define (create-exercise-itemlist/contract-answers #:ordered [ordered? #t] contents)
+(define (create-exercise-itemlist/contract-answers #:pyret [pyret #f] #:ordered [ordered? #t] contents)
   (create-exercise-itemlist #:ordered ordered? 
-                            (map (lambda (c) (list (contract-exercise "dummyid") c)) contents)))
+                            (map (lambda (c) (list (if pyret (contract-exercise/pyret "dummyid") (contract-exercise "dummyid")) c)) contents)))
 
 (define (create-exercise-sols-itemlist #:ordered [ordered? #t] questions answers)
   (questions-and-answers questions answers))

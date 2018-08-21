@@ -96,23 +96,23 @@ display: inline-block;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 .facebook-icon {
-    background-image: url('/images/facebook.png');
+    background-image: url('http://bootstrapworld.org/images/facebook.png'); /* NOTE(joe): Images not all in repo, so referring to main site */
 }
 
 .twitter-icon {
-    background-image: url('/images/twitter.png');
+    background-image: url('http://bootstrapworld.org/images/twitter.png'); /* NOTE(joe): Images not all in repo, so referring to main site */
 }
 
 .google-icon {
-    background-image: url('/images/google.png');
+    background-image: url('http://bootstrapworld.org/images/google.png'); /* NOTE(joe): Images not all in repo, so referring to main site */
 }
 
 .email-icon {
-    background-image: url('/images/email.png');
+    background-image: url('http://bootstrapworld.org/images/email.png'); /* NOTE(joe): Images not all in repo, so referring to main site */
 }
 
 .plus-sign {
-    background-image: url('/images/plus-sign.png');
+    background-image: url('http://bootstrapworld.org/images/plus-sign.png'); /* NOTE(joe): Images not all in repo, so referring to main site */
     background-repeat: no-repeat;
     height: 60px;
     width: 60px;

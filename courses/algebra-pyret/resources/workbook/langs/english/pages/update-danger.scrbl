@@ -6,9 +6,9 @@
 			 #:range "Number"
 			 #:purpose "Produce new coordinate by subtracting 50 from the x-coordinate (the first parameter)"
                          #:num-examples 2
-			 #:example-list '((100 200 (- 100 50)) (35 200 (- 35 50)))
+			 #:example-list (list (list 100 200 "100 - 50") (list 35 200 "35 - 50"))
                          #:param-list (list "x" "y")
                          #:show-params? #t
-                         #:body '(- x 50)
+                         #:body "x - 50"
                          #:show-body? #f
                          )

@@ -53,7 +53,8 @@ include other datatypes, including Strings and Images.}
                                      @item{Given an expression, students will be able to identify the datatype it will evaluate to}
                                      @item{Students will be able to distinguish between types and values}]
      #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
-     #:exercises (list )
+     #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1-im")
+                       (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code2"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
@@ -156,7 +157,7 @@ include other datatypes, including Strings and Images.}
              @point{
 
              @student{Functions can work with just numbers, also. For example,
-             the @code{num-sqr} function @emph{squares} a function, multiplying
+             the @code{num-sqr} function @emph{squares} a number, multiplying
              it by itself. An example of using it is: @code[#:multi-line #t]{num-sqr(4)}
              @activity{@itemlist[
                 @item{What does this produce if you run it in the interactions window?} 
@@ -182,7 +183,9 @@ include other datatypes, including Strings and Images.}
                                       @item{Students will be able to distinguish between contracts and function calls}
                                       @item{Given an example of a function being applied, students will be able to write a contract for that function}]
      #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
-     #:exercises (list )
+     #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1-im")
+                       (make-exercise-locator "Contracts" "id-expr-pieces2-im")
+                       (make-exercise-locator "Contracts" "match-contracts-exprs1-im"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
@@ -281,7 +284,7 @@ include other datatypes, including Strings and Images.}
                                                   @item{What is the Domain of this function?}
                                                   @item{What will this expression evaluate to?}]}                             
                              }
-                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, 
+                     @teacher{If you want to have students practice using @code{image-url}, it is recommended that you use an image search-engine, 
                               such as @(new-tab "https://images.google.com" "Google Images") or @(new-tab "http://www.bing.com/images" "Bing Images"). 
                               Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
                      }
@@ -385,7 +388,7 @@ rotate(45, text("spin", 30 "green"))
         @points[@point{@student{This lesson expanded what you know about Circles of Evaluation, expressions, and code to include Strings and Images.  
                                 You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
                                 programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
-                                use existing Images in your programs (through @code{bitmap/url}).}
+                                use existing Images in your programs (through @code{image-url}).}
                         @teacher{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                             @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                             @item{Pass out exit slips, dismiss, clean up.}]}
