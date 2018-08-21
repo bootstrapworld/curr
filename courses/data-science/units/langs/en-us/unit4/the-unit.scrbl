@@ -186,7 +186,7 @@
                                   @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "12jtxwxPNSrdhA4a1YZ4RNzw-I8HPXzD6" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1h3pCuuc0AchFZidLV-9553kGhpRKyYxP" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1LnwYrEVX6TU2C6dNxxXPYJZuwkPccWlA" "Starter file"] for this dataset)
                                    }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1H3-aDMoCNCJtRoUpJfPFRUy2JuhmBNFJ" "Starter file"] for this dataset)
@@ -253,6 +253,17 @@
                 )
       ]{
         @points[
+                @point{
+                      @student{
+                          @activity{
+                            Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}?
+                            Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"]. 
+                          }
+                      }
+                      @teacher{
+                          Have students share back.
+                      }
+                }
                 @point{
                       @student{
                           Think about all the different ways you might want to look at your dataset. Would you want to sort it by one column or another? Filter it into different subsets, like we did with the Animals Dataset? Would you want to build new columns?
