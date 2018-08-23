@@ -76,7 +76,7 @@
       (let ([exercises-path (build-path (lessons-dir) subdir "exercises")])
         (when (directory-exists? exercises-path)
           (for ([worksheet (directory-list exercises-path)]
-                #:when (regexp-match #px".scrbl$" worksheet))
+                #:when (regexp-match #px"[^-im].scrbl$" worksheet))
             (printf "build-sols.rkt: building exercise handout solution ~a: ~a\n" subdir worksheet)
             (run-scribble (build-path exercises-path worksheet)))))))
   (let* ([teacher-resources (build-path (deploy-resources-dir) "teachers")]
