@@ -312,10 +312,7 @@
 
                               @itemlist[
                                       @item{
-                                            If the data is unlikely to have values occurring multiple times (like with decimals, or with grades), do not use mode.
-                                      }
-                                      @item{
-                                            If the data is more "coarse grained", meaning the data is quantitative but there are only a small number of possible values each entry can take, then the modes will be useful.
+                                            If the data is unlikely to have values occurring multiple times, do not use mode. For example: grades can fall between 0-100, and it is possible that 100 students will get 100 different grades. The mode won't tell you anything! If, however, we were looking AP Test Scores (1-5), the mode could be very useful.
                                       }
                                       @item{
                                             If the data is going to have lots of outliers, the median gives a better estimate of the center than mean.
