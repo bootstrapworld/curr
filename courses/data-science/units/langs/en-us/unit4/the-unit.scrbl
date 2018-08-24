@@ -91,6 +91,24 @@
         @points[
               @point{
                     @student{
+                        Sample Tables are about a lot more than checking our work. Data Analysis is often used to make @italic{predictions}, and if the sample dataset is bad those predictions can be wrong - and sometimes, really @italic{really} wrong!
+                        @itemlist[
+                            @item{ 
+                              Uber and Google are making self-driving cars, which use artificial intelligence to interpret sensor data and make predictions about whether a car should speed up, slow down, or slam on the breaks.  This AI is trained on a lot of sample data, which it learns from. What might be the problem if the sample data only included roads in California?
+                            }
+                            @item{
+                              Law enforcement in many towns has started using facial-recognition software to automatically detect whether someone has a warrant out for their arrest. A lot of facial-recognition software, however, has been trained on sample data containing mostly white faces. As a result, it has gotten really good at telling white people apart, but @(hyperlink "http://www.theweek.co.uk/95383/is-facial-recognition-racist" "often can't tell the difference between people who aren't white"). Why might this be a problem? 
+                            }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Sample Data Mattters!}
+                        Even for simple analysis, it is @italic{critical} to think carefully about the sample tables you use.
                         Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
                         @itemlist[
                               @item{
