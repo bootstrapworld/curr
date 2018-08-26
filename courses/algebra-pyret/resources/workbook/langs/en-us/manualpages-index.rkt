@@ -57,7 +57,7 @@
  ("Lines" 34)
  ("Feedback" 35)
  ("Feedback2" 36)
- ;("red-shape.scrbl" 41)
+ ("red-shape" 37)
  ("Translating-to-Algebra" 38)
  ("Math-Rocket-Distance" 39)
  ("Math-Rocket-Time" 40)

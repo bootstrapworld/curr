@@ -53,7 +53,7 @@
  ("StudentWorkbook.pdf" "Lines")
  ("StudentWorkbook.pdf" "Feedback")
  ("StudentWorkbook.pdf" "Feedback")
- "red-shape.scrbl"
+ ("StudentWorkbook.pdf" "red-shape")
  ("StudentWorkbook.pdf" "Translating-to-Algebra")
  ("StudentWorkbook.pdf" "Math-Rocket-Distance")
  ("StudentWorkbook.pdf" "Math-Rocket-Time")
