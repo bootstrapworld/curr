@@ -64,6 +64,7 @@
  #:args tags
  tags)
 
+(define pages-dir (if (solutions-mode?) "pages-sols" "pages"))
 
 ;; NOTE: This defn is a hack.  Ideally, we should be using the
 ;;  get-workbook-dir function from paths.rkt.  However, that is
@@ -95,7 +96,7 @@
 
 ; generate index of entire workbook by computing page sizes per PDF
 (define (gen-wkbk-index pdfpages 
-                        #:pdfdir [pdfdir (build-path (get-workbook-dir) "pages")] 
+                        #:pdfdir [pdfdir (build-path (get-workbook-dir) pages-dir)]
                         #:startpage [startpage 1]
                         #:indexfile [indexfile (build-path (get-workbook-dir) "workbook-index.rkt")]
                         )
@@ -120,11 +121,11 @@
 
 ; create a single PDF from the files named in pdfpages, output filename is optional
 (define (merge-pages pdfpages 
-                     #:pagesdir [pagesdir (build-path (kf-get-workbook-dir) "pages")]
+                     #:pagesdir [pagesdir (build-path (kf-get-workbook-dir) pages-dir)]
                      #:outputdir [outputdir (kf-get-workbook-dir)]
                      #:output [output "workbook-no-pagenums.pdf"])
   (parameterize ([current-directory (kf-get-workbook-dir)])
-    (let ([arglist (append (map (lambda (f) (build-path "pages" f)) pdfpages)
+    (let ([arglist (append (map (lambda (f) (build-path pages-dir f)) pdfpages)
                            (list "output" output "dont_ask"))])
       (apply system* (cons (get-prog-cmd "pdftk") arglist)))))
 
@@ -184,7 +185,7 @@
                            (= (length pspec) 2)
                            (not (skip-marker? pspec))
                            (or #t
-                               (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                               (not (file-exists? (build-path pages-dir (string-append (second pspec) ".pdf"))))
                                (not wkbk-mod-sec)
                                (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
                                (and (solutions-mode?) 
@@ -212,7 +213,7 @@
                 (cond [(and (list? pspec)  ;; in this case we have a file to extract from another PDF
                             (= (length pspec) 2)
                             (or #t
-                                (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                                (not (file-exists? (build-path pages-dir (string-append (second pspec) ".pdf"))))
                                 (not wkbk-mod-sec)
                                 (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
                                 (and (solutions-mode?) 
@@ -226,13 +227,13 @@
                                 [tofile (second pspec)]
                                 [loc (get-manual-page tofile)])
                            (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
-                                    "output" (format "pages/~a.pdf" tofile) "dont_ask")))]
+                                    "output" (format "~a/~a.pdf" pages-dir tofile) "dont_ask")))]
                       [(and (list? pspec) ; have a local exercise
                             (= (length pspec) 3)
                             (string=? (first pspec) "exercise"))
-                       (unless (file-exists? (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))
+                       (unless (file-exists? (build-path pages-dir (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))
                          (copy-file (build-path (lessons-dir) (third pspec) "exercises" (second pspec))
-                                    (build-path "pages" (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf"))))]
+                                    (build-path pages-dir (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf"))))]
                       [else
                        (printf "Doing nothing for page ~a~n" pspec)
                        void
@@ -241,7 +242,7 @@
 ;                (let ([path-elts (string-split pspec "\\")])
 ;                  (cond [(> (length path-elts) 1) ;; reference to a file elsewhere in our build system
 ;                         (let ([basefilename (last path-elts)])  ;; ADAPT TO ALLOW SCRBL NAMES -- THIS ASSUMES PDF
-;                           (copy-file (string->path pspec) (build-path "pages" basefilename)))]
+;                           (copy-file (string->path pspec) (build-path pages-dir basefilename)))]
 ;                        [else void])) ;; is already a file in pages
 ;                )
               pages)))
@@ -254,7 +255,7 @@
          [back-spec (with-input-from-file (build-path workbook-dir
                                                       (if (solutions-mode?) "backmatterlist-sols.rkt" "backmatterlist.rkt"))
                       read)]
-         [pagesdir (build-path workbook-dir "pages")]
+         [pagesdir (build-path workbook-dir pages-dir)]
          [extra-exercises-dir (lessons-dir)]
          [pages (check-contents-exist pages-spec pagesdir)]
          [frontpages (check-contents-exist front-spec pagesdir)]
@@ -311,11 +312,25 @@
     (and (file-exists? contentlistfile)
          (cons? (with-input-from-file contentlistfile read)))))
 
+(define (set-up-pages-dir)
+  (when (solutions-mode?)
+    (let ([orig-pages-dir (build-path (kf-get-workbook-dir) "pages")]
+          [pages-sols-dir (build-path (kf-get-workbook-dir) pages-dir)])
+      (when (directory-exists? orig-pages-dir)
+        (unless (directory-exists? pages-sols-dir)
+          (make-directory pages-sols-dir))
+        (for ([fyle (directory-list orig-pages-dir)])
+          (let ([new-fyle (build-path pages-sols-dir fyle)])
+            (unless (file-exists? new-fyle)
+              (copy-file (build-path orig-pages-dir fyle) new-fyle))))))))
+
 (printf "Building workbook (solutions-mode is ~a) ~n Building for courses: ~a~n Building in language: ~a~n"
         (solutions-mode?) bootstrap-courses (getenv "LANGUAGE"))
+
 (for ([course (in-list bootstrap-courses)])
   (current-translations (with-input-from-file (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt") read))
   (parameterize ([current-course course])
+    (set-up-pages-dir)
     (let ([workbook-dir (kf-get-workbook-dir)])
       (when (directory-exists? workbook-dir) ;; skip building if no resources/workbook folder
         (if (workbook-to-build?)
