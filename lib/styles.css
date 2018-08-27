@@ -125,6 +125,8 @@ div#sidebar {
     position: fixed;
     left: 13%;
     top: 0px;
+    bottom: 0px;
+    overflow: scroll;
     width: 165px;
 	z-index: 9;
 }
