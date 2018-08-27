@@ -421,8 +421,8 @@
 	           </td>
 	           <td>
    <strong>Bootstrap:Algebra - Units 3-8
-   <br/>Bootstrap:Data Science - Units 1-8
-	 <br/>Bootstrap:Reactive - Units 1-5</strong>
+	 <br/>Bootstrap:Reactive - Units 1-5
+     <br/>Bootstrap:Data Science - Units 1-9</strong>
 	 <br/>
 	             Students encode data using multiple mathematical representations (Algebra), data structures (Reactive), and tabular or visual representations (Data Science).
 	           </td>
@@ -431,7 +431,7 @@
 	           <td><span>2-DA-08:</span> Collect data using computational tools and transform the data to make it more useful and reliable.
 	           </td>
 	           <td>
-	 <strong>Bootstrap:Data Science - Units 3-9</strong>
+	 <strong>Bootstrap:Data Science - Units 1-9</strong>
 	 <br/>
 	           Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions. 
 	           </td>
@@ -441,7 +441,7 @@
 	           </td>
 	           <td>
 	 <strong>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 3-9</strong>
+	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
 	             Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
 	           </td>
@@ -463,7 +463,7 @@
 	           <td>
 	 <strong>Bootstrap:Algebra - Units 5-8
 	 <br/>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Dta Science - Units 2-9</strong>
+	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
 	           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and/or data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems. Bootstrap:Algebra and Bootstrap:Reactive introduce the idea of top-down or bottom-up strategies for decomposition.
 	           </td>
@@ -502,7 +502,7 @@
 	         <tr>
 	           <td><span>3A-DA-11:</span> Create interactive data visualizations using software tools to help others better understand real-world phenomena.</td>
 	           <td>
-	 <strong>Bootstrap:Data Science - Units 4-9</strong>
+	 <strong>Bootstrap:Data Science - Units 1-9</strong>
 	 <br/>
 	           Bootstrap:Data Science introduces students to pie charts, bar charts, histograms, scatterplots, and more as a way of answering questions about, and better understanding real-world datasets. The course culminates in students writing a research paper incorporating these data visualizations about a topic they care about.
 	           </td>
@@ -530,7 +530,7 @@
 	           <td>
 	 <strong>Bootstrap:Algebra - Units 3-8
 	 <br/>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+	 <br/>Bootstrap:Data Science - Units 1-9</strong>
 	 <br/>
 	           All Bootstrap courses culminate in a final project. For Bootstrap:Algebra and Reactive, the project is a video game or animation that makes use of multiple student-created functions to handle movement and interactivity. In Bootstrap:Data Science, students create a research paper and data science project as a result of analyzing, transforming, and interpreting data with functions.
 	           </td>
@@ -546,7 +546,7 @@
 	         <tr>
 	           <td><span>3B-NI-05:</span> Use data analysis tools and techniques to identify patterns in data representing complex systems.</td>
 	           <td>
-	 <strong>Bootstrap:Data Science - Units 3-9</strong>
+	 <strong>Bootstrap:Data Science - Units 1-9</strong>
 	 <br/>
 	           Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions.
 	           </td>
@@ -554,7 +554,7 @@
 	         <tr>
 	           <td><span>3B-NI-07:</span> Evaluate the ability of models and simulations to test and support the refinement of hypotheses.</td>
 	           <td>
-	 <strong>Bootstrap:Data Science - Units 3-9</strong>
+	 <strong>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
 	           Bootstrap:Data Science has students examine various issues affecting data collection and analysis, including collection bias, threats to validity, and outliers. Using linear regression methods, students can test and refine their hypotheses about relationships in their dataset.
 	           </td>
@@ -583,7 +583,7 @@
 	           <td><span>3B-AP-22:</span> Modify an existing program to add additional functionality and discuss intended and unintended implications (e.g., breaking other functionality).</td>
 	           <td>
 	 <strong>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 3-9</strong>
+	 <br/>Bootstrap:Data Science - Units 2-9</strong>
 	 <br/>
 	           Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
 	           </td>
