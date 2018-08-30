@@ -40,6 +40,8 @@
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")
 
+(define add-optional-exercises? (getenv "BOOTSTRAP_OPTEXER"))
+
 ; by default, generate student workbook, not solutions workbook
 (solutions-mode-off)
 
@@ -140,9 +142,11 @@
 (define (check-contents-exist ctlist basedir)
   (let ([havefile? (lambda (f) 
                      (if (string? f) 
-                         (file-exists? (build-path basedir f))
+                         (if (and (not add-optional-exercises?) (string=? f "separator.pdf"))
+                             #f
+                           (file-exists? (build-path basedir f)))
                          (if (string=? (first f) "exercise")
-                             (and (getenv "BOOTSTRAP_OPTEXER")
+                             (and add-optional-exercises?
                                 (file-exists? (build-path (lessons-dir) (third f) "exercises" (second f))))
                              (file-exists? (build-path basedir 'up (first f))))))])
     ;;TODO: Good start; now see where it handles this stuff
@@ -229,7 +233,7 @@
                                 [loc (get-manual-page tofile)])
                            (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
                                     "output" (format "~a/~a.pdf" pages-dir tofile) "dont_ask")))]
-                      [(and (getenv "BOOTSTRAP_OPTEXER")
+                      [(and add-optional-exercises?
                             (list? pspec) ; have a local exercise
                             (= (length pspec) 3)
                             (string=? (first pspec) "exercise"))
