@@ -142,7 +142,8 @@
                      (if (string? f) 
                          (file-exists? (build-path basedir f))
                          (if (string=? (first f) "exercise")
-                             (file-exists? (build-path (lessons-dir) (third f) "exercises" (second f)))
+                             (and (getenv "BOOTSTRAP_OPTEXER")
+                                (file-exists? (build-path (lessons-dir) (third f) "exercises" (second f))))
                              (file-exists? (build-path basedir 'up (first f))))))])
     ;;TODO: Good start; now see where it handles this stuff
     (let ([missing (filter (lambda (f) (and (not (skip-marker? f)) (not (havefile? f)))) ctlist)])
@@ -228,7 +229,8 @@
                                 [loc (get-manual-page tofile)])
                            (system* (get-prog-cmd "pdftk") fromfile "cat" (format "~a" loc) 
                                     "output" (format "~a/~a.pdf" pages-dir tofile) "dont_ask")))]
-                      [(and (list? pspec) ; have a local exercise
+                      [(and (getenv "BOOTSTRAP_OPTEXER")
+                            (list? pspec) ; have a local exercise
                             (= (length pspec) 3)
                             (string=? (first pspec) "exercise"))
                        (unless (file-exists? (build-path pages-dir (regexp-replace #px"\\.scrbl$" (second pspec) ".pdf")))
