@@ -55,9 +55,9 @@
  ("StudentWorkbook.pdf" "Feedback")
  ("StudentWorkbook.pdf" "red-shape")
  ("StudentWorkbook.pdf" "Translating-to-Algebra")
- ("StudentWorkbook.pdf" "Math-Rocket-Distance")
- ("StudentWorkbook.pdf" "Math-Rocket-Time")
- ("StudentWorkbook.pdf" "Math-Rocket-Collision")
+ "math-rocket-distance.scrbl"
+ "math-rocket-time.scrbl"
+ "math-rocket-collision.scrbl"
  ("StudentWorkbook.pdf" "Math-Blank-Recipe")
  ("StudentWorkbook.pdf" "Math-Blank-Recipe")
  )
