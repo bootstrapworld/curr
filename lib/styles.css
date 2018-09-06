@@ -1,7 +1,3 @@
-/* Temporarily disable translation buttons */
-.TranslationButton {display: none;}
-
-
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic);
 * {
     box-sizing: border-box;
@@ -37,7 +33,7 @@ ol {
 /* Our top box */
 
 div#top {
-    position: fixed;
+    position: absolute;
     width: 74%;
     left: 26%;
     top: 0px;
@@ -48,12 +44,12 @@ div#top {
 }
 
 div#top img#logo {
-	width: 60%;
+    width: 60%;
     max-width: 400px;
-	height: auto;
+    height: auto;
     margin: 10px 0px 0px 10px;
     padding: 10px 0;
-	float: none;
+    float: none;
 }
 
 .facebook-icon,
@@ -122,16 +118,17 @@ display: inline-block;
 /* Sidebar and menu links */
 
 div#sidebar {
-    position: fixed;
+    position: absolute;
     left: 13%;
     top: 0px;
+    bottom: 0px;
     width: 165px;
-	z-index: 9;
+    z-index: 9;
 }
 
 div#sidebar img {
-	margin: 15px auto; 
-	display: block;
+    margin: 15px auto; 
+    display: block;
 }
 
 div#sidebar ul {
@@ -187,7 +184,7 @@ span.date {
 div.item {
     float: left;
     padding: 0px 0px 20px 0px;
-	width: 100%;
+    width: 100%;
 }
 
 div.item>img,
@@ -350,6 +347,40 @@ div.bottom-border {
     border-bottom: 1px solid #B6D990;
     margin-bottom: 25px;
 }
+
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 0.35em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+}
+
+blockquote:before {
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+blockquote cite:before {
+    content: "\2014 \2009";
+}
 /* *********** PAGE-SPECIFIC STYLES *********** */
 /* Materials Layout */
 
@@ -367,7 +398,7 @@ div.bottom-border {
 .button-purple, .button-purple[href] {
     display: block;
     width: 200px;
-	text-align: center;
+    text-align: center;
     background: #75328A;
     padding: 5px 20px 6px;
     margin: 20px 0;
@@ -442,13 +473,18 @@ ul.tab>li {
     transition: 0.3s; 
     text-align: center;
     z-index: 2;
+    border: solid 1px transparent;
 }
 
 .tablinks h2 a {color: inherit;}
 /* Style the tab content */
 .tabcontent{ 
     display: none; 
+    position: absolute;
     padding: 12px 12px; 
+    left: 0px;
+    color: #75328A;
+    background-color: #f9f9f9;
     text-align: left;
     z-index: 1;
 }
@@ -459,13 +495,7 @@ ul.tab>li:hover, .tabcontent {
 }
 ul.tab>li:hover {background: #75328A; color: white;}
 
-ul.tab li:hover .tabcontent {
-    background-color: #f9f9f9;
-    display: block;
-    position: absolute;
-    left: 0px;
-    color: #75328A;
-}
+ul.tab li:hover .tabcontent { display: block;}
 .tabcontent img{float: right; border: solid 1px black;}
 
 .dropdown {
@@ -490,24 +520,6 @@ ul.tab li:hover .tabcontent {
     display: block;
 }
 
-@keyframes imageSwapFade {
-  0% { opacity:1; }
- 45% { opacity:1; }
- 55% { opacity:0; }
-100% { opacity:0; }
-}
-#logosplash{ float: right; position: relative; width: 300px; height: 250px; margin: 0px 0px 10px 10px; }
-#logosplash div {position: absolute; height: 250px; width: 100%; background: white; clip: rect(0px, 300px, 250px, 0px); text-align: center;}
-#logosplash div img {height: 250px; float: none;}
-#logosplash div.top {
-    background: white;
-    animation-name: imageSwapFade;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    animation-direction: alternate;
-}
-
 /* 1375px Breakpoint */
 @media only screen and (max-width: 1375px),
 only screen and (max-device-width: 1375px) {
@@ -527,15 +539,16 @@ only screen and (max-device-width: 1375px) {
 }
 /* 800px Breakpoint */
 
-@media only screen and (max-width: 800px),
-only screen and (max-device-width: 800px) {
+@media only screen and (max-width: 1000px),
+only screen and (max-device-width: 1000px) {
     div#top {
         width: 75%;
         left: 25%;
-		height: 100px;
+        height: 100px;
     }
     .twitter-icon,
-    .google-icon {
+    .google-icon,
+    .facebook-icon {
         display: none;
     }
 
@@ -543,9 +556,9 @@ only screen and (max-device-width: 800px) {
         left: 3%;
         width: 20%;
     }
-	div#sidebar img, div#top img {width: 70%; height: auto; }
+    div#sidebar img, div#top img {width: 70%; height: auto; }
     div#body {
-		top: 135px;
+        top: 135px;
         left: 25%;
         width: 72%;
     }
@@ -561,10 +574,11 @@ only screen and (max-device-width: 800px) {
 
 @media only screen and (max-width: 600px),
 only screen and (max-device-width: 600px) {
-	div#top img#logo { margin-top: 10px; width: 60%; height: auto;}
+    div#top img#logo { margin-top: 10px; width: 60%; height: auto;}
     .facebook-icon,
     .twitter-icon,
-    .google-icon {
+    .google-icon,
+    .email-icon {
         display: none;
     }
     div#sidebar ul li a {
@@ -591,35 +605,35 @@ only screen and (max-device-width: 500px) {
     /* Sidebar and menu links */
     
     div#sidebar {
-        top: 101px;
+        top: 80px;
         left: 0px;
         width: 100%;
         max-width: none;
         z-index: 10;
         background: #B6D990;
+        bottom: auto;
     }
-	div#sidebar img { display: none; }
+    div#sidebar img { display: none; }
     div#sidebar ul {
         text-align: center;
-		margin: 0px auto;
+        margin: 0px auto;
     }
     div#sidebar ul li {
         width: auto;
-		float: none;
+        float: none;
         border: 0px;
-        min-width: 70px;
-        margin: 0px 5px;
+        margin: 0px 10px;
         padding: 5px 0;
-		display: inline-block;
+        display: inline-block;
     }
-    div#sidebar ul li a {
+    div#sidebar ul>li>a {
         font-size: 14px;
         display: inline;
         color: white;
     }
     div#sidebar ul li:hover, div#sidebar ul li:hover > a {
         background-color: #B6D990;
-		color: #75328A;
+        color: #75328A;
     }
     /* Main body entries and images */
     
@@ -672,4 +686,13 @@ only screen and (max-device-width: 500px) {
         min-width: 0;
         padding: 0;
     }
+<<<<<<< HEAD
 }
+=======
+    #first-quote { display: none; }
+    ul.tab li {min-width: 100px;}
+    div#quotes, div.item>div#map {margin: 0px; padding: 0px;}
+    .dropdown-content { left: 0px; }
+
+}
+>>>>>>> upstream/new-master

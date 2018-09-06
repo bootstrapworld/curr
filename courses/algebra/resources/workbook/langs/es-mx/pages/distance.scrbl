@@ -1,10 +1,11 @@
 #lang curr/lib
 
-@(design-recipe-exercise "distance" (list "Escribe una funcion distancia, que toma cuatro entradas:on distance, which takes FOUR inputs:"
-@(itemlist @(item "px: La coordenada x del jugador")
-           @(item "py: La coordenada y del jugador")
-           @(item "cx:  La coordenada X de otro personaje del juego")
-           @(item "yx:  La coordenada Y de otro personaje del juego"))
+@(design-recipe-exercise "distance" (list "Escribe una unción, “distance”, que toma CUATRO entradas:"
+@(itemlist @(item "px: La coordenada X del jugador")
+           @(item "py: La coordenada Y del jugador")
+           @(item "cx: La coordenada X de otro personaje del juego")
+           @(item "cy: La coordenada Y de otro personaje del juego"))
+
 "Debería devolver la distancia entre los dos, utilizando la fórmula Distancia. (SUGERENCIA: ¡mira cómo lo resolviste en la página anterior!)")
                          #:domain-list '("number" "number" "number" "number")
                          #:range "number"

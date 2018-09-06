@@ -26,6 +26,8 @@
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapDataScienceWorkshopSlides.pptx">pptx</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the professional development workshops.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
                 <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="protected/StudentWorkbookSols.pdf">Workbook Solutions</a></span> [pdf] - Completed exercises for the entire Student Workbook.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="https://www.nytimes.com/column/whats-going-on-in-this-graph">"What's Going on in this Graph?"</a></span> [nytimes.com] - Once a month, the NYTimes posts an interesting data visualization. This is a <i>great</i> resource to spark the curiosity of young data scientists, and make for a perfect Notice &amp; and Wonder!</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="https://pudding.cool/">"The Pudding"</a></span> [pudding.cool] - Terrific deep dives into data analysis for interesting topics. Another wonderful resource for students, with great animations showing the transformation of how data is visualized as the research questions evolve.</p></li>
               </ul>
             </div>
             
@@ -192,7 +194,7 @@
                 <li>
                     <b>IGN Video Game Reviews</b>
                     [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g">Dataset</a>
-                    | <a target="_blank" href="">Starter File</a>]
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1jwd0kQqElgUMmXtvVk6vU-sZgxTm_fEJ&v=7865ced">Starter File</a>]
                 </li>
                 <li>
                     <b>2016 Presidential Primary Results</b>

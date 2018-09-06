@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@(design-recipe-exercise "safe-left?" "¿Utilizar la receta de diseño para escribir una función 'salvo izquierda?', Que toma una coordenada x y comprueba si es mayor que -50" 
+@(design-recipe-exercise "safe-left?" "¿Utilizar la receta de diseño para escribir una función 'safe-left?', Que toma una coordenada x y comprueba si es mayor que -50" 
 			 #:domain-list (list "number")
 			 #:range "boolean"
 			 #:purpose "Determinar si es que un numero dado es mayor que -50"

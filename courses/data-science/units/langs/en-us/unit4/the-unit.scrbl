@@ -91,6 +91,24 @@
         @points[
               @point{
                     @student{
+                        Sample Tables are about a lot more than checking our work. Data Analysis is often used to make @italic{predictions}, and if the sample dataset is bad those predictions can be wrong - and sometimes, really @italic{really} wrong!
+                        @itemlist[
+                            @item{ 
+                              Uber and Google are making self-driving cars, which use artificial intelligence to interpret sensor data and make predictions about whether a car should speed up, slow down, or slam on the breaks.  This AI is trained on a lot of sample data, which it learns from. What might be the problem if the sample data only included roads in California?
+                            }
+                            @item{
+                              Law enforcement in many towns has started using facial-recognition software to automatically detect whether someone has a warrant out for their arrest. A lot of facial-recognition software, however, has been trained on sample data containing mostly white faces. As a result, it has gotten really good at telling white people apart, but @(hyperlink "http://www.theweek.co.uk/95383/is-facial-recognition-racist" "often can't tell the difference between people who aren't white"). Why might this be a problem? 
+                            }
+                        ]
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Sample Data Mattters!}
+                        Even for simple analysis, it is @italic{critical} to think carefully about the sample tables you use.
                         Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
                         @itemlist[
                               @item{
@@ -162,7 +180,7 @@
                           Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
-                                  @(new-tab "https://code.pyret.org/editor#share=18y_TnH69lbvT1lQVh5k-cTEB9aVHaame&v=7865ced" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
                               }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1419VGxyYjd3XDPbgObUa-LMufZe3KDZa" "Starter file"] for this dataset)
@@ -186,10 +204,10 @@
                                   @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "12jtxwxPNSrdhA4a1YZ4RNzw-I8HPXzD6" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1h3pCuuc0AchFZidLV-9553kGhpRKyYxP" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1LnwYrEVX6TU2C6dNxxXPYJZuwkPccWlA" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1H3-aDMoCNCJtRoUpJfPFRUy2JuhmBNFJ" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1jwd0kQqElgUMmXtvVk6vU-sZgxTm_fEJ" "Starter file"] for this dataset)
                                    }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/1WMJMNqkwuo1vbL0O_C81BPA-R2TFcLWEMUi7cn_ptow" "2016 Presidential Primary Election Dataset") (and the @editor-link[#:public-id "1gy32BVXdlyS1KqZ5pXcqg5APbJoqZsWJ" "Starter file"] for this dataset)
@@ -253,6 +271,17 @@
                 )
       ]{
         @points[
+                @point{
+                      @student{
+                          @activity{
+                            Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}?
+                            Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"]. 
+                          }
+                      }
+                      @teacher{
+                          Have students share back.
+                      }
+                }
                 @point{
                       @student{
                           Think about all the different ways you might want to look at your dataset. Would you want to sort it by one column or another? Filter it into different subsets, like we did with the Animals Dataset? Would you want to build new columns?
