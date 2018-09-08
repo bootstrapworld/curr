@@ -5,6 +5,10 @@
 
  racket -l errortrace -t build.rkt
 
+ echo -n "Building workbook"
+ echo
+
+ racket -l errortrace -t build-workbook.rkt
 
  echo -n "Copying courses directory"
  echo
