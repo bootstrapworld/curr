@@ -98,7 +98,7 @@
                base)]))
   (define-values (base name dir?) (split-path scribble-file))
 
-<<<<<<< HEAD
+
 
   (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
 
@@ -118,7 +118,7 @@
                    (regexp-replace #px".scrbl$"
                                    (path->string name)
                                    ".html")))))
-=======
+
   (define namestr (path->string name))
 
   (when (scribble-again? namestr base output-dir)
@@ -142,7 +142,7 @@
                                      namestr
                                      ".html")))))
   )
->>>>>>> upstream/new-master
+
   (void))
 
 
@@ -156,7 +156,7 @@
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-(define courses (list "internet" "algebra" "data-science" "reactive")) ; "algebra" "reactive" "data-science" "physics"))
+(define courses (list "algebra-pyret" "internet" "algebra" "data-science" "reactive")) ; "algebra" "reactive" "data-science" "physics"))
 ;(define courses available-courses)
 
 (units '())
@@ -338,13 +338,13 @@
                                                 "units"
                                                 subdir "exercises")])
           (unless (directory-exists? deploy-exercises-dir)
-<<<<<<< HEAD
+
             ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units"))
 
-=======
+
             ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units")))
               
->>>>>>> upstream/new-master
+
             (make-directory deploy-exercises-dir))
 
           (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
@@ -764,6 +764,16 @@
           )
 	(when (equal? course "intro")
           (putenv "TARGET-LANG" "racket")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) ; not needed for reactive
+                     (workbook-styling-on)
+                     ;; when did we move the following into units?
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
+              (workbook-styling-on))
+          )
+	(when (equal? course "algebra-pyret")
+          (putenv "TARGET-LANG" "pyret")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
                      (workbook-styling-on)

@@ -21,4 +21,4 @@ echo
 
 cp -r distribution/index/. ~/intro-site
 
-cp -r distribution/lib ~/intro-site
+
