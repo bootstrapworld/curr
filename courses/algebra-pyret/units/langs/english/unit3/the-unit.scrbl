@@ -213,8 +213,7 @@
                                                                                          @item{What are their types?}
                                                                                          @item{Try evaluating each of these values in the Interactions area, starting with @code{BACKGROUND}}]}
                                 }
-                         @teacher{(By now, you should have students' graphics already created, and 
-                                  @resource-link[#:path "teachers/teachers-guide/teachers-guide.html#addingimages" #:label "added to the file"].)
+                         @teacher{(By now, you should have students' graphics already created, and added to the file.)
                                   The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
                                   Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
                         }
