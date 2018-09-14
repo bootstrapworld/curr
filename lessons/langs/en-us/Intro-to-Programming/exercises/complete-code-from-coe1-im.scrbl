@@ -7,6 +7,13 @@
                  (+ (/ (+ 8 1) 3) (- 5 3))
                  ))
 
+@(define exprs-pyret (list (elem @code{ 16 + (6 * -3) })
+                           (elem @code{ (25 + 13) + (2 * 4) })
+                           (elem @code{ (10 + 4) * 28 })
+                           (elem @code{ 13 * (7 / (2 + -4)) })
+                           (elem @code{((8 + 1) / 3) + (5 - 3) })
+))
+
 @(define exprs-with-holes '((BSLeaveAHoleHere + (6 * BSLeaveAHoleHere))
 			    ((BSLeaveAHoleHere + 13) - (BSLeaveAHoleHere BSLeaveAHoleHere 4))
 			    ((BSLeaveAHoleHere + 4) BSLeaveAHoleHere BSLeaveAHoleHere)
@@ -14,7 +21,7 @@
 			    (BSLeaveAHoleHere + (BSLeaveAHoleHere - 3))
 			    ))
 
-@(define exprs-as-code (map sexp->code exprs))
+@(define exprs-as-code exprs-pyret)
 @(define exprs-as-coe (map sexp->coe exprs))
 
 @(exercise-handout 
