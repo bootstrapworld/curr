@@ -1,0 +1,40 @@
+* Learning Blog
+We will be creating a learning blog that will hold our reflections and portfolio projects throughout this school year.
+
+Our learning blog will be hosted on GitHub. Create your account using your school domain username (the part of your email address before the @afsenyc.org
+
+** Slide
+- Create a gihub.com account.
+- Use a strong password using a personal password algorithm
+- 
+* The Web
+A web page is a collection of computer files that can be read by web browser software. The @vocab{Web} is a system of interlinked files (documents or pages) often accessed via the Internet. Using the Internet web pages can be sent and received all across the world. One type of file that is used to create a web page is called an HTML file. The name of a file usually ends with an extension that tells us what type of file it is. For example if I have a website with a page called 'home' then the html file would be called 'home.html'. Another type of file that is used to create a web page is called a CSS file. The CSS file that goes along with our home page might be called 'home.css'.
+
+* HTML and CSS
+Web pages have a structure and a style. The structure of a page is like the frame of a building. It is the internal structure of a building that gives it its shape. The structure of a webpage is written in HTML. The style of a page is like the exterior of the building the same building may be painted many colors without changing its structure. The style of a page is written in CSS.
+
+In a web page some of the styles include the color of the font and what font family you want to display your text. The size of the font and the color of the background can also be changed. There are many more elements of style that can be changed on you web page.
+
+* Rendering
+
+A web page is @vocab{render}ed by a @vocab{web browser}. A web browser is a specific software application such as Mozilla Firefox or Google Chrome that is designed to display or render the page. If no style is specified the browser will apply a default style to the page.
+
+* Markup
+HTML is an example of a markup language. These languages enable us to specify the structure and content of a document. Another example of a markup language is Markdown, another is LaTex. We will look at these languages in future lessons.
+
+In HTML we can specify that our content is a heading by wrapping it in a heading tag.
+<h1> My First Heading </h1>
+In a heading tag the content lives between an opening tag <h1> and a closing tag </h1>.
+@activity[]{What is the difference between an opening and closing tag?}
+
+Markdown is a markup language that makes it easier to write HTML pages. The same heading in Markdown would be
+# My First Heading
+
+* Git, Github, and Pages
+
+
+[[file:images/structure-style-house.png]]
+@bitmap{images/structure-style-house.png}
+
+
+

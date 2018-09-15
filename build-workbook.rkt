@@ -35,7 +35,7 @@
 (putenv "IGNORED-WARNINGS" "")
 (putenv "COLLECTED-WARNINGS" "")
 
-(define courses '("algebra" "algebra-pyret" "reactive" "data-science" "physics"))
+(define courses '("algebra" "algebra-pyret" "internet" "reactive" "data-science" "physics"))
 
 ; use this to tell scribble to use the workbook.css file
 (putenv "BOOTSTRAP-TARGET" "workbook")

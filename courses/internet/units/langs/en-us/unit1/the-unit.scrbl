@@ -36,17 +36,52 @@
     ]{
         @points[
 	  @point{
-	    @student[#:title "Welcome to Bootstrap!"]{
-	      @noSlideText{Welcome to Bootstrap!}
-	        In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do.
-	      @noSlideText{Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}}
+	    @student[#:title ""]{
+	      @noSlideText{}
+	      @slideText{}
+	      }
+            @teacher{
+                @itemlist[
+		  @item{}
+     		    ]
+		  }
+                }
+	@point{
+	    @student[#:title ""]{
+	      @noSlideText{}
+	      @noSlideText{}
+	      }
             @teacher{
 	      Set expectations and rules for the class.
               Connect the material to come with things students already know:
                 @itemlist[
 		  @item{Files have extensions that identify what type of file it is and what applications can use it.}
-     		  }
+     		    ]
+		  }
                 }
+	@point{
+	    @student[#:title ""]{
+	      @noSlideText{}
+	      @slideText{}
+	      }
+            @teacher{
+                @itemlist[
+		  @item{}
+     		    ]
+		  }
+                }
+	@point{
+	    @student[#:title ""]{
+	      @noSlideText{}
+	      @slideText{}
+	      }
+            @teacher{
+                @itemlist[
+		  @item{}
+     		    ]
+		  }
+                }
+		
               ]
          }
      }
