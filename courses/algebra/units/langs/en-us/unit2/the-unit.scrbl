@@ -291,9 +291,8 @@ include other datatypes, including Strings and Images.}
                                            @item{@code{(star "solid" "red" 40)}}
                                            @item{@code{(star "40" "solid" "red")}}
                                            @item{@code{(star 40 "red" "solid")}}
-                                           @item{@code{(star 40 "solid" "yellow")}}
+                                           @item{@code{(star 40 "sold" "yelow")}}
                                            @item{@code{(star (* 4 10) "blue")}}
-                                           @item{@code{(circle 25 "outline" "blue")}}
                                           ]}}
                        @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  
                                 It is fine if students don't spot the errors for themselves at first, though having students explain 
