@@ -9,31 +9,17 @@
                  (* (+ 19 20) (- (+ 12 10) 22))
                  ))
 
-@(define exprs-pyret (list (elem @code{ (4 - 24) * (13 + 25) })
-                           (elem @code{ (14 - 13) - 14 })
-                           (elem @code{ (6 - 16) * 14 })
-                           (elem @code{ (16 * (14 - 6)) })
-                           (elem @code{ (8 + 11) - 5 })
-                           (elem @code{ (19 + 20) * ((12 + 10) - 22) })
-                           ))
+@(define c1 (code "(4 - 24) * (13 + 25)"))
+@(define c2 (code "(14 - 13) - 14"))
+@(define c3 (code "(6 - 16) * 14"))
+@(define c4 (code "(16 * (14 - 6))"))
+@(define c5 (code "(8 + 11) - 5"))
+;@(define c7 (code "(8 - 11) + 5"))
+@(define c6 (code "(19 + 20) * ((12 + 10) - 22)"))
 
-@(define permuted-exprs 
-               '((- (+ 8 11) 5)
-                 (- (- 14 13) 14)
-                 (* 16 (- 14 6))
-                 (* (- 6 16) 14)
-                 ;(+ (- 8 11) 5)
-                 (* (- 4 24) (+ 13 25))
-                 (* (+ 19 20) (- (+ 12 10) 22))
-                 ))
+@(define exprs-pyret (list c1 c2 c3 c4 c5 c6))
 
-@(define permuted-exprs-pyret (list (elem @code{ (8 + 11) - 5 })
-                                    (elem @code{ (14 - 13) - 14 })
-                                    (elem @code{ (16 * (14 - 6)) })
-                                    (elem @code{ (6 - 16) * 14 })
-                                    (elem @code{ (4 - 24) * (13 + 25) })
-                                    (elem @code{ (19 + 20) * ((12 + 10) - 22) })
-                              ))
+@(define permuted-exprs-pyret (list c5 c2 c4 c3 c1 c6))
 
 @(define expr-coes (map sexp->coe exprs))
 
@@ -43,9 +29,7 @@
   #:forevidence (exercise-evid-tags "BS-CE&1&4")
   @(matching-exercise expr-coes permuted-exprs-pyret)
   @(exercise-answers
-    (matching-exercise-answers #:compare-with equal?
-                               #:content-of-ans exprs
-                               #:some-no-match? #t ;; only here to get this to compile without errors; exercise should have all matches
+    (matching-exercise-answers
         expr-coes exprs-pyret permuted-exprs-pyret))
   )
 

@@ -434,7 +434,7 @@
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list 
-                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
+                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1-im")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1-im")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code2-im")
                        (make-exercise-locator "Intro-to-Programming" "coe-code-matching1-im")
