@@ -3,7 +3,8 @@
 @(define e1a
    (code #:multi-line #t
 "examples:
-  match(30, \"red\") is 30 + string-length(\"red\")
+  match(30, \"red\") is 
+    30 + string-length(\"red\")
 end"))
 
 @(define e1b
@@ -22,22 +23,22 @@ end"))
 @(define e2a
    (code #:multi-line #t
 "examples:
-  match(triangle(20, \"solid\", \"blue\")), 3) is
-  scale(3, triangle(20, \"solid\", \"blue\"))
+  match(star(20, \"solid\", \"blue\")), 3) is
+    scale(3, star(20, \"solid\", \"blue\"))
 end"))
 
 @(define e2b
    (code #:multi-line #t
 "examples:
-  match(circle(10, \"solid\", \"orange\") ,22) is
-  scale(22, circle(10, \"solid\", \"orange\"))
+  match(circle(10, \"solid\", \"gray\") ,22) is
+    scale(22, circle(10, \"solid\", \"gray\"))
 end"))
 
 @(define e3a
    (code #:multi-line #t
 "examples:
   match(5, star(20, \"solid\", \"red\")) is
-  rotate((90 - 5), star(20, \"solid\", \"red\"))
+    rotate((5, star(20, \"solid\", \"red\"))
 end"))
 
 @(define e3b

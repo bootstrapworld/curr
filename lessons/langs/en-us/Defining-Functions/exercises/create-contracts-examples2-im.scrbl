@@ -19,7 +19,7 @@ end"))
  sentence-length(\"goodbye\", 10) is
           (string-length(\"please\") +  10)
 end"))
-@(define c9 (code "sentence-length :: String Number -> Number"))
+@(define c9 (code "sentence-length :: String, Number -> Number"))
 
 @(define e10
    (code #:multi-line #t
@@ -38,7 +38,7 @@ end"))
  product-squared(10, 17) is num-sqr(10 * 17)
  product-squared(2, 5) is num-sqr(2 * 5)
 end"))
-@(define c11 (code "product-squared :: Number Number -> Number"))
+@(define c11 (code "product-squared :: Number, Number -> Number"))
 
 @(define e12
    (code #:multi-line #t
@@ -48,7 +48,7 @@ end"))
  half-image(\"www.images.com/dog_image\") is
           scale(0.5, (bitmap/url \"www.images.com/dog_image\")))
 end"))
-@(define c12 (code "; half-image : string -> image"))
+@(define c12 (code "half-image :: String -> Image"))
 
 @(define e13
    (code #:multi-line #t

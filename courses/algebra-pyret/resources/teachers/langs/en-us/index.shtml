@@ -203,19 +203,19 @@
                 <li>Matching Examples and Function Definitions
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/match-examples-functions1-im.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Contracts From Examples (1)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/create-contracts-examples1-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Creating Contracts From Examples (2)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/create-contracts-examples2-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 3 Bootstrap Algebra Review
@@ -229,31 +229,31 @@
                 <li>Warmup
                   <span class="links">
                     [<a href="https://docs.google.com/document/d/1aB-hMRSoFfBpmouuyU07YiQlZ0GtURFsWid7LPqtnjY/edit?usp=sharing">exercise</a>
-                          | <a href="https://docs.google.com/document/d/1RBRJ3t5NwdC5BM0zmVPFHYXM6je3wLr5kHbSKESyfUE/edit?usp=sharing">answers</a>]
+                    | <a href="https://docs.google.com/document/d/1RBRJ3t5NwdC5BM0zmVPFHYXM6je3wLr5kHbSKESyfUE/edit?usp=sharing">answers</a>]
                   </span>
                 </li>
                 <li>Do Examples Have the Same Contracts? (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/examples-same-contracts1-im.html">answers</a>]
                   <span>
                 </li>
                 <li>Do Examples Have the Same Contracts? (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/examples-same-contracts2-im.html">answers</a>]
                   <span>
                 </li>
                 <li>Matching Contracts and Examples (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/match-contracts-examples1-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Contracts and Examples (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2-im.html">exercise</a>
-                    ]
+                    | <a href="solutions/match-contracts-examples2-im.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 4 Bootstrap Algebra Review
@@ -338,7 +338,7 @@
                   </span>
                 </li>
               </ul>
-              <h2><a href="../../units/unit8/">Unit 8</a></h2>
+              <h3><a href="../../units/unit8/">Unit 8</a></h3>
               <ul>
                 <li>Warmup
                   <span class="links">
@@ -360,6 +360,7 @@
               </ul>
               <h3><a href="../../units/unit9/">Unit 9</a></h3>
               n/a
+              <br>
               <h3><a href="../../units/unit10/">Geometry Supplement</a></h3>
               <ul>
                 <li>Reflection Design Recipe

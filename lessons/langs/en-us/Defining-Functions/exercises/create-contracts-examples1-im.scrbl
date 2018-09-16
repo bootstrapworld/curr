@@ -8,7 +8,7 @@
  big-triangle(100, \"orange\") is
          triangle(100, \"solid\", \"orange\")
 end"))
-@(define c1 (code "big-triangle :: Number String -> Image"))
+@(define c1 (code "big-triangle :: Number, String -> Image"))
 
 
 @(define e2
@@ -45,7 +45,7 @@ end"))
  twinkle(36, \"outline\") is 
          star(36, \"outline\", \"yellow\")
 end"))
-@(define c4 (code "twinkle :: Number String -> Image"))
+@(define c4 (code "twinkle :: Number, String -> Image"))
 
 
 @(define e5

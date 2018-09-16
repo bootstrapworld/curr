@@ -17,15 +17,17 @@ end"))
 @(define e6a
    (code #:multi-line #t
 "examples:
-  match(triangle(20, \"solid\", \"pink\"), 3) is
-    3 * image-height( triangle(20, \"solid\", \"pink\"))
+  match(star(20, \"solid\", \"pink\"), 3) is
+    3 * image-height(
+          star(20, \"solid\", \"pink\"))
 end"))
    
 @(define e6b
    (code #:multi-line #t
 "examples:
   match(circle(10, \"solid\", \"red\"), 16) is
-    16 * image-height( circle(10, \"solid\", \"red\"))
+    16 * image-height(
+            circle(10, \"solid\", \"red\"))
 end"))
 
 @(define e7a
@@ -38,7 +40,8 @@ end"))
 @(define e8a
    (code #:multi-line #t
 "examples:
-  match(string-length(\"coffee\"), string-length(\"tea\")) is 6 + 3
+  match(string-length(\"coffee\"),
+        string-length(\"tea\")) is 6 + 3
 end"))
 
 

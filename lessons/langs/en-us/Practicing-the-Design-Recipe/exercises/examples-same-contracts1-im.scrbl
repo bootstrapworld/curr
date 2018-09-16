@@ -4,7 +4,8 @@
    (code #:multi-line #t
 "examples: 
   mystery(30) is (30 * 50)
-  mystery(10) is text(\"Welcome!\", 10, \"darkgreen\")
+  mystery(10) is text(\"Welcome!\", 10, 
+                      \"darkgreen\")
 end"))
 @(define a1 "no match (the range types are different)")
 
@@ -15,14 +16,16 @@ end"))
   mystery(30, 40) is (40 - (2 * 30))
   mystery(10, 15) is (15 - (2 * 10))
 end"))
-@(define a2 (code "; mystery :: Number Number -> Number"))
+@(define a2 (code "mystery :: Number, Number -> Number"))
 
 
 @(define e3
    (code #:multi-line #t
 "examples: 
-  mystery(\"New York\") is text(\"New York\", 20, \"red\")
-  mystery(20) is text(\"New York\", 20, \"red\")
+  mystery(\"New York\") is 
+    text(\"New York\", 20, \"red\")
+  mystery(20) is 
+    text(\"New York\", 20, \"red\")
 end"))
 @(define a3 "no match (the domain types are different)")
 
@@ -30,8 +33,10 @@ end"))
 @(define e4
    (code #:multi-line #t
 "examples:
-  mystery(\"green\", 32) is circle(32, \"outline\", \"green\")
-  mystery(18, \"green\") is circle(18, \"outline\", \"green\")
+  mystery(\"green\", 32) is 
+    circle(32, \"outline\", \"green\")
+  mystery(18, \"green\") is 
+    circle(18, \"outline\", \"green\")
 end"))
 @(define a4 "no match (the domain types are in different orders)")
 
@@ -46,21 +51,23 @@ end"))
 @(define e6
    (code #:multi-line #t
 "examples:
-  mystery(\"red\", \"blue\") is text(\"blue\", 25, \"red\")
-  mystery(\"purple\", \"Go Team!\") is text(\"Go Team!\", 25, \"purple\")
+  mystery(\"red\", \"blue\") is 
+    text(\"blue\", 25, \"red\")
+  mystery(\"purple\", \"Go Team!\") is 
+    text(\"Go Team!\", 25, \"purple\")
 end"))
-@(define a6 (code "; mystery :: String String -> Image"))
+@(define a6 (code "mystery :: String, String -> Image"))
 
 
 @(define e7
    (code #:multi-line #t
 "examples:
-  mystery(circle(55, \"outline\", \"black\"), 12) is 
-        scale(12, circle(55, \"outline\", \"black\"))
-  mystery(rectangle(24, 32, \"outline\", \"purple\"), 5) is 
-        scale(5, rectangle(24, 32, \"outline\", \"purple\")
+  mystery(circle(5, \"solid\", \"red\"), 2) is 
+    scale(2, circle(5, \"solid\", \"red\"))
+  mystery(star(24, \"solid\", \"blue\"), 5) is 
+    scale(5, star(24, \"solid\", \"blue\"))
 end"))
-@(define a7 (code "; mystery :: Image Number -> Image"))
+@(define a7 (code "mystery :: Image, Number -> Image"))
 
 
 

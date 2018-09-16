@@ -14,8 +14,8 @@ end"))
 
 @(define f1
    (code #:multi-line #t
-"fun mystery(c):
-  circle(10, \"solid\", c)
+"fun mystery(color):
+  circle(10, \"solid\", color)
 end"))
 
 @(define e2
@@ -29,8 +29,8 @@ end"))
 
 @(define f2
    (code #:multi-line #t
-"fun mystery(r):
-  circle(r, \"outline\", \"red\")
+"fun mystery(radius):
+  circle(radius, \"outline\", \"red\")
 end"))
 
 @(define e3
@@ -44,8 +44,8 @@ end"))
 
 @(define f3
    (code #:multi-line #t
-"fun mystery(w):
-  rectangle(w, 10, \"outline\", \"red\")
+"fun mystery(width):
+  rectangle(width, 10, \"outline\", \"red\")
 end"))
 
 @(define e4
@@ -61,7 +61,7 @@ end"))
 
 @(define f4
    (code #:multi-line #t
-"fun mystery(h):
+"fun mystery(height):
   rectangle(20, h, \"solid\", \"red\")
 end"))
 
@@ -88,7 +88,7 @@ end"))
 
 @(define f7
    (code #:multi-line #t
-"fun mystery(h):
+"fun mystery(height):
   rectangle(10, h, \"solid\", \"red\")
 end"))
 
