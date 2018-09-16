@@ -20,6 +20,7 @@
          "lib/pdf-lesson-exercises.rkt"
          "lib/warnings.rkt"
          scribble/render
+         scribble/html-render
          file/zip)
 
 
@@ -29,7 +30,7 @@
 ;; to HTML files, written under the deployment directory for simple
 ;; distribution.
 
-;; In some cases, we need a distribution with a different directory 
+;; In some cases, we need a distribution with a different directory
 ;; structure (e.g. code.org needs everything in the units directories).
 ;; Distribution configuration occurs in update-resource-paths, and is
 ;; currently limited in flexibility.  Will expand that as needed.
@@ -44,7 +45,8 @@
                                  ("reactive" "en-us")
                                  ("data-science" "en-us")
                                  ("physics" "en-us")
-                                 ;("blank-course" "en-us")
+                                 ("intro" "en-us")
+                                 ("internet" "en-us")
                                  ))
 #;(define available-courses (map (lambda (course-spec) (first course-spec)) available-course-specs))
 
@@ -53,9 +55,9 @@
 (define (update-resource-paths)
   (deploy-resources-dir (build-path (root-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "resources"))
   (unit-to-resources-path (build-path 'up 'up "resources")))
- 
 
-;; The following is a bit of namespace magic to avoid funkiness that 
+
+;; The following is a bit of namespace magic to avoid funkiness that
 ;; several of our team members observed when running this build script
 ;; under DrRacket with debugging enabled.  We must make sure to use
 ;; a fairly clean namespace, but one that shares some critical modules
@@ -82,8 +84,8 @@
     (cond [(current-deployment-dir)
            ;; Rendering to a particular deployment directory.
            (if include-base-path?
-               (let-values ([(base name dir?) 
-                             (split-path 
+               (let-values ([(base name dir?)
+                             (split-path
                               (find-relative-path (simple-form-path root-path)
                                                   (simple-form-path scribble-file)))])
                  (simple-form-path (build-path (current-deployment-dir) base)))
@@ -95,6 +97,27 @@
                            (split-path (simple-form-path scribble-file))])
                base)]))
   (define-values (base name dir?) (split-path scribble-file))
+
+
+
+  (define output-path (build-path output-dir (string->path (regexp-replace #px"\\.scrbl$" (path->string name) ".html"))))
+
+  (parameterize ([current-directory base]
+                 [current-namespace document-namespace]
+                 [current-document-output-path output-path])
+    (render (list (dynamic-require `(file ,(path->string name)) 'doc))
+            (if outfile (list outfile) (list name))
+            ;;; #:render-mixin (compose render-multi-mixin render-mixin)
+            #:dest-dir output-dir
+            ;; Comment out next line to use default scribble.css file
+            #:style-file (build-path root-path "lib" "css-files-units" "scribble.css")
+            )
+    (when (and (not never-generate-pdf?) (current-generate-pdf?))
+      (translate-html-to-pdf
+       (build-path output-dir
+                   (regexp-replace #px".scrbl$"
+                                   (path->string name)
+                                   ".html")))))
 
   (define namestr (path->string name))
 
@@ -119,8 +142,8 @@
                                      namestr
                                      ".html")))))
   )
-  (void))
 
+  (void))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -128,25 +151,25 @@
 ;;collects all warnings, to be printed at the end of the build script
 (void (putenv "COLLECTED-WARNINGS" ""))
 
-  
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command line parsing.  We initialize the SCRIBBLE_TAGS environmental
 ;; variable
 ;; Hard-set list. This is optionally replaced with command-line arguments below
-;(define courses (list "algebra" "reactive" )) ;  "data-science" "physics"))
-(define courses available-courses)
+(define courses (list "algebra-pyret" "internet" "algebra" "data-science" "reactive")) ; "algebra" "reactive" "data-science" "physics"))
+;(define courses available-courses)
 
 (units '())
 
-(define run-languages (list "en-us" "es-mx"))
+(define run-languages (list "en-us"))
 
 (define run-exercises? #t)
 
 ;(void
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
-(putenv "TARGET-LANG" "pyret")
+;(putenv "TARGET-LANG" "racket")
 (putenv "LANGUAGE" "en-us")
-      
+
 ;; warnings to be ignored when running the build script. This can be populated using the
 ;; command-line tag "--suppress-warnings a_b_c" or "--sw a_b_c" to suppress warning types a, b, and c.
 ;; Alternatively, "--sw all" can be used to suppress all WARNINGs.
@@ -207,12 +230,12 @@
   (command-line
    #:program "build"
    #:once-each
-   
+
    ;; removed option for now, since not scribbling workbook
    ;; option is set in main entry point at end of file
-   #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf" 
+   #;[("--worksheet-links-to-pdf") "Direct worksheet links to StudentWorkbook.pdf"
                                    (putenv "WORKSHEET-LINKS-TO-PDF" "true")]
-   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
+   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy"
                  (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: en-us"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
@@ -231,7 +254,7 @@
                  (set! courses (parse-course-args (string-split -course "_")))]
    [("--pdf") "Generate PDF documentation"
               (current-generate-pdf? #t)]
-   
+
    #:args tags
    tags))
 
@@ -279,23 +302,23 @@
 ;; We must do this twice to resolve cross references for lessons.
 (define (build-course-units)
   ;; build the units
-  (when (directory-exists? (get-units-dir)) 
+  (when (directory-exists? (get-units-dir))
     (printf "build.rkt: building ~a\n" (current-course))
     (when (directory-exists? (get-units-dir))
       (for ([phase (in-range 2)])
         (printf "Phase ~a\n" phase)
-        
+
         ;;checks to see if you want to use all the units. if no units specified, uses all units
         (define units-to-use (directory-list (get-units-dir)))
-        
+
         (for ([subdir units-to-use]
               #:when (directory-exists?  (build-path (get-units-dir) subdir)))
-          
+
           (define scribble-file (simple-form-path (build-path (build-path courses-base (current-course) "units" "langs" (getenv "LANGUAGE"))
                                                               subdir "the-unit.scrbl"))); langs path
           (cond [(file-exists? scribble-file)
                  (printf "build.rkt: Building ~a\n" scribble-file)
-                 (copy-file (build-path "lib" "box.gif") 
+                 (copy-file (build-path "lib" "box.gif")
                             (build-path (get-units-dir) subdir "box.gif")
                             #t)
                  (parameterize ([current-unit (path->string subdir)]
@@ -306,8 +329,8 @@
                 [else
                  (printf "Could not find a \"the-unit.scrbl\" in directory ~a\n"
                          (build-path (get-units-dir) subdir))])))
-      
-      ;; copy exercises from individual lessons into units that reference them 
+
+      ;; copy exercises from individual lessons into units that reference them
       (for ([subdir (directory-list (get-units-dir))]
             #:when (directory-exists? (build-path (get-units-dir) subdir)))
         (let (;[exercises-dir (build-path (get-units-dir) subdir "exercises")]
@@ -315,10 +338,15 @@
                                                 "units"
                                                 subdir "exercises")])
           (unless (directory-exists? deploy-exercises-dir)
+
+            ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units"))
+
+
             ; (unless (directory-exists? (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "units")))
               
+
             (make-directory deploy-exercises-dir))
-          
+
           (let ([exer-list-path (build-path (get-units-dir) subdir "exercise-list.rkt")])
             (when (file-exists? exer-list-path)
               (let ([unit-exercises (with-input-from-file exer-list-path read)])
@@ -364,8 +392,8 @@
   (rename-file-or-directory (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "index.html")
                             (build-path (current-deployment-dir) "courses" (current-course) (getenv "LANGUAGE") "index.shtml")
                             #t)
-  (unless (directory-exists? (get-units-dir)) 
-    (WARNING (format "No units directory found for course ~a in language ~a" 
+  (unless (directory-exists? (get-units-dir))
+    (WARNING (format "No units directory found for course ~a in language ~a"
                      (current-course) (getenv "LANGUAGE")) 'no-course-dir))
   )
 
@@ -411,7 +439,7 @@
                 #:when (and (regexp-match #px".pdf$" worksheet)
                             (not (file-exists? (build-path (lessons-dir) subdir "exercises" (regexp-replace #px"\\.pdf$" (path->string worksheet) ".scrbl"))))))
             (let ([worksheet-distrib-file (build-path old-deployment-dir "lessons"  (getenv "LANGUAGE") subdir "exercises" worksheet)])
-              (unless (file-exists? worksheet-distrib-file) 
+              (unless (file-exists? worksheet-distrib-file)
                 (copy-file (build-path (lessons-dir) subdir "exercises" worksheet)
                            worksheet-distrib-file
                            #t))))
@@ -472,7 +500,7 @@
 
     (unless (file-exists? csv-path)
       (WARNING (format "cannot find teacher-contributions in ~a.\n" (current-course)) 'teacher-contributions))
-    
+
     ;; copy teacher files into their place in distribution
     ;(copy-directory/files source-exercise-directory target-exercise-directory)
 
@@ -498,7 +526,7 @@
           (hash-update! current-teacher-contr-xref unit
                         (lambda (exer-list)
                           (cons (list name school grade descr link) exer-list) )))))))
-             
+
 
 
 
@@ -516,14 +544,14 @@
 
 
 ;; the use of deploy-resources-dir in setting output-resources-dir enables
-;; configuration of where the resources directory lives.  All scribble files 
+;; configuration of where the resources directory lives.  All scribble files
 ;; will have been generated in the current-deployment-dir before this runs.
 ;; This function mainly copies materials from other parts of the build into
 ;; the distribution directories
 (define (copy-resources)
   ;; Under deployment mode (currently always enabled), include the resources.
   (when (and (current-deployment-dir) (directory-exists? (get-resources)))
-      
+
     ; first copy over all of the resources files to the deployment resources dir
     (let ([input-resources-dir (get-resources)]
           [output-resources-dir (deploy-resources-dir)])
@@ -560,8 +588,9 @@
           (delete-file (build-path teacher-resources "buggy-DR-answer-key.docx")))
         ;; copy the .htaccess file to protected
         (copy-file (build-path input-resources-dir "teachers" ".htaccess")
-                   (build-path teacher-protected ".htaccess"))       
+                   (build-path teacher-protected ".htaccess"))
         )
+      
 
       ; keep only certain files in workbook resources dir
       (when (directory-exists? (build-path output-resources-dir "workbook"))
@@ -577,7 +606,7 @@
       (when (file-exists? (build-path output-resources-dir "workbook" "workbook.pdf"))
         (rename-file-or-directory (build-path output-resources-dir "workbook" "workbook.pdf")
                                   (build-path output-resources-dir "workbook" "StudentWorkbook.pdf")))
-      
+
       (let ([sourcefiles (build-path output-resources-dir "source-files")]
             [sourcezip (build-path output-resources-dir "source-files.zip")])
         (when (file-exists? sourcezip)
@@ -586,12 +615,12 @@
           (parameterize ([current-directory sourcefiles])
             (let ([allfiles (directory-list sourcefiles)])
               (apply zip (cons sourcezip allfiles))))))
-        
+
       ;; copy the background logo to the resources directory
       (copy-file (build-path "lib" "backlogo.png")
                  (build-path (current-deployment-dir) "courses" (current-course)(getenv "LANGUAGE") "resources" "backlogo.png")
                  #t)
-        
+
       ))
 
   ;; copy auxiliary files into units within distribution
@@ -629,13 +658,11 @@
            ;;   notes building, so shouldn't be here, but this trashes the dirs so
            ;;   needs to be here until we get the scripts refactored
            ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
-           (let ([workbooksols (build-path (get-resources) "workbook"  "langs" (getenv "LANGUAGE") "workbooksols.pdf")]
-                 [oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-             (when (and (not (file-exists? oldsols)) (file-exists? workbooksols))
-             ;(when (file-exists? workbooksols)
+           (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
+             (when (file-exists? workbooksols)
                (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-                 ;(when (file-exists? oldsols)
-                 ;  (delete-file oldsols))
+                 (when (file-exists? oldsols)
+                   (delete-file oldsols))
                  ;;;; kathi added may 28 to fix up language paths -- this may address large comment just above ...
                  (unless (directory-exists? (deploy-resources-dir))
                    (printf "Creating resources dir~n")
@@ -697,21 +724,31 @@
                    [current-course-languages languages])
       (for ([language (in-list languages)]
             #:when (member language run-languages))
-        
+
         (update-lang-fields language)
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
-        (process-teacher-contributions)
+        ;(process-teacher-contributions)
         (when (equal? course "algebra")
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
                      (workbook-styling-on)
-                     ;; when did we move the following into units? 
+                     ;; when did we move the following into units?
                      ;(build-extra-pdf-exercises); not needed for reactive
                      )
               (workbook-styling-on))
           )
+          (when (equal? course "internet")
+            ;(putenv "TARGET-LANG" "racket")
+            (if (build-exercises?)
+                (begin (build-exercise-handouts) ; not needed for reactive
+                     (workbook-styling-on)
+                       ;; when did we move the following into units?
+                       ;(build-extra-pdf-exercises); not needed for reactive
+                       )
+                (workbook-styling-on))
+            )
         (when (equal? course "reactive")
           (putenv "TARGET-LANG" "pyret")
           ;; formerly set "RESLEASE-STATUS" to "beta" here
@@ -725,7 +762,27 @@
                            )
               (workbook-styling-on))
           )
-        (textbook-styling-on)
+	(when (equal? course "intro")
+          (putenv "TARGET-LANG" "racket")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) ; not needed for reactive
+                     (workbook-styling-on)
+                     ;; when did we move the following into units?
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
+              (workbook-styling-on))
+          )
+	(when (equal? course "algebra-pyret")
+          (putenv "TARGET-LANG" "pyret")
+          (if (build-exercises?)
+              (begin (build-exercise-handouts) ; not needed for reactive
+                     (workbook-styling-on)
+                     ;; when did we move the following into units?
+                     ;(build-extra-pdf-exercises); not needed for reactive
+                     )
+              (workbook-styling-on))
+          )
+	(textbook-styling-on)
         (update-resource-paths)
         (workbook-styling-on)
         (build-extra-pdf-exercises)

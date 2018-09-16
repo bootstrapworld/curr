@@ -1,0 +1,189 @@
+provide{
+    run-simulation : run-simulation,
+    delta-t : delta-t
+}end
+include image
+include reactors
+
+###########
+#  Images #
+###########
+
+background = 
+  scale(1160/1509, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1fh1TzF6BDz9R46_eXKukTtWkNKDp7-Ft"))
+
+car = 
+  scale(1/5, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1KATPjmeJYfNZZ7_PETWmofYfiyKLI6yL"))
+
+car-with-chute = 
+  flip-horizontal(scale(1/13, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1BdV6kV7gNpXFwT0YG0B7rwzO1N51sDKX")))
+
+red-light = overlay(
+  circle(20, "solid", "red"), square(50, "solid", "gray"))
+yellow-light = overlay(
+  circle(20, "solid", "yellow"), square(50, "solid", "gray"))
+green-light = overlay(
+  circle(20, "solid", "green"), square(50, "solid", "gray"))
+
+###########################
+#  Simulation Parameters  #
+###########################
+initial-x = (image-width(car) / 2) - 20
+car-y = (11.5 / 18) * image-height(background)
+light-x = image-width(background) / 2
+light-y = image-height(background) * (22/24)
+delta-t = 1/20
+fun parachute-drag(v):
+  450 * v
+end
+
+fun air-resistance(v):
+  1.5 * v
+end
+
+####################
+#  Student Inputs  #
+####################
+#|
+   mass = 150
+   max-thrust = 700
+
+   fun next-x(x, v-avg):
+  x + (v-avg * delta-t)
+   end
+
+   fun next-v(v, a):
+  v + (a * delta-t)
+   end
+
+   fun acceleration(thrust, drag, parachute):
+  (thrust - (drag + parachute)) / mass
+   end
+|#
+
+#########################
+#  Simulation Function  #
+#########################
+
+fun run-simulation(MASS, THRUST, X-FUNCTION, V-FUNCTION, A-FUNCTION):
+
+  fun update-state({light; chute; thrusting; t; x; v}):
+    new-light =
+      if t < 2:
+        "red"
+      else if t < 4:
+        "yellow"
+      else:
+        "green"
+      end
+    thrust-force =
+      if thrusting == true:
+        THRUST
+      else:
+        0
+      end
+    chute-force =
+      if chute == true:
+        parachute-drag(v)
+      else:
+        0
+      end
+    new-t = t + delta-t
+    acc = A-FUNCTION(thrust-force, air-resistance(v), chute-force)
+    new-v = V-FUNCTION(v, acc)
+    avg-v = (v + new-v) / 2
+    new-x = X-FUNCTION(x, avg-v)
+
+    {new-light; chute; thrusting; new-t; num-round(1000 * new-x) / 1000; num-round(1000 * new-v) / 1000}
+  end
+
+  fun key-function({light; chute; thrusting; t; x; v}, key-pressed):
+    new-thrusting =
+      if (light == "green") and (key-pressed == "right"):
+        if thrusting == false:
+        true
+        else: false end
+      else if key-pressed == " ":
+        thrusting
+      else:
+        thrusting
+      end
+
+    new-chute =
+      if key-pressed == " ":
+        true
+      else:
+        chute
+      end
+
+    {light; new-chute; new-thrusting; t; x; v}
+  end
+
+  fun draw-state({light; chute; thrusting; t; x; v}):
+    shown-x =
+      if chute == true:
+        (initial-x + x) - ((image-width(car-with-chute) - image-width(car)) / 2)
+      else:
+        initial-x + x
+      end
+    shown-light =
+      if light == "green":
+        green-light
+      else if light == "yellow":
+        yellow-light
+      else:
+        red-light
+      end
+    shown-car =
+      if chute == true:
+        car-with-chute
+      else:
+        car
+      end
+    score =
+      if x > 1000:
+        (x - 1000) + (10 * t)
+      else:
+        0
+      end
+    banner-bkg = rectangle(image-width(background), image-height(background), "solid", "gold")
+    banner-text = above(
+      text("Your final time was " + num-to-string-digits(t, 1) + " seconds. You stopped at " + num-to-string-digits(x, 0) + " meters.", 48, "black"),
+      text("Your score was " + num-to-string-digits(score, 0) + ".", 48, "black")
+      )
+    banner = overlay(banner-text, banner-bkg)
+    scene = 
+      put-image(
+        shown-car,
+        shown-x,
+        car-y,
+        put-image(
+          shown-light,
+          light-x, light-y, background))
+    if (x > 1000) and (v < 1):
+      banner
+    else:
+      scene
+    end
+  end
+
+  r = reactor:
+    init: {"red"; false; false; 0; 0; 0},
+    on-tick: update-state,
+    seconds-per-tick: delta-t,
+    on-key: key-function,
+    to-draw: draw-state,
+    stop-when: lam(e): (e.{1} == true) and (e.{5} < 1) end,
+    close-when-stop: false
+  end
+  raw-data = interact-trace(r)
+  data-list = extract state from raw-data end
+
+  time = data-list.last().{3} - 4
+  position = data-list.last().{4}
+  score = (1000 * (1000 / position)) + (10 * time)
+
+  "Your final time was " + num-to-string-digits(time, 1) + " seconds. You stopped at " + num-to-string-digits(position, 0) + " meters. Your score was " + num-to-string-digits(score, 0) + " points."
+end
+
+#run-simulation(mass, max-thrust, next-x, next-v, acceleration, drag-force)

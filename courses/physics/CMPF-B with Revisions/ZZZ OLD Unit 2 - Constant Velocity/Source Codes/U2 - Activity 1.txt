@@ -1,0 +1,35 @@
+include shared-gdrive("U2 - Activity 1 (background)", "1L4AxwwjE6cnezZgtZjFlxoDfPRmpqbxV")
+
+#############################################################
+#  The amount of time between metronome ticks (in seconds)  #
+#############################################################
+delta-t = ...
+
+
+##########################################################################
+#  This is the function which consumes the buggy's current position and  #
+#  produces its position at the next tick of the metronome.              #
+##########################################################################
+
+# Fill in the contract for this next-x function on line 15 below.
+#
+
+# Fill in at least 3 examples of the next-x function working properly.
+examples:
+  ...
+end
+
+# Fill in the input and body of the next-x function.
+fun next-x(...):
+  ...
+end
+
+
+
+
+
+
+#############################################################################
+# This function runs the simulation. DO NOT EDIT!!!                         #
+#############################################################################
+run-simulation(next-x, delta-t)

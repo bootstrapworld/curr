@@ -1,0 +1,49 @@
+include shared-gdrive("U2 - Activity 2 (background)", "1HzEDDT2-GSMqCt4gs_fvLq92vrD0XugB")
+
+######################################
+#  Add the problem number to line 6  #
+######################################
+problem-number = ...
+
+#############################################
+#  Set the time between updates in line 11  #
+#############################################
+delta-t = ... #s
+
+############################################################################################
+#  This function consumes the current position of the boat and produces its next position  #
+############################################################################################
+
+# Write the contract of this function on line 18.
+#
+
+# Write three examples for the next-x function based on the pictures in your handout.
+examples:
+  next-x(...) is ...
+  next-x(...) is ...
+  next-x(...) is ...
+end
+
+# Fill in the body of the next-x function on line 29
+fun next-x(x):
+  ...
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################
+#  This line runs the simulation. Do not edit  #
+################################################
+run-simulation(problem-number, delta-t, next-x)

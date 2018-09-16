@@ -1,0 +1,44 @@
+include shared-gdrive("U3 - Practicum (background)", "1pLWmDtpkan5_7Ms3cM3NbUDzp6xeYXk2")
+
+############################################
+#  Parameters                              #
+#    Look up appropriate values for these  #
+############################################
+
+delay-time = ... # seconds
+
+braking-acceleration = ... # m/s/s
+
+#######################
+#  Motion Parameters  #
+#######################
+
+initial-velocity = ... # m/s
+
+starting-separation = ... # m
+
+#####################################
+#  Motion Function Without Braking  #
+#####################################
+
+fun next-x-no-brake(...):
+  ...
+end
+
+###################################
+#  Motion Functions With Braking  #
+###################################
+
+fun next-v-braking(...):
+  ...
+end
+
+fun next-x-braking(...):
+  ...
+end
+
+
+################################################
+#  This line runs the simulation. DO NOT EDIT  #
+################################################
+run-simulation(delay-time, starting-separation, initial-velocity, next-x-no-brake, next-x-braking, next-v-braking)

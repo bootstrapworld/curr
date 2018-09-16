@@ -8,14 +8,14 @@
          "lib/paths.rkt"
          scribble/render
          "lib/build-helpers.rkt"
-         "lib/build-modes.rkt"         
+         "lib/build-modes.rkt"
          )
 
 ;; The default deployment directory is "distribution"
 (root-deployment-dir (simple-form-path "distribution"))
 (current-deployment-dir (root-deployment-dir))
 
-;; The following is a bit of namespace magic to avoid funkiness that 
+;; The following is a bit of namespace magic to avoid funkiness that
 ;; several of our team members observed when running this build script
 ;; under DrRacket with debugging enabled.  We must make sure to use
 ;; a fairly clean namespace, but one that shares some critical modules
@@ -42,8 +42,8 @@
                  [current-document-output-path output-path])
     (render (list (dynamic-require `(file ,(path->string name)) 'doc))
             (list name)
-	    #:dest-dir output-dir)
-    )  
+	          #:dest-dir output-dir)
+    )
   (void))
 
 (define run-languages (list "en-us" "es-mx"))
@@ -56,7 +56,7 @@
   (command-line
    #:program "build-sols"
    #:once-each
-   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy" 
+   [("--deploy") -deploy-dir "Deploy into the given directory, and create a .zip.  Default: deploy"
     (current-deployment-dir (simple-form-path -deploy-dir))]
    [("--language") -language "Select what language you are printing the curriculum for. Default: en-us"
                    (set! run-languages (parse-lang-args (string-split -language "_")))]
@@ -94,7 +94,7 @@
 (putenv "TARGET-LANG" "racket")
 (putenv "RELEASE-STATUS" "mature")
 (solutions-mode-on)
-  
+
 (for ([course courses])
   (parameterize ([current-course course])
      (for ([language (in-list run-languages)])
@@ -106,4 +106,3 @@
            )))))
 
 (solutions-mode-off)
-  

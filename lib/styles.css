@@ -6,7 +6,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    background: #fff;
+    background: #FFCED6;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -14,7 +14,7 @@ body {
 }
 
 a[href] {
-    color: #F4AB3A;
+    color: #26ACE0;
     text-decoration: none;
 }
 
@@ -140,7 +140,7 @@ div#sidebar ul li {
     float: left;
     display: inline;
     width: 100%;
-    background-color: #B6D990;
+    background-color: #F9D09D;
     margin-bottom: 10px;
     padding: 10px;
 }
@@ -159,14 +159,14 @@ div#sidebar ul li:hover {
 /* Main body entries and images */
 
 div#body {
-    position: absolute;
+/*    position: absolute; */
     left: 26%;
     top: 175px;
     width: 895px;
     padding-left: 10px;
     padding-right: 20px;
     margin: 0px;
-    color: #75328A;
+    color: #000;
 }
 
 div.inset {
@@ -534,7 +534,7 @@ only screen and (max-device-width: 1375px) {
     }
     div#body {
         left: 25%;
-        width: 70%;
+     /*   width: 70%; */
     }
 }
 /* 800px Breakpoint */
@@ -686,9 +686,13 @@ only screen and (max-device-width: 500px) {
         min-width: 0;
         padding: 0;
     }
+<<<<<<< HEAD
+}
+=======
     #first-quote { display: none; }
     ul.tab li {min-width: 100px;}
     div#quotes, div.item>div#map {margin: 0px; padding: 0px;}
     .dropdown-content { left: 0px; }
 
 }
+>>>>>>> upstream/new-master

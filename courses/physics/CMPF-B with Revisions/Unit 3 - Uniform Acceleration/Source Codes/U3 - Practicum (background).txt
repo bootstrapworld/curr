@@ -1,0 +1,128 @@
+provide{
+    run-simulation : run-simulation,
+    delta-t : delta-t
+}end
+
+include image
+include reactors
+
+############
+#  Images  #
+############
+car1 = image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQcUpUZnNUVDhRZjQ")
+car2 = image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQUE5wUFVVeHlYcW8")
+
+background = above(
+  rectangle(800, 200, "solid", "sky-blue"),
+  rectangle(800, 50, "solid", "gray"))
+
+################
+#  Parameters  #
+################
+delta-t = 1/20
+y1 = 70
+y2 = 65
+crash-dist = 150
+sc = 5
+
+####################
+#  Student Inputs  #
+####################
+#|
+delay-time = 1
+braking-acceleration = 10
+
+initial-velocity = 9
+starting-separation = 2
+
+fun next-x(x):
+  x + (initial-velocity * delta-t)
+end
+
+fun next-x-braking(x, v-avg):
+  x + (v-avg * delta-t)
+end
+
+fun next-v(v):
+  v - (braking-acceleration * delta-t)
+end
+|#
+#########################
+#  Simulation Function  #
+#########################
+fun run-simulation(delay, separation, v0, pos-cv, pos-ua, vel):
+
+  fun update-state({t; x1; x2; v1; v2}):
+    new-t = t + delta-t
+
+    new-v1 =
+      if v1 < 0.1:
+        0
+      else if t > 1:
+        vel(v1)
+      else:
+        v1
+      end
+
+    new-v2 =
+      if t > (1 + delay):
+        vel(v2)
+      else:
+        v2
+      end
+
+    new-x1 =
+      if t > 1:
+        pos-ua(x1, (v1 + new-v1) / 2)
+      else:
+        pos-cv(x1)
+      end
+
+    new-x2 =
+      if t > (1 + delay):
+        pos-ua(x2, (v2 + new-v2) / 2)
+      else:
+        pos-cv(x2)
+      end
+
+    {new-t; new-x1; new-x2; new-v1; new-v2}
+  end
+
+  fun colided({t; x1; x2; v1; v2}):
+    ((x1 - x2) * sc) <= crash-dist
+  end
+
+  fun stopped({t; x1; x2; v1; v2}):
+    colided({t; x1; x2; v1; v2}) or (v2 < 0.1)
+  end
+
+  fun show-state({t; x1; x2; v1; v2}):
+    scene =
+      put-image(car1, x1 * sc, y1,
+        put-image(car2, x2 * sc, y2, background))
+    banner = rectangle(800, 300, "solid", "gold")
+    victory = text("Both vehicles stopped safely", 48, "black")
+    defeat = text("Cars crashed. Try again.", 48, "black")
+    disp =
+      if colided({t; x1; x2; v1; v2}) == true:
+        overlay(overlay(defeat, banner), scene)
+      else if stopped({t; x1; x2; v1; v2}) == true:
+        overlay(overlay(victory, banner), scene)
+      else:
+        scene
+      end
+    disp
+  end
+
+  r = reactor:
+    init: {0; (150 / sc) + separation; 0; v0; v0},
+    on-tick: update-state,
+    seconds-per-tick: delta-t,
+    stop-when: stopped,
+    to-draw: show-state
+  end
+
+  interact(r)
+end
+
+#run-simulation(delay-time, starting-separation, initial-velocity, next-x, next-x-braking, next-v)

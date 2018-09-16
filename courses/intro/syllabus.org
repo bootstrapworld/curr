@@ -1,0 +1,519 @@
+#+STARTUP: showall
+
+* School Vision
+The Academy for Software Engineering is a high school that seeks to
+provide instruction that could put students onto a path towards a
+career in software engineering. Software engineering is a professional
+career. In order to pursue this career students need to pursue the
+subject of computer science, much like if you wanted to be an
+accountant you need to study mathematics. However, software
+engineering is a specialized field, and we know that only some of our
+students will want to pursue the work in other fields such as
+medicine, art, or business. While not all of our students will become
+software engineers we recognize that the work of software engineers,
+producing useful programs, has had a massive, huge, significant impact
+on the world and on our lives. We believe that studying computer
+science at the high school level is important for the same reason as
+studying history, english, mathematics or science. Computer science is
+a new subject that is becoming an integral part of the education
+demands of future citizens. The way we will study computer science is
+by looking for connections between computing in the world and the
+studies in our high school courses. Your high school education
+immerses you in the major topics that have shaped civilization. The
+study of that civilization and the development of your mind has become
+inextriably intertwined with the study and products of computing.
+* Course Overview 
+Introduction to Computer Sciences explores the relationship between
+computational thinking and the standard high school curriculum through building
+games and animations, analyzing and presenting data, and sharing ourselves and
+our learning with the world. The course is organized into three modules, which
+we cycle throughout the year. Each module is further broken down into one week
+mini-units. In the *Algebra* module students create a simple video game and
+discover the relationships between math and computer science. In *Data Science*
+students explore a dataset they are interested in to and produce a detailed
+report on their analysis. Our work is collected into learning blogs that are
+enhanced by our studies of the *Internet* and its structures. Introduction to
+Computing is the first course in the AFSE computing sequence. The course aims to
+provide a initial foundation for future study in computing. Three pillars of the
+introductory course are academic habits, motivation/disposition/interest, and
+concepts.
+** Goals
+The introductory course in the AFSE computing sequence is designed to provide a
+foundation in the computing concepts that will be built upon in later courses.
+
+The study of computing is built on the ability to interact with problems. Each
+computational problem is a question of how to harness the power of computational
+process to achieve some end that we care about. The ability to take a problem
+and restate it as a computational solution is an essential component to success
+in computing.
+
+The fundamental concept in computer science is the development of abstractions
+to solve problems using real world data. This could mean writing a program that
+responds to a controller or keyboard, or it could be data stored in a
+spreadsheet or data base. We learn to recognize the shape and structure of data
+and to build programs that compute that data.
+
+Students should expect to interact with a variety of problems some of which the
+student will be asked to solve on their own. We frequently work together to make
+observations and inferences and to share those with our classmates. Ultimately,
+students in this course learn to be the interface between a world of rick and
+interesting problems and the power of computing machines to produce useful
+solutions.
+
+** Modes of learning and assessment
+We use several modes to instruct, practice, and reflect on our
+learning. Students should be prepared to interact with the teacher and classmates in each of these modes. 
+- Lecture/Mini-lesson :: Direct instruction from the teacher at the front of the room takes up about a quarter of the learning time in the classroom. These well planned and rehearsed deliveries of content are meant to support readings and problem sets with instructions and explanations. In the mini-lesson mode we regularly invoke thinking through questions, peer discussions, problem solving and note taking. We will practice these skills daily. However, should be practicing the maturity and concentration required to get the most out of this mode of learning.
+- Articulating Goals ::
+- Thinking Focused Prompts :: 
+- Multiple Modalities and Representations :: 
+- Final Practice Reflection :: 
+- Full Group Discussion of Ideas :: 
+- Partner Work :: Think, pair, share and Pair programming are two styles of parter work that you should expect to see in the classroom. 
+- Individual Think Time ::
+- The Four Rs :: repeat, rephrase, reword, record 
+- Sentence Frames and Starters :: 
+- Annotation :: 
+- Ask-yourself Questions :: 
+- Instructional Routines
+  - Capturing Quantities
+  - Connecting Representations
+  - Recognizing Repetition
+  - Three Reads
+- Learning Blogs :: Students will maintain a learning blog throughout the course to share not just their best work, but their reflections and growth throughout the learning process.
+- Modeling/Whiteboarding :: Students will be asked to work together to model different systems and programs using whiteboards. The whiteboard serves as a thinking space that can be shared by two or three students. The whiteboard then also serves as a convenient presentation space for sharing thinking with the whole class.
+- Gallery Walk :: During presentatios students will examine the thinking of others and look for similarities and differences in approaches to problems and situations.
+- POGIL :: Process Oriented Guided Inquiry Learning is a fancy way of saying that students will sometimes be asked to follow a process of inquiry with the aid of a guide. These opportunities give students a chance to build knowledge at the their own pace before sharing their learning with the class.
+** Learning Objectives and Alignment
+*** AFSE Mastery Skills
+*** Common Core Mathematics Practices
+*** AP CS Principles
+| Covered? |   Tag | Learning Objective                                                                                                                                 | Skill |
+|----------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------|
+| Y        | 1.1.1 | Apply a creative development process when creating computational artifacts. [P2]                                                                   |     2 |
+| Y        | 1.2.1 | Create a computational artifact for creative expression. [P2]                                                                                      |     2 |
+| Y        | 1.2.2 | Create a computational artifact using computing tools and techniques to solve a problem. [P2]                                                      |     2 |
+| Y        | 1.2.3 | Create a new computational artifact by combining or modifying existing artifacts. [P2]                                                             |     2 |
+| Y        | 1.2.4 | Collaborate in the creation of computational artifacts. [P6]                                                                                       |     6 |
+| Y        | 1.2.5 | Analyze the correctness, usability, functionality, and suitability of computational artifacts. [P4]                                                |     4 |
+| Y        | 1.3.1 | Use computing tools and techniques for creative expression. [P2]                                                                                   |     2 |
+| Y        | 2.1.1 | Describe the variety of abstractions used to represent data. [P3]                                                                                  |     3 |
+| N        | 2.1.2 | Explain how binary sequences are used to represent digital data. [P5]                                                                              |     5 |
+| Y        | 2.2.1 | Develop an abstraction when writing a program or creating other computational artifacts. [P2]                                                      |     2 |
+| N        | 2.2.2 | Use multiple levels of abstraction to write programs. [P3]                                                                                         |     3 |
+| Y        | 2.2.3 | Identify multiple levels of abstractions that are used when writing programs. [P3]                                                                 |     3 |
+| Y        | 2.3.1 | Use models and simulations to represent phenomena. [P3]                                                                                            |     4 |
+| Y        | 2.3.2 | Use models and simulations to formulate, refine, and test hypotheses. [P3]                                                                         |     6 |
+| Y        | 3.1.1 | Use computers to process information, find patterns, and test hypotheses about digitally processed information to gain insight and knowledge. [P4] |     4 |
+| Y        | 3.1.2 | Collaborate when processing information to gain insight and knowledge. [P6]                                                                        |     6 |
+| Y        | 3.1.3 | Explain the insight and knowledge gained from digitally processed data by using appropriate visualizations, notations, and precise language. [P5]  |     5 |
+| Y        | 3.2.1 | Extract information from data to discover and explain connections, patterns, or trends. [P1]                                                       |     1 |
+| Y        | 3.2.2 | Use large data sets to explore and discover information and knowledge. [P3]                                                                        |     3 |
+| N        | 3.3.1 | Analyze how data representation, storage, security, and transmission of data involve computational manipulation of information. [P4]               |     4 |
+| Y        | 4.1.1 | Develop an algorithm for implementation in a program. [P2]                                                                                         |     2 |
+| Y        | 4.1.2 | Express an algorithm in a language. [P5]                                                                                                           |     5 |
+| N        | 4.2.1 | Explain the difference between algorithms that run in a reasonable time and those that do not run in a reasonable time. [P1]                       |     1 |
+| N        | 4.2.2 | Explain the difference between solvable and unsolvable problems in computer science. [P1]                                                          |     1 |
+| N        | 4.2.3 | Explain the existence of undecidable problems in computer science. [P1]                                                                            |     1 |
+| Y        | 4.2.4 | Evaluate algorithms analytically and empirically for efficiency, correctness, and clarity. [P4]                                                    |     4 |
+| Y        | 5.1.1 | Develop a program for creative expression, to satisfy personal curiosity, or to create new knowledge. [P2]                                         |     2 |
+| Y        | 5.1.2 | Develop a correct program to solve problems. [P2]                                                                                                  |     2 |
+| Y        | 5.1.3 | Collaborate to develop a program. [P6]                                                                                                             |     6 |
+| ?        | 5.2.1 | Explain how programs implement algorithms. [P3]                                                                                                    |     3 |
+| Y        | 5.3.1 | Use abstraction to manage complexity in programs. [P3]                                                                                             |     3 |
+| Y        | 5.4.1 | Evaluate the correctness of a program. [P4]                                                                                                        |     4 |
+| Y        | 5.5.1 | Employ appropriate mathematical and logical concepts in programming. [P1]                                                                          |     1 |
+| Y        | 6.1.1 | Explain the abstractions in the Internet and how the Internet functions. [P3]                                                                      |     3 |
+| Y        | 6.2.1 | Explain characteristics of the Internet and the systems built on it. [P5]                                                                          |     5 |
+| N        | 6.2.2 | Explain how the characteristics of the Internet influence the systems built on it. [P4]                                                            |     4 |
+| N        | 6.3.1 | Identify existing cybersecurity concerns and potential options to address these issues with the Internet and the systems built on it. [P1]         |     1 |
+| Y        | 7.1.1 | Explain how computing innovations affect communication, interaction, and cognition. [P4]                                                           |     4 |
+| Y        | 7.1.2 | Explain how people participate in a problem- solving process that scales. [P4]                                                                     |     4 |
+| Y        | 7.2.1 | Explain how computing has impacted innovations in other fields. [P1]                                                                               |     1 |
+| N        | 7.3.1 | Analyze the beneficial and harmful effects of computing. [P4]                                                                                      |     4 |
+| N        | 7.4.1 | Explain the connections between computing and economic, social, and cultural contexts. [P1]                                                        |     1 |
+** Thinking Practices
+- Modeling/Abstracting
+- Collaborating
+- Connecting Concepts
+- Creativity, Artifact Creation
+- Problem Literacy and Perseverance
+- Thinking abstractly and using quantities
+- Making use of structure
+** Computing Studies Sequence
+* Q/A
+** What do I do if an assignment is late?
+** I don't know what assignment is currently due?
+** I didn't understand the lesson or I'm struggling to solve my assignment problems.
+** Why don't we use [fill in the blank well known programming environment]
+** 
+* Lessons and Assignments Calendar
+** Assignments/Activities
+Assignments use the following convention. Learn how to read the
+assignment convention in order to connect your mastery feedback with
+the relevant learning activities and tasks.
+- MS_[tag(s)  ...]_[PRO,PRAC,APP,NOV,INS]_title_[mode/type]_[description]
+- an assignment is a ...
+  - one or more mastery skill tags
+  - an assessment level (each assignment should only have one
+    assessment level multiple choice items can demonstrate levels of
+    mastery. However multiple choice item correctness has an element
+    of chance. MC items are also difficult to protect from cheating or
+    copying. Assessing with validity using multiple choice ites
+    requires multiple questions assessing the same skil at the same
+    level (at least 2?))
+  - a title
+  - a mode (either a multiple choice item, a lab with assistance
+    available, a performance task without assistance available, a
+    written explanation or free response item, ... )
+  - a description
+  - a due date
+  - a criterion
+  - a weight
+- it is difficult to measure a single task as being accomplished to a
+  degree like many rubrics describe. This may be the case with
+  performance tasks and labs, where an open ended prompt is elaborated
+  by a rubric that is tied to evaluation criteria. Items more
+  generally take place in a context and demand a certain level of
+  skill and knowledge transfer, which means that each item can
+  generally be tagged with both a skill, a knowledge component and a
+  criterion level indicating its depth of knowledge.
+** Calendar
+| Week Number | Lesson/curriculum | Assessments | Extended Learning | Deadlines |
+|-------------+-------------------+-------------+-------------------+-----------|
+|           1 |                   |             |                   |           |
+|           2 |                   |             |                   |           |
+|           3 |                   |             |                   |           |
+|           4 |                   |             |                   |           |
+|           5 |                   |             |                   |           |
+|           6 |                   |             |                   |           |
+|           7 |                   |             |                   |           |
+|           8 |                   |             |                   |           |
+|           9 |                   |             |                   |           |
+|          10 |                   |             |                   |           |
+|          11 |                   |             |                   |           |
+|          12 |                   |             |                   |           |
+|          13 |                   |             |                   |           |
+|          14 |                   |             |                   |           |
+|          15 |                   |             |                   |           |
+|          16 |                   |             |                   |           |
+|          17 |                   |             |                   |           |
+|          18 |                   |             |                   |           |
+|      S2: 19 |                   |             |                   |           |
+|          20 |                   |             |                   |           |
+|          21 |                   |             |                   |           |
+|          22 |                   |             |                   |           |
+|          23 |                   |             |                   |           |
+|          24 |                   |             |                   |           |
+|          25 |                   |             |                   |           |
+|          26 |                   |             |                   |           |
+|          27 |                   |             |                   |           |
+|          28 |                   |             |                   |           |
+|          29 |                   |             |                   |           |
+|          30 |                   |             |                   |           |
+|          31 |                   |             |                   |           |
+|          32 |                   |             |                   |           |
+|          33 |                   |             |                   |           |
+|          34 |                   |             |                   |           |
+|          35 |                   |             |                   |           |
+|          36 |                   |             |                   |           |
+
+* Units/Big Picture Links to Curriculum
+** HTML/Internet
+Course begins with portfolio web making. GitHub pages with
+markdown. What are the norms that I want to instill? Create the
+container for collecting work. Not only the best work. Create a record
+of learning. Learning blog. Your grade is the richness of your
+learning 
+*** TODO Create learning blog rubric
+** Algebra
+Follows Bootstrap Algebra with modifications to enhance alignment with mathematics
+*** TODO Write email to Ashley about use of "simplify" vs "evaluate"
+** Data Science
+Follows the Bootstrap data science curriculum. Students explore data
+through programming, visualization, and discussion. Students produce a
+data analysis report.
+** Topics
+- Racket language syntax
+- Circles of Evaluation
+- Clock math, modulo
+- Data Types (Numbers, Strings, Images, Booleans, Lists)
+- Recursion
+- Expressions
+- Functions
+- Examples
+- Function Design
+- Decode Problems
+- Iterate
+** Product outcomes
+- Follow a design recipe to build abstractions over simple data (data may be conditional)
+- (+) Follow a design recipe to build abstractions over lists
+- Design computations based on data
+- Evaluate expressions with/without computer
+- Predict output of batch programs
+- Design image compositions
+- Collaborate to create a video game narrative
+- Function design reflection performance task
+** Knowledge
+** Internet
+
+*** Structured Documents as Data
+** Topics
+- HTML
+- CSS
+- Structure
+- Style
+- Inheritance
+- Programmatic page creation
+- Rendering
+- HTTP
+- TCP/IP
+- DNS
+- Fault tolerance
+** Product Outcomes
+- Create a web page ad campaign
+- re-style a web page
+- Create a portfolio page
+- 
+** Knowledge
+-
+** Skills
+-
+** Problems
+-
+** Data
+** Topics
+- Spreadsheet functions
+- Table plans
+- Function design
+- Survey creation
+- Analysis
+- Interpretation
+- Basic statistics (measures of central tendency, regression, correlation)
+** Product Outcomes
+- Follow a design recipe to build abstractions over tables
+- Explore data to determine questions
+** Knowledge
+- Correlation not causation
+- Explore to find questions before finding answers, data can't answer all questions
+- Claims about populations can be made from samples
+** Skills
+** Problems
+** Impact
+** Topics
+- Applied mathematics
+- History of Computing
+- 
+** Product Outcomes
+- 
+** Knowledge
+- 
+** Skills
+- 
+** Problems
+- 
+* Norms and Policies
+** Habits (from Elevate)
+- Note taking :: Note taking is an essential skill for students 
+*Cornell Notes* detailed first then capture big ideas and summarize.
+*Split Page* sparse first then illustrate.
+- Dynamic Reading ::
+- Time Management ::
+- Memorization :: 
+- Studying :: Preparing for assessments like exams and performance tasks is an important skill that changes the closer you get to the assessment.
+** Behaviors
+- Talk
+- Listen
+- Write
+- Read
+- Reiterate/Recall
+- Think
+- Explore
+- Learn
+- Attempt
+- Reflect
+- Analyze
+- Deduce/Infer
+- Critique
+- Formulate
+- Weigh/Evaluate/Judge
+- Predict
+- Design
+** Nos and What ifs
+Students sign a cell phone contract that parents sign to agree to the policy regarding cell phones in the classroom.
+** No ...
+- Cell phones are not permitted in the learning environment
+- charging phone
+- 
+** What ifs
+- parent/student contract
+- tracker
+- restorative meeting
+- restorative parent meeting
+- Friday after school homework/restorative convo
+- 
+** Norms
+** Academic Habits
+** Culture 
+The way we act and treat others is an expression of culture. People forms groups and naturally create normal way of behaving, which supports the goals of the group.
+** Classrooms
+The nature of the classroom imposes certain cultural norms that govern how we act in the
+classroom. Very practical demands own a large share. We are a large
+group in a relatively small space. Think of riding on the subway. How much you can move, how loudly you speak are norms set by
+the culture of that environment. Working together in classrooms will
+demand that we recognize its cultural demands.
+** Speaking
+Our classroom culture has demands on our speaking. Our voices are
+powerful tools for communication. By speaking to others we activate
+their eardrums by creating vibrations in the air with our vocal
+chords. Our voices are unique in how they sound and in what we choose
+to say. We can honor the power of our voice by asking what it means to have voice.
+** Our space
+Each of us sharing this classroom space have a right to a piece that
+we own for the time we are here. In this space I can store my belonginings without worrying about them. I can know that the
+group respects that this space is mine. I have the right to focus and produce in that space.
+** Learning
+The act of learning, deliberate learning, defines our culture. Coming
+together to prepare young people for the challenges and demands of
+adulthood is our primary purpose. Toward that goal we put the needs of
+learning first. To learn you must feel safe, you must have mental
+clarity, physical well-being (it's hard to learn when your hungry),
+focus, motivation, and prior knowledge. Learning is fragile and
+demands our full attention and committement if it is to succeed.
+** The Golden Rule
+All of our personal needs are also shared responsibilities for the
+needs of others. Each member of our community has the same rights to
+space, safety, and focus as every other. 
+** The teacher
+The teacher strives to foster a culture of learning in which each
+member of the community holds a place as valuable, visible,
+honored. The teacher attempts this facilitation as a way of modeling
+the learning process for the community. Anyone can be the teacher. [1] 
+
+** Motivation
+** Habits
+** Note taking, Cornell
+** Studying
+- Successful people keep a journal: rapper, mathematician, principal. Look to leaders in our own profession: AP Mac is a role model. Look to leaders in our own profession.
+** Memorization
+** Materials
+- 3 ring binder
+- Journal (are journal pages embedded in the workbook?)
+- Pencil and pen and colors
+
+** Classroom Roles
+- Meta data technician (structure vs rendering vs meta data applies to classroom learning)
+- Class empathizer
+- Homework helpers
+- Partner pairs
+- 
+* Assessment and Grades
+** Assessment for learning
+Learning means collecting data, analyzing the data to produce information, making a plan based on that data, implementing the plan, and collecting new data to begin the cycle again. 
+- periodicity? daily, weekly, end of unit?, end of semesters, midterm/final
+- summative assessments? (exams)
+- surveys are a form of assessment to learn what our community thinks, where they are coming from, how they are reacting to the curriculum, how relationships are growing within our community. periodic surveys allows students to glimpse thier community outside of their lens, their assumptions, and their preconceptions. learning surveys can collect data on skills and knowledge. should there be a distinction between surveys for learning and surveys for community building. no, the learning community is convened for the purpose with supporting all students in the process of growing in skills and knowledge. the community confronts and responds to assumptions about how we learn.
+- problem sets are given weekly and are an important part of the learning process. A minimum of 2 hours per week or 24 minutes per weekday is require outside of class for students to practice their skills. Students have the option of distributing their mandatory work time during advisory, or during after school time. Weekly problemsets are provided for students to practice skills currently being learned as well as review skills that are in the learning process.
+- criteria levels for assessment feedback indicate the depth at which a student has demonstrated engagement of a skill, c.f. Webb DOK. 
+** Mastery Skills
+- Contracts and examples, expresions, nesting, test cases
+- Program reading/tracing, predicting, evaluating complex expressions
+- 
+** Universal rubric for learning in computer science
+*** Novice
+At the novice level of engagement with a skill the student has donstrated familiarity through recall or remembering. The student can accurately reproduce content that was covered during a learning activity where the context in which the student demonstrated the skill is the same as when it was introduced. Some recall assessments may be assessed at a higher level if they are sufficiently complex. All students pass through the novice level at some point in acquiring a skill. However, students connot stay at the novice level to meet the proficiency requirement for earning course credit. For example ...
+*** Apprenctice
+*** Practitioner
+*** Professional
+* Diversity and Professionalism
+From the Brown University CS 019 diversity and professionalism statement:
+
+The lack of sufficient diversity is an important problem in computer science. In
+this course, we want to help improve the situation, not make it worse. The
+responsibility to do that lies both with us, the course staff, and with you, the
+students.
+
+College is a great time, and for many of you might offer a sense of new-found liberation. (I sure remember how liberating college felt for me!) It’s a space for exploration and experimentation of various kinds (legal, no doubt). However, this freedom can also be abused.
+
+Every now and then I hear disturbing statements from students about how they have been made to feel uncomfortable in class or in the department. I don’t mean intellectual discomfort—e.g., the kind you might get from having a heated debate about a technical subject with a fellow student—but the personal kind. These range from inappropriate comments and invitations to unsolicited physical contact.
+
+There’s a term for many of these behaviors: harassment. And let there be absolutely no doubt about this: harassment is against the law and it is completely against the norms of this course and this department. (See Brown’s Title IX Web site.) We—the university, the department, and this course’s staff—have absolutely zero tolerance for it.
+
+Some people might think the recipient should laugh it off, or they may make (or
+think) snide remarks about political correctness or jokes about consent or what
+have you. They might think people just need to grow a thicker skin or learn to
+take a joke.
+
+Unfortunately, the subject of harassment (and that’s what these remarks and
+actions are, harassment, even if you decide you would classify them as jokes) is
+forced, by the nature of classes and campus life, to be around the
+harasser. That can make them uncomfortable to the point of wanting to stay away,
+or focusing more on the harasser than on what they are here to learn. That hurts
+their education. That is not okay at all: the harasser has no right to steal
+their hard-won education away from them. And often the harm goes much deeper: it
+hurts them psychologically in subtle and long-standing ways. And that’s why
+these are not laughing matters.
+
+However, I prefer to think about this in positive terms. Your classmates are
+your colleagues. Someday you may be each others’ start-up partners or
+co-employees; one of you may even be the other’s interviewer or boss. So start
+treating one another like professionals, and I mean that in the best possible
+interpretation of that phrase.
+
+In short: Be safe, be happy, and have fun without taking away anyone else’s."
+
+6.2 About Course Staff Professionalism and respect for diversity are not just
+matters between students; they also apply to how the course staff treat the
+students. The staff of this course pledge to treat you in a way that respects
+our differences. However, despite our best efforts, we might slip up, hopefully
+inadvertently. When we do, please feel free to talk to us about it.
+
+Sometimes, you may not be comfortable bringing this up directly to us. If so,
+you are welcome to talk to Laura Dobler or to the department chair.
+
+As a department, we will take all complaints about unprofessional or
+discriminatory behavior seriously.
+
+6.3 Discussing Problems If you are running into personal difficulties in the
+course (e.g., being made uncomfortable by a fellow student), by all means come
+talk to me at any time. If you are having difficulties in other contexts and
+would like to talk about that, you are welcome to do so. In short, you are
+always open to come talk to me if you are facing any such issues.
+
+However, please note the following. Due to other positions I hold in the
+department and university, I am what Title IX calls a Responsible Employee. That
+means if you report a Title IX violation to me, I am required to report it to
+the university. This will result in you being contacted by a university
+official.
+
+I realize that not everyone may want to involve university officials, at least
+not right away. If you want your conversation to be kept in complete confidence,
+you should instead talk to one of the many resources listed here. Note also
+Brown’s SHARE Advocates, who also offer confidentiality.
+
+If you would like to learn more about Brown’s policies and resources, please see
+the university’s Title IX site.
+* For Parents
+Dear Parents,
+
+** Academic support
+The Academy for Software Engineering was established to introduce students to
+skills in computing regardless of prior knowledge or experience. That being
+said, high school curriculum that prepares students for college and career must
+be rigorous. High school students very much need your support organizing their
+tasks and deadlines. We offer a free comprehensive tutoring program after school
+three days per week. Students are expected to work at least two hours per week
+outside of class to review course notes, complete readings, practice problem
+solving techniques. If your student doesn't have a space where they can
+concentrate at home, please support them in using the tutoring program to
+complete their tasks.
+
+** Devices
+Cellular phones and other personal computing devices are not permitted to be powered on during class hours. Our suggestion is that students come to school with a simple feature phone. These inexpensive phones can be added to your plan and are resonably priced. You don't need to take away your students smart phone, but please consider that they don't need a powerful computing device during the school day. Most students love their devices and resist our policy of powering down phones during class hours. Please talk to them about the impact of computing devices on their ability to concentrate and succeed in school.
+
+** Professional Behaviors
+Insert notes about importance of attendance and making the most each day in class. Many questions are answered in the classroom resources and lessons. We ask you to work with your child to access these resources by reading them together, reviewing notes from each day, and asking your child to tell you the story of their learning by sharing their learning journey with you
+*** TODO make a form for certifying that learning blog was shared with parent or other adult.
+
+** Contact
+Please feel free to reach out to the course staff through Google Classroom, Remind, or @hyperlink{"email", "mailto: eallatta@afsenyc.org"}

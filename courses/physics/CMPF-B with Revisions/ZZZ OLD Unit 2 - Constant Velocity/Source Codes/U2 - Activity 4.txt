@@ -1,0 +1,43 @@
+include shared-gdrive("U2 - Activity 4 (background)", "108Sgn4Hb4tjcsth6uxWX69kchTGTvgKb")
+
+########################
+#  Initial Conditions  #
+########################
+
+x1-initial = ... #m
+
+v1 = ... #m/s
+
+x2-initial = ... #m
+
+v2 = ... #m/s
+
+delta-t = 1/20 #s
+
+time-between-snapshots = 2 #s
+
+#####################
+#  next-x function  #
+#####################
+
+# Contract
+next-x :: ...
+
+# Examples
+examples:
+  ...
+end
+
+# Function
+fun next-x(x, v):
+  ...
+end
+
+
+
+
+
+##################################################
+#  This line runs the simulation. Do not modify  #
+##################################################
+run-simulation(x1-initial, x2-initial, v1, v2, time-between-snapshots, delta-t, next-x)

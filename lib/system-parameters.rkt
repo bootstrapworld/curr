@@ -1,10 +1,10 @@
 #lang racket/base
 
 (provide current-deployment-dir
-	 root-deployment-dir
-	 deploy-resources-dir
-	 unit-to-resources-path
- 	 current-solutions-mode?
+	 			root-deployment-dir
+	 			deploy-resources-dir
+	 	 		unit-to-resources-path
+ 	 			 current-solutions-mode?
          current-generate-pdf?
          current-course
          current-unit
@@ -23,11 +23,11 @@
 ;;  must set these parameters
 ;; - root-deployment-dir: the root directory for files meant for deployment
 ;; - current-deployment-dir: the directory into which files for deployment are currently generated
-;;   (should always be a subdir of root-deployment-dir) 
+;;   (should always be a subdir of root-deployment-dir)
 ;; - deploy-resources-dir: directory built from root-deployment-dir where resources will be stored
 ;; - unit-to-resources-path: used in resource-link to generate relative paths from a the-unit.html
 ;;   file to the resources folder on a web installation.  Cannot use deploy-resources-dir for this
-;;   because we may copy a subdirectory of the generated distribution to a site (such as copying 
+;;   because we may copy a subdirectory of the generated distribution to a site (such as copying
 ;;   just the algebra/units directory over to code.org)
 (define current-deployment-dir (make-parameter #f))
 (define root-deployment-dir (make-parameter #f))
@@ -84,4 +84,3 @@
 ;; current-lesson-name: (or/c #f string)
 ;; Defines the current lesson name.  Cooperates with lesson and include-lesson.
 (define current-lesson-name (make-parameter #f))
-

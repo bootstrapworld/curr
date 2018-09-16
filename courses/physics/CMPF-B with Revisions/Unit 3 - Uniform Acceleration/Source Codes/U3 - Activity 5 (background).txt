@@ -1,0 +1,141 @@
+provide{
+    run-simulation: run-simulation,
+    delta-t: delta-t
+}end
+include image
+include reactors
+
+############
+#  Images  #
+############
+road = 
+  scale(800/833, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1hLTG2k-uNwCzPj3qUCmcXU8Ca1BgBWVP"))
+car = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1aytsvHJspa487pyTHErsWy8s4g_bPQhc")
+horse = 
+  scale(200/368, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1UVoTMTM55VhQCkaYJ10w2eA3ss9GpazG"))
+
+###############
+#  Constants  #
+###############
+delta-t = 1/25
+car-y = 35
+horse-x = 750
+dv0 = 0
+
+######################
+#  Textbox Function  #
+######################
+fun textbox(s :: String, t :: Number) -> Image:
+  n =
+    if s == "Time":
+      2
+    else:
+      0
+    end
+
+  t-window = overlay(
+    rectangle(50, 20, "outline", "black"),
+    rectangle(50, 20, "solid", "gray")
+    )
+  reading = text(num-to-string-digits(t, n), 18, "black")
+  box = scale(2, overlay(reading, t-window))
+  above(
+    text(s, 32, "black"),
+    box
+    )
+end
+
+########################################
+#  Function which runs the simulation  #
+########################################
+fun run-simulation(v-init, sd, position-function, velocity-function, accel):
+
+  ######################################
+  #  Function which updates the state  #
+  ######################################
+  fun next-state({t; x; v; a; dv}):
+
+    ### update time
+    next-t = t + delta-t
+
+    ### update velocity x
+    next-v =
+      if x < ((sd * 6) + 51):
+        v
+      else:
+        velocity-function(v)
+      end
+
+    # define average vx
+    avg-v = (v + next-v) / 2
+
+    # define next-x
+    next-x = position-function(x, avg-v * 6)
+    
+    # carry acceleration over
+    
+    accl = a
+
+    delta-v = next-v - v
+    # build the new tuple for the state.    
+    {next-t; next-x; next-v; accl; delta-v}
+    
+  end
+
+
+
+  # illustrate success or failure
+  fun draw-scene({t; x; v; a; dv}):
+    samp = textbox("A", 0)
+    temp1 = beside(textbox("Distance", (horse-x - 99 - x) / 6), 
+      beside(textbox("Time", t), textbox("Score", (3 * (x - 51)) / (t + 0.02)))) 
+    scene = 
+      if v > 25:
+        overlay(text("Over Speed Limit", 90, "white"), rectangle(800, 200, "solid", "red")) 
+      else if (a < -10):
+        overlay(text("Over Braking Ability", 90, "white"), rectangle(800, 200, "solid", "red"))
+      else if a >= 0:
+        overlay(text("You Must Brake for Horses!!!", 70, "white"), rectangle(850, 200, "solid", "red"))
+      else if num-abs(dv) > num-abs(a * delta-t):
+        overlay(text("Acceleration limits exceeded.  Try Again!", 50, "black"), rectangle(800, 200, "solid", "gold"))
+      else if (v <= 0) and (x < (horse-x - 99)):
+        overlay(text("Success!!!", 90, "black"), rectangle(800, 200, "solid", "gold"))
+      else if x < (horse-x - 99):
+        put-image(car, x, 35, put-image(horse, horse-x, 100, road))
+      else:
+        overlay(text("Try Again", 90, "black"), rectangle(800, 200, "solid", "white"))
+      end
+    above-align("center", temp1, scene)
+
+  end
+
+  # conditions to end the simulation
+  fun stop({t; x; v; a; dv}):
+    (v <= 0) or (x > (horse-x - 99)) or (v > 25) or (a < -10) or (a >= 0)
+  end
+
+  # reactor
+  hwy-sim = 
+    reactor:
+      init:              {0; 51; v-init; accel; dv0},        # tuple
+      on-tick:           next-state,  # move to next 'state' in reactor... 
+      to-draw:           draw-scene,  # OUTPUT!
+      seconds-per-tick:  delta-t,     # matches 'computer time' to 'real time'
+      stop-when:         stop
+    end
+  interact(hwy-sim)
+end
+
+###########################
+#  Sample Student Inputs  #
+###########################
+#|
+   fun next-x(x, avg-v):
+  x + (avg-v * delta-t)
+end
+
+   fun next-v(v):
+  v + (-10 * delta-t)
+end
+|#

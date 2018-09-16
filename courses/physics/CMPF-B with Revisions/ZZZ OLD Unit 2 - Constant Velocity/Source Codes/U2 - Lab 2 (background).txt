@@ -1,0 +1,143 @@
+
+
+provide{
+    run-simulation: run-simulation
+}end
+include reactors
+include image
+include plot-list
+include image-structs
+
+################
+#  Parameters  #
+################
+y = 225
+x1-0 = 100
+x2-0 = 700
+
+######################
+#  Textbox Function  #
+######################
+fun textbox(s :: String, t :: Number) -> Image:
+  n =
+    if s == "Time (s)":
+      2
+    else:
+      0
+    end
+
+  t-window = overlay(
+    rectangle(50, 20, "outline", "black"),
+    rectangle(50, 20, "solid", "gray")
+    )
+  reading = text(num-to-string-digits(t, n), 18, "black")
+  box = scale(2, overlay(reading, t-window))
+  above(
+    text(s, 32, "black"),
+    box
+    )
+end
+
+#########################
+#  Sample Student Code  #
+#########################
+#|
+   x-initial-1 = 0 #cm
+   v1 = 35 #cm/s
+
+   x-initial-2 = 50 #cm
+   v2 = 70 #cm/s
+
+   delta-t = 1/20
+
+    fun next-x(x, v):
+  x + (v * delta-t)
+   end
+|#
+
+########################################
+#  Function which runs the simulation  #
+########################################
+fun run-simulation(x1-init, x2-init, v1, v2, move-function, dt):
+
+  Scale =
+    if ((v1 > 0) and (v2 < 0)) or ((v1 < 0) and (v2 > 0)):
+      (x1-0 - x2-0) / (x1-init - x2-init)
+    else:
+      2
+    end
+
+  #######################
+  #  Image Definitions  #
+  #######################
+  car1a = 
+    scale(0.5, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQQkRnNnZXYmhxT00"))
+  car2a = 
+    scale(0.5, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQcUpUZnNUVDhRZjQ"))
+
+  car1 =
+    if v1 > 0:
+      car1a
+    else:
+      flip-horizontal(car1a)
+    end
+  car2 = 
+    if v2 > 0:
+      car2a
+    else:
+      flip-horizontal(car2a)
+    end
+  background = 
+    image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQSE16NkZOMkcxc3M")
+
+  fun next-state({t; x1; x2}):
+    new-t = t + dt
+    new-x1 = move-function(x1, v1)
+    new-x2 = move-function(x2, v2)
+    {new-t; new-x1; new-x2}
+  end
+
+  fun draw-scene({t; x1; x2}):
+    banner = 
+      beside(textbox("Car 1 (cm)", x1),
+        beside(textbox("Time (s)", t), textbox("Car 2 (cm)", x2)
+          )
+        )
+    scene =
+      put-image(
+        car1,
+        (x1 * Scale) + 37.5,
+        y,
+        put-image(
+          car2,
+          (x2 * Scale) + 37.5,
+          y,
+          background
+          )
+        )
+    above(banner, scene)
+  end
+
+  fun stop({t; x1; x2}):
+    if v1 > 0:
+      x2 <= x1
+    else:
+      x1 <= x2
+    end
+  end
+
+  r = reactor:
+    init: {0; x1-init; x2-init},
+    on-tick: next-state,
+    seconds-per-tick: dt,
+    to-draw: draw-scene,
+    stop-when: stop
+  end
+  temp1 = interact-trace(r)
+  select t, x1, x2 from extend temp1 using state:
+      t: state.{0},
+      x1: state.{1},
+      x2: state.{2}
+    end
+  end
+end

@@ -1,0 +1,124 @@
+provide{
+    run-simulation : run-simulation
+} end
+
+include image
+include reactors
+include chart
+include image-structs
+
+################
+#  Parameters  #
+################
+width = 500 #px
+height = 100 #px
+
+
+############
+#  Images  #
+############
+
+scene = above(
+  rectangle(500, 200, "solid", "sky-blue"), 
+  above(
+    rectangle(500, 50, "solid", "gray"), rectangle(500, 100, "solid", "forest-green"))
+  )
+ca = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1e0HN1hOc3RRuTZP6H43YWYUDka11tDgO")
+
+y = 100 + (image-height(ca) / 2) #px
+  
+####################
+#  Student Inputs  #
+####################
+#|
+x-initial = 30 #m
+v = -4 #m/s
+delta-t = 0.5 #s
+produce-graph = false
+produce-data-table = true
+
+fun next-x(x):
+  x + (v * delta-t)
+end
+|#
+##########################
+#  Simulation Functions  #
+##########################
+
+fun run-simulation(update-position, dt, graph, table, x0, vel):
+
+  fun update-state({t; x}):
+    new-t = t.get(0) + dt
+    new-x = update-position(x.get(0))
+
+    {link(new-t, t); link(new-x, x)}
+  end
+
+  fun show-state({t; x}):
+    car =
+      if vel > 0:
+        ca
+      else:
+        flip-horizontal(ca)
+      end
+    
+    min = 
+      if ((vel > 0) and (x0 < 0)) or ((vel < 0) and (x0 > 0)):
+        x0
+      else:
+        0
+      end
+    
+    edges = [list: min, x0 + (vel * 10)].sort()
+    scaled = 500 / (edges.get(1) - edges.get(0))
+    pos = (x.get(0) - edges.get(0)) * scaled
+    
+    bg = put-image(car, pos, y, scene)
+   
+
+    ymin = 
+      if vel > 0:
+        min
+      else:
+        x0 + (vel * 10)
+      end
+    ymax = 
+      if vel > 0:
+        x0 + (vel * 10)
+      else:
+        min
+      end
+    g = render-chart(from-list.scatter-plot(t, x)).x-min(0).x-max(10).y-min(ymin).y-max(ymax).x-axis("Time (s)").y-axis("Position (m)").get-image()
+
+    if graph == true:
+      beside(bg, g)
+    else:
+      bg
+    end
+  end
+
+  r = reactor:
+    init: {[list: 0]; [list: x0]},
+    on-tick: update-state,
+    to-draw: show-state,
+    seconds-per-tick: dt,
+    stop-when: lam(e): e.{0}.get(0) > 10 end
+  end
+
+  raw = interact(r)
+
+  if table == false:
+    "Simulation was stopped"
+  else:
+    x = get-value(raw).{1}.reverse()
+    t = get-value(raw).{0}.reverse()
+    empty-table = table: time, position end
+    result = for fold2(tbl from empty-table, pos from x, time from t):
+    tbl.stack(table: time, position row: time, pos end)
+  end
+  result
+  end
+end
+
+#run-simulation(next-x, delta-t, produce-graph, produce-data-table, x-initial, v)

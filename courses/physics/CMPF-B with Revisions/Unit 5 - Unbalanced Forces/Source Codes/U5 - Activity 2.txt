@@ -1,0 +1,28 @@
+include shared-gdrive("U5 - Activity 2 (background)", "1oG-v1ffnMKEUmQ_Ojk6HHWpjxG53SPcN")
+
+
+#######################################
+#  Predict the force of gravity here  #
+#######################################
+Fg = ...
+
+#################################
+#  Guess the normal force here  #
+#################################
+Fn = ...
+
+#################################################
+#  Choose the motion you want to see:           #
+#   1 - Elevator at rest                        #
+#   2 - elevator moving up and speeding up      #
+#   3 - Elevator moving up with constant speed  #
+#   4 - elevator moving up and slowing down     #
+#################################################
+choice = ...
+
+
+
+
+
+
+run-simulation(Fg, Fn, choice)

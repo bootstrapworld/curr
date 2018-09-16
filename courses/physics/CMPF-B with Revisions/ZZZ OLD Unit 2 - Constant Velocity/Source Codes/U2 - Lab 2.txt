@@ -1,0 +1,39 @@
+include shared-gdrive("U2 - Lab 2 (background)", "1TKtl9zcGyiBnqpG6KKfismvING-Apvgt")
+
+#############
+#  Delta t  #
+#############
+delta-t = ... #s
+
+#########################
+#  Parameters of Car 1  #
+#########################
+initial-position-1 = ... #cm
+
+velocity-1 = ... #cm/s
+
+#########################
+#  Parameters of Car 2  #
+#########################
+initial-position-2 = ... #cm
+
+velocity-2 = ... #cm/s
+
+#####################
+#  Motion Function  #
+#####################
+
+fun next-x(x, v):
+  ...
+end
+
+
+
+
+
+
+
+####################################################
+#  This function runs the simulation. DO NOT EDIT  #
+####################################################
+run-simulation(initial-position-1, initial-position-2, velocity-1, velocity-2, next-x, delta-t)

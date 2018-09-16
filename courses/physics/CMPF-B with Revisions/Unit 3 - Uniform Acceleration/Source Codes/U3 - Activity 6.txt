@@ -1,0 +1,39 @@
+include shared-gdrive("U3 - Activity 6 (background)", "15jGMfD-ry0eevM-nW_OvRxkJuztuXpxL")
+
+##########################
+#  Parameters to change  #
+##########################
+
+hole-number = ... #  which hole are you playing (1 - 4)
+
+x-init = ... #   where should the ball start?
+
+v-init = ... #   how fast do you want to hit the ball to start?
+
+
+########################
+#   Motion Functions   #
+########################
+#                      #
+#  use 'delta-t'       #
+#  for both functions  #
+#                      #
+########################
+
+fun next-x(x, v-avg):
+  ...
+end
+
+fun next-v(v, a):                  
+  ...
+end
+
+
+
+
+
+
+#####################################################
+#  Function which runs the simulation. DO NOT EDIT  #
+#####################################################
+run-simulation(hole-number, x-init, v-init, next-x, next-v)

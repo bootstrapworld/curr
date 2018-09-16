@@ -1,0 +1,49 @@
+include shared-gdrive("U2 - Activity 3 (background)", "1RGoqrNYY2fv-Dxxi1vigXPCeRTd9m4Aj")
+
+############################
+#  Parameters you control  #
+############################
+
+initial-position = ... # meters
+
+velocity = ... # meters/second
+
+delta-t = ...
+
+motion-map = false
+
+marker-type = "dog"
+
+time-between-snapshots = 1 #second
+
+#######################################################################################
+#  Function which consumes the dog's current position and produces its next position  #
+#######################################################################################
+
+# Contract
+next-x :: ...
+
+# Examples
+examples:
+  ...
+end
+
+# Function
+fun next-x(x):
+  ...
+end
+
+
+
+
+
+
+
+
+
+
+
+################################################
+#  This line runs the simulation. Do not edit  #
+################################################
+run-simulation(initial-position, velocity, time-between-snapshots, delta-t, motion-map, next-x, marker-type)

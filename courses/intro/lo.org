@@ -1,0 +1,43 @@
+Covered?,Tag,Learning Objective,Skill
+Y,1.1.1,Apply a creative development process when creating computational artifacts. [P2],2
+Y,1.2.1,Create a computational artifact for creative expression. [P2],2
+Y,1.2.2,Create a computational artifact using computing tools and techniques to solve a problem. [P2],2
+Y,1.2.3,Create a new computational artifact by combining or modifying existing artifacts. [P2],2
+Y,1.2.4,Collaborate in the creation of computational artifacts. [P6],6
+Y,1.2.5,"Analyze the correctness, usability, functionality, and suitability of computational artifacts. [P4]",4
+Y,1.3.1,Use computing tools and techniques for creative expression. [P2],2
+Y,2.1.1,Describe the variety of abstractions used to represent data. [P3],3
+N,2.1.2,Explain how binary sequences are used to represent digital data. [P5],5
+Y,2.2.1,Develop an abstraction when writing a program or creating other computational artifacts. [P2],2
+N,2.2.2,Use multiple levels of abstraction to write programs. [P3],3
+Y,2.2.3,Identify multiple levels of abstractions that are used when writing programs. [P3],3
+Y,2.3.1,Use models and simulations to represent phenomena. [P3],4
+Y,2.3.2,"Use models and simulations to formulate, refine, and test hypotheses. [P3]",6
+Y,3.1.1,"Use computers to process information, find patterns, and test hypotheses about digitally processed information to gain insight and knowledge. [P4]",4
+Y,3.1.2,Collaborate when processing information to gain insight and knowledge. [P6],6
+Y,3.1.3,"Explain the insight and knowledge gained from digitally processed data by using appropriate visualizations, notations, and precise language. [P5]",5
+Y,3.2.1,"Extract information from data to discover and explain connections, patterns, or trends. [P1]",1
+Y,3.2.2,Use large data sets to explore and discover information and knowledge. [P3],3
+N,3.3.1,"Analyze how data representation, storage, security, and transmission of data involve computational manipulation of information. [P4]",4
+Y,4.1.1,Develop an algorithm for implementation in a program. [P2],2
+Y,4.1.2,Express an algorithm in a language. [P5],5
+N,4.2.1,Explain the difference between algorithms that run in a reasonable time and those that do not run in a reasonable time. [P1],1
+N,4.2.2,Explain the difference between solvable and unsolvable problems in computer science. [P1],1
+N,4.2.3,Explain the existence of undecidable problems in computer science. [P1],1
+Y,4.2.4,"Evaluate algorithms analytically and empirically for efficiency, correctness, and clarity. [P4]",4
+Y,5.1.1,"Develop a program for creative expression, to satisfy personal curiosity, or to create new knowledge. [P2]",2
+Y,5.1.2,Develop a correct program to solve problems. [P2],2
+Y,5.1.3,Collaborate to develop a program. [P6],6
+?,5.2.1,Explain how programs implement algorithms. [P3],3
+Y,5.3.1,Use abstraction to manage complexity in programs. [P3],3
+Y,5.4.1,Evaluate the correctness of a program. [P4],4
+Y,5.5.1,Employ appropriate mathematical and logical concepts in programming. [P1],1
+Y,6.1.1,Explain the abstractions in the Internet and how the Internet functions. [P3],3
+Y,6.2.1,Explain characteristics of the Internet and the systems built on it. [P5],5
+N,6.2.2,Explain how the characteristics of the Internet influence the systems built on it. [P4],4
+N,6.3.1,Identify existing cybersecurity concerns and potential options to address these issues with the Internet and the systems built on it. [P1],1
+Y,7.1.1,"Explain how computing innovations affect communication, interaction, and cognition. [P4]",4
+Y,7.1.2,Explain how people participate in a problem- solving process that scales. [P4],4
+Y,7.2.1,Explain how computing has impacted innovations in other fields. [P1],1
+N,7.3.1,Analyze the beneficial and harmful effects of computing. [P4],4
+N,7.4.1,"Explain the connections between computing and economic, social, and cultural contexts. [P1]",1

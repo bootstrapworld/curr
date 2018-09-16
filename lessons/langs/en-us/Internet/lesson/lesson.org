@@ -1,0 +1,65 @@
+#+STARTUP: showall
+* Unit Cover Page
+** Unit Title
+Structured Documents
+** Subject/Topic Areas
+
+** Keywords
+** Designed by
+** Time Frame
+** School
+** Grade Level
+** Unit Summary and Goals
+** Unit Design Status
+*** TODO Complete blueprint of each performance task
+*** TODO Complete rubrics
+*** TODO Directions to students and teachers
+*** TODO Materials and resources
+*** TODO Suggested accomodations
+*** TODO Suggested extensions
+*** TODO Status
+ - [ ] Initial Draft date
+ - [ ] Revised draft date
+ - [ ] Peer review
+ - [ ] Content reviewed
+ - [ ] Field tested
+ - [ ] Validated
+ - [ ] Anchored
+* Identify Desired Results
+** Established Goals (standards)
+** What understandings are desired?
+- Students will understand that ...
+** What essential questions will be considered?
+** What key knowledge and skills will studnets acquire as a result of this unit?
+- Students will know ...
+- Students will be able to ...
+* Determine Acceptable Evidence
+** What evidence will show that students understand?
+- Performance Tasks (see blueprint below)
+** Other Evidence (quizzes, tests, prompts, observations, dialogues, work samples):
+** Student Self-Assessment and Reflection
+* Performance Task Blueprint
+** What understandings and goals will be assessed through this task?
+** What criteria are implied in the standards and understandings /regardless/ of the task specifics? What qualities must student work demonstrate to signify that standards were met?
+** Through what uthentic performance task will students demonstrate understanding?
+** What student products and performances will provide evidence of desired understandings?
+** By what criteria will student products and performances be evaluated? (rubrics?)
+* Plan Learning Experiences and Instruction
+** Consider WHERETO elements.
+- W :: *Where* are we going? *Why*? *What* is expected?
+- H :: How will we *hook* and *hold* interest?
+- E :: How will we *equip* students for expected performances?
+- R :: How will we help students *rethink* and *revise* ?
+- E :: How will students self-*evaluate* and reflect on their learning?
+- T :: How will we *tailor* learning to varied needs, interests , and styles?
+- O :: How will we *organize* and sequence learning?
+** Instructional Routines
+*** Capturing Quantities
+Support reasoning abstractly and quantitatively
+*** Connecting Representations
+Supports thinking about and with mathematical structure
+*** Recognizing Repetition
+Supports repeated reasoning
+*** Three Reads
+Supports entering and sustaining thinking in a problem
+

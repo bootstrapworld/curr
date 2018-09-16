@@ -1,0 +1,157 @@
+provide{
+    run-simulation : run-simulation
+} end
+include image
+include reactors
+
+#######################
+#  Window Parameters  #
+#######################
+axis-scale = 1 #m
+axis-length = 20 #m
+
+width = (axis-length + 1) * 50
+height = 200
+
+############
+#  Images  #
+############
+
+scene = rectangle(width, height, "solid", "white")
+
+draw-background :: (length :: Number) -> Image
+
+fun draw-background(length):
+  tick = rectangle(2, 10, "solid", "black")
+
+  base = beside(
+    rectangle(length * 50, 2, "solid", "black"),
+    rotate(270, triangle(10, "solid", "black"))
+    )
+
+  number-of-ticks = (axis-length / axis-scale)
+  ticks-list = range(0, number-of-ticks)
+
+  fun add-tick(img, n):
+    if n == 0:
+      put-image(tick, 1, image-height(img) / 2, img)
+    else:
+      put-image(tick, ((n / number-of-ticks) * length * 50), image-height(img) / 2, img)
+    end
+  end
+
+  new-base = fold(add-tick, base, ticks-list)
+
+  beside(new-base, text("x", 24, "black"))
+end
+
+fun arrow(length, col):
+  tip = rotate(270, triangle(10, "solid", col))
+  base = rectangle(num-abs(length), 2, "solid", col)
+  beside(base, tip)
+end
+
+background = overlay(draw-background(axis-length), scene)
+
+runner1 = 
+  scale(0.5, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1V4BQlJYVOfHdnpMkBhM2j8NVkYxvrI1a"))
+
+runner2 = 
+  scale(0.5, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=1RO9zq0OseeD46Bx00LXy0nyIrfiHcKKf"))
+
+################
+#  Parameters  #
+################
+
+x-offset = (width - image-width(draw-background(axis-length))) / 2
+y1 = 150
+y2 = 50
+
+##########################
+#  Sample Student Input  #
+##########################
+#|
+x1-initial = 20
+v1 = -4
+x2-initial = 0
+v2 = 5
+delta-t = 1/20
+time-between-marks = 1
+
+fun next-x(x, v):
+  x + (v * delta-t)
+end
+|#
+######################
+#  Reactor Function  #
+######################
+
+fun run-simulation(x10, x20, vel1, vel2, dt, delt-t, position-function):
+
+  r1 =
+    if vel1 > 0:
+      runner1
+    else:
+      flip-horizontal(runner1)
+    end
+  
+  r2 =
+    if vel2 > 0:
+      runner2
+    else:
+      flip-horizontal(runner2)
+    end
+
+  fun mark(vel, col):
+    if vel > 0:
+      overlay(
+        circle(5, "solid", col),
+        beside(flip-horizontal(arrow(vel * 12.5, "transparent")), arrow(vel * 12.5, col))
+        )
+    else if vel < 0:
+      overlay(
+        circle(5, "solid", col),
+        beside(flip-horizontal(arrow(vel * 12.5, col)), arrow(vel * 12.5, "transparent"))
+        )
+    else:
+      circle(5, "solid", col)
+    end
+  end
+
+  fun update-state({t; x1; x2; bg}):
+    new-t = t + delt-t
+    new-x1 = position-function(x1, vel1)
+    new-x2 = position-function(x2, vel2)
+    new-bg = 
+      if num-modulo(new-t * 20, dt * 20) == 0:
+        put-image(mark(vel1, "black"), ((new-x1 / axis-length) * (axis-length * 50)) + x-offset, y1, 
+          put-image(mark(vel2, "dark-gray"), ((new-x2 / axis-length) * (axis-length * 50)) + x-offset, y2, bg))
+      else:
+        bg
+      end
+
+    {new-t; new-x1; new-x2; new-bg}
+  end
+
+  fun show-state({t; x1; x2; bg}):
+    put-image(r1, ((x1 / axis-length) * (axis-length * 50)) + x-offset, y1, 
+      put-image(r2, ((x2 / axis-length) * (axis-length * 50)) + x-offset, y2, bg))
+  end
+  
+  initial-bg = put-image(mark(vel1, "black"), ((x10 / axis-length) * (axis-length * 50)) + x-offset, y1, 
+    put-image(mark(vel2, "dark-gray"), ((x20 / axis-length) * (axis-length * 50)) + x-offset, y2, background))
+  initial-state = {0; x10; x20; initial-bg}
+  r = reactor:
+    init: initial-state,
+    on-tick: update-state,
+    seconds-per-tick: delt-t,
+    to-draw: show-state,
+    stop-when: lam(e): (e.{1} > 20) or (e.{2} > 20) end,
+    close-when-stop: true
+  end
+  #interact-trace(r)
+  dat = interact-trace(r)
+  dat.column("state").last().{3}
+end
+
+#run-simulation(x1-initial, x2-initial, v1, v2, time-between-marks, delta-t, next-x)

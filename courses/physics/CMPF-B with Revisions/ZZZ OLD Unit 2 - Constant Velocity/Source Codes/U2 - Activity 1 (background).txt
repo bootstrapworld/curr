@@ -1,0 +1,57 @@
+provide{
+    run-simulation: run-simulation
+  }
+end
+
+include image
+include reactors
+
+fun sample-move(x) -> Number:
+  x + 35
+end
+
+fun run-simulation(move-function, dt):
+
+  ratio = 4.5
+
+  fun show(x):
+    
+    buggy = scale(0.6, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQODZDQzlwWVdrOEk"))
+
+    background = image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQSE16NkZOMkcxc3M")
+    
+    meter-stick = scale(1.3, image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQQkZOVUtubV8zSkE"))
+    
+    put-image(
+      buggy,
+      x * ratio,
+      240,
+      put-image(
+        meter-stick,
+          400,
+          180,
+        background)
+        )
+  end
+
+  fun reach-end(x):
+    (x * ratio) >= 800
+  end
+
+  sim = reactor:
+    init: 0,
+    on-tick: move-function,
+    seconds-per-tick: dt,
+    to-draw: show,
+    stop-when: reach-end,
+    close-when-stop: true
+  end
+
+  raw-data = extend interact-trace(sim) using tick, state:
+    time: tick * dt,
+    position: state
+  end
+  
+  select tick, time, position from raw-data end
+
+end

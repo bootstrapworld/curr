@@ -1,0 +1,152 @@
+provide{
+    run-simulation : run-simulation
+} end
+
+include image
+include reactors
+
+#######################
+#  Window Parameters  #
+#######################
+axis-scale = 1 #m
+axis-length = 10 #m
+
+width = (axis-length * 50) + 50
+height = 150
+
+############
+#  Images  #
+############
+
+scene = rectangle(width, height, "solid", "light-green")
+
+draw-background :: (length :: Number) -> Image
+
+fun draw-background(length):
+  tick = rectangle(2, 10, "solid", "black")
+
+  base = beside(
+    rectangle(length * 50, 2, "solid", "black"),
+    rotate(270, triangle(10, "solid", "black"))
+    )
+
+  number-of-ticks = (axis-length / axis-scale)
+  ticks-list = range(0, number-of-ticks)
+
+  fun add-tick(img, n):
+    if n == 0:
+      put-image(tick, 1, image-height(img) / 2, img)
+    else:
+      put-image(tick, ((n / number-of-ticks) * length * 50), image-height(img) / 2, img)
+    end
+  end
+
+  new-base = fold(add-tick, base, ticks-list)
+
+  beside(new-base, text("x", 24, "black"))
+end
+
+fun arrow(length, col):
+  tip = rotate(270, triangle(10, "solid", col))
+  base = rectangle(num-abs(length), 2, "solid", col)
+  beside(base, tip)
+end
+
+background = overlay(draw-background(axis-length), scene)
+
+dog = 
+  image-url("https://code.pyret.org/shared-image-contents?sharedImageId=0B8Hh75D22GcQRTNiR1ptQ0h6aHc")
+
+################
+#  Parameters  #
+################
+
+x-offset = (width - image-width(draw-background(axis-length))) / 2
+y = 100
+
+##########################
+#  Sample Student Input  #
+##########################
+#|
+x-initial = 5
+v = -0.75
+delta-t = 1/20
+trace = true
+time-between-marks = 1
+marker-type = "dot with arrow"
+
+fun next-x(x):
+  x + (v * delta-t)
+end
+|#
+######################
+#  Reactor Function  #
+######################
+
+fun run-simulation(x0, vel, dt, delt-t, TRACE, position-function, marker):
+
+  pup =
+    if vel > 0:
+      dog
+    else:
+      flip-horizontal(dog)
+    end
+
+  mark =
+    if marker == "dog":
+      pup
+    else if marker == "dot":
+      circle(5, "solid", "black")
+    else if marker == "dot with arrow":
+      if vel > 0:
+        overlay(
+          circle(5, "solid", "black"),
+          beside(flip-horizontal(arrow(vel * 25, "transparent")), arrow(vel * 25, "black"))
+          )
+      else if vel < 0:
+        overlay(
+          circle(5, "solid", "black"),
+          beside(flip-horizontal(arrow(vel * 25, "black")), arrow(vel * 25, "transparent"))
+          )
+      else:
+        circle(5, "solid", "black")
+      end
+    else:
+      raise("Invalid input for marker-type. Check your handout.")
+    end
+
+  fun update-state({t; x; bg}):
+    new-t = t + delt-t
+    new-x = position-function(x)
+    new-bg = 
+      if TRACE == false:
+        bg
+      else if num-modulo(t * 20, dt * 20) == 0:
+        put-image(mark, ((new-x / axis-length) * (axis-length * 50)) + x-offset, y, bg)
+      else:
+        bg
+      end
+
+    {new-t; new-x; new-bg}
+  end
+
+  fun show-state({t; x; bg}):
+    put-image(pup, ((x / axis-length) * (axis-length * 50)) + x-offset, y, bg)
+  end
+  
+  initial-bg = put-image(mark, ((x0 / axis-length) * (axis-length * 50)) + x-offset, y, background)
+  initial-state = {0; x0; initial-bg}
+  r = reactor:
+    init: initial-state,
+    on-tick: update-state,
+    seconds-per-tick: delt-t,
+    to-draw: show-state,
+    stop-when: lam(e): e.{1} > 10 end,
+    close-when-stop: true
+  end
+
+  dat = interact-trace(r)
+  dat.column("state").last().{2}
+end
+
+#run-simulation(x-initial, v, time-between-marks, delta-t, trace, next-x, marker-type)
