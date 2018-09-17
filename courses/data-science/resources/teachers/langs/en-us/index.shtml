@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <title>Bootstrap: Teacher Resources</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"/>
+    <style>
+      .links{float: right;}
+      div#teacherVideos div{
+        float:left;
+        padding:20px;
+        text-align: center;
+        width: 220px;
+        height: 220px;
+      }
+    div#teacherVideos b{height: 44px; display: block;}
+    ul#final li b {display: inline-block; width: 200px;}
+    </style>
+  </head>
+  <body>
+        <!--#include virtual="/menubar.ssi" -->
+        
+        <div id="body">
+            
+            <div class="item">
+              <h1>Teacher Resources</h1>
+              <ul>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapDataScienceWorkshopSlides.pptx">pptx</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the professional development workshops.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="protected/StudentWorkbookSols.pdf">Workbook Solutions</a></span> [pdf] - Completed exercises for the entire Student Workbook.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="https://www.nytimes.com/column/whats-going-on-in-this-graph">"What's Going on in this Graph?"</a></span> [nytimes.com] - Once a month, the NYTimes posts an interesting data visualization. This is a <i>great</i> resource to spark the curiosity of young data scientists, and make for a perfect Notice &amp; and Wonder!</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="https://pudding.cool/">"The Pudding"</a></span> [pudding.cool] - Terrific deep dives into data analysis for interesting topics. Another wonderful resource for students, with great animations showing the transformation of how data is visualized as the research questions evolve.</p></li>
+              </ul>
+            </div>
+            
+
+            <h2>Exercises and Solutions</h2>
+            <h3><a href="../../units/unit1/">Unit 1</a></h3>
+            <ul>
+              <li>Practicing Contracts 1
+                <span class="links">
+                  [<a href="exercises/Contracts1.pdf">original</a>
+                  | <a href="protected/solutions/Contracts1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Practicing Contracts 2
+                <span class="links">
+                  [<a href="exercises/Contracts2.pdf">original</a>
+                  | <a href="protected/solutions/Contracts2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Matching Expressions with Contracts 1
+                <span class="links">
+                  [<a href="exercises/MatchingExpressions1.pdf">original</a>
+                  | <a href="protected/solutions/MatchingExpressions1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Matching Expressions with Contracts 2
+                <span class="links">
+                  [<a href="exercises/MatchingExpressions2.pdf">original</a>
+                  | <a href="protected/solutions/MatchingExpressions2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+
+            <h3><a href="../../units/unit2/">Unit 2</a></h3>
+            <ul>
+              <li>What Data Would You Need? 1
+                <span class="links">
+                  [<a href="exercises/WhatData1.pdf">original</a>
+                  | <a href="protected/solutions/WhatData1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>What Data Would You Need? 2
+                <span class="links">
+                  [<a href="exercises/WhatData2.pdf">original</a>
+                  | <a href="protected/solutions/WhatData2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 1
+                <span class="links">
+                  [<a href="exercises/Threats1.pdf">original</a>
+                  | <a href="protected/solutions/Threats1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 2
+                <span class="links">
+                  [<a href="exercises/Threats2.pdf">original</a>
+                  | <a href="protected/solutions/Threats2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Threats to Validity 3
+                <span class="links">
+                  [<a href="exercises/Threats3.pdf">original</a>
+                  | <a href="protected/solutions/Threats3-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+            <h3><a href="../../units/unit7/">Unit 7</a></h3>
+            <ul>
+              <li>Critiquing Findings
+                <span class="links">
+                  [<a href="exercises/CritiquingFindings.pdf">original</a>
+                  | <a href="protected/solutions/CritiquingFindings-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+
+            <h3><a href="../../units/unit10/">Unit 10</a></h3>
+            <ul>
+              <li>Describing Relationships 1
+                <span class="links">
+                  [<a href="exercises/Relationships1.pdf">original</a>
+                  | <a href="protected/solutions/Relationships1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Describing Relationships 2
+                <span class="links">
+                  [<a href="exercises/Relationships2.pdf">original</a>
+                  | <a href="protected/solutions/Relationships2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+            
+            <div class="item clearfix">
+              <span class="anchor" id="sourceFiles"></span>
+              <h2>Workshop Files</h2>
+              <ul>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1IntcU5lWgBuzlhk6DypExsFU-J7DiiN6">Shapes Starter File</a></li>
+                <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM">Animals Dataset</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1uOIyrIU-sOczXu49807OJiDHlf4UGcYB">Animals Dataset Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1zMvpc30k3ljEqpZrBKMYyVnFva0N_9kC">Animals Dataset Starter File (after Unit 2)</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1xpTL9bvK33jCx92lgWAm_ubw5d1pturt">Animals Dataset Starter File (after Unit 3)</a></li>
+              </ul>
+
+              <h2>Project Files</h2>
+              <ul id="final">
+                <li><a target="_blank" href="https://docs.google.com/document/d/1tNoeLK7Us6dZcxpxwedFjLlnBMDzOdgkG7txAWuP4nQ/">Blank Research Paper</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1eiT69ktb7vXndMd63K68WB5DACJfoWeN">Blank Starter File</a></li>
+                <li>
+                    <b>Movies</b> 
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=18y_TnH69lbvT1lQVh5k-cTEB9aVHaame">Starter File</a>]
+                </li>
+                <li>
+                    <b>RI Schools</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1419VGxyYjd3XDPbgObUa-LMufZe3KDZa">Starter File</a>]
+                </li>
+                <li>
+                    <b>US Income</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1VylyurhJru_0g3C3ne3SK04j16bGYbEW">Starter File</a>]
+                </li>
+                <li>
+                    <b>US Presidents</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1HHKNnHAdY1BuDrjAJmjVhchPaV77YKk9">Starter File</a>]
+                </li>
+                <li>
+                    <b>Countries</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1ONLmATLi5r6GA9nGPx50I9pWA3ZCx2OA">Starter File</a>]
+                </li>
+                <li>
+                    <b>Music</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-mrDSjS-rWMdiMAIptFS_PHVUFO06lUpYNCiGkYj51s/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1f6yqemcHqLkQzmhYILuTMxL3m4qhTvX0">Starter File</a>]
+                </li>
+                <li>
+                    <b>State Demographics</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1KvMTb2mQrpUL9DSe675t-1DpNr5J1CO5">Starter File</a>]
+                </li>
+                <li>
+                    <b>NYC Restaurant Health Inspections</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=12jtxwxPNSrdhA4a1YZ4RNzw-I8HPXzD6">Starter File</a>]
+                </li>
+                <li>
+                    <b>Pokemon Characters</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1LnwYrEVX6TU2C6dNxxXPYJZuwkPccWlA&v=7865ced">Starter File</a>]
+                </li>
+                <li>
+                    <b>IGN Video Game Reviews</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1jwd0kQqElgUMmXtvVk6vU-sZgxTm_fEJ&v=7865ced">Starter File</a>]
+                </li>
+                <li>
+                    <b>2016 Presidential Primary Results</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1WMJMNqkwuo1vbL0O_C81BPA-R2TFcLWEMUi7cn_ptow">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#program=1gy32BVXdlyS1KqZ5pXcqg5APbJoqZsWJ">Starter File</a>]
+                </li>
+                <li>
+                    <b>US Cancer Rates</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1phjRq-YMs8ceo0vJE8iWQZeigBtb1QBU">Starter File</a>]
+                </li>
+                <li>
+                    <b>Summer Olympic Medals</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1kOV5CEDMl622am-BGa2oZxQxRsthYQA8">Starter File</a>]
+                </li>
+                <li>
+                    <b>Winter Olympic Medals</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1ZJ9d4BtF6xOqyBdGgjW-vCeJ7-rOHWIhGMiBNwqCEVo">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1r_aCTPYC9y1GVcqCEoB1_EGdPITqIMKZ">Starter File</a>]
+                </li>
+                <li>
+                    <b>MLB Hitting Stats</b>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8">Dataset</a>
+                    | <a target="_blank" href="https://code.pyret.org/editor#share=1cyBkKP9SzKwsDJD4C7XOx51qjbetTMBs">Starter File</a>]
+                </li>
+              </ul>
+			  
+              <h2>Other Links</h2>
+              <ul>
+				<li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> <b>Registered for a Bootstrap workshop?</b> Please fill out this survey prior to your first day.</li>
+			</ul>
+            </div>
+        </div>
+    </body>
+</html>

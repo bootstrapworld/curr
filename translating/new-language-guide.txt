@@ -12,7 +12,7 @@ lessons/langs/<new language>
 lib/langs/<new language>
 
 example:
-cp -r courses/algebra/langs/english courses/algebra/langs/mandarin
+cp -r courses/algebra/langs/en-us courses/algebra/langs/es-mx
 NOTE: if using the "cp" Unix command, the "-r" flag is necessary
 
 
@@ -29,9 +29,9 @@ In form-elements.rkt and translator.rkt, the following block of code must be mod
   (syntax-parse stx
                  [(_  a b)
                   (case language
-                    [("english") #'a]
-                    [("spanish") #'b])]))
-(choose (require "langs/english/translated.rkt") (require "langs/spanish/translated.rkt"))
+                    [("en-us") #'a]
+                    [("es-mx") #'b])]))
+(choose (require "langs/en-us/translated.rkt") (require "langs/es-mx/translated.rkt"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 to:
@@ -41,10 +41,10 @@ to:
   (syntax-parse stx
                  [(_  a b c)
                   (case language
-                    [("english") #'a]
-                    [("spanish") #'b]
+                    [("en-us") #'a]
+                    [("es-mx") #'b]
         	    [("<new language>") #'c])]))
-(choose (require "langs/english/translated.rkt") (require "langs/spanish/translated.rkt") (require "langs/<new language>/translated.rkt"))
+(choose (require "langs/en-us/translated.rkt") (require "langs/es-mx/translated.rkt") (require "langs/<new language>/translated.rkt"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
