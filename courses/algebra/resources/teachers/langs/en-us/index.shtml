@@ -35,11 +35,13 @@
               
                 <span class="anchor" id="evaluation"></span>
                 <h2>Evaluation</h2>
-                As a member of the Bootstrap Community, we invite you and your class to join our research effort! You'll help us investigate new ways to merge mathematics and programming, and help us improve our existing materials and pedagogy. Your classroom data will help us make Bootstrap better, for teachers and students around the world. In exchange for participation, you'll receive a choice of <b>a $50 gift card, or up to 50 FREE student workbooks for your students next year</b>.
+                As a member of the Bootstrap Community, we invite you and your class to join our research effort! You'll help us investigate the effectiveness of our curriculum, which helps us improve our existing materials and pedagogy for both students and teachers. In exchange for participation, you'll receive a choice of a $50 Amazon gift card or up to 50 FREE student workbooks.  We are in particular need of data from control classes that have not used Bootstrap.  If you are able to gather data in a similar class to your Bootstrap class, we can offer an additional $50 gift card of set of 50 workbooks.
                 <p/>
-                <b>To sign up, <a href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSc1PUDXPdeLZRv22ImeGypkRU-na9X5QXrevrx-1KZkTtDcTw/viewform">fill out this form</a></b>, which will ask some basic information about your class(es).  We need this information as part of our reporting to the National Science Foundation.
+                Participation is easy: <a href="https://docs.google.com/forms/d/e/1FAIpQLScTUZrMfDuZmfiacCFo_PJ1vfZ9nNIVjFrcc4uJ4Jqj7l4Mhw/viewform?usp=sf_link" target="_blank">fill this google form.</a> After you submit, you'll get links to the pre and post tests for your students. The links also include a parental consent form that you can use if your district requires it (Bootstrap does not require the consent forms). Have your students fill out the pre-test before they start Bootstrap, and the post-test when you are done teaching Bootstrap.  
                 <p/>
-                Participation is easy: We will send you numbered pre- and post-tests, a pre-paid return envelope, and an easy way for you to make sure that each student fills out tests with the same number. You administer the (~30min) tests and return them to us. The paper tests are intended to gather student data *anonymously*. You can also request a digital (PDF) version of the assessment, if you'd rather print them yourself. <i>If you are teaching a similar class that is not doing Bootstrap, and are willing to help us gather data from a "control group" at your school, let us know!</i>
+                There are two pairs of pre/post tests: one on word problems and one on understanding variables.  You may give either or both (we are particularly interested in more data on the variables tests).  Both tests are available as online surveys or as paper PDFs.  Please use the same format (paper or online) for both pre and post test.  Please don't switch topics from pre-to-post -- we need to look at changes on the same kinds of problems in our evaluation.
+                <p/>
+                For either format and topic, students will be asked to use some ID number across all tests (so we can match the pre and post tests per student).  These numbers can be whatever you want as long as each student in your class has a unique ID that (s)he uses on both tests.  Having letters in the ID is also fine.  Please do NOT use students' names, so we can protect their privacy (the online forms do NOT automatically collect email addresses). This form will ask some basic information about your class(es).  We need this information as part of our reporting to the National Science Foundation. 
                 <p/>
                 You can also help us evaluate how students react to having built a game by having them fill out <b><a href="https://docs.google.com/a/bootstrapworld.org/forms/d/1OcZKapL-JQxuqywaveL29D15ArgGQp3q0f4bKqFD6cQ/edit?ts=57e181f5">this brief (10 minute) anonymous survey</a></b>.  We frequently get questions about whether our game project allows enough creativity (and whether it appeals to girls) -- this data helps us assess and answer such questions. (Note: there is no compensation for the online survey)
         </div>
@@ -119,85 +121,85 @@
                 <li>Completing Circles of Evaluation from Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith1.html">original</a>
-                    | <a href="solutions/complete-coe-from-arith1.html">answers</a>]
+                    | <a href="protected/solutions/complete-coe-from-arith1.html">answers</a>]
                   <span>
                 </li>
                 <li>Completing Circles of Evaluation from Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith2.html">original</a>
-                    | <a href="solutions/complete-coe-from-arith2.html">answers</a>]
+                    | <a href="protected/solutions/complete-coe-from-arith2.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Circles of Evaluation from Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe1.html">original</a>
-                    | <a href="solutions/arith-to-coe1.html">answers</a>]
+                    | <a href="protected/solutions/arith-to-coe1.html">answers</a>]
                   </span>
                 </li>
                 <li>Creating Circles of Evaluation from Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe2.html">original</a>
-                    | <a href="solutions/arith-to-coe2.html">answers</a>]
+                    | <a href="protected/solutions/arith-to-coe2.html">answers</a>]
                   </span>
                 </li>
                 <li>Creating Circles of Evaluation from Math Expressions (3)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe3.html">original</a>
-                    | <a href="solutions/arith-to-coe3.html">answers</a>]
+                    | <a href="protected/solutions/arith-to-coe3.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Math Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith1.html">original</a>
-                    | <a href="solutions/coe-to-arith1.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-arith1.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Math Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith2.html">original</a>
-                    | <a href="solutions/coe-to-arith2.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-arith2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Circles of Evaluation and Math Expressions
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/match-arith-coe1.html">original</a>
-                    | <a href="solutions/match-arith-coe1.html">answers</a>]
+                    | <a href="protected/solutions/match-arith-coe1.html">answers</a>]
                   </span>
                 </li>
                 <li>Evaluating Circles of Evaluation (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-math-answer1.html">original</a>
-                    | <a href="solutions/coe-to-math-answer1.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-math-answer1.html">answers</a>]
                   </span>
                 </li>
                 <li>Evaluating Circles of Evaluation (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-math-answer2.html">original</a>
-                    | <a href="solutions/coe-to-math-answer2.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-math-answer2.html">answers</a>]
                   </span>
                 </li>
                 <li>Completing Code from Circles of Evaluation
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/complete-code-from-coe1.html">original</a>
-                    | <a href="solutions/complete-code-from-coe1.html">answers</a>]
+                    | <a href="protected/solutions/complete-code-from-coe1.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Code (1)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code1.html">original</a>
-                    | <a href="solutions/coe-to-code1.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-code1.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation to Code (2)
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code2.html">original</a>
-                    | <a href="solutions/coe-to-code2.html">answers</a>]
+                    | <a href="protected/solutions/coe-to-code2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Circles of Evaluation and Code
                   <span class="links">
                     [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-code-matching1.html">original</a>
-                    | <a href="solutions/coe-code-matching1.html">answers</a>]
+                    | <a href="protected/solutions/coe-code-matching1.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 1 Quiz - Bootstrap: Algebra
@@ -228,31 +230,31 @@
                 <li>Converting Circles of Evaluation to Code (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code1.html">original</a>
-                    | <a href="solutions/many-types-coe-to-code1.html">answers</a>]
+                    | <a href="protected/solutions/many-types-coe-to-code1.html">answers</a>]
                   <span>
                 </li>
                 <li>Converting Circles of Evaluation to Code (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code2.html">original</a>
-                    | <a href="solutions/many-types-coe-to-code2.html">answers</a>]
+                    | <a href="protected/solutions/many-types-coe-to-code2.html">answers</a>]
                   <span>
                 </li>
                 <li>Identifying Parts of Expressions (1)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1.html">original</a>
-                    | <a href="solutions/id-expr-pieces1.html">answers</a>]
+                    | <a href="protected/solutions/id-expr-pieces1.html">answers</a>]
                   </span>
                 </li>
                 <li>Identifying Parts of Expressions (2)
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2.html">original</a>
-                    | <a href="solutions/id-expr-pieces2.html">answers</a>]
+                    | <a href="protected/solutions/id-expr-pieces2.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Expressions and Contracts
                   <span class="links">
                     [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1.html">original</a>
-                    | <a href="solutions/match-contracts-exprs1.html">answers</a>]
+                    | <a href="protected/solutions/match-contracts-exprs1.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 2 Quiz - Bootstrap: Algebra
@@ -278,19 +280,19 @@
                 <li>Matching Examples and Function Definitions
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1.html">original</a>
-                    | <a href="solutions/match-examples-functions1.html">answers</a>]
+                    | <a href="protected/solutions/match-examples-functions1.html">answers</a>]
                   <span>
                 </li>
                 <li>Creating Contracts From Examples (1)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1.html">original</a>
-                    | <a href="solutions/create-contracts-examples1.html">answers</a>]
+                    | <a href="protected/solutions/create-contracts-examples1.html">answers</a>]
                   </span>
                 </li>
                 <li>Creating Contracts From Examples (2)
                   <span class="links">
                     [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2.html">original</a>
-                    | <a href="solutions/create-contracts-examples2.html">answers</a>]
+                    | <a href="protected/solutions/create-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 3 Bootstrap Algebra Review
@@ -310,25 +312,25 @@
                 <li>Do Examples Have the Same Contracts? (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1.html">original</a>
-                    | <a href="solutions/examples-same-contracts1.html">answers</a>]
+                    | <a href="protected/solutions/examples-same-contracts1.html">answers</a>]
                   <span>
                 </li>
                 <li>Do Examples Have the Same Contracts? (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2.html">original</a>
-                    | <a href="solutions/examples-same-contracts2.html">answers</a>]
+                    | <a href="protected/solutions/examples-same-contracts2.html">answers</a>]
                   <span>
                 </li>
                 <li>Matching Contracts and Examples (1)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1.html">original</a>
-                    | <a href="solutions/match-contracts-examples1.html">answers</a>]
+                    | <a href="protected/solutions/match-contracts-examples1.html">answers</a>]
                   </span>
                 </li>
                 <li>Matching Contracts and Examples (2)
                   <span class="links">
                     [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2.html">original</a>
-                    | <a href="solutions/match-contracts-examples2.html">answers</a>]
+                    | <a href="protected/solutions/match-contracts-examples2.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 4 Bootstrap Algebra Review
@@ -372,13 +374,13 @@
                 <li>Converting Circles of Evaluation with Booleans to Code
                   <span class="links">
                     [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code1.html">original</a>
-                    | <a href="solutions/boolean-coe-to-code1.html">answers</a>]
+                    | <a href="protected/solutions/boolean-coe-to-code1.html">answers</a>]
                   </span>
                 </li>
                 <li>Converting Circles of Evaluation with Booleans to Code
                   <span class="links">
                     [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code2.html">original</a>
-                    | <a href="solutions/boolean-coe-to-code2.html">answers</a>]
+                    | <a href="protected/solutions/boolean-coe-to-code2.html">answers</a>]
                   </span>
                 </li>
                 <li>Unit 6 Quiz - Bootstrap: Algebra
