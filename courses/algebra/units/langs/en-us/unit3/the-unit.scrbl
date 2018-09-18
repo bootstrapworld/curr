@@ -202,7 +202,7 @@
                         @teacher{}
                         }
                  @point{@student{ @activity{Scroll to the very bottom of the screen, reading each of the things you will have to define. Stop when you get to the very bottom, where you see 
-                                           @code{(make-game ...)} used as part of a definition. What do you notice about the values passed into @code{make-game}?}
+                                           @code{(make-game ...)} used as part of a definition. Take a look at the values passed into @code{make-game} -- do you see them anywhere else in the file?}
                                  @code{make-game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make-game}
                                  inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
                          @teacher{You can remind students that Bootstrap:Reactive will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}}
