@@ -159,7 +159,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
                      @teacher{}
                      }
               @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convierte las siguientes tres definiciones algebraicas en definiciones Racket:
-                                       @itemlist[@item{@math{dollars = 16.50}}
+                                       @itemlist[@item{@math{miles = 16.5}}
                                                  @item{@math{feet = 2 \times 3}}
                                                   @item{@math{inches = feet \times 12}}]
                                        }}
