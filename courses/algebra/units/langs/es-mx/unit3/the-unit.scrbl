@@ -203,8 +203,8 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
                         }
                  @point{@student{ @activity{
 Desplázate hasta la parte inferior de la pantalla, leyendo cada una de las cosas que tendrás que definir. Detente cuando llegues al fondo, donde veas
-                                            @code{(make_game ...)} utilizado como parte de una definición. ¿Qué notas de los valores pasados en @code{make_game}?}
-                                  @code{make_game} es una función que se ha proporcionado para ti, que toma todas tus definiciones y las ensambla en un juego corriente. Detrás de las escenas, @code{make_game}
+                                            @code{(make-game ...)} utilizado como parte de una definición. ¿Qué notas de los valores pasados en @code{make-game}?}
+                                  @code{make-game} es una función que se ha proporcionado para ti, que toma todas tus definiciones y las ensambla en un juego corriente. Detrás de las escenas, @code{make-game}
                                   Inserta tus definiciones dentro de una función gigante que se llama cada décimo de segundo, y utiliza tus definiciones para decidir lo que está sucediendo en ese momento.}
                          @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}}
                  @point{@student{En el área de definiciones, verás que este programa define varios valores: @code{TITLE}, por ejemplo, está definido como el String @code{"My Game"}.
