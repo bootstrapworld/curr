@@ -452,10 +452,11 @@
                 (let ([fresh-pdfs-made?
                         (parameterize [(current-deployment-dir exer-dir)]
                           (scribble-to-pdf exer-files exer-dir))])
-                  (when fresh-pdfs-made?
                     (for ([exerfile exer-files])
                          (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
-                                [exerfile-path (build-path exer-dir exerfile-pdf)])
+                                [exerfile-path (build-path exer-dir exerfile-pdf)]
+                                [deploy-exerfile-pdf (build-path exer-deploy-dir exerfile-pdf)])
+                        (when (or fresh-pdfs-made? (not (file-exists? deploy-exerfile-pdf)))
                            (copy-file exerfile-path
                                       (build-path exer-deploy-dir exerfile-pdf)
                                       #t)))))))
