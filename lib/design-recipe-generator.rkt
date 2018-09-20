@@ -239,7 +239,7 @@
                           (cond
                             [(equal? lang 'pyret)
                              (list
-                              (make-spacer "examples:")
+                              (make-spacer "examples:  ")
                               examples-part
                               (linebreak)
                               (make-spacer "end"))]
@@ -356,7 +356,9 @@
   (para #:style (bootstrap-span-style "indent") "  "))
 
 (define (make-spacer contents)
-  (para #:style (bootstrap-span-style "spacer") contents))
+  (let* ([keywords-pyret (list "fun" "if" "else:" "else if" "end" "examples:")]
+         [contents (if (member (string-normalize-spaces contents) keywords-pyret string=?) (bold contents) contents)])
+    (para #:style (bootstrap-span-style "spacer") contents)))
 
 (define (make-spacer/elem contents)
   (elem #:style (bootstrap-span-style "spacer") contents))
