@@ -219,7 +219,7 @@
                         }
                  @point{@student{If you don't like the definitions provided here, you can change them!  You can modify the @code{TITLE} and @code{TITLE-COLOR} 
                                     to change what is displayed at the top of your screen, and you can change the definitions for your game images as well. 
-                                    (You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup).}
+                                    (You can upload new image files by clicking the "Images" button in the toolbar, then selecting "upload" from the resulting popup). If you don't see this button, you may be logged out, and need to log back in!}
                          @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
@@ -282,7 +282,7 @@
 					   The programming language doesn't provide this function, 
 					   but it does let you define your own functions.  We want to define
 					   our own function (let's call it @code{gt}, for green triangle) that
-					   takes in a Number and produces a solid green triangle of whatever size we want.
+					   takes in a Number representing the side length of an equilateral triangle and produces a solid green triangle of that size.
                                            @itemlist[@item{@code{(gt 10)} would be a shortcut for @code{(triangle 10 "solid" "green")}}
                                                      @item{@code{(gt 20)} would be a shortcut for @code{(triangle 20 "solid" "green")}}
                                                      @item{@code{(gt 1980)} would be a shortcut for @code{(triangle 1980 "solid" "green")}}
