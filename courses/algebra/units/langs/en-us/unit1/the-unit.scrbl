@@ -72,11 +72,11 @@
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
                          the cat left, right and jump(up and down) - try to catch  the ruby and avoid the dog!}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
-                          Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
+                          Play until the students see everything in the game (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well. Give them at least 3 minutes to play with the game and listen to their observations.}
                  }
           
-          @point{@student{@noSlideText{This game is made up of characters, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down.} We can figure out how the game works by first understanding how each character works.}
+          @point{@student{@noSlideText{This game is made up of objects, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down.} We can figure out how the game works by first understanding how each object works.}
                  @teacher{}
                  }
           
@@ -297,8 +297,7 @@
                  @point{@student{@activity{What does @math{8*4} evaluate to? What does @math{20-16} evaluate to? What does @math{16-20} evaluate to?}}
                          @teacher{}
                         }
-                 @point{@student{Sometimes, we need multiple expressions to accomplish a task.  If you were to write instructions for making 
-                                 a sandwich, it would matter very much which came first: melting the cheese, slicing the bread, spreading the 
+                 @point{@student{Sometimes, we need multiple expressions to accomplish a task, and it will matter in which order they come. For exmple, if you were to write instructions for making a sandwich, it would matter very much which instruction came first: melting the cheese, slicing the bread, spreading the 
                                  mustard, etc. The order of functions matters in mathematics, too. If someone says "four plus two minus one", 
                                  they could mean several things:
                                 @itemlist[@item{Add four and two, then subtract one: @math{(4+2) - 1}}
@@ -346,7 +345,7 @@
                         }
                 @point{@student{@noSlideText{Circles of Evaluation show the structure that's going on inside an expression.} All Circles of Evaluation have two rules:
                                 @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
-                                @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
+                                @bannerline{Circle Rule 2: The inputs (in this case, numbers) are written below, in order from left to right.}
                        @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}}
                         @teacher{}
                         }
@@ -381,7 +380,7 @@
                         @teacher{}
                        }
                 @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to? Let's review how we evaluate a Circle: 
-                                 @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
+                                 @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle (represented by an asterisk * ).} 
                                            @item{The Number @math{6} is the first number in the multiplication, because it's on 
                                                             the left-hand side.}
                                            @item{The second number in the multiplication is on the right-hand side.  The right-hand
@@ -511,7 +510,7 @@
                                  and the kinds of problems that they catch in programs.}
                         }
                 
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
+                @point{@student{We can also write more complex computer programs than just evaluating numbers, and using the Circles of Evaluation makes this simple. To translate a Circle of
                                 Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
                                 the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
                                 parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
