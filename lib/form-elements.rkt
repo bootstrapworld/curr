@@ -971,7 +971,7 @@
   (match mp
     [(list 'lib path)
      (cond
-       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson.scrbl$" path)
+       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson([^/]*).scrbl$" path)
         =>
         (lambda (result)
           (list-ref result 2))]
@@ -983,7 +983,7 @@
 ;; raise-lesson-error: module-path -> void
 ;; Raises a lesson-specific error.
 (define (raise-lesson-error mp)
-  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lessons/langs/LANGUAGE/FOO/lesson.scrbl)" mp))
+  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lessons/langs/LANGUAGE/FOO/lessonSUFFIX.scrbl)" mp))
 
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also

@@ -1,0 +1,398 @@
+<html>
+  <head>
+    <title>Bootstrap: Teacher Resources</title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css"/>
+    <style>
+      .links{float: right;}
+      div#teacherVideos div{
+        float:left;
+        padding:20px;
+        text-align: center;
+        width: 220px;
+        height: 220px;
+      }
+    div#teacherVideos b{height: 44px; display: block;}
+    </style>
+  </head>
+  <body>
+        
+        <div id="body">
+            
+            <div class="item">
+              <h1>Teacher Resources</h1>
+              <ul>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a target="_blank" href="BootstrapAlgebraWorkshopSlides.pptx">ppt</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the sample-teaching session.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Support Forums</span> [<a target="_blank" href="https://groups.google.com/d/forum/bootstrap-announce">Announcements</a> | <a target="_blank" href="https://groups.google.com/d/forum/bootstrap-discuss">Discussion</a>] - Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Want to ask a question or pose a lesson idea for other Bootstrap teachers? These forums are the place to do it.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Assessment Guide</span> [<a target="_blank" href="https://docs.google.com/document/d/12fDTz4YW-Domk9xzAGbEBY8a4KGFEhZKvB4OkBviijE/edit?usp=sharing">Google Doc</a>] - Guidance for teachers, on assessing student programs.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Grading Rubric</span> [<a target="_blank" href="https://docs.google.com/document/d/10YYUmMbE77VwC3W24yZykZe1I0ELL_jE2_NQyH473MY/edit#">Google Doc</a>] - A simple grading rubric for Design Recipes in Bootstrap:Algebra.</p></li>
+              
+              
+        </div>
+          
+            <div class="item clearfix bottom-border" style="width: 100%;">
+              <span class="anchor" id="exercises"></span>
+              <h2>Exercises and Solutions</h2>
+              <h3><a href="../../units/unit1/">Unit 1</a></h3>
+
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/14zWeDUuGg2swzi6_AVrReZd7cgcMpLE1PsT8iznQ6eM/edit" target="_blank">exercise</a>
+                    | <a href="https://drive.google.com/open?id=1wGOXEaSyPp818lrpfYdto25tAll9MpqkpdyYSDBBNmU" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Completing Circles of Evaluation from Math Expressions (1)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith1.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/complete-coe-from-arith1.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Completing Circles of Evaluation from Math Expressions (2)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/complete-coe-from-arith2.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/complete-coe-from-arith2.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions (1)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe1.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/arith-to-coe1.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions (2)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe2.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/arith-to-coe2.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Circles of Evaluation from Math Expressions (3)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/arith-to-coe3.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/arith-to-coe3.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Math Expressions (1)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith1.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-arith1.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Math Expressions (2)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-arith2.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-arith2.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Circles of Evaluation and Math Expressions
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/match-arith-coe1.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/match-arith-coe1.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Evaluating Circles of Evaluation (1)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-math-answer1.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-math-answer1.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Evaluating Circles of Evaluation (2)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Order-of-Operations/coe-to-math-answer2.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-math-answer2.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Completing Code from Circles of Evaluation
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/complete-code-from-coe1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/complete-code-from-coe1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code (1)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-code1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code (2)
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-to-code2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-to-code2-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Circles of Evaluation and Code
+                  <span class="links">
+                    [<a href="../../units/unit1/exercises/Intro-to-Programming/coe-code-matching1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/coe-code-matching1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 1 Quiz - Bootstrap: Algebra
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5b2e9c1a58817f00198f2ba2" target="_blank">Quizizz</a>]
+                  </span>
+                </li>
+                <li>Unit 1: Circles of Evaluation And Code Practice
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b294eaa9477d32e25dde27a" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+                <li>Unit 1: Circles of Evaluation And Code Practice
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b294f682a724d0fd6d1e44f" target="_blank">Blank Template</a>]
+                  </span>
+                </li>
+
+              </ul>
+              <h3><a href="../../units/unit2/">Unit 2</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1f-_DIw8HO5K5ohMdFFw6zlQWqfEgqWEP8CvwdzqhRqk/edit?usp=sharing" target="_blank">exercise</a>
+                          | <a href="https://docs.google.com/document/d/1uaOoQFszSZqRgkJj7gYirAyZwomgwW92wxcDhn8Rrw0/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation to Code (1)
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/many-types-coe-to-code1-im.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Converting Circles of Evaluation to Code (2)
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Strings-and-Images/many-types-coe-to-code2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/many-types-coe-to-code2-im.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Identifying Parts of Expressions (1)
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/id-expr-pieces1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Identifying Parts of Expressions (2)
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Contracts/id-expr-pieces2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/id-expr-pieces2-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Expressions and Contracts
+                  <span class="links">
+                    [<a href="../../units/unit2/exercises/Contracts/match-contracts-exprs1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/match-contracts-exprs1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 2 Quiz - Bootstrap: Algebra
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5b2e9d5258817f00198f2bba" target="_blank">Quizizz</a>]
+                  </span>
+                </li>
+                <li>Unit 2 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b29502a72d2ff0fdb584bfa" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+           
+              </ul>
+              <h3><a href="../../units/unit3/">Unit 3</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/186Ql_O-xCGr7pyTCyhdKGlEKEgnqeiFTRU5zlbjjYg0/edit?usp=sharing" target="_blank">exercise</a>
+                          | <a href="https://docs.google.com/document/d/1AmVS-jO6Opbtw3akY3Xdkp60cxFANKDf0JYp0yC6QgM/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Examples and Function Definitions
+                  <span class="links">
+                    [<a href="../../units/unit3/exercises/Defining-Functions/match-examples-functions1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/match-examples-functions1-im.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Creating Contracts From Examples (1)
+                  <span class="links">
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/create-contracts-examples1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Creating Contracts From Examples (2)
+                  <span class="links">
+                    [<a href="../../units/unit3/exercises/Defining-Functions/create-contracts-examples2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/create-contracts-examples2-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 3 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b2951eb72d2ff0fdb584e2e" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit4/">Unit 4</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1aB-hMRSoFfBpmouuyU07YiQlZ0GtURFsWid7LPqtnjY/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1RBRJ3t5NwdC5BM0zmVPFHYXM6je3wLr5kHbSKESyfUE/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Do Examples Have the Same Contracts? (1)
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/examples-same-contracts1-im.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Do Examples Have the Same Contracts? (2)
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/examples-same-contracts2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/examples-same-contracts2-im.html" target="_blank">answers</a>]
+                  <span>
+                </li>
+                <li>Matching Contracts and Examples (1)
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/match-contracts-examples1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Matching Contracts and Examples (2)
+                  <span class="links">
+                    [<a href="../../units/unit4/exercises/Practicing-the-Design-Recipe/match-contracts-examples2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/match-contracts-examples2-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 4 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b2952727082c1641437005c" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+                <li>Unit 4: Design Recipe Practice - Blank Template
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b29524435980a2e26b0cc6e" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit5/">Unit 5</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1qzifzNSHZcenMx86iJOF_IZ9z50rJZoSkIYMdWk8O-g/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1ofmjDsFm7s17EOZIMOXhQXKcrji3hyXwACF1dJk1_KE/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1umX0XwFPXghHVH-guaVfZVNs1miePVqWG3APhfHL2ZE/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1Gy5ht8Yx6xnzYxGiKeDEKBsSTGH-gGqQ2REaLC2bnZE/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 5 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5ba047e38853cd0c65cdc20b" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit6/">Unit 6</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/15_cgzrdz3aP23LdGx4s8rr8redOF-qfZcWqM9oFWdSk/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1SVJCkOX0znLbFaeHgkPOjsZThig_u2WvlpgOd_XIjgw/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                <li>Converting Circles of Evaluation with Booleans to Code
+                  <span class="links">
+                    [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code1-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/boolean-coe-to-code1-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Converting Circles of Evaluation with Booleans to Code
+                  <span class="links">
+                    [<a href="../../units/unit6/exercises/AndOr/boolean-coe-to-code2-im.html" target="_blank">exercise</a>
+                    | <a href="protected/solutions/boolean-coe-to-code2-im.html" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Unit 6 Quiz - Bootstrap: Algebra
+                  <span class="links">
+                    [<a href="https://quizizz.com/admin/quiz/5b2ed0110eba2b0019a9cfaa" target="_blank">Quizizz</a>]
+                  </span>
+                </li>
+                <li>Unit 6 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b2953967082c16414370481" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit7/">Unit 7</a></h3>
+              <ul>
+                </li>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1FltUf_1hDMGmul5Wjq4At5kUcG2GPo--Fz_8TroE7_w/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1J1KcjEY9r7N0mUhLywGI8b4FRdYlVK4gVjtS5IGnpo8/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1Q3RCjaYwjZzjObQTQLSBfCDfr3zX7lnje7Hz44YnIM0/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1baJv9e546FFJn3Ea6z5gD88fppF4fQTv2Qe_YfR4H50/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Units 7 and 8 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b2953ee72d2ff0fdb58556b" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit8/">Unit 8</a></h3>
+              <ul>
+                <li>Warmup
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/13xJ1T-3t1fDOnwBLDojAJxcWWforNusE6LlENfBOBdI/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1q-AydjjkLGLTc0caD48wHugrcX2cfV8MKWzE4k3_SXk/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Design Recipe Practice
+                  <span class="links">
+                    [<a href="https://docs.google.com/document/d/1-5wQ1-bXgHqH4PCTVYqEo8l0Jahy9WtL5rBskO4RAL4/edit?usp=sharing" target="_blank">exercise</a>
+                    | <a href="https://docs.google.com/document/d/1uO7xOTV6j4jjmbtrHlQjhpEZyxysBbnKq4_fgl4GzaY/edit?usp=sharing" target="_blank">answers</a>]
+                  </span>
+                </li>
+                <li>Units 7 and 8 Bootstrap Algebra Review
+                  <span class="links">
+                    [<a href="https://teacher.desmos.com/activitybuilder/custom/5b2953ee72d2ff0fdb58556b" target="_blank">Desmos Activity</a>]
+                  </span>
+                </li>
+              </ul>
+              <h3><a href="../../units/unit9/">Unit 9</a></h3>
+              n/a
+              <br>
+              <h3><a href="../../units/unit10/">Geometry Supplement</a></h3>
+              <ul>
+                <li>Reflection Design Recipe
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1XC_hae43j15uQXlUOnmhyVqgiSNlfYtW/view?usp=sharing" target="_blank">exercise</a>
+                    ]
+                  </span>
+                </li>
+                <li>Flag Congruence Worksheet
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1CiAaHgZ9AS8DK7e3o9BnOauUNakKRClg/view?usp=sharing" target="_blank">exercise</a>
+                    ]
+                  </span>
+                </li>
+                <li>Sam the Diagonal Butterfly
+                  <span class="links">
+                    [<a href="https://drive.google.com/a/ucsd.edu/file/d/1om8-Q606nzsbdA-Zs_lXsEozXtXz6cSb/view?usp=sharing" target="_blank">exercise</a>
+                    ]
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="item clearfix">
+              <span class="anchor" id="sourceFiles"></span>
+              <h2>Other Links</h2>
+              <ul>
+				<li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> <b>Registered for a Bootstrap workshop?</b> Please fill out this survey prior to your first day.</li>
+                <li><a target="_blank" href="https://docs.google.com/forms/d/1fyf1xHQElboxDoHy_Voq1YNRy3aRpxIS99ofek5ti8c/viewform">Sample Homework Submission</a></li>
+                <li><a target="_blank" href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSdTWp7SxbilC2qaPMgSmtoovQRMsQ1jYrqtxykkBjm6BagB4A/viewform">Give us some feedback</a> on the <b>workshop</b></li>
+              </ul>
+            </div>
+                
+  </div>
+            </body>
+</html>

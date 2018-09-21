@@ -55,8 +55,8 @@
         @points[
           @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "this link"]
                          to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
-                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                         the cat up and down - try to catch  the ruby and avoid the dog!}}
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up and down by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
@@ -237,7 +237,18 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list )
+     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1"
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith1")
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe3")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith2")
+                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer2"))
+     
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running code.pyret.org}
                              @item{Student Workbooks, and something to write with}]
@@ -423,6 +434,10 @@
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list 
+                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code1-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code2-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1-im")
                        )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
