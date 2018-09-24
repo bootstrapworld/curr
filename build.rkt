@@ -265,7 +265,8 @@
        (delete-directory/files (build-path (current-deployment-dir) subdir)))]
     [else (when (directory-exists? (current-deployment-dir))
             (delete-directory/files (current-deployment-dir)))
-          (make-directory (current-deployment-dir))])
+          (make-directory (current-deployment-dir))
+          (make-directory (build-path (current-deployment-dir) "lessons"))])
 
   (for ([base (directory-list (static-pages-path))])
     (define source-full-path (build-path (static-pages-path) base))
@@ -452,10 +453,11 @@
                 (let ([fresh-pdfs-made?
                         (parameterize [(current-deployment-dir exer-dir)]
                           (scribble-to-pdf exer-files exer-dir))])
-                  (when fresh-pdfs-made?
                     (for ([exerfile exer-files])
                          (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
-                                [exerfile-path (build-path exer-dir exerfile-pdf)])
+                                [exerfile-path (build-path exer-dir exerfile-pdf)]
+                                [deploy-exerfile-pdf (build-path exer-deploy-dir exerfile-pdf)])
+                        (when (or fresh-pdfs-made? (not (file-exists? deploy-exerfile-pdf)))
                            (copy-file exerfile-path
                                       (build-path exer-deploy-dir exerfile-pdf)
                                       #t)))))))
@@ -702,7 +704,7 @@
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
         (process-teacher-contributions)
-        (when (equal? course "algebra")
+        (when (or (equal? course "algebra") (equal? course "algebra-pyret"))
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive

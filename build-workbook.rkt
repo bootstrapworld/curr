@@ -153,7 +153,7 @@
     (let ([missing (filter (lambda (f) (and (not (skip-marker? f)) (not (havefile? f)))) ctlist)])
       (if (empty? missing) ctlist
           (begin
-            (printf "Pages listing references missing files ~a ~n" missing)
+            ;(printf "Pages listing references missing files ~a ~n" missing)
             (filter havefile? ctlist))))))
 
 ;; delete files if they are present.  Arg can be a single path or a list of paths

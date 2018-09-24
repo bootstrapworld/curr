@@ -95,14 +95,21 @@
                         (sexp->block/aux (third sexp))
                         (elem #:style bs-closebrace-style ")")))]
            [else ;; have a function call
-            (let ([args (map sexp->block/aux (rest sexp))])
-              (elem #:style bs-expression-style
-                    (append
-                     (list (elem #:style bs-openbrace-style "(") 
-                           (elem #:style bs-operator-style 
-                                 (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
-                     args 
-                     (list (elem #:style bs-closebrace-style ")")))))])]
+            (if (symbol? (first sexp))
+              (let ([args (map sexp->block/aux (rest sexp))])
+                (elem #:style bs-expression-style
+                      (append
+                       (list (elem #:style bs-openbrace-style "(") 
+                             (elem #:style bs-operator-style 
+                                   (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
+                       args 
+                       (list (elem #:style bs-closebrace-style ")")))))
+              (let ([parts (map sexp->block/aux sexp)])
+                (elem #:style bs-expression-style
+                      (append
+                       (list (elem #:style bs-openbrace-style "("))
+                       parts 
+                       (list (elem #:style bs-closebrace-style ")"))))))])]
         [else (error 'sexp->block 
                      (format "Unrecognized expression type for ~a~n" sexp))]))
 
