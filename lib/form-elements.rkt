@@ -761,7 +761,8 @@
 (define (main-contents . body)
   (list ;(insert-menu-ssi) ;; this ends up in the wrong place in the file -- must figure out at some point
         (augment-head)
-        (include-language-links-main)
+        (nested #:style (bootstrap-div-style/id/nested "translations")
+                (include-language-links-main))
         (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
