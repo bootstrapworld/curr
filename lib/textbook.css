@@ -14,6 +14,25 @@ body#beta::after{
   pointer-events: none;
 }
 
+
+#translations{
+  display: inline-block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 99;
+  box-shadow: -1px -1px 2px  gray;
+}
+#translations p {margin: 0px; }
+#translations .TranslationButton {
+  display: inline-block;
+  color: white;
+  background: #75328A;
+  padding: 2px 4px;
+}
+#translations .TranslationButton:last-child { display: none; }
+
+
 /************************************************************************************
  * LESSON TOOLBAR
  * Sits on the top-right corner of the page at all times
