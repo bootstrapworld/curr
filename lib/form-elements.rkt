@@ -165,7 +165,7 @@
 (define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
 (define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
 (define bs-skipSlide-style (bootstrap-div-style "BS-Skip-Slide"))
-(define bs-translation-buttons-style (bootstrap-span-style "TranslationButton"))
+(define bs-translation-buttons-style (bootstrap-a-style "TranslationButton"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -761,7 +761,8 @@
 (define (main-contents . body)
   (list ;(insert-menu-ssi) ;; this ends up in the wrong place in the file -- must figure out at some point
         (augment-head)
-        (include-language-links-main)
+        (nested #:style (bootstrap-div-style/id/nested "translations")
+                (include-language-links-main))
         (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
@@ -1140,7 +1141,7 @@
           (current-course-languages))))
 
 (define (include-language-links-main)
-  (interleave-parbreaks/all
+   ;interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
     (foldl (lambda (language rest)
              (cons (hyperlink  #:style bs-translation-buttons-style 
@@ -1152,7 +1153,7 @@
            ( list (hyperlink  #:style bs-translation-buttons-style 
                          "#"
                          "add translation"))
-           (current-course-languages))))
+           (current-course-languages)))
              
 
 

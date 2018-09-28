@@ -20,6 +20,7 @@
 	 bootstrap-span-style
 	 bootstrap-span-style/id
 	 bootstrap-agenda-style
+         bootstrap-a-style
          bootstrap-hyperlink-style
 	 bootstrap-style
 	 bs-head-additions
@@ -120,6 +121,10 @@
                        (cons (make-alt-tag "div")
                              (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
                                    css-js-additions)))))
+
+(define (bootstrap-a-style name)
+  (make-style name (cons (make-alt-tag "a")
+                         css-js-additions)))
 
 (define bootstrap-hyperlink-style
   (make-style #f (cons (make-attributes (list (cons 'target "_blank")))
