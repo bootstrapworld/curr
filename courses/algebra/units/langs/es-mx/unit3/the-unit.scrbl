@@ -184,7 +184,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
      #:materials @itemlist[@item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}
                              @item{Crear archivos de juego de estudiantes. [Vea la guía del maestro, ubicada en los @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "materiales protegidos") para este curso.]}
-                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=RHBJYscAWj" "WeScheme")])}]
+                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=gSzXv07gdu" "WeScheme")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

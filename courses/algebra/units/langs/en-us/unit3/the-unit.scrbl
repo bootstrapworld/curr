@@ -182,7 +182,7 @@
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{Create student game files [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=qAGwmaRXYy" "WeScheme")])}
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=gSzXv07gdu" "WeScheme")])}
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa" "Desmos Activity: Unit 3 Review")}]
      #:prerequisites (list "Defining Variables" "Strings and Images" "Brainstorming")
      #:pacings (list 
