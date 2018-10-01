@@ -81,8 +81,9 @@
                                                                                                                 Try them out in the Interactions window.} }
                          @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(new-tab "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans")}
                          }
-                 @point{@student{Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a 
+                 @point{@student{Functions like @code{<}, @code{>}, @code{=}, @code{>=} and @code{<=} all consume two Numbers as their Domain, and produce a special value called a 
                          @vocab{Boolean} as their Range. @noSlideText{Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's office might use Booleans to test if a patient's heartrate is above or below a certain level.}
+                         @activity[#:forevidence (list "BS-IDE&1&1")]{You've already compared two numbers using the @code{<} function. What do you think the @code{<=} function does? Try evaluating @code{(<= 4 4)} in the interactions area to see.}
                                                 @bannerline{Boolean values can only be @code{true} or @code{false}.}}
                          @teacher{}
                          }
@@ -97,7 +98,7 @@
                  @point{@student{There are many other functions that produce Booleans. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
                                  Comparing strings comes in handy if you want to make sure the password someone typed is the right password. It comes in handy if you want to know whether 
                                  the user hit the @code{"up"} key or the @code{"down"} key. Where else might a programmer want to compare two strings?
-                                 @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
+                                 @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Make sure you've written down the complete @vocab{Contract} for all six Boolean functions.}}
                          @teacher{Make sure students are comfortable using Booleans to compare more complex subexpressions, rather than just comparing two Numbers.}
                          }
                  ]}
