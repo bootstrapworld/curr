@@ -195,7 +195,9 @@
                                           or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
                                           and click "Run".  (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
-                                          hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.} 
+                                          hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.}
+
+                                 @bannerline{Note: In order to save this code into your own WeScheme account, click the 'Remix' button at the top of the editor. After this shared file has been remixed, the button will change to 'Save'. Before remixing, no changes you make will be saved.}
                                  This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
                                  dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
                                  }
@@ -205,7 +207,7 @@
                                            @code{(make-game ...)} used as part of a definition. Take a look at the values passed into @code{make-game} -- do you see them anywhere else in the file?}
                                  @code{make-game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make-game}
                                  inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
-                         @teacher{You can remind students that Bootstrap:Reactive will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}}
+                         @teacher{You can tell students that Bootstrap:Reactive will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}}
                  @point{@student{In the Definitions area, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
                                 @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions area, what do you think it would evaluate to?}
                                                                                          @item{What other definitions do you see?}
