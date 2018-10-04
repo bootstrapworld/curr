@@ -20,7 +20,7 @@
 
 (define bootstrap-course-specs available-course-specs)
 
-(define available-languages (list "en-us" "es-mx"))
+(define available-languages (list "en-us" "es-mx" "sv"))
 
 ;(define run-languages (list "en-us" "es-mx"))
 
@@ -62,7 +62,7 @@
 (define (parse-lang-args args)
   (filter (lambda (arg)
             (unless (member arg available-languages)
-                (error "Build got unrecognized target language: " arg " -- expected en-us or es-mx"))
+                (error "Build got unrecognized target language: " arg " -- expected en-us, es-mx, or sv"))
             (member arg available-languages))
             args))
 

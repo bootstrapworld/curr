@@ -7,12 +7,12 @@ It should always subtract the smaller number from the bigger one, and if they ar
                          #:range "Number"
 			 #:purpose "Produce positive difference between two given numbers"
                          #:num-examples 2
-                         #:example-list '((10 5 (10 - 5)) (2 8 (8 - 2))) 
+                         #:example-list '((10 5 "10 - 5") (2 8 "8 - 2")) 
                          #:show-examples '((#t #t #t) (#t #t #t))
                          #:param-list (list "a" "b")
                          #:show-params? #f
-                         #:body '(ask [(a > b) (a - b)]
-                                      [(a < b) (b - a)])
+                         #:body '(if ["a > b" "a - b"]
+                                      [else "b - a"])
                          #:show-body? '(cond #f #f)
                          #:grid-lines? #t
                          )
