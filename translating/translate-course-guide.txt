@@ -4,10 +4,10 @@ Stage I - Directory Modifications
 In the course folder, create a "langs" directory
 In this "langs" directory, create a folder for each language to which this course will be translated
 In each of these language folders, put the version of "main.scrbl" for that language.
-Example: To create the English structure in Algebra, create “/algebra/langs/english/main.scrbl
+Example: To create the English structure in Algebra, create “/algebra/langs/en-us/main.scrbl
 
       2.   Teachers and workbook 
-Create in the resources these structures for the appropriate module, putting english in for language unless you are translating
+Create in the resources these structures for the appropriate module, putting en-us in for language unless you are translating
 	/courses/<module>/resources/teachers/langs/<language>
 		Into this file put all of the contents of the old file /teachers except 
 -----

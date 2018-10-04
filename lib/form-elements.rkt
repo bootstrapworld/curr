@@ -8,6 +8,7 @@
          scribble/decode
          scribble/basic
          scribble/html-properties
+         (prefix-in xml: scribble/html/xml)
          scriblib/render-cond
          racket/path
          (for-syntax racket/base racket/syntax)
@@ -29,7 +30,7 @@
          "process-code.rkt"
          "design-recipe-generator.rkt"
          "exercise-generator.rkt"
-	 "math-rendering.rkt"
+	       "math-rendering.rkt"
          "wescheme.rkt"
          "translator.rkt"
          "warnings.rkt"
@@ -64,10 +65,10 @@
          fill-in-blank-answers-exercise
          sexp
          sexp->math
-	 sexp->coe
-	 sexp->code
+         sexp->coe
+         sexp->code
          make-exercise-locator
-         make-exercise-locator/dr-assess
+         make-exercise-locator/file
          exercise-handout
          exercise-answers
          exercise-evid-tags
@@ -83,11 +84,13 @@
          run-link
          login-link
          resource-link
-         video-link
-         [rename-out [worksheet-link/src-path worksheet-link]] 
+         [rename-out [worksheet-link/src-path worksheet-link]]
+         insert-comment
+         insert-menu-ssi
          lulu-button
          logosplash
          embedded-wescheme
+         new-tab
                 
          ;; lesson formatting
          lesson/studteach
@@ -98,13 +101,11 @@
          teacher
          itemlist/splicing ;; need because algebra teachers-guide.scrbl using it (still in old lesson format)
          activity
-         csp-activity
          unit-descr
          main-contents
          slidebreak
          slideText
          noSlideText
-         standard/slideText
          
          ;; Unit sections
          exercises
@@ -164,7 +165,7 @@
 (define bs-page-title-style (bootstrap-div-style "BootstrapPageTitle"))
 (define bs-slide-title-style (bootstrap-style "BootstrapSlideTitle"))
 (define bs-skipSlide-style (bootstrap-div-style "BS-Skip-Slide"))
-(define bs-translation-buttons-style (bootstrap-span-style "TranslationButton"))
+(define bs-translation-buttons-style (bootstrap-a-style "TranslationButton"))
 
 (define bs-time-style (bootstrap-span-style "time"))
 (define bs-callout-style (bootstrap-div-style "callout"))
@@ -312,17 +313,6 @@
                          #:show-answer? show-answer?
                          "activity"
                          body))
-
-;; activities that are interspersed into the notes, tagged as part of CS principles
-(define (csp-activity #:forevidence (evidence #f) 
-                      #:answer (answer #f)
-                      #:show-answer? (show-answer? #f)
-                      . body)
-  (apply styled-activity #:forevidence evidence
-                         #:answer answer
-                         #:show-answer? show-answer?
-                         "csp-activity"
-                         body))
   
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
@@ -380,11 +370,6 @@
                               all-columns))))))
 ;;allows for text to be presented only when in slide mode
 (define (slideText text) (elem #:style bs-slideText-style text))
-
-
-;;makes for easy use of slideText and noSlideText in the same place
-(define (standard/slideText #:slide slide #:standard standard)
-   (elem (slideText slide) (noSlideText standard)))
 
 
 ;;uses slideText to give a newline break in slides
@@ -758,17 +743,7 @@
    [else (elem "")]))
 
 (define (insert-toolbar)
-  (cond [(audience-in? (list "teacher" "volunteer")) (insert-teacher-toggle-button)]
-        [(audience-in? (list "student")) 
-         (list
-          (para #:style (bootstrap-div-style/id "lessonToolbar")
-                (insert-student-buttons))
-          (cond-element
-           [html (sxml->element
-                  `(div (@ (id "IDE"))
-                        (iframe (@ (id "embedded") (name "embedded")))))]
-           [else (elem)]))]
-        [else (elem)]))
+  (insert-teacher-toggle-button))
 
 (define (insert-help-button)
   (para #:style (make-style #f (list (make-alt-tag "iframe") 
@@ -784,8 +759,10 @@
 ;; Used to generate the curriculum overview pages
 ;; Not sure why we have the dual nested here ...
 (define (main-contents . body)
-  (list (augment-head)
-        (include-language-links-main)
+  (list ;(insert-menu-ssi) ;; this ends up in the wrong place in the file -- must figure out at some point
+        (augment-head)
+        (nested #:style (bootstrap-div-style/id/nested "translations")
+                (include-language-links-main))
         (nested #:style (bootstrap-div-style/id/nested "body")
                 (nested #:style (bootstrap-div-style "item") 
                         body))))
@@ -889,6 +866,19 @@
                  "course logo"))
           ))
 
+;;
+;;@(define (comment . content)
+;;   @literal[@list[" <!-- " content " --> "]])
+
+;;@(define <!-- comment)
+
+(define (insert-comment content)
+  (literal (string-append "<!--" content " -->")))
+
+(define (insert-menu-ssi)
+  ;(xml:comment "menubar.ssi"))
+  (literal "<!--#include virtual=\"/menubar.ssi\"-->"))
+
 ;;;;;;;;;; Unit summary generation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (unit-length timestr)
@@ -950,14 +940,10 @@
                              (learn-evid-from-standards)
                              (if length (length-of-lesson length) (length-of-unit/auto))
                              (gen-glossary)
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if materialsItems (materials materialsItems) 
-                                     (summary-data/auto 'materials (translate 'iHeader-mat)))
-                                 (elem))
-                             (if (audience-in? (list "teacher" "volunteer"))
-                                 (if preparationItems (preparation preparationItems) 
-                                     (summary-data/auto 'preparation (translate 'iHeader-preparation)))
-                                 (elem))
+                             (if materialsItems (materials materialsItems) 
+                                 (summary-data/auto 'materials (translate 'iHeader-mat)))
+                             (if preparationItems (preparation preparationItems) 
+                                 (summary-data/auto 'preparation (translate 'iHeader-preparation)))
                              (if lang-table 
                                  (if (list? (first lang-table))
                                      (apply language-table lang-table)
@@ -986,7 +972,7 @@
   (match mp
     [(list 'lib path)
      (cond
-       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson.scrbl$" path)
+       [(regexp-match #px"^curr/lessons/langs/([^/]+)/([^/]+)/lesson/lesson([^/]*).scrbl$" path)
         =>
         (lambda (result)
           (list-ref result 2))]
@@ -998,7 +984,7 @@
 ;; raise-lesson-error: module-path -> void
 ;; Raises a lesson-specific error.
 (define (raise-lesson-error mp)
-  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lessons/langs/LANGUAGE/FOO/lesson.scrbl)" mp))
+  (error 'extract-lesson "lesson module path ~e does not have expected shape (e.g. (lib curr/lessons/langs/LANGUAGE/FOO/lessonSUFFIX.scrbl)" mp))
 
 ;; extract-lesson: module-path -> (listof block)
 ;; Extracts the lesson from the documentation portion, and also
@@ -1050,7 +1036,7 @@
 ;;   version supports exercises that won't carry this metadata
 ;;   (at least for now)
 (define-struct exercise-locator (lesson filename))
-(define-struct (exercise-locator/dr-assess exercise-locator) (descr))
+(define-struct (exercise-locator/file exercise-locator) (descr))
 
 ;; breaks a string into a list of content, in which substrings in
 ;;  the given list have been italicized
@@ -1155,7 +1141,7 @@
           (current-course-languages))))
 
 (define (include-language-links-main)
-  (interleave-parbreaks/all
+   ;interleave-parbreaks/all
    ;TODO change interleave-parbreaks/all, can it access run-languages?
     (foldl (lambda (language rest)
              (cons (hyperlink  #:style bs-translation-buttons-style 
@@ -1167,7 +1153,7 @@
            ( list (hyperlink  #:style bs-translation-buttons-style 
                          "#"
                          "add translation"))
-           (current-course-languages))))
+           (current-course-languages)))
              
 
 
@@ -1191,9 +1177,8 @@
                              (apply itemlist/splicing 
                                     (map (lambda (exloc)
                                            (let-values ([(extitle exforevid) 
-                                                         (if (exercise-locator/dr-assess? exloc)
-                                                             (values (string-append (translate 'checkDR) ": "
-                                                                                    (exercise-locator/dr-assess-descr exloc))
+                                                         (if (exercise-locator/file? exloc)
+                                                             (values (exercise-locator/file-descr exloc)
                                                                      #f)
                                                              (extract-exercise-data exloc)
                                                              )])
@@ -1203,7 +1188,7 @@
                                                                   (if evidstmt (format " [supports ~a]" evidstmt)
                                                                       ""))
                                                                 "")]
-                                                   [extension (if (exercise-locator/dr-assess? exloc) ".pdf" ".html")]
+                                                   [extension (if (exercise-locator/file? exloc) ".pdf" ".html")]
                                                    )
                                                (let ([exdirpath (if (current-deployment-dir)
                                                                     (build-path (current-deployment-dir) "lessons") 
@@ -1254,6 +1239,12 @@
 (define (escape-webstring-newlines str)
   (string-replace str (list->string (list #\newline)) "%0A"))
 
+;; make a hyperlink that opens in a new tab
+(define (new-tab url link-text)
+  (cond-element
+    [html (sxml->element `(a (@ (href ,url) (target "_blank")) ,link-text))]
+    [else (elem)]))
+
 ;; create a link to a wescheme editor, possibly initialized with interactions/defn contents
 (define (editor-link #:public-id (pid #f)
                      #:interactions-text (interactions-text #f)
@@ -1273,15 +1264,12 @@
         [(string=? lang "racket") 
          (if (and definitions-text pid)
              (WARNING "creating wescheme link with both defns text and public id\n" 'weScheme-links)
-             (let ([optionstext (if (audience-in? (list "student"))
-                                    "hideHeader=true&warnOnExit=false&"
-                                    "")]
-                   [argstext (string-append (if pid (format "publicId=~a&" pid) "")
+             (let ([argstext (string-append (if pid (format "publicId=~a&" pid) "")
                                             (if interactions-text (format "interactionsText=~a&" interactions-text) "")
                                             (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
                (cond-element
                 [html
-                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a~a" optionstext argstext))
+                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a" argstext))
                                        (target "embedded"))
                                     ,link-text))]
                 [else (elem)])))]
@@ -1339,10 +1327,6 @@
   (hyperlink #:style bootstrap-hyperlink-style
              (translate 's-link)
              descr))
-
-;; wraps a hyperlink in the bootstrap styling tag
-(define (video-link hylink)
-  (elem #:style bs-video-style hylink))
 
 ;; Creates a link to the worksheet.
 ;; Under development mode, the URL is relative to the development sources.

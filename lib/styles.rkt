@@ -20,6 +20,7 @@
 	 bootstrap-span-style
 	 bootstrap-span-style/id
 	 bootstrap-agenda-style
+         bootstrap-a-style
          bootstrap-hyperlink-style
 	 bootstrap-style
 	 bs-head-additions
@@ -27,16 +28,8 @@
 	 make-bs-latex-style 
 	 bs-title-style
 	 bs-content-style
-	 audience-in?
          bs-coursename-style
 )
-
-;;;;;;;;;;;;;;;;; Runtime Params ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; aud is either a string or a list of strings of audience tags
-;;  known tags are student, teacher, volunteer, and self-taught
-(define (audience-in? aud)
-  (member (getenv "AUDIENCE") (if (list? aud) aud (list aud))))
 
 ;;;;;;;;;;;;;;;; Runtime Paths ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-runtime-path bootstrap.css "bootstrap.css")
@@ -64,8 +57,7 @@
         (make-js-addition pyret-mode.js)
         (make-js-addition bootstraplesson.js)
         (make-js-addition mathjax-url)
-        (cond [(audience-in? (list "student")) (make-css-style-addition cards.css)]
-              [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
+        (cond [(member (getenv "BOOTSTRAP-TARGET") (list "workbook")) (make-css-style-addition workbook.css)]
               [else (make-css-style-addition textbook.css)])
         )) 
 
@@ -129,6 +121,10 @@
                        (cons (make-alt-tag "div")
                              (cons (make-attributes (list (cons 'id "BootstrapAgenda")))
                                    css-js-additions)))))
+
+(define (bootstrap-a-style name)
+  (make-style name (cons (make-alt-tag "a")
+                         css-js-additions)))
 
 (define bootstrap-hyperlink-style
   (make-style #f (cons (make-attributes (list (cons 'target "_blank")))

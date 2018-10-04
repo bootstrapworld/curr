@@ -41,7 +41,7 @@ By default, this will build every course in every available language in the `/di
 
 If you wish to build only the lesson plans (not the workbook and solutions), you can also use `$ ./build-notes`. Similarly, `$ ./build-workbook` will create the workbook without also building the lesson plans. 
 
-All three of these scripts accept the following arguments: `--language [english|spanish|etc]` and `--course [algebra|reactive|data-science|physics]`
+All three of these scripts accept the following arguments: `--language [en-us|es-mx|etc]` and `--course [algebra|reactive|data-science|physics]`
 
 
 ----------------------------------------------------------------------

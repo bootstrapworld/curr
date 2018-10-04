@@ -15,6 +15,11 @@ html, body{background: white; width: 7.5in; position: absolute;}
   font-size:    14pt;
   font-weight:  bold;
 }
+/* checkbox for teachers to score DRs */
+.designRecipeLayout div.sectionTitle::after{
+  content: "\2B1C";
+  float: right;
+}
 .designRecipeLayout div.sectionInstructions{
   font-style:   italic;
   font-size:    9pt;

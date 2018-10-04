@@ -16,9 +16,9 @@
   (build-path "lessons"  "langs" (getenv "LANGUAGE")))
 
 (define-runtime-path lessons-dir-alt-eng
-  (build-path 'up "lessons"  "langs" "english"))
+  (build-path 'up "lessons"  "langs" "en-us"))
 (define-runtime-path lessons-dir-alt-spa
-  (build-path 'up "lessons"  "langs" "spanish"))
+  (build-path 'up "lessons"  "langs" "es-mx"))
 (define-runtime-path lessons-dir-alt-sv
   (build-path 'up "lessons"  "langs" "sv"))
 
