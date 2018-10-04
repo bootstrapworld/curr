@@ -125,17 +125,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;; Warnings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<<<<<<< HEAD
-(define (parse-lang-args args)
-  (filter (lambda (arg)
-            (unless (member arg available-languages)
-                (error "Build got unrecognized target language: " arg " -- expected english, spanish, or sv"))
-            (member arg available-languages))
-            args))
-
-
-=======
->>>>>>> master
 ;;collects all warnings, to be printed at the end of the build script
 (void (putenv "COLLECTED-WARNINGS" ""))
 
@@ -149,15 +138,8 @@
 
 (units '())
 
-<<<<<<< HEAD
-(define available-languages (list "english" "spanish" "sv"))
 
-(define bootstrap-course-specs available-course-specs)
-
-(define run-languages (list "english" "spanish" "sv"))
-=======
-(define run-languages (list "en-us" "es-mx"))
->>>>>>> master
+(define run-languages (list "en-us" "es-mx" "sv"))
 
 (define run-exercises? #t)
 
@@ -197,11 +179,7 @@
 ; This selects which courses are to be produced. Can take multiple arguments (seperated by underscores)
 ;
 ; --language
-<<<<<<< HEAD
-; Not to be confused with "--lang", this selects what human languages to print documents in (currently only spanish, english, or sv (swedish))
-=======
-; Not to be confused with "--lang", this selects what human languages to print documents in (currently only en-us or es-mx)
->>>>>>> master
+; Not to be confused with "--lang", this selects what human languages to print documents in (currently only en-us, es-mx, or sv (swedish))
 ; This can take multiple arguments seperated by underscores.
 ;
 ; --sw or --suppress-warnings
@@ -415,20 +393,6 @@
   (for ([subdir (directory-list (lessons-dir))]
         #:when (directory-exists? (build-path (lessons-dir)  subdir)))
     (when (directory-exists? (build-path (lessons-dir) subdir "exercises"))
-<<<<<<< HEAD
-      (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
-            #:when (regexp-match #px".scrbl$" worksheet))
-        (printf "build.rkt: building exercise handout ~a: ~a\n" subdir worksheet)
-        ;(printf "building exercise at: ~a \n" (path->string (build-path (lessons-dir) subdir "exercises" worksheet)))
-        (run-scribble (build-path (lessons-dir)  subdir "exercises" worksheet))
-        (copy-file (build-path "lib" "backlogo.png")
-                   (build-path (current-deployment-dir) "lessons"  (getenv "LANGUAGE") subdir "exercises" "backlogo.png")
-
-                   #t)
-        ))))
-
-
-=======
       (let ([old-deployment-dir (current-deployment-dir)])
         (parameterize ([current-deployment-dir (build-path (current-deployment-dir) "lessons" (getenv "LANGUAGE") subdir "exercises")])
           (for ([worksheet (directory-list (build-path (lessons-dir) subdir "exercises"))]
@@ -454,7 +418,6 @@
                            worksheet-distrib-file
                            #t))))
           )))))
->>>>>>> master
 
 ;; Decide whether or not the lesson exercises need to be rebuilt. Note that right now this is only done in algebra
 ;; TODO: Fill in this stub to accurately check if we want build to build the exercises.
@@ -484,23 +447,9 @@
                      ;; TODO: This is a hack. Regular (lessons-dir) creates absurd distribution directories, so we rely
                      ;;     on this hacky use of define-runtime-paths from paths.rkt, which have to be deliberately selected based on the langauge being used
                      [exer-dir (build-path (match (getenv "LANGUAGE")
-<<<<<<< HEAD
-                                             ["english" lessons-dir-alt-eng]
-                                             ["spanish" lessons-dir-alt-spa]
-                                             ["sv" lessons-dir-alt-sv])
-                                             lesson-name "exercises")]
-         [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
-                (parameterize [(current-deployment-dir exer-dir)]
-                  (scribble-to-pdf exer-files exer-dir))
-                (for ([exerfile exer-files])
-                  (let* ([exerfile-pdf (regexp-replace #px"\\.scrbl$" exerfile ".pdf")]
-                         [exerfile-path (build-path exer-dir exerfile-pdf)])
-                    (copy-file exerfile-path
-                               (build-path exer-deploy-dir exerfile-pdf))))
-                ))
-=======
                                              ["en-us" lessons-dir-alt-eng]
-                                             ["es-mx" lessons-dir-alt-spa])
+                                             ["es-mx" lessons-dir-alt-spa]
+					     ["sv" lessons-dir-alt-sv])
                                            lesson-name "exercises")]
                      [exer-deploy-dir (build-path (root-deployment-dir) "lessons" (getenv "LANGUAGE") lesson-name "exercises")])
                 (let ([fresh-pdfs-made?
@@ -514,7 +463,6 @@
                            (copy-file exerfile-path
                                       (build-path exer-deploy-dir exerfile-pdf)
                                       #t)))))))
->>>>>>> master
             pdf-lesson-exercises))
 
 
@@ -670,46 +618,6 @@
   ;; Subtle: this must come after we potentially touch the output
   ;; resources subdirectory.
 
-<<<<<<< HEAD
-         (cond [(file-exists? (get-teachers-guide))
-                (printf "build.rkt: building teacher's guide\n")
-                (run-scribble (get-teachers-guide))
-                (let ([deploy-teachers-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
-                  ; remove the scrbl file from the distribution
-                  (when (file-exists? (build-path deploy-teachers-dir "teachers-guide.scrbl"))
-                    (delete-file (build-path deploy-teachers-dir "teachers-guide.scrbl")))
-                  ;; copy the teacher workbook into place
-                  ;; THIS ASSUMES WORKBOOK SOLS ALREADY BUILT -- SHOULDN'T BE IN THIS FILE
-                  ;; ideally, need a separate script to create distribution that cleans up
-                  ;;   all of the mess around the resources-deploy paths.  This isn't part of
-                  ;;   notes building, so shouldn't be here, but this trashes the dirs so
-                  ;;   needs to be here until we get the scripts refactored
-                  ;; Once building reactive workbook sols, need to check that get-resources here gets the right dir
-                  (let ([workbooksols (build-path (get-resources) "workbook" "workbooksols.pdf")])
-                    (when (file-exists? workbooksols)
-                      (let ([oldsols (build-path (deploy-resources-dir) "teachers" "TeacherWorkbook.pdf")])
-                        (when (file-exists? oldsols)
-                          (delete-file oldsols))
-                        (printf "Copying teachers workbook solutions into distribution~n")
-                        (copy-file workbooksols (filter-output-dir oldsols)))))
-                  )
-                ]
-               [else
-                (printf "build.rkt: no teacher's guide found; skipping\n")]))
-         
-(define (update-lang-fields language)
-  (putenv "LANGUAGE" language)
-  (printf "\n\nbuild.rkt: building in language ~a~n" (getenv "LANGUAGE"))
-  (current-translations
-   (with-input-from-file
-       (string-append "lib/langs/" (getenv "LANGUAGE") "/translated.rkt")
-     read))
-  (current-glossary-terms
-   (with-input-from-file
-       (string-append "lib/langs/" (getenv "LANGUAGE") "/glossary-terms.rkt")
-     read)))
-
-=======
   (cond [(file-exists? (get-teachers-guide))
          (printf "build.rkt: building teacher's guide\n")
          (parameterize ([current-deployment-dir (build-path (deploy-resources-dir) "teachers" "teachers-guide")])
@@ -749,7 +657,6 @@
              ))]
         [else
          (printf "build.rkt: no teacher's guide found; skipping\n")]))
->>>>>>> master
 
 (define (archive-as-zip)
   ;;  Finally, zip up the deployment directory
@@ -835,10 +742,4 @@
 (create-distribution-lib)
 (print-warnings)
 ;(build-lessons)
-<<<<<<< HEAD
-;(build-worksheets)
-;(build-drills)
 
-;(archive-as-zip)
-=======
->>>>>>> master
