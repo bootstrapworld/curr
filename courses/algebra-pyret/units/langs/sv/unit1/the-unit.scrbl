@@ -1,21 +1,22 @@
 #lang curr/lib
 
-@title{Unit 1: Videogames and Coordinate Planes}
+@title{Kapitel 1: Videospel och Koordinatplan}
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
-  @unit-descr{Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.}
+  @unit-descr{Studenter diskuterar komponenter i sina favoritspel, och upptäcker att de kan reduceras till en serie koordinater. Sedan utforskar de koordinater i Kartesiskt rum, och identifierar koordinaterna för aktörerna i ett spel vid olika tidpunkter. När de har blivit bekväma med koordinater, spånar de fram egna spel, och skapar exempel på koordinatlistor passande olika tidpunker i sitt eget spel.}
+
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction"
-     #:duration "5 minutes"
+     #:title "Introduktion"
+     #:duration "5 minuter"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@;{@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}}]
+     #:preparation @itemlist[@;{@item{VALFRITT: Distribuera @(new-tab "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Uppvärmningsaktivitetsblad").}}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -23,29 +24,29 @@
                 )
       ]{
         @points[
-             @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
-                     @teacher{Set expectations and rules for the class.
-                              Connect the material to come with things students already know:
-                              @itemlist[@item{What makes a language? Do some students already speak more than one language?}
-                                         @item{Programming is very much a language, with its own syntax, semantics, etc}
-                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
-                                         @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
+             @point{@student{Välkommen till Bootstrap! I denna kurs kommer du att lära dig ett nytt @vocab{programspråk} - ett sätt att förklara för en dator exakt vad du vill att den ska göra. Precis som svenska, engelska eller tyska, har ett programspråk sitt eget ordförråd och grammatik som du kommer få lära dig. Lyckligtvis har språket som du kommer att använda här en hel del gemensamt med enkel matematik som är redan bekant för dig!}
+                     @teacher{Klargör förväntningar och regler för klassen.
+			      Poängtera sambandet med saker som eleverna redan är bekanta med:
+                              @itemlist[@item{Vad utgör ett språk? Kan en del elever redan tala flera språk?}
+                                         @item{Programmering verkligen är ett språk, men sin egen syntax, semantik, osv}
+                                         @item{Fråga eleverna om sina favoritdatorspel. Vara öppet med att dagens spel kräver enorma insatser: utvecklingen kostar tiotals miljoner kronor, behöver stora organisationer av programmerare och konstnärer, och sträcker sig över flera år.}
+                                         @item{Klargör vad man kan förvänta sig går att göra inom ramarna av en första programmeringskurs.}]}
                      }
               ]
          }
 
 @lesson/studteach[
-     #:title "Dissecting a Demo"
-     #:duration "10 minutes"
-     #:overview "Play a simple game, then take it apart and figure out what's going on in the computer."
-     #:learning-objectives @itemlist[@item{Model a simple videogame}]
-     #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
-     #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
+     #:title "Att analysera en demo"
+     #:duration "10 minuter"
+     #:overview "Spela ett enkelt spel, och analysera det sedan för att förstå vad som pågår inne i datorn."
+     #:learning-objectives @itemlist[@item{Modellera ett enkelt videospel}]
+     #:evidence-statements @itemlist[@item{Eleverna kommer att kunna identifiera spelets olika element, och förstå hur var och en ändrar sig under spelandet}]
+     #:product-outcomes @itemlist[@item{Eleverna skapar en datamodell i sina arbetsböcker, som beskriver ett enkelt videospel}]
      #:standards (list "BS-M")
-     #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), with code.pyret.org loaded}
-                             @item{"NinjaCat" [NinjaCat.rkt from @(hyperlink "https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "code.pyret.org")] preloaded on students' machines}
-                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+     #:materials @itemlist[@item{Redigeringsmiljö (code.pyret.org)}]
+     #:preparation @itemlist[@item{Dator för varje elev (eller par), med code.pyret.org laddat}
+                             @item{"NinjaCat" [NinjaCat.rkt från @(new-tab "https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "code.pyret.org")] nerladdat på elevernas datorer}
+                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] mappar med namn på utsidan, och något att skriva med}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -53,15 +54,12 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "this link"]
-                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
-                          Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
-                          sure to point out the title and score as well.}
+          @point{@student{Vi börjar med att utforska ett enkelt videospel, och sedan klurar vi ut hur det fungerar. Klicka på @hyperlink["https://code.pyret.org/editor#share=0B32bNEogmncOQ25ZOHBoR3ZNcUE" "den här länken"]
+			 för att spela, och undersök den i ett par minuter. @italic{Du kan använda piltangenterna för att flytta katten uppåt och neråt - försök att fånga rubin, och undvik hunden!}}
+                 @teacher{[@(new-tab "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Visa NinjaCat för eleverna, antingen genom att de får spela det, eller genom att visa en demo framför klassen. Katten kan flyttas uppåt och neråt med hjälp av piltangenterna. Spela tills eleverna har sett alla aktörerna (molnen, rubinen, hunden och katten), och se till att peka ut titeln och spelarens poäng också.}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
+          @point{@student{Detta spel utgörs av @italic{aktörer}, var och en med sitt eget beteende. Rubinen rör sig från höger till vänster, liksom Hunden gör. NinjaKatt rör sig bara när du trycker på piltangenterna, och kan flytta sig till vänster, till höger, uppåt och neråt. Vi kan klura ut hur spelet fungerar genom att först förstå hur varje aktör fungerar.}
                  @teacher{}
                  }
           
@@ -237,7 +235,18 @@
 ]
      #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
-     #:exercises (list )
+     #:exercises (list ;(make-exercise-locator "Order-of-Operations" "match-arith-coe1"
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith1")
+                       (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe2")
+                       (make-exercise-locator "Order-of-Operations" "arith-to-coe3")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-arith2")
+                       (make-exercise-locator "Order-of-Operations" "match-arith-coe1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer1")
+                       (make-exercise-locator "Order-of-Operations" "coe-to-math-answer2"))
+     
      #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running code.pyret.org}
                              @item{Student Workbooks, and something to write with}]
@@ -321,7 +330,7 @@
                 @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
                                  draw the expression as a diagram.  This diagram is called a @vocab{Circle of Evaluation}.  Here you can
                                  see an example of a Circle of Evaluation, for the math expression @math{4-5}.}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
                          draw examples!}
                         }
                 @point{@student{Circles of Evaluation show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
@@ -423,6 +432,10 @@
                               @item{Overhead projector}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list 
+                       (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code1-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-to-code2-im")
+                       (make-exercise-locator "Intro-to-Programming" "coe-code-matching1-im")
                        )
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -522,7 +535,7 @@
                                                                                         area. What should the program evaluate to 
                                                                                         when you hit Return?}
                                                      @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
-                        @teacher{[@(hyperlink "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
+                        @teacher{[@(new-tab "https://www.youtube.com/watch?v=vgkahOzFH2Q" "Video on Roles in Pair Programming.")]
                                   Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                   and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                   in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to

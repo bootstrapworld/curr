@@ -37,7 +37,7 @@
                        @teacher{}
                        }
                 @point{@student{@bitmap{images/numberline.png}In one dimension, it's easy to calculate when two objects overlap. In this example, the red circle has a radius of 1, and the blue circle has a radius of 1.5 The circles will overlap if the distance @italic{between their centers} is @italic{less than the sum of their radii} (@math{1 + 1.5 = 2.5}). How is the distance between their centers calculated? In this example, their centers are 3 units apart, because @math{4 - 1 = 3}. @activity{Would the distance between them change if the circles swapped places? Why or why not?}}
-                       @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
+                       @teacher{Work through a number of examples, using a number line on the board and asking students how they calculate the distance between the points.  Having students act this out can also work well: draw a number line, have two students stand at different points on the line, using their arms or cutouts to give objects of different sizes.  Move students along the number line until they touch, then compute the distance on the number line.  The first few seconds of our @(new-tab "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "Bootstrap video") show this exercise in action.}
                        }
                 @point{@student{Your game file provides a function called @code{line-length} that computes the difference between two points on a number line.  Specifically, @code{line-length} takes two numbers as input and determines the distance between them.
                        @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{What answers would you expect from each of the following two uses of @code{line-length}:
@@ -45,10 +45,10 @@
 			                   @item{@code{line-length(5, 2)}}
                                           ]
                                  Do you expect the same answer regardless of whether the larger or smaller input goes first?}}
-                       @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{ask:}, however, emphasizes how code structure arises from examples.}}
+                       @teacher{If you have time and want to reinforce how conditionals arise from examples, you can have students fill in blanks in Examples such as @code{(EXAMPLE (line-length 2 5) ___)}, circle what's different, and notice that the circle labels are in different orders depending on whether the first or the second input is larger.  This in turn suggests that the code for @code{line-length} will need a conditional.  In this case, one could avoid the conditional by taking the absolute value of the difference (the function @code{abs} does this); if you are working with older students who already know about absolute value you could show it.  Using @code{if}, however, emphasizes how code structure arises from examples.}}
 
                 @point{@student{Scroll to the @code{line-length} and @code{is-collision} functions in your game file.  Notice that @code{line-length} uses a conditional so that it subtracts the smaller number from the bigger one. 
-                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{ask:}? What are the two conditions?}}
+                       @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Can you explain why @code{line-length} needs to use @code{if}? What are the two conditions?}}
                        @teacher{The two conditions are: @itemlist[@item{A is @italic{less than} B} @item{B is @italic{less than or equal} to A}]}}
                        
                 @point{@student{@bitmap{images/3004graph.png}Unfortunately, @code{line-length} can only calculate the distance between points in a single dimension (x or y). How would the distance be calculated between objects moving in 2-dimensions (like your game elements)? @code{line-length} can calculate the vertical and horizontal lines in the graphic shown here, using the distance between the x-coordinates and the distance between the y-coordinates. Unfortunately, it doesn't tell us how far apart the two centers are.}
@@ -85,7 +85,7 @@
                            @item{Class posters (List of rules, basic skills, course calendar)}
                            @item{Language Table (see below)}
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1aOCqBLm5ptd09Myp3cuAj1MX1DGj2N7WNROGphXe06k/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:preparation @itemlist[ @item{REQUIRED: Hand out @(new-tab "https://docs.google.com/document/d/1aOCqBLm5ptd09Myp3cuAj1MX1DGj2N7WNROGphXe06k/edit?usp=sharing" "Warmup Activity Sheet").}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -94,8 +94,8 @@
                 )
      ]{
        @points[@point{@student{Ancient civilizations had the same problem: they also struggled to find the distance between points in two dimensions!  Let's work through a way to think about this problem: what expression computes the length of the hypotenuse of a right triangle?
-                               Check out a @(video-link (hyperlink "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem")), and then explore it yourself! 
-                               [Credit: @(hyperlink "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
+                               Check out a @(new-tab "https://www.youtube.com/watch?v=Ln7myXQx8TM" "video of this problem"), and then explore it yourself! 
+                               [Credit: @(new-tab "https://www.youtube.com/user/AlternatingSum/videos" "Tova Brown")]}
                        @teacher{This exercise is best done in small groups of students (2-3 per group).  Pass out Pythagorean Proof materials [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] to each group, and have them review all of their materials:@itemlist[@item{A large, white square with a smaller one drawn inside}@item{Four gray triangles, all the same size}]}
                        }
                 @point{@student{@bitmap{images/csquared.png}For any right triangle, it is possible to draw a picture where the hypotenuse is used for all four sides of a square. In the diagram shown here, the white square is surrounded by four gray, identical right-triangles, each with sides A and B. The square itself has four identical sides of length C, which are the hypotenuses for the triangles. If the area of a square is expressed by @math{side * side}, then the area of the white space is @math{C^{2}}.}
