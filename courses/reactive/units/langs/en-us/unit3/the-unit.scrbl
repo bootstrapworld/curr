@@ -331,21 +331,15 @@
 	       		are good for raising discussion about what parts of an animation depend on one another.
 			The image doesn't need to be in the state, but it isn't wrong to include it there either.}}
 	       
-	@point{@student{@bold{Exercise: Falling Person} -- Look at this animation of a person falling through the sky while two
-			birds fly upwards.
-	                @animated-gif{images/falling.gif} 
+	@point{@student{@bold{Exercise: Bicycle Ride} -- Look at this animation of a person riding a bicycle along a street.
+	                @animated-gif{images/cycling.gif} 
 	                @activity{Go to @worksheet-link[#:name "animation-data-1-blank2"] in the workbook. Draw three frames from this animation.
 				  Choose ones that highlight differences across the frames.
-			          The frames don't need to be consecutive.}
-			When you chose which frames to draw, did you include ones with the two birds at different distances from each other?
-			@activity{Fill in the table of what information changes across the frames.}
-			In this case, there are five pieces of information: the y-coordinate of the person,
-			the x- and y-coordinates of the first bird, and the x- and y-coordinates of the second bird.
-			Do we really need the x-coordinates of the birds?  They only move in the y-axis, but once they go off screen,
-			their x-coordinates can change for their next pass upward.  You only notice that the x-axis changes if you
-			look at frames from multiple passes, rather than three consecutive frames.
+			          The frames don't need to be consecutive. Then, fill in the table of what information changes across the frames.}
+			In this case, there are two pieces of information: the x-coordinate of the cyclist,
+			and the angle of rotation of the bike tires.
 			@activity{Fill in the table of what fields you need for each piece of changing information.
-			          Write a data structure @code{FallingState} to capture the data in this animation.}
+			          Write a data structure @code{BikeState} to capture the data in this animation.}
 			}
 	       @teacher{}}
 	       
