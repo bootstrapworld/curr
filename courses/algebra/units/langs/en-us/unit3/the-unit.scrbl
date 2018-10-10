@@ -466,8 +466,8 @@
       ]{@points[@point{@student{You've seen many functions defined in Racket, for example: 
                                 @code{(define (f x) (+ x 1))}
                         @activity[#:forevidence (list  "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{@itemlist[@item{What is the name of this function?}
-                                             @item{How many variables does it take?}
-                                             @item{What is the name of the variable(s)?}
+                                             @item{How many variables does it have?}
+                                             @item{What is the name of the variable?}
                                              @item{What does this function do to the variable @code{x}?}
                                              @item{Define a function @code{g}, which takes in a variable @code{q} and multiplies it by 20.}]}}
                         @teacher{Make sure students understand that the function is named @italic{f}, and not "fx" or "f of x". Have students practice other function definitions, to make sure they're comfortable translating a verbal description into Racket syntax.}
