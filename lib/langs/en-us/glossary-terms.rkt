@@ -87,6 +87,7 @@ when it prints out the glossary for a particular unit
     (("outlier" "outliers") "an observation point that is distant from other observations, perhaps due to experimental error or measurement variability.")
     ("piecewise function" "a function that computes different expressions based on its input")
     (("pie chart" "pie charts") "A chart where the size of each pie slice corresponds to a value in the data set")
+    (("pixel" "pixels") "The smallest unit that makes up a digital image. The more pixels, the more detailed an image or video can appear.")
     ("positive correlation" "relationship in which one variable increases as the other increases, and vice versa")
     ("predictor" "a function which, given a value from one data set, tries to predict a related value in a different data set")
     ("produce" "to compute a value from an expression")
