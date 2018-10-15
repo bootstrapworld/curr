@@ -163,7 +163,7 @@
                     @student{
                             It's important to remember that tables are only an approximation of the real thing: this table @italic{describes} some shapes we've observed, but obviously it isn't the shapes themselves!
                             @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
-                                Add rows to this table for @code{circle}, @code{ellipse}, @code{square}, and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
+                                Add rows to this table for @code{circle}, @code{ellipse}, @code{star}, and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
                             }
 
                     }
