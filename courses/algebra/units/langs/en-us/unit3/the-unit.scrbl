@@ -243,9 +243,13 @@
                                                            }}
                          @teacher{}
                         }
-                 @point{@student{Another definition in this program is @code{SCREENSHOT}. This expression uses the @code{put-image} function to layer one image on top of another, using coordinates to decide where to place each image. 
-                         @activity{Advertisements for videogames often have static pictures (called @italic{screenshots}) of the game in action, so people will know what it looks like to play. Change the coordinates used in the definition of @code{SCREENSHOT} so that you have a picture of your game. (Remember: the screen is 640 pixels wide, by 480 pixels tall!)}}
-                         @teacher{This can be a useful opportunity to review coordinates, especially for students who need the practice.}
+                 @point{@student{Another definition in this program is @code{SCREENSHOT}. This expression uses the @code{put-image} function to layer one image on top of another, using coordinates to decide where to place each image. @bold{Note:} @code{SCREENSHOT} is @italic{NOT} the same thing as what you see when hitting the 'Run' button. @code{SCREENSHOT} is a @italic{static image}, representing the characters at whatever coordinates you choose. It is not an interactive animation like the video game. Changing the coordinates of characters within the @code{SCREENSHOT} definition has no effect on the game itself.
+                                                                       
+                         @activity{Advertisements for videogames often have static pictures (called @italic{screenshots}) of the game in action, so people will know what it looks like to play. Change the coordinates used in the definition of @code{SCREENSHOT} so that you have a picture of your game. (Note: the screen is 640 pixels wide, by 480 pixels tall!)}}
+
+                         @student{Just like all digital images and video, your video game and its @code{SCREENSHOT} are made up of @vocab{pixels}, a series of small, specifically-colored dots or squares. When we talk about coordinates in our video game, we measure them in terms of pixels. Therefore, the code @code{(put-image PLAYER 320 240 BACKGROUND)} will place the image of the player 320 pixels to the @italic{right} of the origin (lower-left corner), and 240 pixels above the origin. Since the background image itself is 640x480 pixels total, this will place the @code{PLAYER} in the center of the background.}
+                         @teacher{Be sure to remind students that @code{SCREENSHOT} is @italic{NOT} the same thing as the video game itself. @code{SCREENSHOT} is a static image representing the characters at specific coordinates. Changing the coordinates of characters within the @code{SCREENSHOT} definition has no effect on the game itself.
+}
                         }
                  @point{@student{Being able to define values in a programming language is a powerful tool, which allows programmers to simplify their code and make it both more readable and maintainable. }
                          @teacher{}
