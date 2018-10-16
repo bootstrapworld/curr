@@ -193,7 +193,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
                 )
       ]{
         @points[@point{@student{@activity{Abre el archivo de videojuego (Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          o @editor-link[#:public-id "RHBJYscAWj" "the online template"] de tal forma que puedas ver el código,
+                                          o @editor-link[#:public-id "kmFwVRqyoi" "the online template"] de tal forma que puedas ver el código,
                      y haz clic en "Run".(¡Podrías tener que esperar unos segundos para que carguen las Imágenes!) ¡El área que aparece es un videojuego ejecutándose,
                      pero probablemente has notado que nada se mueve - incluso si pulsas las teclas "arriba" o "abajo"! por ahora, haz clic en el botón "close" para regresar al código.}
                                  Este archivo contiene una lista de definiciones, donde podrás definir como lucen, se mueven e interactúan tus personajes.

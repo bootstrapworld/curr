@@ -192,7 +192,7 @@
                 )
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          or @editor-link[#:public-id "RHBJYscAWj" "the online template"] so that you can see the code,
+                                          or @editor-link[#:public-id "kmFwVRqyoi" "the online template"] so that you can see the code,
                                           and click "Run".  (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
                                           hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.}
