@@ -248,6 +248,10 @@ div.codesexp       .studentAnswer+.studentAnswer { margin-left: 10px;}
   padding-right: 150px;
 }
 
+.circleevalsexp .hspace {
+  display: none;
+}
+
 /********************************************************************
  Print adjustments
  *********************************************************************/
