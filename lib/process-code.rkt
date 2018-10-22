@@ -44,6 +44,19 @@
 (define EXPR-HOLE-SYM2 'BSLeaveAHoleHere2)
 (define EXPR-HOLE-SYM3 'BSLeaveAHoleHere3)
 
+(define (intersperse-spaces args funargs?)
+  (define (intersperse-spaces-aux args)
+    (if (null? args) args
+        (let ([a (car args)] [d (cdr args)])
+          (if (null? d) (list a)
+              (cons a 
+                    (cons (hspace 1)
+                          (intersperse-spaces-aux d)))))))
+  (let ((ans (intersperse-spaces-aux args)))
+    (if (and funargs? (not (null? args)))
+        (cons (hspace 1) ans)
+        ans)))
+
 ;; converts sexp into structured markup
 ;; believe symbols only go to the first list case, not the symbol? case
 ;; recognizes EXPR-HOLE-SYM (used to create partially-completed expressions)
@@ -96,15 +109,15 @@
                         (elem #:style bs-closebrace-style ")")))]
            [else ;; have a function call
             (if (symbol? (first sexp))
-              (let ([args (map sexp->block/aux (rest sexp))])
+              (let ([args (intersperse-spaces (map sexp->block/aux (rest sexp)) 'args)])
                 (elem #:style bs-expression-style
                       (append
                        (list (elem #:style bs-openbrace-style "(") 
                              (elem #:style bs-operator-style 
-                                   (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
+                                   (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a" (first sexp)))))
                        args 
                        (list (elem #:style bs-closebrace-style ")")))))
-              (let ([parts (map sexp->block/aux sexp)])
+              (let ([parts (intersperse-spaces (map sexp->block/aux sexp) #f)])
                 (elem #:style bs-expression-style
                       (append
                        (list (elem #:style bs-openbrace-style "("))

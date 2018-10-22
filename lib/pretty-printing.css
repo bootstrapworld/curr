@@ -14,11 +14,12 @@ div.codesexp .expression {position: relative;}
 /*******************************************
   PrettyPrint Structured Output
   - style using float: left, to allow text-alignment flow
-  - everything has a left-padding of 10px, which provides spacing and indenting
+  - everything has a left-padding of 10px, which provides spacing and indenting --delete 
   - if an expr is wrapped, every element clears left
 */
 
-div.codesexp *, .replOutput > * {float: left; padding-left: 10px;}
+/* div.codesexp *, .replOutput > * {float: left; padding-left: 10px;} */
+div.codesexp *, .replOutput > * {float: left; padding-left: 0px;}
 .replOutput br{float: none;}
 .wrapped > * {clear: left;}
 
