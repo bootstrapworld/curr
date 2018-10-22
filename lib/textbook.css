@@ -14,6 +14,22 @@ body#beta::after{
   pointer-events: none;
 }
 
+#outOfDate {
+  display: none;
+  position: fixed;
+  top: 0px;
+  background: black;
+  color: white;
+  z-index: 999;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+  border-bottom-right-radius: 75px;
+  box-shadow: 4px 4px 4px gray;
+  opacity: 0.7;
+  font-weight: bold;
+}
+#outOfDate:hover{ opacity: 1.0; }
 
 #translations{
   display: inline-block;
