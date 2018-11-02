@@ -604,6 +604,9 @@ only screen and (max-device-width: 600px) {
     div#sidebar ul li a {
         font-size: 16px;
     }
+
+    #logosplash{ float: none; margin: 0px auto;}
+    #logosplash div img {float: none;}
 }
 /* 500px Breakpoint */
 
