@@ -421,7 +421,7 @@
                         @activity[#:forevidence (list "BS-PL.1&1&2")]{
                             @itemlist[
                               @item{ What are the @italic{types} of the arguments @code{triangle} was expecting? }
-                              @item{ How does this output relate to the two inputs? }
+                              @item{ How does this output relate to the inputs? }
                               @item{ Try making different triangles. Change the size and color! Try using @code{"outline"} for the second argument. }
                             ]
                         }
