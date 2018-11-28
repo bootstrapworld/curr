@@ -208,19 +208,19 @@
         @points[
               @point{
                     @student{
-                        Suppose I wanted to get a bar-chart of animal's ages, for only the cats in the shelter, sorted alphabetically by name. How would I do that?
+                        Suppose you wanted to get a bar-chart of animal's ages, for only the cats in the shelter, sorted alphabetically by name. How would you do that?
                         @code[#:multi-line #t]{
-                            t = animals-table.filter(is-cat).order-by("name")
+                            t = animals-table.filter(is-cat).order-by("name", true)
                             bar-chart(t, "name", "age")
                         }
-                        Then I want to get the same bar chart, but now for only the fixed animals, sorted alphabetically by name. How would I do that?
+                        Then you want to get the same bar chart, but now for only the fixed animals, sorted alphabetically by name. How would you do that?
                         @code[#:multi-line #t]{
-                            t = animals-table.filter(is-fixed).order-by("name")
+                            t = animals-table.filter(is-fixed).order-by("name", true)
                             bar-chart(t, "name", "age")
                         }
-                        Then I want to get the same bar chart, but now for only the young animals, sorted alphabetically by name. How would I do that?
+                        Then you want to get the same bar chart, but now for only the young animals, sorted alphabetically by name. How would you do that?
                         @code[#:multi-line #t]{
-                            t = animals-table.filter(is-young).order-by("name")
+                            t = animals-table.filter(is-young).order-by("name", true)
                             bar-chart(t, "name", "age")
                         }
                     }
@@ -418,8 +418,8 @@
                     @student{
                         Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}! Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
                         @code[#:multi-line #t]{
-                            # scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                            scatter-plot(animals-table, "pounds", "weeks") # see if smaller animals get adopted faster
+                            # scatter-plot :: (t :: Table, labels :: String, xs :: String, ys :: String) -> Image
+                            scatter-plot(animals-table, "name", "pounds", "weeks") # see if smaller animals get adopted faster
                         }
                         @activity{ Try making a few scatter plots, looking for relationships between columns in the animals-table. }
                     }
