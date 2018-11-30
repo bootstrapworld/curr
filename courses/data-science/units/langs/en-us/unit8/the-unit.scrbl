@@ -15,7 +15,7 @@
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, labeled-scatter-plot} 
+                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, scatter-plot} 
                                                 ""))]{
   @unit-descr{
     Students compute the "line of best fit" using linear regression, and search for correlations in their own datasets.
@@ -141,12 +141,12 @@
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
                                         # lr-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                                        # labeled-lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
+                                        # lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
                                 }
                                 @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
 
                                 @activity[#:forevidence (list )]{
-                                    In the Interactions Area, create a @code{labeled-lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
+                                    In the Interactions Area, create a @code{lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
                                     You can learn more about how a predictor is created by watching @(new-tab "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
                                 }
 

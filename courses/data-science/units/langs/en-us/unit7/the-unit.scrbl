@@ -133,9 +133,9 @@
                                 This visualization is called a @vocab{scatter plot}. Pyret has two functions for making scatter plots:
                                 @code[#:multi-line #t]{
                                     # scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                                    # labeled-scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
+                                    # scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
                                 }
-                                Both functions consume the Table that we want to visualize, as well as the columns that we want to use as @code{xs} and @code{ys}. However, @code{labeled-scatter-plot} consumes another argument after the Table, which is a column that we will use to @italic{label each point}.
+                                Both functions consume the Table that we want to visualize, as well as the columns that we want to use as @code{xs} and @code{ys}. However, @code{scatter-plot} consumes another argument after the Table, which is a column that we will use to @italic{label each point}.
                         }
                         @teacher{
 
@@ -148,7 +148,7 @@
                                     scatter-plot(animals-table, "age", "weeks")
                                 }
                                 @activity[#:forevidence (list "8.SP.1-4&1&1")]{
-                                    Make a @code{labeled-scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
+                                    Make a @code{scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
                                 }
                         }
                         @teacher{
@@ -213,7 +213,7 @@
                 @point{
                         @student{ 
                                 @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
-                                    For practice, try making scatter plots (or labeled scatter plots) for each of the following relationships. If you see any outliers, try to explain them!
+                                    For practice, try making scatter plots for each of the following relationships. If you see any outliers, try to explain them!
                                     @itemlist[
                                                 @item{
                                                         The @code{age} of an animal vs the @code{pounds} of the animal
