@@ -336,7 +336,7 @@
                         ]
                         @code[#:multi-line #t]{
                             # sorted-age-bar :: (animals :: Table) -> Table
-                            # cConsume a table of animals, and compute a bar chart 
+                            # Consume a table of animals, and compute a bar chart 
                             # showing their ages, in alphabetical order
                             fun sorted-age-bar(animals):
                                 t = animals # define the table

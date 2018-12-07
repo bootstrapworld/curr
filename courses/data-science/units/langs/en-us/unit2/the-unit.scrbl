@@ -527,7 +527,7 @@
                           @item{ What do we do in the body in the function? }
                         ]
                         @code[#:multi-line #t]{
-                              #is-cat :: (animal :: Row) -> Boolean
+                              # is-cat :: (animal :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
                                 is-cat(animalA) is animalA["species"] == "cat"
@@ -605,7 +605,6 @@
               }
         ]
   }
-}
 
 
   @lesson/studteach[
