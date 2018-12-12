@@ -216,6 +216,9 @@
                                   @item{@bold{Challenge:} Have the player hide when the "h" key is pressed, 
                                         only to re-appear when it is pressed again!}]}
                @teacher{Hint on the challenge: multiply by -1.}}
+         @point{@student{If you changed or added any key commands, it's a good idea to add this information to the "Notes" section of your game (what people will see when they open your game for the first time). Right above the definitions area, next to the project name, is a blue button labelled "i". If you click on this button, you can add instructions for people playing your game, or even a backstory. If you want players to know how to move around in your game, add your game's key commands to these instructions.}
+                 @teacher{}}
+                                                                
        ]}
      
 @lesson/studteach[
