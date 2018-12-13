@@ -182,7 +182,7 @@
      #:materials @itemlist[]
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{Create student game files [See the teacher's guide, located in the @(hyperlink "../../resources/teachers/" "protected materials") for this course]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=gSzXv07gdu" "WeScheme")])}
+                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=ysj93ZPFsu" "WeScheme")])}
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e27ee904510a5a9a0faa" "Desmos Activity: Unit 3 Review")}]
      #:prerequisites (list "Defining Variables" "Strings and Images" "Brainstorming")
      #:pacings (list 
@@ -192,7 +192,7 @@
                 )
       ]{
         @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          or @editor-link[#:public-id "kmFwVRqyoi" "the online template"] so that you can see the code,
+                                          or @editor-link[#:public-id "ysj93ZPFsu" "the online template"] so that you can see the code,
                                           and click "Run".  (You may need to wait a few seconds for the images to load!) The area that
                                           appears is a running videogame, but you probably notice that nothing is moving - even if you 
                                           hit the "up" or "down" arrows!  For now, click the "close" button to return to the code.}

@@ -29,7 +29,7 @@
                               @item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] preloaded on students' machines}
+                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
                               
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}
@@ -123,9 +123,10 @@
                  @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
                                  rather than the actual answer (@code{77}). @noSlideText{Why bother to show the way a calculation is performed?}  By doing this, 
                                  Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
-                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
-                                 you will see why it is so important to show your work when writing examples. 
-                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
+                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "LGTVNvzrax" "online file"]),
+                                 you will see why it is so important to show your work when writing examples.
+                                 
+                                 @activity{Take a look at the code on lines 5 - 8. What do you notice about it? Is it different than what you have in your workbook?}}
                          @teacher{}
                          }
                  @point{@student{The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
@@ -138,11 +139,11 @@
                          
                  @point{@student{@noSlideText{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function.} 
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{Can you see the mistake the programmer made?}
-                                 Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
+                                 Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket will always have a height of zero, no matter how many seconds have passed. 
                                  @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
                                                       @item{Write a second Example, below the first one.}
                                                       @item{Fix the definition for the function, so that it multiplies the number of seconds by 7.}
-                                                      @item{Click "Run", and then use the spacebar to make the rocket fly!}]}
+                                                      @item{Uncomment (remove the semicolon from) the line that reads @code{(start rocket-height)}, click "Run", and then use the spacebar to make the rocket fly!}]}
                                  }
                          @teacher{}
                          }

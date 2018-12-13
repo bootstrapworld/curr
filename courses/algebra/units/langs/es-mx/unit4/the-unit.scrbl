@@ -27,7 +27,7 @@
      #:preparation @itemlist[@item{Agenda para escribir disponible.}
                               @item{Mostrar carteles de la clase, Tabla de Lenguaje, receta de diseño.}
                               @item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado).}
-                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=EHgrsZlYNX" "WeScheme")] precargado en las máquinas de los estudiantes.}
+                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] precargado en las máquinas de los estudiantes.}
                               @item{Disposición de asientos: idealmente grupos de escritorios/mesas}
                               @item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "Defining Functions")
@@ -119,7 +119,7 @@
                  @point{@student{Puedes haber notado que los ejemplos para @code{rocket-height} mostraron la multiplicación como @code{(* 11 7)},
                                   en lugar de la respuesta real (@code{77}). ¿Por qué molestarse en mostrar la forma en que se realiza un cálculo? Al hacer esto,
                                   los ejemplos pueden proporcionar indicios sobre qué proceso está teniendo lugar. En el código proporcionado (Rocket.rkt de
-                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | o @editor-link[#:public-id "EHgrsZlYNX" "online file"]),
+                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | o @editor-link[#:public-id "LGTVNvzrax" "online file"]),
                                  Verás por qué es tan importante mostrar tu trabajo al escribir ejemplos.
                                  @activity{Haz clic en "Run", y espera hasta que aparezca una ventana con un cohete en la parte inferior de la pantalla y los números de "tiempo" y "altura" en la parte superior. Esta animación está configurada para actualizar el cohete cada vez que se presiona la barra de espacio, para simular el paso del tiempo. Pulsa la barra espaciadora varias veces y observa que aumenta el tiempo en la parte superior de la ventana. ¿Se mueve el cohete? ¡El tiempo está pasando, pero la altura de nuestro cohete no ha cambiado! Cierra la ventana del cohete, para que puedas ver el código.}}
                          @teacher{}
