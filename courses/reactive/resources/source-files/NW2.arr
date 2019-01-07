@@ -9,15 +9,15 @@ end
 START = world(0)
 
 BACKGROUND = I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/bg.jpg")
+  "https://www.bootstrapworld.org/clipart/Curriculum/bg.jpg")
 DANGER = I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/dog.png")
+  "https://www.bootstrapworld.org/clipart/Curriculum/dog.png")
 TARGET = I.scale(0.3, I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/ruby.png"))
+  "https://www.bootstrapworld.org/clipart/Curriculum/ruby.png"))
 PLAYER = I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/ninja.png")
+  "https://www.bootstrapworld.org/clipart/Curriculum/ninja.png")
 CLOUD = I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/clouds.png")
+  "https://www.bootstrapworld.org/clipart/Curriculum/clouds.png")
 
 ####################
 # GRAPHICS FUNCTIONS

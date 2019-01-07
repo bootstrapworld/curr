@@ -21,7 +21,7 @@
      #:materials @itemlist[@item{Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}
-                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=MdMWbZJH3t" "WeScheme")] precargado en las máquinas de los estudiantes}]
+                            @item{"Bug Hunting" [Bugs.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/view?publicId=MdMWbZJH3t" "WeScheme")] precargado en las máquinas de los estudiantes}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 

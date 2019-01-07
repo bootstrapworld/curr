@@ -232,7 +232,7 @@ Incluyen otros tipos de datos, incluyendo cadenas(strings) e imágenes.}
                               BEFORE allowing them to play with them. Be careful about letting students rush to 
                               the keys without first taking notes!}
                      }
-             @point{@student{Esta es una expresión que utiliza una función muy interesante: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  
+             @point{@student{Esta es una expresión que utiliza una función muy interesante: @code{(bitmap/url "https://www.bootstrapworld.org/images/icon.gif")}.  
                             está función recoge la URL de cualquier imagen que pueda encontrar en línea y producirá esa imagen para que pueda utilizarla en su programa.
                              @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{¿Cuáles son las tres partes de un contrato?}
                                                   @item{¿Cuál es el nombre de esta nueva función?}

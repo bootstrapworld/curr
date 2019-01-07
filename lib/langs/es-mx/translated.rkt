@@ -249,7 +249,7 @@
 
     ;Translator; IGNORE THE FOLLOWING 2 LINES. This is a link that developers will alter
     ;Developer; This link will need to be changed based on what language you're in
-    (s-link "http://www.bootstrapworld.org/materials/Standards.shtml")
+    (s-link "https://www.bootstrapworld.org/materials/Standards.shtml")
 
     
     ;Translator; The subtitle/description found beneath Standards and Evidence Statements.

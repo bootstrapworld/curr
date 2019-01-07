@@ -134,7 +134,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 

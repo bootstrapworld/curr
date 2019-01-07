@@ -5,7 +5,7 @@
 
 @boxed-text{@animated-gif{splash.png}gibber@(hyperlink "../../Standards.shtml" "gibber")gibber}
 
-@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "gibber")}
+@bold{@(hyperlink "https://www.bootstrapWorld.org/workshops" "gibber")}
 
 @; workbook link names and targets
 gibber@italic{gibber}gibber

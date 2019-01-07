@@ -1,0 +1,418 @@
+Script started on Tue Sep 18 14:47:08 2018
+[?1034hbash-3.2$ exit./build-distrib --course algebra --language en-us[C[C[C[C[C[C[C[C[C[Cexit[K./build-distrib --course algebra --language en-us
+BUILDING TEACHER WORKBOOK
+
+#t
+#t
+#t
+#t
+#t
+#t
+#t
+'()
+Building workbook (solutions-mode is #t) 
+ Building for courses: (algebra)
+ Building in language: en-us
+Pages listing references missing files (separator.pdf (exercise complete-coe-from-arith1.scrbl Order-of-Operations) (exercise complete-coe-from-arith2.scrbl Order-of-Operations) (exercise arith-to-coe1.scrbl Order-of-Operations) (exercise arith-to-coe2.scrbl Order-of-Operations) (exercise arith-to-coe3.scrbl Order-of-Operations) (exercise coe-to-arith1.scrbl Order-of-Operations) (exercise coe-to-arith2.scrbl Order-of-Operations) (exercise match-arith-coe1.scrbl Order-of-Operations) (exercise coe-to-math-answer1.scrbl Order-of-Operations) (exercise coe-to-math-answer2.scrbl Order-of-Operations) (exercise complete-code-from-coe1.scrbl Intro-to-Programming) (exercise coe-to-code1.scrbl Intro-to-Programming) (exercise coe-to-code2.scrbl Intro-to-Programming) (exercise coe-code-matching1.scrbl Intro-to-Programming) separator.pdf (exercise many-types-coe-to-code1.scrbl Strings-and-Images) (exercise many-types-coe-to-code2.scrbl Strings-and-Images) (exercise id-expr-pieces1.scrbl Contracts) (exercise id-expr-pieces2.scrbl Contracts) (exercise match-contracts-exprs1.scrbl Contracts) separator.pdf (exercise match-examples-functions1.scrbl Defining-Functions) (exercise create-contracts-examples1.scrbl Defining-Functions) (exercise create-contracts-examples2.scrbl Defining-Functions) separator.pdf (exercise examples-same-contracts1.scrbl Practicing-the-Design-Recipe) (exercise examples-same-contracts2.scrbl Practicing-the-Design-Recipe) (exercise match-contracts-examples1.scrbl Practicing-the-Design-Recipe) (exercise match-contracts-examples2.scrbl Practicing-the-Design-Recipe) (exercise calc-pencils-assess-recipe.scrbl Practicing-the-Design-Recipe) (exercise check-total-design-recipe-assess.scrbl Practicing-the-Design-Recipe) (exercise circle-area-design-recipe-assess.scrbl Practicing-the-Design-Recipe) (exercise target-leap-design-recipe-assess.scrbl Danger-and-Target-Movement) (exercise lemonade-revenue.scrbl Danger-and-Target-Movement) (exercise lemonade-cost.scrbl Danger-and-Target-Movement) (exercise lemonade-profit.scrbl Danger-and-Target-Movement) (exercise circle-area.scrbl Danger-and-Target-Movement) (exercise donut-area.scrbl Danger-and-Target-Movement) separator.pdf (exercise enough-cash-design-recipe-assess.scrbl Booleans) (exercise long-name-design-recipe-assess.scrbl Booleans) (exercise equal-length-design-recipe-assess.scrbl Booleans) (exercise enough-carpet-design-recipe-assess.scrbl Booleans) (exercise boolean-coe-to-code1.scrbl AndOr) (exercise boolean-coe-to-code2.scrbl AndOr) (exercise offscreen-design-recipe-assess.scrbl Onscreen2) separator.pdf (exercise scale-shape-design-recipe-assess.scrbl Luigis-Pizza) (exercise state-tax-design-recipe-assess.scrbl Luigis-Pizza) (exercise flower-name-design-recipe-assess.scrbl Luigis-Pizza) (exercise turkey-price-design-recipe-assess.scrbl Luigis-Pizza) separator.pdf (exercise late-to-class-design-recipe-assess.scrbl Collide)) 
+Doing nothing for page rocket-height.scrbl
+Doing nothing for page lawn-area.scrbl
+Doing nothing for page red-square.scrbl
+Doing nothing for page update-danger.scrbl
+Doing nothing for page update-target.scrbl
+Doing nothing for page safe-left.scrbl
+Doing nothing for page safe-right.scrbl
+Doing nothing for page onscreen.scrbl
+Doing nothing for page cost.scrbl
+Doing nothing for page update-player.scrbl
+Doing nothing for page line-length.scrbl
+Doing nothing for page distance.scrbl
+Doing nothing for page collide.scrbl
+Doing nothing for page red-shape.scrbl
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./workbook-numbered.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 22 language(s) loaded.
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/size10.clo))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifpdf.sty))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/pdfpages/pppdftex.def))
+No file workbook-numbered.aux.
+(/usr/local/texlive/2018basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty)
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+)) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/lscape.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+[1{/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <
+./workbook-no-pagenums.pdf>] [2 <./workbook-no-pagenums.pdf>] [3 <./workbook-no
+-pagenums.pdf>] [4 <./workbook-no-pagenums.pdf>] [5 <./workbook-no-pagenums.pdf
+>] [6 <./workbook-no-pagenums.pdf>] [7 <./workbook-no-pagenums.pdf>] [8 <./work
+book-no-pagenums.pdf>] [9 <./workbook-no-pagenums.pdf>] [10 <./workbook-no-page
+nums.pdf>] [11 <./workbook-no-pagenums.pdf>] [12 <./workbook-no-pagenums.pdf>]
+[13 <./workbook-no-pagenums.pdf>] [14 <./workbook-no-pagenums.pdf>] [15 <./work
+book-no-pagenums.pdf>] [16 <./workbook-no-pagenums.pdf>] [17 <./workbook-no-pag
+enums.pdf>] [18 <./workbook-no-pagenums.pdf>] [19 <./workbook-no-pagenums.pdf>]
+[20 <./workbook-no-pagenums.pdf>] [21 <./workbook-no-pagenums.pdf>] [22 <./work
+book-no-pagenums.pdf>] [23 <./workbook-no-pagenums.pdf>] [24 <./workbook-no-pag
+enums.pdf>] [25 <./workbook-no-pagenums.pdf>] [26 <./workbook-no-pagenums.pdf>]
+[27 <./workbook-no-pagenums.pdf>] [28 <./workbook-no-pagenums.pdf>] [29 <./work
+book-no-pagenums.pdf>] [30 <./workbook-no-pagenums.pdf>] [31 <./workbook-no-pag
+enums.pdf>] [32 <./workbook-no-pagenums.pdf>] [33 <./workbook-no-pagenums.pdf>]
+[34 <./workbook-no-pagenums.pdf>] [35 <./workbook-no-pagenums.pdf>] [36 <./work
+book-no-pagenums.pdf>] [37 <./workbook-no-pagenums.pdf>] [38 <./workbook-no-pag
+enums.pdf>] [39 <./workbook-no-pagenums.pdf>] [40 <./workbook-no-pagenums.pdf>]
+[41 <./workbook-no-pagenums.pdf>] [42 <./workbook-no-pagenums.pdf>] [43 <./work
+book-no-pagenums.pdf>] (./workbook-numbered.aux) )</usr/local/texlive/2018basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on workbook-numbered.pdf (43 pages, 2534224 bytes).
+Transcript written on workbook-numbered.log.
+Doing nothing for page cover-page.pdf
+Doing nothing for page credits.pdf
+Doing nothing for page Contracts-Sols.pdf
+
+BUILDING STUDENT WORKBOOK
+
+#t
+#t
+#t
+#t
+#t
+#t
+#t
+'()
+Building workbook (solutions-mode is #f) 
+ Building for courses: (algebra)
+ Building in language: en-us
+Pages listing references missing files (separator.pdf (exercise complete-coe-from-arith1.scrbl Order-of-Operations) (exercise complete-coe-from-arith2.scrbl Order-of-Operations) (exercise arith-to-coe1.scrbl Order-of-Operations) (exercise arith-to-coe2.scrbl Order-of-Operations) (exercise arith-to-coe3.scrbl Order-of-Operations) (exercise coe-to-arith1.scrbl Order-of-Operations) (exercise coe-to-arith2.scrbl Order-of-Operations) (exercise match-arith-coe1.scrbl Order-of-Operations) (exercise coe-to-math-answer1.scrbl Order-of-Operations) (exercise coe-to-math-answer2.scrbl Order-of-Operations) (exercise complete-code-from-coe1.scrbl Intro-to-Programming) (exercise coe-to-code1.scrbl Intro-to-Programming) (exercise coe-to-code2.scrbl Intro-to-Programming) (exercise coe-code-matching1.scrbl Intro-to-Programming) separator.pdf (exercise many-types-coe-to-code1.scrbl Strings-and-Images) (exercise many-types-coe-to-code2.scrbl Strings-and-Images) (exercise id-expr-pieces1.scrbl Contracts) (exercise id-expr-pieces2.scrbl Contracts) (exercise match-contracts-exprs1.scrbl Contracts) separator.pdf (exercise match-examples-functions1.scrbl Defining-Functions) (exercise create-contracts-examples1.scrbl Defining-Functions) (exercise create-contracts-examples2.scrbl Defining-Functions) separator.pdf (exercise examples-same-contracts1.scrbl Practicing-the-Design-Recipe) (exercise examples-same-contracts2.scrbl Practicing-the-Design-Recipe) (exercise match-contracts-examples1.scrbl Practicing-the-Design-Recipe) (exercise match-contracts-examples2.scrbl Practicing-the-Design-Recipe) (exercise calc-pencils-assess-recipe.scrbl Practicing-the-Design-Recipe) (exercise check-total-design-recipe-assess.scrbl Practicing-the-Design-Recipe) (exercise circle-area-design-recipe-assess.scrbl Practicing-the-Design-Recipe) (exercise target-leap-design-recipe-assess.scrbl Danger-and-Target-Movement) (exercise lemonade-revenue.scrbl Danger-and-Target-Movement) (exercise lemonade-cost.scrbl Danger-and-Target-Movement) (exercise lemonade-profit.scrbl Danger-and-Target-Movement) (exercise circle-area.scrbl Danger-and-Target-Movement) (exercise donut-area.scrbl Danger-and-Target-Movement) separator.pdf (exercise enough-cash-design-recipe-assess.scrbl Booleans) (exercise long-name-design-recipe-assess.scrbl Booleans) (exercise equal-length-design-recipe-assess.scrbl Booleans) (exercise enough-carpet-design-recipe-assess.scrbl Booleans) (exercise boolean-coe-to-code1.scrbl AndOr) (exercise boolean-coe-to-code2.scrbl AndOr) (exercise offscreen-design-recipe-assess.scrbl Onscreen2) separator.pdf (exercise scale-shape-design-recipe-assess.scrbl Luigis-Pizza) (exercise state-tax-design-recipe-assess.scrbl Luigis-Pizza) (exercise flower-name-design-recipe-assess.scrbl Luigis-Pizza) (exercise turkey-price-design-recipe-assess.scrbl Luigis-Pizza) separator.pdf (exercise late-to-class-design-recipe-assess.scrbl Collide)) 
+Doing nothing for page rocket-height.scrbl
+Doing nothing for page lawn-area.scrbl
+Doing nothing for page red-square.scrbl
+Doing nothing for page update-danger.scrbl
+Doing nothing for page update-target.scrbl
+Doing nothing for page safe-left.scrbl
+Doing nothing for page safe-right.scrbl
+Doing nothing for page onscreen.scrbl
+Doing nothing for page cost.scrbl
+Doing nothing for page update-player.scrbl
+Doing nothing for page line-length.scrbl
+Doing nothing for page distance.scrbl
+Doing nothing for page collide.scrbl
+Doing nothing for page red-shape.scrbl
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./workbook-numbered.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 22 language(s) loaded.
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/size10.clo))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifpdf.sty))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)))
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/pdfpages/pppdftex.def))
+No file workbook-numbered.aux.
+(/usr/local/texlive/2018basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty)
+) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+)) (/usr/local/texlive/2018basic/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+(/usr/local/texlive/2018basic/texmf-dist/tex/latex/graphics/lscape.sty)
+(/usr/local/texlive/2018basic/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+[1{/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <
+./workbook-no-pagenums.pdf>] [2 <./workbook-no-pagenums.pdf>] [3 <./workbook-no
+-pagenums.pdf>] [4 <./workbook-no-pagenums.pdf>] [5 <./workbook-no-pagenums.pdf
+>] [6 <./workbook-no-pagenums.pdf>] [7 <./workbook-no-pagenums.pdf>] [8 <./work
+book-no-pagenums.pdf>] [9 <./workbook-no-pagenums.pdf>] [10 <./workbook-no-page
+nums.pdf>] [11 <./workbook-no-pagenums.pdf>] [12 <./workbook-no-pagenums.pdf>]
+[13 <./workbook-no-pagenums.pdf>] [14 <./workbook-no-pagenums.pdf>] [15 <./work
+book-no-pagenums.pdf>] [16 <./workbook-no-pagenums.pdf>] [17 <./workbook-no-pag
+enums.pdf>] [18 <./workbook-no-pagenums.pdf>] [19 <./workbook-no-pagenums.pdf>]
+[20 <./workbook-no-pagenums.pdf>] [21 <./workbook-no-pagenums.pdf>] [22 <./work
+book-no-pagenums.pdf>] [23 <./workbook-no-pagenums.pdf>] [24 <./workbook-no-pag
+enums.pdf>] [25 <./workbook-no-pagenums.pdf>] [26 <./workbook-no-pagenums.pdf>]
+[27 <./workbook-no-pagenums.pdf>] [28 <./workbook-no-pagenums.pdf>] [29 <./work
+book-no-pagenums.pdf>] [30 <./workbook-no-pagenums.pdf>] [31 <./workbook-no-pag
+enums.pdf>] [32 <./workbook-no-pagenums.pdf>] [33 <./workbook-no-pagenums.pdf>]
+[34 <./workbook-no-pagenums.pdf>] [35 <./workbook-no-pagenums.pdf>] [36 <./work
+book-no-pagenums.pdf>] [37 <./workbook-no-pagenums.pdf>] [38 <./workbook-no-pag
+enums.pdf>] [39 <./workbook-no-pagenums.pdf>] [40 <./workbook-no-pagenums.pdf>]
+[41 <./workbook-no-pagenums.pdf>] [42 <./workbook-no-pagenums.pdf>] [43 <./work
+book-no-pagenums.pdf>] (./workbook-numbered.aux) )</usr/local/texlive/2018basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on workbook-numbered.pdf (43 pages, 2075398 bytes).
+Transcript written on workbook-numbered.log.
+Doing nothing for page cover-page.pdf
+Doing nothing for page credits.pdf
+Doing nothing for page Contracts.pdf
+Doing nothing for page Contracts.pdf
+
+BUILDING NOTES AND RESOURCES
+
+#t
+#t
+#t
+#t
+
+
+Printing documents in (en-us) 
+Building courses: (algebra)
+Building units ()
+
+
+
+
+build-sols.rkt: building in language en-us
+building exercise at: lessons/langs/en-us/AndOr/exercises/boolean-coe-to-code1.scrbl 
+building exercise at: lessons/langs/en-us/AndOr/exercises/boolean-coe-to-code2.scrbl 
+building exercise at: lessons/langs/en-us/Booleans/exercises/enough-carpet-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Booleans/exercises/enough-cash-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Booleans/exercises/equal-length-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Booleans/exercises/long-name-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Collide/exercises/late-to-class-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Contracts/exercises/id-expr-pieces1.scrbl 
+building exercise at: lessons/langs/en-us/Contracts/exercises/id-expr-pieces2.scrbl 
+building exercise at: lessons/langs/en-us/Contracts/exercises/match-contracts-exprs1.scrbl 
+building exercise at: lessons/langs/en-us/Danger-and-Target-Movement/exercises/target-leap-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Defining-Functions/exercises/create-contracts-examples1.scrbl 
+building exercise at: lessons/langs/en-us/Defining-Functions/exercises/create-contracts-examples2.scrbl 
+building exercise at: lessons/langs/en-us/Defining-Functions/exercises/match-examples-functions1.scrbl 
+building exercise at: lessons/langs/en-us/Intro-to-Programming/exercises/coe-code-matching1.scrbl 
+building exercise at: lessons/langs/en-us/Intro-to-Programming/exercises/coe-to-code1.scrbl 
+building exercise at: lessons/langs/en-us/Intro-to-Programming/exercises/coe-to-code2.scrbl 
+building exercise at: lessons/langs/en-us/Intro-to-Programming/exercises/complete-code-from-coe1.scrbl 
+building exercise at: lessons/langs/en-us/Luigis-Pizza/exercises/flower-name-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Luigis-Pizza/exercises/scale-shape-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Luigis-Pizza/exercises/state-tax-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Luigis-Pizza/exercises/turkey-price-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Onscreen2/exercises/offscreen-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/arith-to-coe1.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/arith-to-coe2.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/arith-to-coe3.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/coe-to-arith1.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/coe-to-arith2.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/coe-to-math-answer1.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/coe-to-math-answer2.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/complete-coe-from-arith.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/complete-coe-from-arith1.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/complete-coe-from-arith2.scrbl 
+building exercise at: lessons/langs/en-us/Order-of-Operations/exercises/match-arith-coe1.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/calc-pencils-assess-recipe.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/check-total-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/circle-area-design-recipe-assess.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/examples-same-contracts1.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/examples-same-contracts2.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/match-contracts-examples1.scrbl 
+building exercise at: lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/match-contracts-examples2.scrbl 
+building exercise at: lessons/langs/en-us/Strings-and-Images/exercises/many-types-coe-to-code1.scrbl 
+building exercise at: lessons/langs/en-us/Strings-and-Images/exercises/many-types-coe-to-code2.scrbl 
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/calc-pencils-assess-recipe.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/check-total-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Practicing-the-Design-Recipe/exercises/circle-area-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Danger-and-Target-Movement/exercises/target-leap-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Booleans/exercises/long-name-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Booleans/exercises/enough-cash-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Booleans/exercises/equal-length-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Booleans/exercises/enough-carpet-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Luigis-Pizza/exercises/scale-shape-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Luigis-Pizza/exercises/state-tax-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Luigis-Pizza/exercises/flower-name-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Luigis-Pizza/exercises/turkey-price-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Collide/exercises/late-to-class-design-recipe-assess.scrbl
+Scribbling /Users/schanzer/Documents/Bootstrap/Development/curr/lib/../lessons/langs/en-us/Onscreen2/exercises/offscreen-design-recipe-assess.scrbl
+build.rkt: building algebra
+Phase 0
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/Supplemental/the-unit.scrbl
+WARNING: Could not find prerequisite Luigi's Pizza for lesson red-shape in unit Supplemental of algebra
+
+WARNING: Could not find prerequisite collide? for lesson 2D Movement using Structs in unit Supplemental of algebra
+
+WARNING: Could not find prerequisite collide? for lesson Going further in unit Supplemental of algebra
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard A-SSE.1-2
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.1-3
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.4-6
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.7-9
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-LE.5
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.1
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.7
+
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit1/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit2/the-unit.scrbl
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit3/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit4/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit5/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit6/the-unit.scrbl
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit7/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit8/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit9/the-unit.scrbl
+Phase 1
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/Supplemental/the-unit.scrbl
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard A-SSE.1-2
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.1-3
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.4-6
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.7-9
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-LE.5
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.1
+
+WARNING: Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.7
+
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit1/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit2/the-unit.scrbl
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit3/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit4/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit5/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit6/the-unit.scrbl
+WARNING: get-evid-stmt: no evidence statement with index 3 for standard BS-PL.2 and objective 1
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit7/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit8/the-unit.scrbl
+build.rkt: Building /Users/schanzer/Documents/Bootstrap/Development/curr/courses/algebra/units/langs/en-us/unit9/the-unit.scrbl
+build.rkt: building algebra main
+build.rkt: renaming directory for algebra 
+build.rkt: building teacher's guide
+Copying teachers workbook solutions into distribution
+about to copy teacherworkbook into place
+deployment dir is /Users/schanzer/Documents/Bootstrap/Development/curr/distribution
+
+
+
+The following WARNINGs were found throughout this build:
+Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.7
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.1
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-LE.5
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.7-9
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.4-6
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.1-3
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard A-SSE.1-2
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.7
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard MP.1
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-LE.5
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.7-9
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.4-6
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard F-IF.1-3
+/Unit Supplemental of course algebra has no activities for evidence statments under listed standard A-SSE.1-2
+/Could not find prerequisite collide? for lesson Going further in unit Supplemental of algebra
+/Could not find prerequisite collide? for lesson 2D Movement using Structs in unit Supplemental of algebra
+/Could not find prerequisite Luigi's Pizza for lesson red-shape in unit Supplemental of algebra
+/
+
+Building complete.
+#t
+#t
+#t
+#t
+
+
+build-sols.rkt: building in language en-us
+build-sols.rkt: building exercise handout solution AndOr: boolean-coe-to-code1.scrbl
+build-sols.rkt: building exercise handout solution AndOr: boolean-coe-to-code2.scrbl
+build-sols.rkt: building exercise handout solution Booleans: enough-carpet-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Booleans: enough-cash-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Booleans: equal-length-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Booleans: long-name-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Collide: late-to-class-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Contracts: id-expr-pieces1.scrbl
+build-sols.rkt: building exercise handout solution Contracts: id-expr-pieces2.scrbl
+build-sols.rkt: building exercise handout solution Contracts: match-contracts-exprs1.scrbl
+build-sols.rkt: building exercise handout solution Danger-and-Target-Movement: target-leap-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Defining-Functions: create-contracts-examples1.scrbl
+build-sols.rkt: building exercise handout solution Defining-Functions: create-contracts-examples2.scrbl
+build-sols.rkt: building exercise handout solution Defining-Functions: match-examples-functions1.scrbl
+build-sols.rkt: building exercise handout solution Intro-to-Programming: coe-code-matching1.scrbl
+build-sols.rkt: building exercise handout solution Intro-to-Programming: coe-to-code1.scrbl
+build-sols.rkt: building exercise handout solution Intro-to-Programming: coe-to-code2.scrbl
+build-sols.rkt: building exercise handout solution Intro-to-Programming: complete-code-from-coe1.scrbl
+build-sols.rkt: building exercise handout solution Luigis-Pizza: flower-name-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Luigis-Pizza: scale-shape-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Luigis-Pizza: state-tax-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Luigis-Pizza: turkey-price-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Onscreen2: offscreen-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: arith-to-coe1.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: arith-to-coe2.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: arith-to-coe3.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: coe-to-arith1.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: coe-to-arith2.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: coe-to-math-answer1.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: coe-to-math-answer2.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: complete-coe-from-arith.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: complete-coe-from-arith1.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: complete-coe-from-arith2.scrbl
+build-sols.rkt: building exercise handout solution Order-of-Operations: match-arith-coe1.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: calc-pencils-assess-recipe.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: check-total-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: circle-area-design-recipe-assess.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: examples-same-contracts1.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: examples-same-contracts2.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: match-contracts-examples1.scrbl
+build-sols.rkt: building exercise handout solution Practicing-the-Design-Recipe: match-contracts-examples2.scrbl
+build-sols.rkt: building exercise handout solution Strings-and-Images: many-types-coe-to-code1.scrbl
+build-sols.rkt: building exercise handout solution Strings-and-Images: many-types-coe-to-code2.scrbl
+#t
+bash-3.2$ exit
+exit
+
+Script done on Tue Sep 18 14:49:25 2018

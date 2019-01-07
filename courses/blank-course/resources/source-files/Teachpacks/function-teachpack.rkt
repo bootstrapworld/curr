@@ -18,7 +18,7 @@
 ;(provide start space2 graph everything fibonacci factorial)
 
 ; dimensions: 
-(define ROCKET (scale 1/2 (bitmap/url "http://www.wescheme.org/images/teachpacks2012/rocket.png")))
+(define ROCKET (scale 1/2 (bitmap/url "https://www.wescheme.org/images/teachpacks2012/rocket.png")))
 (define BACKGROUND (bitmap/url "http://imgs.xkcd.com/comics/height.png"))
 (define UNIVERSE-HEIGHT 4.35e+26)
 (define LOG-UNIVERSE-HEIGHT 61.33738)

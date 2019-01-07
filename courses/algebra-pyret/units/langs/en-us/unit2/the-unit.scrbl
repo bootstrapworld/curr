@@ -276,7 +276,7 @@ include other datatypes, including Strings and Images.}
                               BEFORE allowing them to play with them. Be careful about letting students rush to 
                               the keys without first taking notes!}
                      }
-             @point{@student{Here is an expression that uses a very interesting function: @code{image-url("http://bootstrapworld.org/images/icon.gif")}.  
+             @point{@student{Here is an expression that uses a very interesting function: @code{image-url("https://www.bootstrapworld.org/images/icon.gif")}.  
                              This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
                              @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What are the three parts of a Contract?}
                                                   @item{What is the Name of this new function?}

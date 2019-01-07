@@ -44,7 +44,7 @@
      #:materials @itemlist[@item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado)}]
      #:preparation @itemlist[@item{Computadora para cada estudiante (o pareja), corriendo WeScheme o DrRacket}
                              @item{Si utiliza DrRacket, asegúrese de que el archivo Ninja.rkt está cargado}
-                             @item{"NinjaCat" [NinjaCat.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] precargado en las maquinas de los estudiantes}
+                             @item{"NinjaCat" [NinjaCat.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] precargado en las maquinas de los estudiantes}
                              @item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "libro de trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

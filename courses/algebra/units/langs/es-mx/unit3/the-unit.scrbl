@@ -136,7 +136,7 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] precargado en las máquinas de los estudiantes, con los monitores apagados.}]
+     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] precargado en las máquinas de los estudiantes, con los monitores apagados.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -183,8 +183,8 @@ Escriben algo una vez, lo definen como un acceso directo en el idioma y luego us
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{El @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Libro de Trabajo"] del estudiante, carpetas con nombres en las cubiertas y algo con que escribir.}]
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}
-                             @item{Crear archivos de juego de estudiantes. [Vea la guía del maestro, ubicada en los @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "materiales protegidos") para este curso.]}
-                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=ysj93ZPFsu" "WeScheme")])}]
+                             @item{Crear archivos de juego de estudiantes. [Vea la guía del maestro, ubicada en los @(hyperlink "https://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "materiales protegidos") para este curso.]}
+                              @item{En las máquinas de los alumnos: Archivos de juego del estudiante (generados a partir de la plantilla "Game" [Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=ysj93ZPFsu" "WeScheme")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -225,7 +225,7 @@ Desplázate hasta la parte inferior de la pantalla, leyendo cada una de las cosa
                                    no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
                                    TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
                                    images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "http://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
+                                   images, read the @(hyperlink "https://www.BootstrapWorld.org/materials/Spring2014/courses/bs1/resources/teachers/" "Teacher's Guide") guide for this course.]}
                          }
                  @point{@student{Si deseas cambiar una de tus definiciones para que la imagen sea más pequeña o más grande, puedes utilizar la función @code{scale}:
                                   @code[#:multi-line #t]{; scale : Number Image -> Image}

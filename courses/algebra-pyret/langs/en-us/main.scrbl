@@ -5,7 +5,7 @@
 
 @boxed-text{We work hard to provide a "curriculum-in-a-box" experience, but a curriculum based on 20 years’ research has a lot of 
             moving parts! Spend some time with our master trainers, and take your game to the next level by 
-            @bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "attending a Bootstrap workshop!")}}
+            @bold{@(hyperlink "https://www.BootstrapWorld.org/workshops" "attending a Bootstrap workshop!")}}
 
 @; workbook link names and targets
 

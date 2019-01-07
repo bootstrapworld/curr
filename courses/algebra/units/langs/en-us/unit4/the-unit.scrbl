@@ -29,7 +29,7 @@
                               @item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{Students are logged into WeScheme.org, OR have opened DrRacket}
-                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] preloaded on students' machines}
+                              @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
                               
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2907915bd2fd51a65bc" "Desmos Activity: Unit 4 Review")}

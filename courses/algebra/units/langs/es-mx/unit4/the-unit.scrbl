@@ -27,7 +27,7 @@
      #:preparation @itemlist[@item{Agenda para escribir disponible.}
                               @item{Mostrar carteles de la clase, Tabla de Lenguaje, receta de diseño.}
                               @item{Entorno de edición (WeScheme o DrRacket con el bootstrap-teachpack instalado).}
-                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] precargado en las máquinas de los estudiantes.}
+                              @item{"Rocket" [Rocket.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/openEditor?publicId=LGTVNvzrax" "WeScheme")] precargado en las máquinas de los estudiantes.}
                               @item{Disposición de asientos: idealmente grupos de escritorios/mesas}
                               @item{OPCIONAL: Reparta la @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Hoja de Actividades de Calentamiento").}]
      #:prerequisites (list "Defining Functions")

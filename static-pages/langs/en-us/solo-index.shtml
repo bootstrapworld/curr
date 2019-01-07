@@ -61,7 +61,7 @@ button:active{	-webkit-transform: translateY(3px); transform: translateY(3px);bo
 
    <p>This is a limited-distribution, prototype-release of a self-guided version of our Bootstrap curricula.  This version takes students step-by-step through our materials, integrating lesson materials with a programming environment.  We're still refining this version, and welcome comments or feedback.</p>
 
-   <p>Once you enter the materials, you will see a split screen with notes/instructions on the left and (initially) a larger blank area on the right.  A few steps in, you will get a link to access our online programming environment (WeScheme).  The programming environment will then fill the right-side space.  If you prefer to program outside of the notes pages, you can access <a href="http://www.wescheme.org">WeScheme</a> online (saving files through a Google account), or you can work locally in <a href="http://www.drracket.org/">DrRacket</a>.</p>
+   <p>Once you enter the materials, you will see a split screen with notes/instructions on the left and (initially) a larger blank area on the right.  A few steps in, you will get a link to access our online programming environment (WeScheme).  The programming environment will then fill the right-side space.  If you prefer to program outside of the notes pages, you can access <a href="https://www.wescheme.org">WeScheme</a> online (saving files through a Google account), or you can work locally in <a href="http://www.drracket.org/">DrRacket</a>.</p>
 
 <p>The notes make frequent reference to the student workbook, which has various exercises to help students through the curriculum.  You will find a link to the workbook on the index page for whichever curriculum you click on in the Materials table that follows.</p>
 

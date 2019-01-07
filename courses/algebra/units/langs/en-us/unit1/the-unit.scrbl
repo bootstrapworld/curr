@@ -25,7 +25,7 @@
 
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet")}
      
-                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] (If using DrRacket) | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] (If using DrRacket) | @(hyperlink "https://www.wescheme.org/view?publicId=sggzRzgU5T" "WeScheme")] preloaded on students' machines}
                               @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a146afd3b4ad115000fcb57?from=quizEditor" "Quizizz Unit 1 Review Quiz")}
                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a15e2388c08800a6024c091" "Desmos Activity: Unit 1 Review - Circles of Evalation & Code Practice")}
                              @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a1c805bbfc8c40614d3904a" "Desmos Activity: Circles of Evaluation & Code Practice(Blank Template)")}

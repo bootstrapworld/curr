@@ -279,7 +279,7 @@
      [(string=? (current-course) "physics") (translate 'copyright-names-phys)]
      [else (WARNING (format "no copyright tag found for course: ~a" (current-course)) 'copyright)])
    (hyperlink #:style bootstrap-hyperlink-style "http://creativecommons.org/licenses/by-nc-nd/4.0/" (translate 'copyright-license))
-   (string-append ". " (translate 'copyright-based) " ") (hyperlink "http://www.bootstrapworld.org/" "www.BootstrapWorld.org")
+   (string-append ". " (translate 'copyright-based) " ") (hyperlink "https://www.bootstrapworld.org/" "www.BootstrapWorld.org")
    (string-append ". " (translate 'copyright-permissions) " ")
    (hyperlink "mailto:schanzer@BootstrapWorld.org" "schanzer@BootstrapWorld.org") "."))
 
@@ -862,7 +862,7 @@
                 (image-with-alt-text splash-file "splash image"))
           (elem #:style (bootstrap-div-style "top")
                 (image-with-alt-text
-                 (format "http://www.bootstrapworld.org/images/~a" logo-file)
+                 (format "https://www.bootstrapworld.org/images/~a" logo-file)
                  "course logo"))
           ))
 
@@ -1269,7 +1269,7 @@
                                             (if definitions-text (format "definitionsText=~a" (escape-webstring-newlines definitions-text)) ""))])
                (cond-element
                 [html
-                 (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/openEditor?~a" argstext))
+                 (sxml->element `(a (@ (href ,(format "https://www.wescheme.org/openEditor?~a" argstext))
                                        (target "embedded"))
                                     ,link-text))]
                 [else (elem)])))]
@@ -1282,7 +1282,7 @@
       (WARNING (format "run-link needs a public-id argument in unit ~a of course ~a"(current-unit) (current-course)) 'run-link)
       (cond-element
        [html
-        (sxml->element `(a (@ (href ,(format "http://www.wescheme.org/view?publicId=~a" pid))
+        (sxml->element `(a (@ (href ,(format "https://www.wescheme.org/view?publicId=~a" pid))
                               (target "embedded"))
                            ,link-text))]
        [else (elem)])))
@@ -1291,7 +1291,7 @@
 (define (login-link link-text)
   (cond-element
    [html
-    (sxml->element `(a (@ (href "http://www.wescheme.org/")
+    (sxml->element `(a (@ (href "https://www.wescheme.org/")
                           (target "embedded"))
                        ,link-text))]
    [else (elem)]))

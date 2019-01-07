@@ -47,7 +47,7 @@
      #:materials @itemlist[@item{ gibber gibber gibber gibber gibber}]
      #:preparation @itemlist[@item{ gibber gibber gibber gibber}
                              @item{ gibber gibber gibber gibber gibber}
-                             @item{ gibber gibber gibber gibber@resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=sggzRzgU5T" " gibber") gibber}
+                             @item{ gibber gibber gibber gibber@resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "https://www.wescheme.org/view?publicId=sggzRzgU5T" " gibber") gibber}
                              @item{ gibber  gibber gibber@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] gibber}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

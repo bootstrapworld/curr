@@ -109,7 +109,7 @@
 
   (define url
     (string-append
-     "http://www.wescheme.org/openEditor?"
+     "https://www.wescheme.org/openEditor?"
      encoded-alist))
 
   (splice

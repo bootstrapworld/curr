@@ -118,7 +118,7 @@ Lapiceros/lápices para los estudiantes, marcadores de pizarra para profesores}
                             @item{El @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Libro de trabajo") del estudiante}
                             @item{Cartel de clase (Lista de reglas, tabla de lenguaje, calendario del curso)}
                             @item{Tabla de Lenguaje (Vea abajo)}]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] precargado en las máquinas de los estudiantes.}]
+     #:preparation @itemlist[@item{"Cage" [Cage.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "https://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] precargado en las máquinas de los estudiantes.}]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

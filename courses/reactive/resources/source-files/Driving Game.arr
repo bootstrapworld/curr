@@ -14,24 +14,24 @@ data Item:
 end
 
 ROAD = I.image-url(
-  "http://www.bootstrapworld.org/clipart/Curriculum/ROAD.jpg")
+  "https://www.bootstrapworld.org/clipart/Curriculum/ROAD.jpg")
 CAR-LEFT = I.scale(0.55, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/MYCARLEFT.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/MYCARLEFT.png"))
 CAR-RIGHT = I.flip-horizontal(CAR-LEFT)
 CAR-REAR = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/MYCAR.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/MYCAR.png"))
 CAR1 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR1.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR1.png"))
 CAR2 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR2.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR2.png"))
 CAR3 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR3.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR3.png"))
 CAR4 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR4.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR4.png"))
 CAR5 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR5.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR5.png"))
 CAR6 = I.scale(0.8, I.image-url(
-    "http://www.bootstrapworld.org/clipart/Curriculum/CAR6.png"))
+    "https://www.bootstrapworld.org/clipart/Curriculum/CAR6.png"))
 DANGERS = [list: CAR1, CAR2, CAR3, CAR4, CAR5, CAR6]
 
 thing1 = item(1 + num-random(3),

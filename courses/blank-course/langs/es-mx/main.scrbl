@@ -11,7 +11,7 @@
             what each character looks like, and use algebraic concepts to detect collisions, handle keystrokes, and determine how they 
             move and interact.}
 
-@bold{@(hyperlink "http://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
+@bold{@(hyperlink "https://www.BootstrapWorld.org/workshops" "Click here for our upcoming trainings")}
 
 @; workbook link names and targets
 We provide all of the our materials @italic{free of charge}, to anyone who is interested in using our lesson plans or student workbooks.
