@@ -42,7 +42,7 @@
 
        
 @lesson/studteach[
-     #:title "Defining Variables"
+     #:title "Defining Values"
      #:duration "10 minutes"
      #:overview "Students define names for simple values (Numbers, Strings and Images) and use them in expressions."
      #:learning-objectives @itemlist[]
