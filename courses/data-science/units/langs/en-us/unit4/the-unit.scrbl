@@ -180,50 +180,56 @@
                           Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "1abi1mZvaboMC9AEoX_r27nExKBrof5Wu" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1419VGxyYjd3XDPbgObUa-LMufZe3KDZa" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1a0DrWSc1GLmj6uCJXPacVoQSUZS_3g1n" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw" "US Income Dataset") (and the @editor-link[#:public-id "1VylyurhJru_0g3C3ne3SK04j16bGYbEW" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1ejjO9AgAyLPNmqUeKclQmy-NnoRPCeS0scxvsSYrPGA/" "US Income Dataset") (and the @editor-link[#:public-id "1J78lIAZGl0w7A1G41OZJRRXDRJrG-CjH" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg" "US Presidents Dataset") (and the @editor-link[#:public-id "1HHKNnHAdY1BuDrjAJmjVhchPaV77YKk9" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Frt37-nBHHxvJVBKzKLRD3kbjPLhc8CYUaIlNeNWl94" "US Presidents Dataset") (and the @editor-link[#:public-id "1QHxJFDGhhuyasiYQr0pdYn66owueonLn" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M" "Countries of the World Dataset") (and the @editor-link[#:public-id "1ONLmATLi5r6GA9nGPx50I9pWA3ZCx2OA" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs" "Countries of the World Dataset") (and the @editor-link[#:public-id "1ONLmATLi5r6GA9nGPx50I9pWA3ZCx2OA" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1-mrDSjS-rWMdiMAIptFS_PHVUFO06lUpYNCiGkYj51s" "Music") (and the @editor-link[#:public-id "1f6yqemcHqLkQzmhYILuTMxL3m4qhTvX0" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w" "Music") (and the @editor-link[#:public-id "1H3KfYuoeWcdhdeKYGztvQUv4fK0ha7Uv" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w" "State Demographics") (and the @editor-link[#:public-id "1KvMTb2mQrpUL9DSe675t-1DpNr5J1CO5" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w" "State Demographics") (and the @editor-link[#:public-id "1XqBrBejYWf8e_hrSPI2MGFZ863i_cDUK" "Starter file"] for this dataset)
                               }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "12jtxwxPNSrdhA4a1YZ4RNzw-I8HPXzD6" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "1Y1F4ycsj3YVaRttmm9Xn7_WCL7f7ioR4" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1LnwYrEVX6TU2C6dNxxXPYJZuwkPccWlA" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "15RWrNhxfmDpL9reK7e-i9GbW9YaKbALo" "Starter file"] for this dataset)
                                    }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1jwd0kQqElgUMmXtvVk6vU-sZgxTm_fEJ" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1BWAgjkhFnOuWdqNpqics2TtiThAFoiO6" "Starter file"] for this dataset)
                                    }
                               @item{
                                   @(new-tab "https://docs.google.com/spreadsheets/d/1WMJMNqkwuo1vbL0O_C81BPA-R2TFcLWEMUi7cn_ptow" "2016 Presidential Primary Election Dataset") (and the @editor-link[#:public-id "1gy32BVXdlyS1KqZ5pXcqg5APbJoqZsWJ" "Starter file"] for this dataset)
                                      }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "US Cancer Rates Dataset") (and the @editor-link[#:public-id "1phjRq-YMs8ceo0vJE8iWQZeigBtb1QBU" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "US Cancer Rates Dataset") (and the @editor-link[#:public-id "1zFTfvPZnfC891XBLsqpusMuApd9-nXDX" "Starter file"] for this dataset)
                                      }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/19bmTJd2soUvg6FUDIW546jPtiWOERFm2o9z7TLBNTbc" "Summer Olympic Medals Dataset") (and the @editor-link[#:public-id "1kOV5CEDMl622am-BGa2oZxQxRsthYQA8" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs" "Soda Dataset") (and the @editor-link[#:public-id "1yi0j1iC9L2XJs0d2dcm-DuetS70jK4Uh" "Starter file"] for this dataset)
                                      }
                               @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1ZJ9d4BtF6xOqyBdGgjW-vCeJ7-rOHWIhGMiBNwqCEVo" "Winter Olympic Medals Dataset") (and the @editor-link[#:public-id "1r_aCTPYC9y1GVcqCEoB1_EGdPITqIMKZ" "Starter file"] for this dataset)
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4" "Cereal Dataset") (and the @editor-link[#:public-id "1iWP3hJTCC8Gzh0Rh6hD09qfqBeszkVXW" "Starter file"] for this dataset)
+                                     }
+                              @item{
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1YgM_-06BWTbm0J4853OFSX7LY9OpY4IyflVB9WN57_o" "Summer Olympic Medals Dataset") (and the @editor-link[#:public-id "1CXBnIgXl2JM9W1XILhuHVUycpSMrEUCu" "Starter file"] for this dataset)
+                                     }
+                              @item{
+                                  @(new-tab "https://docs.google.com/spreadsheets/d/1LoDnM1aP7bUyPXN7i_U0pDMFsRrX1WjzL0P8nOb2tuo" "Winter Olympic Medals Dataset") (and the @editor-link[#:public-id "1zldAk0dirw20NM96-smEvLZLpsteJnb9" "Starter file"] for this dataset)
                                      }
 
                               @item{
-                                @(new-tab "https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8" "MLB Hitting Stats Dataset") (and the @editor-link[#:public-id "1cyBkKP9SzKwsDJD4C7XOx51qjbetTMBs" "Starter file"] for this dataset)
+                                @(new-tab "https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8" "MLB Hitting Stats Dataset") (and the @editor-link[#:public-id "1jfrel4VfMZgxrVuHilfTe_Df524cQQpl" "Starter file"] for this dataset)
                                      }
                               @item{
                                   Or find your own dataset, and use this (@editor-link[#:public-id "1eiT69ktb7vXndMd63K68WB5DACJfoWeN" "Blank Starter file"]) for your project.
