@@ -328,7 +328,7 @@
                     @student{
                             You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
-                                Add a new column, @code{is-round} to the table, then add a Boolean value to the end of each row indicating whether or not that shape has corners. Is this column made up of qualitative or categorical data?
+                                Look closely at the pattern for the columns that are already in the table. Once you see the pattern, add a new column called @code{is-round}, which has Booleans for each row indicating whether or not that shape has corners. Is this column made up of qualitative or categorical data?
                             }
                     }
                     @teacher{
