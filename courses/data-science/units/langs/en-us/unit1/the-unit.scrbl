@@ -76,7 +76,7 @@
              @point{
                     @student{
                             @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "1IntcU5lWgBuzlhk6DypExsFU-J7DiiN6" "Shapes Table"] starter file. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                                    Open up the @editor-link[#:public-id "1AxY9vhd2PhcKK8iaVv05BfOa8Ywr9sdF" "Shapes Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                             }
                     }
                     @teacher{
