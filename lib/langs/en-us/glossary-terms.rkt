@@ -27,7 +27,7 @@ when it prints out the glossary for a particular unit
     ("conditional" "a code expression made of questions and answers")
     ("constructor" "A function that creates instances of a data structure")
     ("contract" "a statement of the name, domain, and range of a function")
-    (("correlation" "correlations") "A relationship between two data sets")
+    (("correlation" "correlations") "A number that measures the strength and direction of the linear relationship between two quantitative variables")
     ("data block" "Code that lists the name, constructor(s), and field(s) of a data structure")
     (("data row" "data rows") "an individual, structured piece of data in a dataset")
     ("data science" "The study of using data to answer questions about the world")
