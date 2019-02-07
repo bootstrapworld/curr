@@ -37,49 +37,49 @@
 	                <li>Bug Hunting: Pyret Code
 	                  <span class="links">
 	                    [<a href="exercises/Pyret-bug-hunting.pdf">original</a>
-	                    | <a href="solutions/Pyret-bug-hunting-solutions.pdf">answers</a>]
+	                    | <a href="protected/solutions/Pyret-bug-hunting-solutions.pdf">answers</a>]
 		                  </span>
 		                </li>
 		                <li>Design Recipe: find-area
 		                  <span class="links">
 		                    [<a href="exercises/find-area.pdf">original</a>
-		                    | <a href="solutions/find-area-solutions.pdf">answers</a>]
+		                    | <a href="protected/solutions/find-area-solutions.pdf">answers</a>]
 		                  <span>
 		                </li>
 		                <li>Design Recipe: circle-image
 		                  <span class="links">
 		                    [<a href="exercises/circle-image.pdf">original</a>
-		                    | <a href="solutions/circle-image-solutions.pdf">answers</a>]
+		                    | <a href="protected/solutions/circle-image-solutions.pdf">answers</a>]
 		                  <span>
 		                </li>
 						<li>Matching Expressions to Images
 							<span class="links">
 			                    [<a href="exercises/MatchingExpressions.pdf">original</a>
-			                    | <a href="solutions/MatchingExpressions-solutions.pdf">answers</a>]
+			                    | <a href="protected/solutions/MatchingExpressions-solutions.pdf">answers</a>]
 			                  <span>
 			                </li>
 						<li>Overlaying Images
 	  							<span class="links">
 	  			                    [<a href="exercises/OverlayingImages.pdf">original</a>
-	  			                    | <a href="solutions/OverlayingImages-solutions.pdf">answers</a>]
+	  			                    | <a href="protected/solutions/OverlayingImages-solutions.pdf">answers</a>]
 	  			                  <span>
 	  			                </li>
   						<li>Combining Images (#1)
   							<span class="links">
   			                  [<a href="exercises/CombiningImages1.pdf">original</a>
-  			                  | <a href="solutions/CombiningImages1-solutions.pdf">answers</a>]
+  			                  | <a href="protected/solutions/CombiningImages1-solutions.pdf">answers</a>]
   			                  <span>
   			                </li>
   						<li>Combining Images (#2)
   							<span class="links">
   			                  [<a href="exercises/CombiningImages2.pdf">original</a>
-  			                  | <a href="solutions/CombiningImages2-solutions.pdf">answers</a>]
+  			                  | <a href="protected/solutions/CombiningImages2-solutions.pdf">answers</a>]
   			                  <span>
   			                </li>	
 	  						<li>Combining Images (#3)
 	  							<span class="links">
 	  			                  [<a href="exercises/CombiningImages3.pdf">original</a>
-	  			                  | <a href="solutions/CombiningImages3-solutions.pdf">answers</a>]
+	  			                  | <a href="protected/solutions/CombiningImages3-solutions.pdf">answers</a>]
 	  			                  <span>
 	  			                </li>		
 		                </ul>
@@ -88,19 +88,19 @@
 		                  <li>Deriving Data Structures: Book
 		                    <span class="links">
 		                      [<a href="exercises/DerivingData-book.pdf">original</a>
-		                           | <a href="solutions/DerivingData-book-solutions.pdf">answers</a>]
+		                           | <a href="protected/solutions/DerivingData-book-solutions.pdf">answers</a>]
 		                    </span>
 		                  </li>
 		                  <li>Deriving Data Structures: Room
 		                    <span class="links">
 		                      [<a href="exercises/DerivingData-room.pdf">original</a>
-		                            | <a href="solutions/DerivingData-room-solutions.pdf">answers</a>]
+		                            | <a href="protected/solutions/DerivingData-room-solutions.pdf">answers</a>]
 		                    </span>
 		                  </li>
 		                  <li>Deriving Data Structures: MotorVehicle
 		                    <span class="links">
 		                      [<a href="exercises/MotorVehicle.pdf">original</a>
-		                            | <a href="solutions/MotorVehicle-solutions.pdf">answers</a>]
+		                            | <a href="protected/solutions/MotorVehicle-solutions.pdf">answers</a>]
 		                    </span>
 		                  </li>
   		                </ul>
@@ -109,37 +109,37 @@
   		                  <li>Type or Value?
   		                    <span class="links">
   		                      [<a href="exercises/Type-or-Value.pdf">original</a>
-  		                            | <a href="solutions/Type-or-value-solutions.pdf">answers</a>]
+  		                            | <a href="protected/solutions/Type-or-value-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
   		                  <li>Moving Object
   		                    <span class="links">
   		                      [<a href="exercises/Moving-object.pdf">original</a>
-  		                            | <a href="solutions/Moving-object-solutions.pdf">answers</a>]
+  		                            | <a href="protected/solutions/Moving-object-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
   		                  <li>Matching Data
   		                    <span class="links">
   		                      [<a href="exercises/MatchingData.pdf">original</a>
-  		                            | <a href="solutions/MatchingData-solutions.pdf">answers</a>]
+  		                            | <a href="protected/solutions/MatchingData-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
   						<li>Matching draw-state functions to images (#1)
   							<span class="links">
   			                    [<a href="exercises/Matchingdraw-state1.pdf">original</a>
-  			                    | <a href="solutions/Matchingdraw-state1-solutions.pdf">answers</a>]
+  			                    | <a href="protected/solutions/Matchingdraw-state1-solutions.pdf">answers</a>]
   			                  <span>
   			                </li>
 	  						<li>Matching draw-state functions to images (#2)
 	  							<span class="links">
 	  			                    [<a href="exercises/Matchingdraw-state2.pdf">original</a>
-	  			                    | <a href="solutions/Matchingdraw-state2-solutions.pdf">answers</a>]
+	  			                    | <a href="protected/solutions/Matchingdraw-state2-solutions.pdf">answers</a>]
 	  			                  <span>
 	  			                </li>
 		  						<li>Matching draw-state functions to images (#3)
 		  							<span class="links">
 		  			                    [<a href="exercises/Matchingdraw-state3.pdf">original</a>
-		  			                    | <a href="solutions/Matchingdraw-state3-solutions.pdf">answers</a>]
+		  			                    | <a href="protected/solutions/Matchingdraw-state3-solutions.pdf">answers</a>]
 		  			                  <span>
 		  			                </li>
   		                </ul>
@@ -148,25 +148,25 @@
   		                  <li>Bug Hunting: Data Structures
   		                    <span class="links">
   		                      [<a href="exercises/Data-bug-hunting.pdf">original</a>
-  		                           | <a href="solutions/Data-bug-hunting-solutions.pdf">answers</a>]
+  		                           | <a href="protected/solutions/Data-bug-hunting-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
   		                  <li>Code Reading
   		                    <span class="links">
   		                      [<a href="exercises/CodeReading.pdf">original</a>
-  		                           | <a href="solutions/CodeReading-solutions.pdf">answers</a>]
+  		                           | <a href="protected/solutions/CodeReading-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
   		                  <li>Detecting Helper Functions
   		                    <span class="links">
   		                      [<a href="exercises/DetectingHelpers.pdf">original</a>
-  		                            | <a href="solutions/DetectingHelpers-solutions.pdf">answers</a>]
+  		                            | <a href="protected/solutions/DetectingHelpers-solutions.pdf">answers</a>]
   		                    </span>
   		                  </li>
     						<li>Matching Data Structures to Images
     							<span class="links">
     			                  [<a href="exercises/MatchingDataImages.pdf">original</a>
-    			                  | <a href="solutions/MatchingDataImages-solutions.pdf">answers</a>]
+    			                  | <a href="protected/solutions/MatchingDataImages-solutions.pdf">answers</a>]
     			                  <span>
     			                </li>
     		                </ul>
@@ -175,13 +175,13 @@
     		                  <li>Design Recipe: strong-password
     		                    <span class="links">
     		                      [<a href="exercises/strong-password.pdf">original</a>
-    		                           | <a href="solutions/strong-password-solutions.pdf">answers</a>]
+    		                           | <a href="protected/solutions/strong-password-solutions.pdf">answers</a>]
     		                    </span>
     		                  </li>
     		                  <li>Deriving Data Structures: Movie
     		                    <span class="links">
     		                      [<a href="exercises/Movie.pdf">original</a>
-    		                           | <a href="solutions/Movie-solutions.pdf">answers</a>]
+    		                           | <a href="protected/solutions/Movie-solutions.pdf">answers</a>]
     		                    </span>
     		                  </li>
     		                  <li>Helper Functions
