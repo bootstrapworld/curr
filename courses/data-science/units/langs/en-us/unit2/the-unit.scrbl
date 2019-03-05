@@ -18,7 +18,7 @@
                                               @code{.row-n}
                                               ""))]{
   @unit-descr{
-      Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked of a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
+      Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked about a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
   }
 }
 @unit-lessons{
@@ -86,7 +86,7 @@
                                 source: pets-sheet.sheet-by-name("pets", true)
                               end
                             }
-                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounts} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
+                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
                       }
                       @teacher{
                             Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
@@ -96,9 +96,9 @@
                       @student{
                             Click "Run", and type @code{animals-table} into the Interactions Area to see what this table looks like.
                             @itemlist[
-                              @item{How many columns does this table have?}
-                              @item{For each column, is the data quantitative or categorical? }
-                              @item{For each column, what datatype is being used? Numbers? Strings? Images? Booleans? }
+                              @item{How many column variables does this table have?}
+                              @item{For each column variable, is the data quantitative or categorical? }
+                              @item{For each column variable, what datatype is being used? Numbers? Strings? Images? Booleans? }
                             ]
                       }
                       @teacher{
@@ -466,7 +466,7 @@
                 }
                 @point{
                     @student{
-                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But supposed we want to @italic{compute} with that value, to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
+                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But suppose we want to @italic{compute} with that value, to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
                     }
                     @teacher{
 
@@ -505,7 +505,7 @@
                 }
                 @point{
                     @student{
-                        Just we've done before, let's look at our examples and circle the things that are change from one to the other.
+                        Just we've done before, let's look at our examples and circle the things that are changed from one to the other.
                         @itemlist[
                           @item{ Do all our examples use @code{is-cat}? }
                           @item{ Do all our examples use the same inputs? }
@@ -626,7 +626,7 @@
         @points[
               @point{
                     @student{
-                          Congratulations! You've explored the Animals dataset, chosen your own and begun to think critically about threats to validity and how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own.
+                          Congratulations! You've explored the Animals dataset, formulated your own and begun to think critically about how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own data.
                     }
                     @teacher{
                           Have students share which dataset they chose, and pick one question they're looking at.

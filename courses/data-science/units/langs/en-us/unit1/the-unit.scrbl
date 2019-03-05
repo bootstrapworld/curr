@@ -40,7 +40,7 @@
                                     Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Do other students agree with you?
                                 }
                                 @item{
-                                    What could you @italic{measure} to determine if your answer is right or not?
+                                    What informationcould you @italic{collect}, to determine if your answer is right or not?
                                 }
                             ]
                       }
@@ -51,7 +51,7 @@
             }
             @point{
                     @student{
-                             What's the greatest movie of all time? Is Climate Change real? Who is the best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you measure it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
+                             What's the greatest movie of all time? Is Climate Change real? Who is the best quarterback? Is Stop-and-Frisk racially biased? These questions quickly turn into a discussion about data - how you assess it and how you interpret the results. In this course, you'll learn how to use data to ask and answer questions like this.  The process of learning from data is called @vocab{Data Science}. Data science techniques are used by scientists, business people, politicians, sports analysts, and hundreds of other different fields to ask and answer questions about data.
                     }
                     @teacher{
                             You can motivate relevance of data science by using additional examples that relate to student interests.  Here are a few:
@@ -132,7 +132,7 @@
         @points[
             @point{
                     @student{
-                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as @vocab{header}, which names each column in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
+                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
                             @build-table/cols[
                                         '("name" "corners")
                                         '(("triangle" "square")
@@ -184,7 +184,7 @@
             }
             @point{
                     @student{
-                            @vocab{Categorical Data} is used to describe different @italic{categories}. Categories don't make sense to compare or measure - if we had a column for eye color, for example, we couldn't ask if "blue" is more than "brown". We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but whether it's snowing or raining is categorical.
+                            @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "blue" is more than "brown", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but weather it's snowing or raining is categorical.
                             @activity[#:forevidence (list )]{
                                 For the two columns in the @code{shapes} table, which is categorical? Which is quantitative?
                             }
@@ -199,7 +199,7 @@
                             @activity[#:forevidence (list )]{
                                 For each of the following questions, determine whether the data being used is quantitative or categorical.
                                 @itemlist[
-                                    @item{We'd like to sort a phone book by the "last name" column.}
+                                    @item{We'd like to sort a list of numbers by area code.}
                                     @item{We'd like to find out which car is the most expensive.}
                                     @item{We'd like to find out which cars are red.}
                                     @item{We'd like to find out which puppy is the youngest.}
@@ -567,7 +567,7 @@
             }
             @point{
                     @student{
-                      Can you think of a situation when you'd want to consume a @italic{Table}, and use that to produce an image? Have you ever see any pictures created from tables of data?
+                      Can you think of a situation when you'd want to consume a @italic{Table}, and use that to produce an image? Have you ever seen any pictures created from tables of data?
                     }
                     @teacher{
                         Give the class a minute to brainstorm.
@@ -670,7 +670,7 @@
               }
               @point{
                       @student{
-                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are two examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
                               @code[#:multi-line #t]{
                                       shapes.row-n(0)["name"]      # "triangle"
                                       shapes.row-n(0)["corners"]   # 3
