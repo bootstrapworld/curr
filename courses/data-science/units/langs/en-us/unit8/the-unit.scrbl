@@ -44,7 +44,7 @@
         @points[
                 @point{
                         @student{
-                                "Younger animals are cuter, and therefore get adopted faster". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
+                                "Do younger animals get adopted faster?". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
                         }
                         @teacher{
                                    
@@ -52,7 +52,7 @@
                 }
                 @point{
                         @student{
-                                Whenever there's a possible correlation, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how good the predictor is").
+                                Whenever there's a possible linear relationship, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how well the line predicts responses, based on explanatory values").
                         }
                         @teacher{
 
@@ -101,7 +101,7 @@
                                 After our last Unit, we are left with two questions:
                                 @itemlist[
                                     @item{
-                                        How do we make a prediction from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
+                                        How do we make the best predictions from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
                                     }
                                     @item{
                                         How do we measure the accuracy of our prediction? In other words, "@italic{how well} does that line fit?"
@@ -114,7 +114,7 @@
                 }
                 @point{
                         @student{
-                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our predictor line on a scatter plot, we can imagine a rubber band stretching between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
+                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our regression line on a scatter plot, we can imagine a rubber bands stretching vertically between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
                         }
                         @teacher{
 
@@ -125,7 +125,7 @@
                                 @activity[#:forevidence (list )]{
                                   You can see this in action, in this @(new-tab "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
                                   @itemlist[
-                                      @item{Could the predictor line ever be above or below @italic{all} the points? Why or why not?}
+                                      @item{Could the regression line ever be above or below @italic{all} the points? Why or why not?}
                                       @item{What would the plot have to look like for SSE to be zero?}
                                   ]
                                 }
@@ -158,9 +158,9 @@
                 @point{
                         @student{
                                 @bitmap{images/lr-explained.png}
-                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} - or our predictor function - drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
+                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that on average, each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1" "HSS.ID.C&1&1" "HSS.ID.C&1&2")]{
-                                    If an animal is 5 years old, how long would this line of best fit @italic{predict} they would wait to be adopted? What if they were a newborn, and 0 years old?
+                                    If an animal is 5 years old, how long would this line of best fit @italic{predict} they would wait to be adopted? What if they were a newborn, just 0 years old?
                                 }
                         }
                         @teacher{
@@ -169,7 +169,7 @@
                 }
                 @point{
                         @student{
-                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the x-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make a useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
+                                A predictor @italic{only makes sense within the range of the data that was used to generate it}. For example, if we extend our line out to where it hits the y-axis, it appears to predict that "unborn animals are adopted instantly"! Statistical models are just proxies for the real world, drawn from a limited sample of data: they might make a useful prediction in the range of that data, but once we try to extrapolate beyond that data we quickly get into trouble!
                         }
                         @teacher{
                                 
@@ -195,10 +195,10 @@
                                                 What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
                                             }
                                             @item{
-                                                What does it mean when a data point is @italic{above} the predictor line?
+                                                What does it mean when a data point is @italic{above} the line of best fit?
                                             }
                                             @item{
-                                                What does it mean when a data point is @italic{below} the predictor line?
+                                                What does it mean when a data point is @italic{below} the line of best fit?
                                             }
                                             @item{
                                                 If you only have two data points, why will the r-squared value always be 1.0?
@@ -329,7 +329,7 @@
                 @point{
                         @student{
                                 @bitmap{images/nonlinear.png}
-                                You've learned how linear regression can be used to compute a linear relationship for a cloud of data, and how to determine the error of that relationship. The word "linear" means "in a straight line", which is why all of our predictors are in a straight line. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical models out there, but all of them work the same way: given a particular kind of mathematical function (linear or otherwise), figure out how to get the "best fit" for a cloud of data. 
+                                You've learned how linear regression can be used to fit a line to a linear cloud, and how to determine the direction and strength of that relationship. The word "linear" is important here. In the image on the right, there's clearly a pattern, but it doesn't look like a straight line! There are many other kinds of statistical models out there, but all of them work the same way: use a particular kind of mathematical function (linear or otherwise), to figure out how to get the "best fit" for a cloud of data. 
                         }
                         @teacher{
                         

@@ -29,8 +29,8 @@
      #:title "Threats to Validity"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[@item{Students learn about threats to validity, such as sample size, confounding variables, etc.}]
+     #:learning-objectives @itemlist[@item{Students learn about threats to validity, such as sample size, selection bias, sample error, and confounding variables.}]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]

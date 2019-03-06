@@ -161,10 +161,10 @@
                                 Now that we have our scatter plot, what kind of patterns do we see? 
                                 @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4" "HSS.ID.B&1&2")]{
                                     @itemlist[
-                                        @item{ Where are the points clustered? }
+                                        @item{ Can you see a 'cloud' around which the points are clustered? }
                                         @item{ Are there places where the "cloud" is denser than others? }
+                                        @item{ Does the number of weeks to adoption seem to go up or down as the age increases? }
                                         @item{ Are there any points that "stray from the pack?" Which ones? }
-                                        @item{ Does the cloud seem to go up or down as the number of weeks increases? }
                                     ]
                                 }
                         }
@@ -174,10 +174,18 @@
                 }
                 @point{
                         @student{
-                                When we look for patterns in a scatter plot like this, we are looking for @vocab{correlations}. A correlation is just a relationship between two variables. In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}.
+                                If we see a straight-line pattern in the cloud of scatter plot points, this suggests the variables could be related in a certain way. Do the two variables' values tend to increase or decrease together, or does one go down as the other goes up? We'd also like to know if one variables tells us a lot or a little about the other's values. A single number called a @vocab{correlation} can provide us with both pieces of information.
                         }
                         @teacher{
                                 
+                        }
+                }
+                @point{
+                        @student{
+                                In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}, and it turns out to be really useful for making predictions. For example, we can use the line to predict how long a new dog would wait at the shelter, if the dog is 4 years old.
+                        }
+                        @teacher{
+
                         }
                 }
                 @point{
@@ -196,7 +204,7 @@
                                 Outliers are always interesting: 
                                 @itemlist[
                                     @item{
-                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we could remove him from our dataset.
+                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we might need to do some deep thinking about whether or not it's appropriate to remove him from our dataset.
                                     }
                                     @item{
                                         Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
@@ -270,8 +278,8 @@
                         @student{
                                 @bannerline{Correlations have @italic{direction}.}
                                 @itemlist[
-                                    @item{ If the cloud slopes up, there may be a @italic{positive correlation}. }
-                                    @item{ If the cloud slopes down, there may be a @italic{negative correlation}. }
+                                    @item{ A @italic{positive correlation} means that the variable on the y-axis increases as the variable on the x-axis goes up. For example, "the older the animal, the more weeks it generally takes to get adopted". }
+                                    @item{ A @italic{negative correlation} means that the variable on the y-axis decreases as the variable on the x-axis goes down. For example, "the longer an animal is at the shelter, the less they generally weigh." }
                                 ]
                                 Do you see a correlation in the age-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
                         }
@@ -281,7 +289,7 @@
                 }
                 @point{
                         @student{
-                                You've already learned three ways to find the "center" of a dataset in one dimension: the mean, the median and the mode all represent a way to collapse a bunch of points on a number line into a single, summary number. If the "center" of points on a number line is a single point, what is the "center" of points in a @italic{two-dimensional} cloud? 
+                                You've already learned three ways to find the "center" of a dataset in one dimension: the mean, the median and the mode all represent a way to collapse a bunch of points on a number line into a single, summary number. If the "center" of points on a number line is a single point, what is the "center" of points in a @italic{two-dimensional} cloud, which cluster around a line? 
                         }
                         @teacher{
 
@@ -289,9 +297,9 @@
                 }
                 @point{
                         @student{
-                                What we need to do is find a @italic{line} - called a @vocab{predictor} - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative. Given a value on the x-axis, this line allows us to "predict" what the corresponding value on the y-axis might be. This allows us to make inferences about a population, based on a sample of that population.
+                                What we need to do is find a @italic{line} - called a @vocab{line of best fit}, or a "regression line" - that is at the center of this cloud. Each point exerts a little bit of "pull" on the line, with points above the line yanking it up and points below the line dragging it down. Points that are really far away - our @vocab{outliers} and our influential observations - pull the line harder than those that are close to the line. The slope of the line will be positive or negative depending on whether or not the correlation is positive or negative. Given a value on the x-axis, this line allows us to "predict" what the corresponding value on the y-axis might be. This allows us to make inferences about a population, based on a sample of that population.
                                 @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3" "Data 3.1.3&1&4"  "Data 3.1.3&1&5")]{
-                                    Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{predictor} through each of the scatter plots on the left.
+                                    Turn to @worksheet-link[#:name "Drawing-Predictors"], and do your best to draw a @vocab{line of best fit} through each of the scatter plots on the left.
                                 }
                         }
                         @teacher{
@@ -302,12 +310,12 @@
                         @student{
                                 @bannerline{Correlations have @italic{strength}.}
                                 @itemlist[
-                                    @item{ If the cloud is tightly packed, there may be a @italic{strong correlation}. }
-                                    @item{ If the cloud is really spread out, there may be a @italic{weak correlation}. }
-                                    @item{ If the points are all over the place, there may be @italic{no correlation}. }
+                                    @item{ If the cloud is tightly packed, there is a @italic{strong correlation}. }
+                                    @item{ If the cloud is loosely scattered, there is a @italic{weak correlation}. }
+                                    @item{ If the points are all over the place, with no tendency to rise or fall from left to right, there may be @italic{no correlation}. }
                                 ]
                                 @activity[#:forevidence (list "S-ID.5-6&1&3" "S-ID.5-6&1&4" "Data 3.2.1&1&2" "Data 3.2.1&1&6")]{
-                                    For each predictor you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
+                                    For each line you drew on @worksheet-link[#:name "Drawing-Predictors"], determine the direction and strength of the correlation by circling the words that describe it. 
                                 }
                         }
                         @teacher{
@@ -317,7 +325,7 @@
                 @point{
                         @student{
                                 @bannerline{Correlation does NOT imply causation.}
-                                If two quantities are @italic{correlated}, it doesn't mean that one @italic{causes} the other! For example, suppose a study found that there was a strong correlation between the average per-person consumption of chicken and the amount of oil imported by the US. Those two values have similar patterns, but there is no causal relationship between them!
+                                If two quantities are @italic{correlated}, it doesn't mean that one @italic{causes} the other! For example, a study found that there is a strong correlation between the number of people who become tangled in their own bedsheets each year is correlated with the amount of cheese consumed that year. It happens that both of those values have been increasing over the past decade, but there is no causal relationship between them!
                         }
                         @teacher{
 
@@ -374,7 +382,7 @@
                 }
                 @point{
                         @student{
-                              You've started to look for correlations in your dataset, and now you know how to create scatter plots to visualize them. But how do we know if a correlation is @italic{strong enough} to be useful? Eyeballing charts isn't good enough! In the next Unit, you'll learn how to calculate the strength of a correlation, and you'll investigate the correlations in your research that you mapped out here.
+                              You've started to look for correlations in your dataset, and now you know how to create scatter plots to visualize them. But how do we know if a correlation is @italic{strong enough} to be useful? Eyeballing charts isn't good enough! In the next Unit, you'll learn how to calculate a correlation, and get a feel for strength of a relationship based on a single number. You'll investigate the correlations in your research that you mapped out here.
                         }
                         @teacher{
 
