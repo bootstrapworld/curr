@@ -172,7 +172,7 @@
               }
               @point{
                       @student{
-                          How well do you know your table methods? Complete @worksheet-link[#:name "Playing-With-Methods"] in your Student Workbook to find out!
+                          How well do you know your table methods? Complete @worksheet-link[#:name "Playing-With-Methods"] in your Student Workbook to find out.
                       }
                       @teacher{
                           Have students discuss their answers.
@@ -254,7 +254,7 @@
                         Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's use our filtered bar chart as an example, which ties together all the pieces you've seen before.
                     }
                     @teacher{
-                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding!
+                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding.
                     }
               }
               @point{
@@ -269,7 +269,7 @@
                         }
                     }
                     @teacher{
-                        Ask students to volunteer other names - but push them to keep the relevant info as part of the name!
+                        Ask students to volunteer other names - but push them to keep the relevant info as part of the name.
                     }
               }
               @point{
@@ -323,7 +323,7 @@
                         }
                     }
                     @teacher{
-                        Only @code{.order-by} is needed!
+                        Only @code{.order-by} is needed.
                     }
               }
               @point{
@@ -332,7 +332,7 @@
                         @itemlist[
                             @item{ Are there more columns in our result? No, nothing new gets added. }
                             @item{ Are there fewer rows in our result? No, the whole table get plotted. }
-                            @item{ Are the rows ordered? YES! According to our purpose statement, the animals are sorted alphabetically by name. }
+                            @item{ Are the rows ordered? YES. According to our purpose statement, the animals are sorted alphabetically by name. }
                         ]
                         @code[#:multi-line #t]{
                             # sorted-age-bar :: (animals :: Table) -> Table
@@ -364,12 +364,12 @@
                         }
                   }
                   @teacher{
-                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it"!
+                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it".
                   }
               }
               @point{
                   @student{
-                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{sorted-age-bar(animals-table)}. That's the code that should give us the result, so let's type it in!
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{sorted-age-bar(animals-table)}. That's the code that should give us the result, so let's type it in.
                       @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
                           Type in the code and hit Enter. Did you get back the same result you expected?
                       }
@@ -416,7 +416,7 @@
               }
               @point{
                     @student{
-                        Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}! Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
+                        Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}. Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
                         @code[#:multi-line #t]{
                             # scatter-plot :: (t :: Table, labels :: String, xs :: String, ys :: String) -> Image
                             scatter-plot(animals-table, "name", "pounds", "weeks") # see if smaller animals get adopted faster
@@ -429,9 +429,9 @@
               }
               @point{
                     @student{
-                        Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart! To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
+                        Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans. A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart. To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
                         @activity{
-                            Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function! Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
+                            Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function. Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
                         }
                     }
                     @teacher{
