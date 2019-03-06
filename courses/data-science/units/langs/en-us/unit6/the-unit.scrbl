@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, bar-chart, pie-chart, mean, median, modes} 
                                               ""))]{
   @unit-descr{
-    Students explore new visualizations in Pyret, this time focusing on the @italic{frequency} of observations in their dataset. They learn how to construct and interpret Frequency Bar Charts and Histograms, experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. 
+    Students explore new visualizations in Pyret, this time focusing on the @italic{frequency} of observations in their dataset. They learn how to construct and Histograms, understand the difference between bar charts and histograns, experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results. 
   }
 }
 @unit-lessons{
@@ -65,7 +65,7 @@
                                      (lambda (r c) (para ""))
                                      4 8
                               ]
-                              What can we say about this table? How many rows and columns does it have? Are they categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
+                              What can we say about this table? How many rows and columns does it have? Are the column variables categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
                       }
                       @teacher{
 
@@ -86,12 +86,12 @@
   }
 
   @lesson/studteach[
-     #:title "Frequency Bar Charts"
+     #:title "Bar Charts v. Histograms"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students are introduced to frequency bar charts}]
+     #:learning-objectives @itemlist[@item{Students are introduced to histograms bar charts}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students create frequency bar charts using the animals dataset}]
+     #:product-outcomes @itemlist[]
      #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -105,7 +105,10 @@
                 @point{
                       @student{
                               @bitmap{images/freq-bar.png}
-                              The first chart is called a @vocab{frequency bar chart}. It uses the @vocab{categorical data} in a column as the labels, and then @italic{counts how often} those categories show up in the table. In other words, it shows us the frequency with which each category appears in the table.
+                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 7 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 3/7 for cats and 1/7 for rabbits, or converted those fractions to percentages. The chart would look the same either way: only the numbers on the vertical axis would change.
+                               @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
+                                  In the Interactions Area, type in the example to make a bar chart of the animals, broken down by gender. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
+                              }
                       }
                       @teacher{
                               
@@ -113,7 +116,7 @@
                 }
                 @point{
                       @student{
-                              Here, we are looking at the @code{species} column, which contains categorical data. In this special kind of bar chart, we are computing the @vocab{frequency} with which each category occurs in our dataset. and that frequency relates to the length of each bar. Since there are 3 animals whose @code{species} is @code{"cat"}, the bar for Cat extends to 3 marks long.
+                              These bar charts happen to show the categorical values in alphabetical order, but it would be perfectly fine to re-order them any way we wish. However, if wanted to display a @vocab{quantitative} variable (like @code{pounds}), we would use the horizontal axis to show increments @italic{in order}, perhaps from the lowest weight at the left to the highest at the right.
                       }
                       @teacher{
                       
@@ -121,32 +124,17 @@
                 }
                 @point{
                       @student{
-                              This works great for categorical data - there are only so many types of animals at our shelter! But what if we wanted to see a frequency of quantitative data, like the weights of each animal? There are so many unique weights in our table that we'd have a hundred different bars, all the same size! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
+                              Another challenge in using quantitative v. categorical data is the number of bars: there are only so many types of animal at the shelter, but there could be a hundred different weights! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
                       }
                       @teacher{
 
                       }
                 }
-                @point{
-                      @student{
-                              Here is the contract for @code{freq-bar-chart}, followed by an example of how use it:
-                              @code[#:multi-line #t]{
-                                # freq-bar-chart :: (t :: Table, values :: String) -> Image
-                                # freq-bar-chart(animals-table, "species")  # show frequency of each animal
-                              }
-                              @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
-                                  In the Interactions Area, type in the example to make a frequency bar chart of the animals, broken down by species. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-        ]
+          ]
   }
   @lesson/studteach[
      #:title "Histograms"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
@@ -164,13 +152,13 @@
                 @point{
                       @student{
                               @bitmap{images/histogram.png}
-                              The second chart is called a @vocab{histogram}.  Histograms are like frequency bar charts, but they have a few important differences:
+                              The second chart on @worksheet-link[#:name "Visualizing-Frequency"] is called a @vocab{histogram}.  Histograms are like bar charts, but they have a few important differences:
                                 @itemlist[
-                                    @item{ Frequency bar charts are for categorical data, but histograms are for quantitative data }
+                                    @item{ Bar charts are for categorical data, but histograms are for quantitative data }
                                     @item{ The bars in a histogram are @italic{ordered} according to the ranges of the bins }
-                                    @item{ The size of the bins is adjustable }
+                                    @item{ The size of the bins is important }
                                 ]
-                              These differences are made possible because quantitative data can be @italic{compared} - one bar can be said to be "greater than" another bar, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. Frequency bar charts are only for counting the frequency of categorical data. In this chart, the weights of all the animals are groups into bins. How big are these bins?
+                              These differences are made possible because quantitative data can be @italic{compared} - one interval can be said to be "greater than" another interval, and a value can be said to be "within" the range of a bin. For categorical data, neither of these is the case, so we use bar charts instead of histograms. How many bins would there be if we'd chosen to work with intervals of width 50 instead of 20? Would the histogram do just as good a job displaying the data?
                       }
                       @teacher{
                               Each bin represents a range of 20 pounds.
@@ -224,7 +212,7 @@
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            How are is your dataset distributed? Create at least one frequency bar chart and one histogram to explore your dataset. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
+                            How is your dataset distributed? Choose a categorical variable and display it with a bar chart, then choose a quantitative variable and display it with a histogram. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
                         }
                     }       
                     @teacher{
@@ -263,7 +251,7 @@
         @points[
               @point{
                     @student{
-                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a frequency bar chart? Each chart is good for answering different kinds of questions, and Data Scientists know when to use each kind.
+                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a bar chart? Each chart is good for answering different kinds of questions, and knowing when to use each kind is an important step in becoming a Data Scientist.
                           @activity[#:forevidence (list )]{
                                 Turn to @worksheet-link[#:name "Which-Chart-Is-Best"]. Here you'll find a set of questions about the @code{animals} dataset. For each question, draw a line to the kind of chart that would answer it best.
                           }

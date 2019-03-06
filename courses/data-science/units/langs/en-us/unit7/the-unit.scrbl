@@ -18,7 +18,7 @@
                                               @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
                                                 ""))]{
   @unit-descr{
-    Students investigate scatter plots as a method of visualizing the relationship between two axes, and begin searching for correlations in their dataset.
+    Students investigate scatter plots as a method of visualizing the relationship between two variables, and begin searching for correlations in their dataset.
   }
 }
 @unit-lessons{
@@ -45,7 +45,7 @@
                 @point{
                         @student{
                                 "Younger animals are cuter, and therefore get adopted faster". Do you agree with this statement?
-                                You now have significant experience asking questions about data sets: You know how to take measures of center, and how to visualize both quantity and distribution of quantitative and categorical data. Let's use this experience to find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
+                                You now have significant experience asking questions about data sets: You began with displays like bar charts, pie charts, and histograms to help us @italic{visualize} what's going for a single variable. You also learned how to @italic{summarize} a single column of data, using measure like the mean or median. Let's add a new dimension to our displays, so we can find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
 
                                  @build-table/cols[
                                     '("name" "species" "age" "weeks")
@@ -77,8 +77,8 @@
                                 We've got a lot of tools in our toolkit that help us think about an @italic{entire} column of a dataset:
                                 @itemlist[
                                     @item{ We have three ways to find measures of center for a given column }
-                                    @item{ We have visualizations that let us see the @italic{quantities} in a given column }
-                                    @item{ We have visualizations that let us see the @italic{frequencies} in a given column }
+                                    @item{ We have visualizations that let us see the @italic{distribition} of values in a quantitative column }
+                                    @item{ We have visualizations that let us see the @italic{frequencies} or @italic{relative frequencies} in a categorical column }
                                 ]
                                 What column is this question asking about?
                         }
@@ -88,7 +88,7 @@
                 }
                 @point{
                         @student{
-                                This question is asking about @italic{two columns} in our dataset. Specifically, it's asking @bold{if there is a relationship} between @code{age} and @code{weeks}. Fortunately, there are other tools that let us visualize a 2-column relationship!
+                                This question is asking about @italic{two columns} in our dataset. Specifically, it's asking @bold{if there is a relationship} between @code{age} and @code{weeks}. Fortunately, there are other tools that let us visualize a relationship between two quantitative columns!
                         }
                         @teacher{
                                 If time allows, ask students how we might visualize this relationship.
@@ -247,7 +247,7 @@
   }
 
   @lesson/studteach[
-     #:title "Correlations and Predictors"
+     #:title "Correlations and Predictions"
      #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn how to interpret scatterplots, and talk about strength and direction  of correlation}]
