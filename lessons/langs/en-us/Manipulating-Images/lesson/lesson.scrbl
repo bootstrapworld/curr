@@ -82,10 +82,10 @@
                               
            @point{@student{There are also functions for flipping an image horizontally or vertically, and for scaling images so they get bigger or smaller.  Here are contracts and purpose statements for those functions:
                            @code[#:multi-line ""]{; flip-horizontal : Image -> Image
-                                                  ; Flip the given image on the horizontal (x) axis
+                                                  ; Flip the given image horizontally
                                                   
                                                   ; flip-vertical : Image -> Image
-                                                  ; Flip the given image on the vertical (y) axis
+                                                  ; Flip the given image vertically
                                                   
                                                   ; scale/xy : Number Number Image -> Image
                                                   ; Reproduce the given image with the horizontal (x)
