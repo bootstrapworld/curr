@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 3: Looking for Trends }
+@title{Unit 4: Looking for Trends }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 

@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Measuring the Shape of Your Data}
+@title{Unit 6: Measuring the Shape of Your Data}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 

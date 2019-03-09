@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 4: Choosing Your Dataset }
+@title{Unit 5: Choosing Your Dataset }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
