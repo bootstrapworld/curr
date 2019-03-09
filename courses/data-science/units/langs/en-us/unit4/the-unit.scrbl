@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 4: Choosing Your Dataset }
+@title{Unit 3: Looking for Trends }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -14,9 +14,11 @@
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       )]{
+                                       (list "Table"
+                                              @code{.row-n, .order-by, .filter}
+                                              ""))]{
   @unit-descr{
-    Students deepen their understanding of Table Plans, learning how to write a good sample table. They also choose their own datasets, and explore them by writing filters and column builders using the Design Recipe.
+     Students continue practicing the Design Recipe, and explore scatter plots as a means of visualizing potential relationships between columns. They also learn how to build new columns, chain methods, and are introduced to Table Plans.
   }
 }
 @unit-lessons{
@@ -24,12 +26,71 @@
 
   @lesson/studteach[
    #:title "Review"
-     #:duration "10 minutes"
+   #:duration "25 minutes"
+   #:overview ""
+   #:learning-objectives @itemlist[]
+   #:evidence-statements @itemlist[]
+   #:product-outcomes @itemlist[]
+   #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+   #:materials @itemlist[]
+   #:preparation @itemlist[]
+   #:pacings (list 
+              @pacing[#:type "remediation"]{@itemlist[@item{}]}
+              @pacing[#:type "misconception"]{@itemlist[@item{}]}
+              @pacing[#:type "challenge"]{@itemlist[@item{}]}
+              )
+    ]{
+      @points[
+                @point{
+                    @student{
+                        Open your saved animals-dataset file. You should have several functions defined:
+                        @itemlist[
+                            @item{ @code{is-fixed} }
+                            @item{ @code{gender} }
+                            @item{ @code{is-cat} }
+                            @item{ @code{is-young} }
+                        ]
+                        If you didn't have a chance to type them in from your workbook, make sure you do!
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        Can you use the Design Recipe to write a few more functions?
+                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
+                          Turn to @worksheet-link[#:name "Design-Recipe-3"], and see if you can solve the following word problems:
+                            @itemlist[
+                              @item{ 
+                                  Define a function called @code{nametag}, which prints out each animal's name in big red letters.
+                              }
+                              @item{ 
+                                  Define a function called @code{birth-year}, which consumes a Row of the @code{animals-table} and produces the year the kitten was born.
+                              }
+                            ]
+                          }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        When your teacher has checked your work, add these two functions at the bottom of your Definitions Area, save your work, and click Run.
+                    }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Building Columns"
+     #:duration "5 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students learn how to compute new columns in Pyret}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+     #:product-outcomes @itemlist[@item{Students extend the animals table using functions they've defined earlier}]
+     #:standards (list)
      #:materials @itemlist[]
      #:preparation @itemlist[]
      #:pacings (list 
@@ -38,50 +99,298 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-      @points[
-            @point{
+        @points[
+                @point{
+                      @student{
+                              Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that adds a "label" column to the @code{animals-table} using your @code{nametag} function.
+                              @code[#:multi-line #t]{
+                                    # <Table>.build-column :: (col :: String, builder :: (Row -> Value)) -> Table
+                                    animals-table.build-column("label", nametag)
+                              }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
+                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{born} column, which contains the year each animal was born.
+                              }
+                      }
+                      @teacher{
+                              
+                      }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Chaining Methods"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn the syntax for chaining methods together}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
                     @student{
-                          @activity[#:forevidence "BS-IDE&1&1"]{
-                            Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ-W" "new copy"].)
-                          }
+                        Table methods can be chained together, so that we can build, filter @italic{and} order a Table. For example:
+                        @code[#:multi-line #t]{
+                            # get a table with the nametags of all the fixed animals, ordered by species
+                            animals-table.build-column("label", nametag).filter(is-fixed).order-by("species", true)
+                        }
+                        This code takes the @code{animals-table}, and builds a new column. According to our Contracts Page, @code{.build-column} produces a new Table, and that's the Table whose @code{.filter} method we use. That method produces @italic{yet another Table}, and we call that Table's @code{order-by} method. The Table that comes back from that is our final result.
                     }
                     @teacher{
-                            
+                        Suggestion: use different color markers to draw nested boxes around each part of the expression, showing where each Table came from.
                     }
-            }
-            @point{
-                @student{
-                    @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                        Look at the pie and bar charts on @worksheet-link[#:name "Visualizing-Quantity"], and write down what you notice and wonder. @bold{ Why are some questions easier to answer with one kind of chart or another? }
+              }
+              @point{
+                    @student{
+                        It can be difficult to read code that has lots of method calls chained together, so we can break them up before each "@code{.}" to make it more readable. Here's the exact same code, written with each method on it's own line:
+                        @code[#:multi-line #t]{
+                            # get a table with the nametags of all the fixed animals, order by species
+                            animals-table
+                              .build-column("label", nametag)
+                              .filter(is-fixed)
+                              .order-by("species", true)
+                        }
                     }
-                }       
-                @teacher{
-                    Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                }              
-            }
-            @point{
+                    @teacher{
+                    
+                    }
+              }
+              @point{
+                      @student{
+                          How well do you know your table methods? Complete @worksheet-link[#:name "Playing-With-Methods"] in your Student Workbook to find out.
+                      }
+                      @teacher{
+                          Have students discuss their answers.
+                      }
+              }
+              @point{
+                    @student{
+                        @bannerline{Order matters.}
+                        Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! When chaining methods, it's important to build first, then filter, and then order. 
+                        @italic{ So how do we know when we need which method, and in what order? }
+                    }
+              }
+        ]
+  }
+
+
+  @lesson/studteach[
+     #:title "Table Plans"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn how to define functions using Table Plans}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define functions that sort, filter, or extend the animals table}]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[@item{}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Suppose you wanted to get a bar-chart of animal's ages, for only the cats in the shelter, sorted alphabetically by name. How would you do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-cat).order-by("name", true)
+                            bar-chart(t, "name", "age")
+                        }
+                        Then you want to get the same bar chart, but now for only the fixed animals, sorted alphabetically by name. How would you do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-fixed).order-by("name", true)
+                            bar-chart(t, "name", "age")
+                        }
+                        Then you want to get the same bar chart, but now for only the young animals, sorted alphabetically by name. How would you do that?
+                        @code[#:multi-line #t]{
+                            t = animals-table.filter(is-young).order-by("name", true)
+                            bar-chart(t, "name", "age")
+                        }
+                    }
+                    @teacher{
+                        Have students volunteer this, whenever possible.
+                    }
+              }
+              @point{
+                    @student{
+                        This is really repetitive, isn't it? We're always doing the same two things:
+                        @itemlist[
+                          @item{ Define the table - in this case, by filtering and sorting. }
+                          @item{ Do something with it - in this case, make a bar chart. }
+                        ] 
+                        Wouldn't it be great if Pyret had a function that just took in a table of animals, and did these things for us? This seems like a problem we've seen before, back when we defined functions like @code{gender} or @code{nametag}: whenever we have the same code written over and over, we can use functions to save us the effort!
+                    }
+                    @teacher{
+                    
+                    }
+              }
+              @point{
+                    @student{
+                        Rather than rewrite the same method chain for every table, we can define a function that consumes an entire table and does the work for us. That way we can write the method chain once, and re-use it over and over. We can modify the Design Recipe slightly to help us keep our method order straight, turning it into something called a @bold{Table Plan}. Turn to page @worksheet-link[#:name "Sorted-Age-Bar"].
+                    }
+                    @teacher{
+                        Table Plans are like the Design Recipe, but for manipulating tables. They enforce a @italic{way of thinking}, which is important for your students.
+                    }
+              }
+              @point{
+                    @student{
+                        Table Plans are a lot like the Design Recipe. They start with a Contract and Purpose Statement, but involve different kinds of examples and can often involve @italic{multiple} function definitions. Let's use our filtered bar chart as an example, which ties together all the pieces you've seen before.
+                    }
+                    @teacher{
+                        Your students should be @italic{very} comfortable with the Design Recipe before proceeding.
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 1: Contract and Purpose}
+                        We're going to build a function that does this for us, and we'll start with the name. Naming is more complex in Table Plans, since we want to name the function according to the most important parts of what it does. Since we're getting an alphabetically-sorted bar chart of their ages, we'll call it @code{sorted-age-bar}. Instead of consuming Rows, this time we're consuming and producing @italic{Tables}. This gives us the following:
+
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # consume a table of animals, and produce a bar chart
+                            # of their ages, sorted alphabetically
+                        }
+                    }
+                    @teacher{
+                        Ask students to volunteer other names - but push them to keep the relevant info as part of the name.
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 2: Examples}
+                        This is really similar to writing examples with the Design Recipe, but everything stays on paper. First, we write down a small sample of the @code{animals-table}, called an Example Table. This example should contain all of the @italic{relevant} columns, and enough rows to give us an idea for how the function should work. Then, on the righthand side, we write or sketch what we expect to get back.
+                        @itemlist[
+                            @item{ What columns do we care about? }
+                            @item{ In the Interactions Area, how would you @italic{use} this function, passing in the @code{example-table}? }
+                            @item{ What would @code{sorted-age-bar(table)} evaluate to? }
+                        ]
+                        In this case, we care about the name and age columns. According to our contract we would need to call the function's name and pass in only a table. According to the purpose statement, typing @code{sorted-age-bar(example-table)} into the Interactions Area should give us a bar chart of all the animal's ages, sorted by name.
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        @bannerline{Step 3: Define the Function @italic{in two parts}}
+                        The final step is to define a function that executes our Table Plan. We'll do this in two parts. First, we'll define a table by applying our methods to the input. Then, we'll do something with that table to produce a result. We already know how to start:
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # Consume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                ...         # define the table
+                                ...         # produce the result
+                            end
+                        }
+                    }
+                    @teacher{
+                    }
+              }
+              @point{
+                    @student{
+                        To define this table, we'll ask ourselves three questions, in order:
+                        @itemlist[
+                            @item{ 
+                              Does our Result have more columns than our Sample Table? If so, we'll need to use @code{.build-column}. 
+                            }
+                            @item{ 
+                              Does our Result have fewer rows than our Sample Table? If so, we'll need to use @code{.filter}. 
+                            }
+                            @item{ 
+                              Does our Result have its rows in some order? If so, we'll need to use @code{.order-by}.
+                            }
+                        ]
+                        @activity[#:forevidence (list "Data 3.1.1&1&2" "Data 3.1.1&1&4")]{
+                            If the answer to any of these questions is "no", @italic{cross out that line in the template}.
+                        }
+                    }
+                    @teacher{
+                        Only @code{.order-by} is needed.
+                    }
+              }
+              @point{
+                    @student{
+                        All three methods are needed, so we won't cross anything out. You're already familiar with definitions in Pyret, and that's what we'll use here. Let's start with the name @code{t} for Table.
+                        @itemlist[
+                            @item{ Are there more columns in our result? No, nothing new gets added. }
+                            @item{ Are there fewer rows in our result? No, the whole table get plotted. }
+                            @item{ Are the rows ordered? YES. According to our purpose statement, the animals are sorted alphabetically by name. }
+                        ]
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # Consume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                t = animals # define the table
+                                  .order-by("name", true)
+                                ...         # produce the result
+                            end
+                        }
+                    }
+                    @teacher{
+                        It may be helpful to start with the table definition all on one line, and have students see you break it up to accommodate chaining. Students should be reminded that both forms are valid, but encouraged to use the latter.
+                    }
+              }
+              @point{
                   @student{
-                          You've now seen two kinds of charts for visualizing @italic{categorical} data sets: @vocab{bar charts} and @vocab{pie charts}. We can look at heights of bars or areas of slices to see how all the data values are distributed into various categories. A pie chart is more useful if we want to convey a visual impression of how common or uncommon each category is compared to the @italic{whole group} of values. A bar chart stresses how common or uncommon each category is compared to @italic{one another}. Bar charts also work better when categories involve a progression in size: data gathered about T-Shirt sizes, for example, would make more sense than a pie chart. Finally, pie charts tend to focus on @italic{percentages}, while bar charts may show either @italic{frequencies or percentages}.
+                        Now that we have our new table, @code{t} defined, what do we need to do with it? According to our purpose statement, we need to @italic{make a bar chart}.
+                        @code[#:multi-line #t]{
+                            # sorted-age-bar :: (animals :: Table) -> Table
+                            # Consume a table of animals, and compute a bar chart 
+                            # showing their ages, in alphabetical order
+                            fun sorted-age-bar(animals):
+                                t = animals # define the table
+                                  .order-by("name", true)
+                                bar-chart(t, "name", "age") # produce the result
+                            end
+                        }
+                  }
+                  @teacher{
+                      Drawing arrows from the @code{t} expression on the last line back to the @code{t} definition on the first line would be a good idea here. Make sure students see the connection between "defining the table...and using it".
+                  }
+              }
+              @point{
+                  @student{
+                      Once you've typed in the Contract, Purpose and Function Definition, click "Run". How do we use this function? If you look in the @bold{Examples} section, you'll see that the Result is written underneath the expression @code{sorted-age-bar(animals-table)}. That's the code that should give us the result, so let's type it in.
+                      @activity[#:forevidence (list "Data 3.1.1&1&1" "Data 3.1.1&1&2")]{
+                          Type in the code and hit Enter. Did you get back the same result you expected?
+                      }
                   }
                   @teacher{
                   
                   }
-            }
-      ]
-  }
-
-
+              }
+        ]
+    }
 
   @lesson/studteach[
-     #:title "Table Plan"
-     #:duration "20 minutes"
+     #:title "Looking for Relationships"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
-     #:standards (list)
+     #:product-outcomes @itemlist[]
+     #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.4" "Data 3.1.1")
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[@item{}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -91,15 +400,15 @@
         @points[
               @point{
                     @student{
-                        Sample Tables are about a lot more than checking our code. They can also be about checking the inferences we make in our analysis! Data Analysis is often used to make @italic{predictions}, and if the sample dataset is bad those predictions can be wrong - and sometimes, really @italic{really} wrong!
-                        @itemlist[
-                            @item{ 
-                              Uber and Google are making self-driving cars, which use artificial intelligence to interpret sensor data and make predictions about whether a car should speed up, slow down, or slam on the brakes.  This AI is trained on a lot of sample data, which it learns from. What might be the problem if the sample data only included roads in California?
-                            }
-                            @item{
-                              Law enforcement in many towns has started using facial-recognition software to automatically detect whether someone has a warrant out for their arrest. A lot of facial-recognition software, however, has been trained on sample data containing mostly white faces. As a result, it has gotten really good at telling white people apart, but @(hyperlink "http://www.theweek.co.uk/95383/is-facial-recognition-racist" "often can't tell the difference between people who aren't white"). Why might this be a problem? 
-                            }
-                        ]
+                        Why are some animals adopted quickly, while others take a long time? What factors explain why one pet gets adopted right away, and others wait months?
+                    }
+                    @teacher{
+                        Ask the class for theories.
+                    }
+              }
+              @point{
+                    @student{
+                        One theory is that people adopt smaller animals because they're easier to care for. How could we test that theory? Bar and pie charts are great for showing us how the values of a single column are distributed, but they can't help us see connections between @italic{two} columns.
                     }
                     @teacher{
 
@@ -107,239 +416,31 @@
               }
               @point{
                     @student{
-                        @bannerline{Sample Data Mattters!}
-                        Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                        @itemlist[
-                              @item{
-                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
-                              }
-                              @item{
-                                  A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                              }
-                              @item{
-                                  A good Sample Table has rows in apparently random order, so that we'll notice if we need to order the table or not.
-                              }
-                        ]
+                        Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}. Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
+                        @code[#:multi-line #t]{
+                            # scatter-plot :: (t :: Table, labels :: String, xs :: String, ys :: String) -> Image
+                            scatter-plot(animals-table, "name", "pounds", "weeks") # see if smaller animals get adopted faster
+                        }
+                        @activity{ Try making a few scatter plots, looking for relationships between columns in the animals-table. }
                     }
                     @teacher{
 
                     }
               }
               @point{
-                  @student{
-                        @activity[#:forevidence (list )]{
-                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                        }
-                  }
-                  @teacher{
-                        If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                  }
-              }
-              @point{
-                  @student{
-                        Can you come up with a good sample table of your own? 
+                    @student{
+                        Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans. A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart. To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
                         @activity{
-                          Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                            Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function. Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
                         }
-                  }
-              }
-        ]
-  }
-
-
-
-  @lesson/studteach[
-     #:title "Choose Your Dataset"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          So far, you've had a chance to run some simple analyses on the Animals Dataset. You've made charts, written functions using the Design Recipe and then used them with methods to filter rows and build columns. You've used Table Plans to map out your analysis, tying together the Design Recipe and methods.
-                      }
-                      @teacher{
-                          If students need more practice with the Design Recipe, now's the time. Do NOT proceed past this point without making sure they are comfortable writing simple functions.
-                      }
-                }
-                @point{
-                      @student{
-                          Now it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
-                          Take 10 minutes to look through the following datasets, and choose one that interests you:
-                          @itemlist[
-                              @item{
-                                  Movies (@(new-tab "https://docs.google.com/spreadsheets/d/1ldK-Xte5xCAPd6hz2wreBaJzuw-voe4q6ui9QkFGz8w" "Dataset") | @editor-link[#:public-id "1jn4q9ZXJ643Rmk0sQ443CLaTIF2vAN38" "Starter file"])
-                              }
-                              @item{
-                                  Schools (@(new-tab "https://docs.google.com/spreadsheets/d/1XeeyAuF_mtpeCw2HVCKjvwW1rreNvztoQ3WeBlEaDl0" "Dataset") | @editor-link[#:public-id "1SA8ENBl0ayfyxoFHSUpMJ-PPiSxzipS3" "Starter file"])
-                              }
-                              @item{
-                                  US Income (@(new-tab "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/" "Dataset") | @editor-link[#:public-id "1qSK5KX7cfwM4c6XtJFg5gPcVp9OBSbOU" "Starter file"])
-                              }
-                              @item{
-                                  US Presidents (@(new-tab "https://docs.google.com/spreadsheets/d/1Frt37-nBHHxvJVBKzKLRD3kbjPLhc8CYUaIlNeNWl94" "US Presidents Dataset") | @editor-link[#:public-id "1oDxvkNZqK7qrxKqw_c6WenSWMKDSe_nt" "Starter file"])
-                              }
-                              @item{
-                                  Countries of the World (@(new-tab "https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs" "Dataset") | @editor-link[#:public-id "14TwfS8kvwEgQRsl2CTzyLyN9uKwbDYTu" "Starter file"])
-                              }
-                              @item{
-                                  Music (@(new-tab "https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w" "Dataset") | @editor-link[#:public-id "1UUvwXUMWAEWSlWF1ST4BvQOrUpyxqgwh" "Starter file"])
-                              }
-                              @item{
-                                  New York City Restaurant Health Inspections (@(new-tab "https://docs.google.com/spreadsheets/d/1inK0kq8bNeN1vYbx0HpNZ8xHOp5pmP2FoLcfK9pQhJI" "Dataset") | @editor-link[#:public-id "1hiXWzF06SmgaF_r8DlQrzBm4e96Xpm9_" "Starter file"])
-                              }
-                              @item{
-                                  Pokemon Characters (@(new-tab "https://docs.google.com/spreadsheets/d/1S8jf4Qf94TJKGLCcTA-Fqn4YXE7dGf_PIxv5MUeUPVo" "Dataset") | @editor-link[#:public-id "1zxltGamxQ07jwz24ZGzRwOi8STPi5rcq" "Starter file"])
-                              }
-                              @item{
-                                  IGN Video Game Reviews (@(new-tab "https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw" "Dataset") | @editor-link[#:public-id "1i9ZlsGccUJ08ralo1FPgRjFALAZNnetr" "Starter file"])
-                              }
-                              @item{
-                                  2016 Presidential Primary Election (@(new-tab "https://docs.google.com/spreadsheets/d/1fgIREXT5lAaAPWqrNP3S191ID_ecoXDjBe_gAC00-M4" "Dataset") | @editor-link[#:public-id "11_Ogov1gClfqHC5JBDh9mnzni66SyurS" "Starter file"])
-                              }
-                              @item{
-                                  US Cancer Rates (@(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "Dataset") | @editor-link[#:public-id "1rpGtXWTPZltkcAmIsB_2S8DYAaD5-VwU" "Starter file"])
-                              }
-                              @item{
-                                  US State Demographics (@(new-tab "https://docs.google.com/spreadsheets/d/1AwoBUlqGbrE77gdjd8tOIPrVO9Vmzs6YB1zLVmJkM7M" "Dataset") | @editor-link[#:public-id "1YNYMgohYCkYq76xERwYyX1Vw3zmxk_vu" "Starter File"])
-                              }
-                              @item{
-                                  Sodas (@(new-tab "https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs" "Dataset") | @editor-link[#:public-id "1vWLU4hkojnMrq4omDnS50vB4Fwxv5YmA" "Starter file"])
-                              }
-                              @item{
-                                  Cereals (@(new-tab "https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4" "Dataset") | @editor-link[#:public-id "1YT-DLYzptb6_SzQ0fgo51jgd_D_iZolw" "Starter file"])
-                              }
-                              @item{
-                                  Summer Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1YgM_-06BWTbm0J4853OFSX7LY9OpY4IyflVB9WN57_o" "Dataset") | @editor-link[#:public-id "1sksPktTVvid4iCPY0HRt7zau6zb5-2Lp" "Starter file"])
-                              }
-                              @item{
-                                  Winter Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1LoDnM1aP7bUyPXN7i_U0pDMFsRrX1WjzL0P8nOb2tuo" "Dataset") | @editor-link[#:public-id "1o7AVBM2YFbcho3L5wgFK_3NuP-VUrmIF" "Starter file"])
-                              }
-                              @item{
-                                MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy" "Starter file"])
-                              }
-                              @item{
-                                  Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project.
-                              }
-                          ]
-                      }
-                      @teacher{
-                          Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              @itemlist[
-                                  @item{
-                                      Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
-                                  }
-                                  @item{
-                                      Complete @worksheet-link[#:name "My-Dataset"]. Brainstorm a few questions you would like to ask of this dataset. What kinds of questions are they?
-                                  }
-                              ]
-                          }
-                      }       
-                      @teacher{
-                      
-                      }
-                }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Exploring Your Dataset"
-     #:duration "40 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          @activity{
-                            Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}?
-                            Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"]. 
-                          }
-                      }
-                      @teacher{
-                          Have students share back.
-                      }
-                }
-                @point{
-                      @student{
-                          Think about all the different ways you might want to look at your dataset. Would you want to sort it by one column or another? Filter it into different subsets, like we did with the Animals Dataset? Would you want to build new columns?
-                          @activity{
-                              @itemlist[
-                                  @item{ 
-                                      Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "Dataset-Plans"]. 
-                                  }
-                                  @item{
-                                      In the Interactions Area, use @code{.order-by} to sort your dataset according to what you wrote on @worksheet-link[#:name "Dataset-Plans"].
-                                  }
-                                  @item{
-                                      In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
-                                  }
-                              ]
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Filtering-Recipes"], and use the Design Recipe to write the filter functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area and use the @code{.filter} method to define your new tables.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write the builder functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area.
-                          }
-                      }
-                      @teacher{
-                          It's okay if the functions they design aren't useful - this is for practice.
-                      }
-                }
-                @point{
-                    @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Take 10min to make at least one bar and pie chart of columns in one of your tables, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
-                        }
-                    }       
+                    }
                     @teacher{
-                        Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }              
+
+                    }
               }
         ]
   }
- 
+
 
   @lesson/studteach[
      #:title "Closing"
@@ -359,15 +460,17 @@
       ]{
         @points[
               @point{
-                  @student{
-                      @activity[#:forevidence "BS-IDE&1&1"]{
-                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                      }
-                  }
-                  @teacher{
-                           If your students are working in groups, make sure that each student has access to a version of the program.  Students can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.
-                   }
+                    @student{
+							             Building functions is a powerful technique, which you'll use throughout the course. Today, you learned how to write functions that work on one row of a table at a time. In the next lesson, you'll learn how to use those functions to loop over an @italic{entire table}, letting us extend, filter, and sort our @code{animals-table}
+
+							       @activity[#:forevidence "BS-IDE&1&1"]{
+								            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
+    							}
+    					}
+                    @teacher{
+							               If your students are working in pairs/groups, make sure that each student has access to a version of the program.  The student who saved the program to their Google Drive can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.  This will allow them to copy a link to the program, then send to their partners in an email/message.
+					         }
               }
         ]
-    }
+  }
 }
