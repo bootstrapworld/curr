@@ -17,7 +17,7 @@
  ("Animals-Dataset" 			 9 )
  ("Lookup-Animals"				10 )
  ("Design-Recipe-Lookup" 		11 )
- ("Design-Recipe-Compute"		12 )
+ ("Design-Recipe-Lookup2"		12 )
 
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
  ("Unit-3-Notes" 	 	 		13 )
