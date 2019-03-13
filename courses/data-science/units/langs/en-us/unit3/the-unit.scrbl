@@ -18,14 +18,14 @@
                                               @code{.row-n}
                                               ""))]{
   @unit-descr{
-      Students learn the steps for exploring a dataset, and preparing for analysis by considering logical subsets to be explored. They begin with the Animals Dataset, but then apply what they've learned to a dataset of their own choosing. In the process, they practice using the Design Recipe to create filter functions, and come up with questions they wish to explore.
+      Students learn to prepare for analyzing a new dataset by considering logical subsets of that data. They begin with the Animals Dataset, and then apply what they've learned to a dataset of their own choosing. In the process, they practice using the Design Recipe to create filter functions, and come up with questions they wish to explore.
   }
 }
 @unit-lessons{
 
   @lesson/studteach[
      #:title "Review"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -44,32 +44,6 @@
         @points[
                 @point{
                     @student{
-                        Data Science is all about making predictions based on data. Suppose we want to poll Americans, to predict who will be our next president. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
-                        @activity{
-                            @itemlist[
-                              @item{
-                                Would it be problematic to only call voters who are registered Democrats, to only call voters under 25, or to only call voters who go to church? Why or why not?
-                              }
-                              @item{
-                                Suppose we wanted to ask women how they feel about a particular issue. Should we still make sure we're surveying men, too? Why or why not?
-                              }
-                            ]
-                        }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        As you can see, sampling is a complicated issue! Depending on the question we want to answer, sometimes it makes sense to carve out a subset of the data (e.g. - calling only women), and sometimes it makes sense to aim for a random sample. In this Unit, we'll be practicing what you learned about writing functions, and then using the @code{.filter} method to create subsets.
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
                         Open your saved animals-dataset file. You should have several functions defined:
                         @itemlist[
                             @item{ @code{is-fixed} }
@@ -78,42 +52,13 @@
                             @item{ @code{is-young} }
                         ]
                         If you didn't have a chance to type them in from your workbook, make sure you do!
+                        @activity{
+                           Take 10m and write a function @code{is-dog}.
+                        }
                     }
                     @teacher{
 
                     }
-                }
-                @point{
-                      @student{
-                          Suppose we wanted to create a table of just the dogs. What function would we have to write? 
-                          @activity{
-                             Take 10m and write a function @code{is-dog}.
-                          }
-                      }
-                      @teacher{
-                      }
-                }
-                @point{
-                      @student{
-                          Sometimes we want to create a table that's just a @italic{random sample} of an existing table. Type the following code into the Definitions Area (left-hand side of your screen), and click "Run".
-                          @code[#:multi-line #t] {
-                              small-sample = random-rows(animals-table,  5)
-                              large-sample = random-rows(animals-table, 50)
-                          }
-                          @activity{
-                              @itemlist[
-                                  @item{
-                                    What do you get when you evaluate @code{small-sample} in the Interactions Area? @code{large-sample}?
-                                  }
-                                  @item{
-                                    What is the contract for @code{random-rows}? What does the function do?
-                                  }
-                              ]
-                          }
-                      }
-                      @teacher{
-
-                      }
                 }
         ]
   }
@@ -135,6 +80,32 @@
                 )
       ]{
         @points[
+                @point{
+                    @student{
+                        Data Science is all about making predictions based on data. Suppose we want to survey Americans and try to predict our next president will be. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
+                        @activity{
+                            @itemlist[
+                              @item{
+                                Would it be problematic to only call voters who are registered Democrats? To only call voters under 25? To only call regular churchgoers? Why or why not?
+                              }
+                              @item{
+                                Suppose we wanted to ask women how they feel about a particular issue. Should we still make sure we're surveying men, too? Why or why not?
+                              }
+                            ]
+                        }
+                    }
+                    @teacher{
+
+                    }
+                }
+                @point{
+                    @student{
+                        As you can see, sampling is a complicated issue! Depending on the question we want to answer, sometimes it makes sense to carve out a subset of the data (e.g. - calling only women), and sometimes it makes sense to aim for a random sample. In this Unit, we'll be practicing what you learned about writing functions, and then using the @code{.filter} method to create subsets.
+                    }
+                    @teacher{
+
+                    }
+                }
                 @point{                      
                       @student{
                           @bannerline{ 
@@ -162,6 +133,48 @@
                       }
                       @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
+                          Sometimes we want to create a table that's just a @italic{random sample} of an existing table. Type the following code into the Definitions Area (left-hand side of your screen), and click "Run".
+                          @code[#:multi-line #t] {
+                              small-sample = random-rows(animals-table,  5)
+                              large-sample = random-rows(animals-table, 50)
+                          }
+                          @activity{
+                              @itemlist[
+                                  @item{
+                                    What do you get when you evaluate @code{small-sample} in the Interactions Area? @code{large-sample}?
+                                  }
+                                  @item{
+                                    What is the contract for @code{random-rows}? What does the function do?
+                                  }
+                              ]
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          We can make a pie-chart showing how many of each species is in the shelter, by writing
+                          @code[#:multi-line #t]{
+                            pie-chart(count(animals-table, "species"), "value", "count")
+                          }
+                          But which of our subsets will give us the most accurate approximation?
+                          @code[#:multi-line #t]{
+                            pie-chart(count(dogs, "species"), "value", "count")
+                            pie-chart(count(cats, "species"), "value", "count")
+                            pie-chart(count(fixed, "species"), "value", "count")
+                            pie-chart(count(young, "species"), "value", "count")
+                            pie-chart(count(small-sample, "species"), "value", "count")
+                            pie-chart(count(large-sample, "species"), "value", "count")
+                          }
+                          @activity{
+                            Compare the charts you get from each of these. Which one is the most representative of the whole population? Why?
+                          }
                       }
                 }
       ]
@@ -294,14 +307,14 @@
                               @item{
                                 Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"].     
                               }
+                              @item{
+                                In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.
+                              }
                               @item{ 
                                 Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "Dataset-Plans"]. 
                               }
                               @item{
                                 In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
-                              }
-                              @item{
-                                In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.
                               }
                             ]
                           }
@@ -321,19 +334,9 @@
                       }
                 }
                 @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write the builder functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area.
-                          }
-                      }
-                      @teacher{
-                          It's okay if the functions they design aren't useful - this is for practice.
-                      }
-                }
-                @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Take 10min to make at least one bar and pie chart of columns in one of your tables, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
+                            Choose one catagorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which was the most accurate?
                         }
                     }       
                     @teacher{

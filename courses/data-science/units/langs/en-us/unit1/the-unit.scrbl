@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 1: Introduction to Pyret}
+@title{Unit 1: Intro to Computational Data Science}
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
     @unit-descr{
@@ -634,66 +634,6 @@
             }
          ]
   }
-
-@lesson/studteach[
-     #:title "Row and Column Lookups"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
-     #:evidence-statements @itemlist[]
-     #:exercises (list )
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-              @point{
-                    @student{
-                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
-                        @code[#:multi-line #t]{
-                            shapes.row-n(0)
-                        }
-                        Note: data rows start at zero!
-                        @activity{
-                            For practice, in the Interactions Area, use the @code{row-n} method to get the second and third data rows.
-                        }
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                      @student{
-                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
-                              @code[#:multi-line #t]{
-                                      shapes.row-n(0)["name"]      # "triangle"
-                                      shapes.row-n(0)["corners"]   # 3
-                                      shapes.row-n(0)["is-round"]  # false
-                              }
-                              @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                  How would you get the @code{name} column out of the @italic{second} row? The third?
-                              }
-                      }
-                      @teacher{
-
-                      }
-              }
-              @point{
-                      @student{
-                              Let's get some pratice playing with the @code{row-n} method, and row-accessors!
-                              @activity{
-                                 Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
-                              }
-                      }
-              }
-      ]
-}
 
   @lesson/studteach[
      #:title "Closing"

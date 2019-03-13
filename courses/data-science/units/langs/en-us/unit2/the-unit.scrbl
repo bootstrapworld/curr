@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Defining Values and Functions }
+@title{Unit 2: Working with Data }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -151,18 +151,18 @@
   }
 
 
-  @lesson/studteach[
-     #:title "Defining Values"
+
+@lesson/studteach[
+     #:title "Row and Column Lookups"
      #:duration "10 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
+     #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
-     #:standards (list "BS-PL.3&1&1")
+     #:exercises (list )
+     #:product-outcomes @itemlist[]
+     #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[
-        @item{Computer for each student (or pair), with access to the internet}
-        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -170,47 +170,47 @@
                 )
       ]{
         @points[
-            @point{
-                  @student{
-                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
-                        You can add your own definitions, for example:
+              @point{
+                    @student{
+                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
                         @code[#:multi-line #t]{
-                            name = "Maya"
-                            sum = 2 + 2
-                            img = triangle(10, "solid", "red")
+                            shapes.row-n(0)
                         }
-                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            With your partner, take turns adding definitions to this file:
-                            @itemlist[
-                              @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
-                              @item{Define a value with name @code{year}, whose value is a Number representing the current year}
-                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
-                            ]
+                        Note: data rows start at zero!
+                        @activity{
+                            For practice, in the Interactions Area, use the @code{row-n} method to get the second and third data rows.
                         }
+                    }
+                    @teacher{
 
-                  }
-                  @teacher{
-                          
-                  }
-            }
-            @point{
-                  @student{
-                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{row-n} method to define values. Type the following lines of code into the Definitions Area and click "Run":
-                        @code[#:multi-line #t]{
-                          animalA = animals-table.row-n(1)
-                          animalB = animals-table.row-n(10)
-                        }
-                        What happens when you evaluate @code{animalA} in the Interactions Area?
-                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                            Define @italic{at least two} additional values to be animals from the @code{animals-table}, called @code{animalC} and @code{animalD}.
-                        }
-                  }
-                  @teacher{
+                    }
+              }
+              @point{
+                      @student{
+                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                              @code[#:multi-line #t]{
+                                      shapes.row-n(0)["name"]      # "triangle"
+                                      shapes.row-n(0)["corners"]   # 3
+                                      shapes.row-n(0)["is-round"]  # false
+                              }
+                              @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                                  How would you get the @code{name} column out of the @italic{second} row? The third?
+                              }
+                      }
+                      @teacher{
 
-                  }
-            }
+                      }
+              }
+              @point{
+                      @student{
+                              Let's get some pratice playing with the @code{row-n} method, and row-accessors!
+                              @activity{
+                                 Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
+                              }
+                      }
+              }
       ]
-  }
+}
 
   @lesson/studteach[
      #:title "Question Types"
@@ -277,6 +277,67 @@
                   }
             }
         ]
+  }
+
+  @lesson/studteach[
+     #:title "Defining Values"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students define several row values from the animals table}]
+     #:standards (list "BS-PL.3&1&1")
+     #:materials @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+            @point{
+                  @student{
+                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
+                        You can add your own definitions, for example:
+                        @code[#:multi-line #t]{
+                            name = "Maya"
+                            sum = 2 + 2
+                            img = triangle(10, "solid", "red")
+                        }
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
+                            With your partner, take turns adding definitions to this file:
+                            @itemlist[
+                              @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
+                              @item{Define a value with name @code{year}, whose value is a Number representing the current year}
+                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
+                            ]
+                        }
+
+                  }
+                  @teacher{
+                          
+                  }
+            }
+            @point{
+                  @student{
+                        Each row of our @code{animals-table} represents a single animal in our shelter. We can use the @code{row-n} method to define values. Type the following lines of code into the Definitions Area and click "Run":
+                        @code[#:multi-line #t]{
+                          animalA = animals-table.row-n(1)
+                          animalB = animals-table.row-n(10)
+                        }
+                        What happens when you evaluate @code{animalA} in the Interactions Area?
+                        @activity[#:forevidence (list "BS-PL.3&1&1")]{
+                            Define @italic{at least two} additional values to be animals from the @code{animals-table}, called @code{animalC} and @code{animalD}.
+                        }
+                  }
+                  @teacher{
+
+                  }
+            }
+      ]
   }
 
   @lesson/studteach[
