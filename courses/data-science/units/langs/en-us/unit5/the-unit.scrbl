@@ -53,7 +53,7 @@
                 }
                 @point{
                       @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. Instead of talking about each individual in a dataset, Data Scientists find it useful to describe the @vocab{shape} of the data. For example, a plot of the heights of various athletes might find that the overall @italic{shape} of the data is skewed upwards by very tall basketball players.  Shape allows us to @italic{summarize} information in a dataset, to describe the data quickly and easily.
+                            In the last Unit, you learned how to talk about shape by looking at histograms. In this Unit, you'll learn about the different ways of @italic{computing} shape, and how to connect those back to a visual representation.
                       }
                       @teacher{
 
@@ -96,7 +96,12 @@
                 }
                 @point{
                       @student{
-                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{appropriately} is essential. In this lesson, we'll check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
+                              Every kind of summary has situations in which it is very accurate and useful, and others where it's not accurate or useful at all. In fact, the shape of the data can play a huge role in whether or not one kind of summary is accurate!
+                      }
+                }
+                @point{
+                      @student{
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
                       }
                       @teacher{
 
@@ -180,6 +185,9 @@
                 @point{
                       @student{
                               In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with extreme outliers. The mean may also be thrown off by the presence of @vocab{skew}: a lopsided shape due to values trailing off left or right of center, but not separated by the visible gap typical of outliers.
+                              @activity{
+                                  Make a @code{histogram} of the @code{weeks} column, and try different bin sizes. Can you see the skew towards the right?
+                              }
                       }
                       @teacher{
 
@@ -187,7 +195,7 @@
                 }
                 @point{
                       @student{
-                              Another way to measure center is to line up all of the data points - in order - and find a point in the center where half of the values are smaller and the other half are larger. This is the @vocab{median}, or "middle" value of a list.
+                              A different way to measure center is to line up all of the data points - in order - and find a point in the center where half of the values are smaller and the other half are larger. This is the @vocab{median}, or "middle" value of a list.
                       }
                       @teacher{
                               
@@ -283,12 +291,13 @@
                 }
                 @point{
                       @student{
-                              At this point, we have a lot of evidence that suggests the Bureau's summary is misleading. Our mean wait time agrees with their findings, but we have two reasons to suspect that @vocab{mean} isn't the best value to use:
+                              At this point, we have a lot of evidence that suggests the Bureau's use of "mean" to summarize data is inaccurate. Our mean wait time agrees with their findings, but we have three reasons to suspect that @vocab{mean} isn't the best value to use:
                               @itemlist[
                                   @item{ The median is only 4 weeks. }
                                   @item{ The modes of our dataset are only 1 and 3, which means there are clusters of animals that are adopted in just one or three weeks. }
+                                  @item{ When viewed as a histogram, we can see the rightward skew in the dataset. Mean is sensitive to highly-skewed datasets }
                               ]
-                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} about 5.8 weeks. But then they reported a conclusion without checking to see if that was the best statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to settle for the Bureau's summary.
+                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} about 5.8 weeks. But then they reported a conclusion without checking to see if that was the best summary statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to settle for the Bureau's summary. This is why using tools like histograms can be so important when deciding on a summary tool.
                       }
                       @teacher{
                               
@@ -442,38 +451,6 @@
                       }
                 }
         ]
-  }
-
-  @lesson/studteach[
-     #:title "Table Plans"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[
-          @item{Students learn different measures of variation, including range, and interquartile range}
-          @item{Students practice describing variation using these concepts}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          @activity{
-                              Turn to page @worksheet-link[#:name "Fixed-Weeks-Box"], and complete the Table Plan you find there. You'll need to come up with your own sample table this time: what columns will you need? What rows matter?
-                          }
-                      }
-                      @teacher{
-                          
-                      }
-                }
-      ]
   }
 
   @lesson/studteach[

@@ -12,7 +12,7 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-char pie-chart} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
                                               @code{count, .row-n, .order-by, .filter} 
@@ -54,18 +54,7 @@
                 }
                 @point{
                       @student{
-                              Let's look at an sample table taken from the @code{animals-table}...
-
-                              @build-table/cols[
-                                    '("name" "species" "age" "pounds")
-                                    '(("\"Sasha\"" "\"Boo-boo\"" "\"Felix\"" "\"Buddy\"" "\"Nori\"" "\"Wade\"" "\"Nibblet\"" "\"Maple\"")
-                                      ("\"cat\"" "\"dog\"" "\"cat\"" "\"lizard\"" "\"dog\"" "\"cat\"" "\"rabbit\"" "\"dog\"")
-                                      ("1" "11" "16" "2" "6" "1" "6" "3")
-                                      ("6.5" "123" "9.2" "0.3" "35.3" "3.2" "4.3" "51.6"))
-                                     (lambda (r c) (para ""))
-                                     4 8
-                              ]
-                              What can we say about this table? How many rows and columns does it have? Are the column variables categorical or quantitative? Could we talk about the mean, median or modes of some of these columns? Which ones?
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. Instead of talking about each individual in a dataset, Data Scientists find it useful to describe the @vocab{shape} of the data. For example, a plot of the heights of various athletes might find that the overall @italic{shape} of the data is skewed upwards by very tall basketball players.
                       }
                       @teacher{
 
@@ -73,10 +62,10 @@
                 }
                 @point{
                       @student{
+                              Shape allows us to @italic{summarize} information in a dataset, to describe the data quickly and easily. In this Unit, you'll learn how to identify and talk about the "shape" of data, by looking at a new kind of chart called a histogram.
                               @activity[#:forevidence (list "6.SP.4-5&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                    Turn to @worksheet-link[#:name "Visualizing-Frequency"] in your Student Workbook, and answer the questions you find there. 
+                                TODO(WORKBOOK) - show a histogram, ask about shape.
                               }
-                              What was different about these questions? What did the charts at the bottom tell us? The questions were all about @italic{frequency}. The first chart shows the frequency of different species in the table, and the second shows the frequency of certain @italic{weight-ranges}.
                       }
                       @teacher{
 
@@ -86,7 +75,7 @@
   }
 
   @lesson/studteach[
-     #:title "Bar Charts v. Histograms"
+     #:title "Reviewing Bar Charts"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students are introduced to histograms bar charts}]
@@ -107,7 +96,7 @@
                               @bitmap{images/freq-bar.png}
                               @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 7 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 3/7 for cats and 1/7 for rabbits, or converted those fractions to percentages. The chart would look the same either way: only the numbers on the vertical axis would change.
                                @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
-                                  In the Interactions Area, type in the example to make a bar chart of the animals, broken down by gender. Are there more animals at the shelter that are female than male? Complete the Table Plan on @worksheet-link[#:name "Freq-Bar-Gender"].
+                                  In the Interactions Area, type in the example to make a bar chart of the animals, broken down by gender. Are there more animals at the shelter that are female than male? TODO(WORKBOOK)
                               }
                       }
                       @teacher{
@@ -124,7 +113,7 @@
                 }
                 @point{
                       @student{
-                              Another challenge in using quantitative v. categorical data is the number of bars: there are only so many types of animal at the shelter, but there could be a hundred different weights! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
+                              Another challenge in using quantitative v. categorical data is the number of bars: there are only so many types of animal at the shelter, but there could be dozens of different weights! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
                       }
                       @teacher{
 
@@ -166,7 +155,7 @@
                 }
                 @point{
                       @student{
-                               Here is the contract for @code{histogram}, followed by an example of how use it:
+                              Here is the contract for @code{histogram}, followed by an example of how use it:
                               @code[#:multi-line #t]{
                                 # histogram :: (t :: Table, values :: String, bin-width :: Number) -> Image
                                 histogram(animals-table, "pounds", 20)    # show the frequency of weights (in 20-pound bins)

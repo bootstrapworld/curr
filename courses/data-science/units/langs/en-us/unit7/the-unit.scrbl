@@ -43,25 +43,37 @@
       ]{
         @points[
                 @point{
-                        @student{
-                                "Younger animals are cuter, and therefore get adopted faster". Do you agree with this statement?
-                                You now have significant experience asking questions about data sets: You began with displays like bar charts, pie charts, and histograms to help us @italic{visualize} what's going for a single variable. You also learned how to @italic{summarize} a single column of data, using measure like the mean or median. Let's add a new dimension to our displays, so we can find out if younger animals really do get adopted faster. First, we'll start with a sample of our dataset: the @code{animals-table}.
-
-                                 @build-table/cols[
-                                    '("name" "species" "age" "weeks")
-                                    '(("\"Sasha\"" "\"Boo-boo\"" "\"Felix\"" "\"Buddy\"" "\"Nori\"" "\"Wade\"" "\"Nibblet\"" "\"Maple\"")
-                                      ("\"cat\"" "\"dog\"" "\"cat\"" "\"lizard\"" "\"dog\"" "\"cat\"" "\"rabbit\"" "\"dog\"")
-                                      ("1" "11" "16" "2" "6" "1" "6" "3")
-                                      ("3" "5" "4" "24" "9" "2" "12" "2"))
-                                     (lambda (r c) (para ""))
-                                     4 8
-                                ]
-                                Based on this limited sample, does it look like older animals have to wait longer to find their families?
-                        }
-                        @teacher{
-                                   
-                        }
+                      @student{
+                          Why are some animals adopted quickly, while others take a long time? What factors explain why one pet gets adopted right away, and others wait months?
+                      }
+                      @teacher{
+                          Ask the class for theories.
+                      }
                 }
+                @point{
+                      @student{
+                          @bannerline{Theory 1: smaller animals get adopted faster because they're easier to care for} 
+                          How could we test that theory? Bar and pie charts are great for showing us how the values of a single column are distributed, but they can't help us see connections between @italic{two} columns.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              @activity[#:forevidence (list)]{
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ" "new copy"].)
+                              }
+                              For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
+                              @activity[#:forevidence (list "S-ID.1-4&1&1")]{
+                                  Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
+                              }
+                      }
+                      @teacher{
+                              Suggestion: divide the full table up into sub-lists, and have a few student plot 3-4 animals on the board. This can be done collaboratively, resulting in a whole-class scatterplot!
+                      }
+                }
+
                 @point{
                         @student{
                                 @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
@@ -74,11 +86,11 @@
                 }
                 @point{
                         @student{
-                                We've got a lot of tools in our toolkit that help us think about an @italic{entire} column of a dataset:
+                                We've got a lot of tools in our toolkit that help us think about an entire @italic{column} of a dataset:
                                 @itemlist[
-                                    @item{ We have three ways to find measures of center for a given column }
-                                    @item{ We have visualizations that let us see the @italic{distribition} of values in a quantitative column }
-                                    @item{ We have visualizations that let us see the @italic{frequencies} or @italic{relative frequencies} in a categorical column }
+                                    @item{ We have ways to find measures of center and variation for a given column }
+                                    @item{ We have visualizations that let us see the @italic{shape} of values in a quantitative column }
+                                    @item{ We have visualizations that let us see the @italic{frequencies} a categorical column }
                                 ]
                                 What column is this question asking about?
                         }
@@ -100,8 +112,8 @@
 
 
   @lesson/studteach[
-     #:title "Looking for Relationships"
-     #:duration "15 minutes"
+     #:title "Scatter Plots"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -118,26 +130,10 @@
         @points[
               @point{
                     @student{
-                        Why are some animals adopted quickly, while others take a long time? What factors explain why one pet gets adopted right away, and others wait months?
-                    }
-                    @teacher{
-                        Ask the class for theories.
-                    }
-              }
-              @point{
-                    @student{
-                        One theory is that people adopt smaller animals because they're easier to care for. How could we test that theory? Bar and pie charts are great for showing us how the values of a single column are distributed, but they can't help us see connections between @italic{two} columns.
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
                         Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}. Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
                         @code[#:multi-line #t]{
                             # scatter-plot :: (t :: Table, labels :: String, xs :: String, ys :: String) -> Image
-                            scatter-plot(animals-table, "name", "pounds", "weeks") # see if smaller animals get adopted faster
+                            scatter-plot(animals-table, "name", "pounds", "weeks")
                         }
                         @activity{ Try making a few scatter plots, looking for relationships between columns in the animals-table. }
                     }
@@ -147,7 +143,8 @@
               }
               @point{
                     @student{
-                        Another theory is that people adopt younger animals because they are cuter. But cats, dogs, rabbits and tarantulas have very different lifespans. A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart. To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
+                        @bannerline{Theory 2: Younger animals get adopted faster because they are cuter} 
+                        But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart. To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
                         @activity{
                             Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function. Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
                         }
@@ -156,169 +153,108 @@
 
                     }
               }
-        ]
-  }
-
-  @lesson/studteach[
-     #:title "Scatter Plots"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students are begin using scatter plots as a tool for seeing relationships between two variables}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students practice making scatter plots using the animals dataset}]
-     #:standards (list "8.SP.1-4" "S-ID.5-6" "HSS.ID.B" "Data 3.1.3" "Data 3.2.1")
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                        @student{
-                                @activity[#:forevidence (list)]{
-                                  Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ" "new copy"].)
-                                }
-                                For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
-                                @activity[#:forevidence (list "S-ID.1-4&1&1")]{
-                                    Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
-                                }
-                        }
-                        @teacher{
-                                Suggestion: divide the full table up into sub-lists, and have a few student plot 3-4 animals on the board. This can be done collaboratively, resulting in a whole-class scatterplot!
-                        }
-                }
-                @point{
-                        @student{
-                                This visualization is called a @vocab{scatter plot}. Pyret has two functions for making scatter plots:
-                                @code[#:multi-line #t]{
-                                    # scatter-plot :: (t :: Table, xs :: String, ys :: String) -> Image
-                                    # scatter-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
-                                }
-                                Both functions consume the Table that we want to visualize, as well as the columns that we want to use as @code{xs} and @code{ys}. However, @code{scatter-plot} consumes another argument after the Table, which is a column that we will use to @italic{label each point}.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                To make a scatter-plot for our @code{animals-table}, we write...
-                                @code[#:multi-line #t]{
-                                    scatter-plot(animals-table, "age", "weeks")
-                                }
-                                @activity[#:forevidence (list "8.SP.1-4&1&1")]{
-                                    Make a @code{scatter-plot}, using the animals' names as labels. What happens when you hover over the points?
-                                }
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                @bitmap{images/age-vs-weeks.png}
-                                Now that we have our scatter plot, what kind of patterns do we see? 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4" "HSS.ID.B&1&2")]{
-                                    @itemlist[
-                                        @item{ Can you see a 'cloud' around which the points are clustered? }
-                                        @item{ Are there places where the "cloud" is denser than others? }
-                                        @item{ Does the number of weeks to adoption seem to go up or down as the age increases? }
-                                        @item{ Are there any points that "stray from the pack?" Which ones? }
-                                    ]
-                                }
-                        }
-                        @teacher{
-                                Suggestion: project the scatter plot at the front of the room, and have students @italic{come up to the plot} to point out their patterns.
-                        }
-                }
-                @point{
-                        @student{
-                                If we see a straight-line pattern in the cloud of scatter plot points, this suggests the variables could be related in a certain way. Do the two variables' values tend to increase or decrease together, or does one go down as the other goes up? We'd also like to know if one variables tells us a lot or a little about the other's values. A single number called a @vocab{correlation} can provide us with both pieces of information.
-                        }
-                        @teacher{
-                                
-                        }
-                }
-                @point{
-                        @student{
-                                In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}, and it turns out to be really useful for making predictions. For example, we can use the line to predict how long a new dog would wait at the shelter, if the dog is 4 years old.
-                        }
-                        @teacher{
-
-                        }
-                }
-                @point{
-                        @student{
-                                Do you notice any data points that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
-                                @activity[#:forevidence (list "HSS.ID.A&1&3")]{
-                                    Why might these animals be outliers?
-                                }
-                        }
-                        @teacher{
-                                Give students a chance to come up with a few ideas, and share them with the class.
-                        }
-                }
-                @point{
-                        @student{
-                                Outliers are always interesting: 
+              @point{
+                    @student{
+                            @bitmap{images/age-vs-weeks.png}
+                            Now that we have our scatter plot, what kind of patterns do we see? 
+                            @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4" "HSS.ID.B&1&2")]{
                                 @itemlist[
-                                    @item{
-                                        Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we might need to do some deep thinking about whether or not it's appropriate to remove him from our dataset.
-                                    }
-                                    @item{
-                                        Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
-                                    }
-                                    @item{
-                                        Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are rip-offs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a really bad deal.
-                                    }
+                                    @item{ Can you see a 'cloud' around which the points are clustered? }
+                                    @item{ Are there places where the "cloud" is denser than others? }
+                                    @item{ Does the number of weeks to adoption seem to go up or down as the age increases? }
+                                    @item{ Are there any points that "stray from the pack?" Which ones? }
                                 ]
-                        }
-                        @teacher{
-
-                        }
+                            }
+                    }
+                    @teacher{
+                            Suggestion: project the scatter plot at the front of the room, and have students @italic{come up to the plot} to point out their patterns.
+                    }
                 }
                 @point{
-                        @student{ 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
-                                    For practice, try making scatter plots for each of the following relationships. If you see any outliers, try to explain them!
-                                    @itemlist[
-                                                @item{
-                                                        The @code{age} of an animal vs the @code{pounds} of the animal
-                                                }
-                                                @item{
-                                                        The @code{pounds} of an animal vs the number of @code{weeks} to be adopted
-                                                }
-                                                @item{
-                                                        The @code{pounds} vs the number of @code{legs} it has.
-                                                }
-                                        ]
-                                }
-                        }
-                        @teacher{
-                                Debrief, showing the plots on the board. Make sure students see plots for which there is no relationship, like the last one!
-                        }
+                    @student{
+                            If we see a straight-line pattern in the cloud of scatter plot points, this suggests the variables could be related in a certain way. Do the two variables' values tend to increase or decrease together, or does one go down as the other goes up? We'd also like to know if one variables tells us a lot or a little about the other's values. A single number called a @vocab{correlation} can provide us with both pieces of information.
+                    }
+                    @teacher{
+                            
+                    }
                 }
                 @point{
-                        @student{
-                                Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
+                    @student{
+                            In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}, and it turns out to be really useful for making predictions. For example, we can use the line to predict how long a new dog would wait at the shelter, if the dog is 4 years old.
+                    }
+                    @teacher{
 
-                                @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
-                                        Turn to @worksheet-link[#:name "Age-v-Weeks-Cats"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
+                    }
+                }
+                @point{
+                    @student{
+                            Do you notice any data points that seem unusually far away from the line? Which animals are those? These points are called @vocab{outliers}, meaning that there is something special about them that makes them different from everyone else. 
+                            @activity[#:forevidence (list "HSS.ID.A&1&3")]{
+                                Why might these animals be outliers?
+                            }
+                    }
+                    @teacher{
+                            Give students a chance to come up with a few ideas, and share them with the class.
+                    }
+                }
+                @point{
+                    @student{
+                            Outliers are always interesting: 
+                            @itemlist[
+                                @item{
+                                    Sometimes they're just random. Maybe Felix just met the right family early, or maybe we find out he lives nearby, got lost and his family came to get him. In that case, we might need to do some deep thinking about whether or not it's appropriate to remove him from our dataset.
                                 }
-                        }
-                        @teacher{
+                                @item{
+                                    Sometimes they can give you a deeper insight into your data. Maybe Felix is a special, popular @italic{breed} of cat, and we discover that our dataset is missing an important column for breed!
+                                }
+                                @item{
+                                    Sometimes outliers are the points we are looking for! What if we wanted to know which restaurants are a good value, and which are rip-offs? We could make a scatterplot of restaurant prices vs. reviews, an outlier that's high above the rest of the points would be a restaurant whose reviews are @italic{unusually good} for the price. An outlier way below the cloud would be a really bad deal.
+                                }
+                            ]
+                    }
+                    @teacher{
 
-                        }
+                    }
+                }
+                @point{
+                    @student{ 
+                            @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
+                                For practice, try making scatter plots for each of the following relationships. If you see any outliers, try to explain them!
+                                @itemlist[
+                                            @item{
+                                                    The @code{age} of an animal vs the @code{pounds} of the animal
+                                            }
+                                            @item{
+                                                    The @code{pounds} of an animal vs the number of @code{weeks} to be adopted
+                                            }
+                                            @item{
+                                                    The @code{pounds} vs the number of @code{legs} it has.
+                                            }
+                                    ]
+                            }
+                    }
+                    @teacher{
+                            Debrief, showing the plots on the board. Make sure students see plots for which there is no relationship, like the last one!
+                    }
+                }
+                @point{
+                    @student{
+                            Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
+
+                            @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
+                                    Turn to @worksheet-link[#:name "Age-v-Weeks-Cats"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
+                            }
+                    }
+                    @teacher{
+
+                    }
                 }
         ]
   }
 
   @lesson/studteach[
      #:title "Correlations and Predictions"
-     #:duration "30 minutes"
+     #:duration "40 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn how to interpret scatterplots, and talk about strength and direction  of correlation}]
      #:evidence-statements @itemlist[]

@@ -44,7 +44,7 @@
         @points[
                 @point{
                         @student{
-                                "Do younger animals get adopted faster?". We started the previous Unit with this question, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
+                                "Do lighter animals get adopted faster? Do younger animals?" We started the previous Unit with these questions, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
                         }
                         @teacher{
                                    

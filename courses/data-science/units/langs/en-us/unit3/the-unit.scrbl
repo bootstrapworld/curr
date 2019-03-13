@@ -111,28 +111,13 @@
                           @bannerline{ 
                               Make subsets first!
                           }
-                          Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards", "just males", or "just the fixed animals".
+                          Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
                           @activity{
                               What subsets make sense for the animals dataset?
                           }
                       }
                       @teacher{
                           Collect student responses, and write them on the board. 
-                      }
-                }
-                
-                @point{
-                      @student{
-                          We already know how to define values, and how to filter a dataset. So let's define some subsets, in addition to the random samples we already have:
-                          @code[#:multi-line #t] {
-                              dogs  = animals-table.filter(is-dog)
-                              cats  = animals-table.filter(is-cat)
-                              fixed = animals-table.filter(is-fixed)
-                              young = animals-table.filter(is-young)
-                          }
-                      }
-                      @teacher{
-
                       }
                 }
                 @point{
@@ -159,20 +144,34 @@
                 }
                 @point{
                       @student{
+                          We already know how to define values, and how to filter a dataset. So let's define some subsets, in addition to the random samples we just made:
+                          @code[#:multi-line #t] {
+                              dogs  = animals-table.filter(is-dog)
+                              cats  = animals-table.filter(is-cat)
+                              fixed = animals-table.filter(is-fixed)
+                              young = animals-table.filter(is-young)
+                          }
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
                           We can make a pie-chart showing how many of each species is in the shelter, by writing
                           @code[#:multi-line #t]{
                             pie-chart(count(animals-table, "species"), "value", "count")
                           }
-                          But which of our subsets will give us the most accurate approximation?
-                          @code[#:multi-line #t]{
-                            pie-chart(count(dogs, "species"), "value", "count")
-                            pie-chart(count(cats, "species"), "value", "count")
-                            pie-chart(count(fixed, "species"), "value", "count")
-                            pie-chart(count(young, "species"), "value", "count")
-                            pie-chart(count(small-sample, "species"), "value", "count")
-                            pie-chart(count(large-sample, "species"), "value", "count")
-                          }
                           @activity{
+                            Which of our subsets will give us the most accurate approximation of the original chart?
+                            @code[#:multi-line #t]{
+                              pie-chart(count(dogs, "species"), "value", "count")
+                              pie-chart(count(cats, "species"), "value", "count")
+                              pie-chart(count(fixed, "species"), "value", "count")
+                              pie-chart(count(young, "species"), "value", "count")
+                              pie-chart(count(small-sample, "species"), "value", "count")
+                              pie-chart(count(large-sample, "species"), "value", "count")
+                            }
                             Compare the charts you get from each of these. Which one is the most representative of the whole population? Why?
                           }
                       }
