@@ -12,10 +12,10 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n}
+                                              @code{count}
                                               ""))]{
   @unit-descr{
       Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked about a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
@@ -24,193 +24,6 @@
 @unit-lessons{
 
 
-  @lesson/studteach[
-     #:title "The Animals Dataset"
-     #:duration "15 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[]
-     #:standards (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")
-     #:materials @itemlist[]
-     #:preparation @itemlist[
-        @item{Computer for each student (or pair), with access to the internet}
-        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                            Now, let's take a look at a real dataset!
-                            @activity[#:forevidence (list )]{
-                                @itemlist[
-                                    @item{
-                                        Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
-                                    }
-                                    @item{
-                                        This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
-                                    }
-                                    @item{
-                                        Open up the @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "Animals Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
-                                    }
-                                ]
-                            }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            This file contains some new code that you haven't seen before. As with our Shapes file, we have a few @code{include} lines which import useful libraries for our course. This time, we also include a library that lets us work with Google Sheets:
-                            @code[#:multi-line #t]{
-                              include gdrive-sheets
-                              include tables
-                              include image
-                            }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            On line 9, the @code{load-spreadsheet} function is used to load our animal shelter spreadsheet from Google Drive, and give that file a name: @code{shelter-sheet}. After that, we see the following code:
-                            @code[#:multi-line #t]{
-                              # load the 'pets' sheet as a table called animals-table
-                              animals-table = load-table: name, species, age, fixed, legs
-                                source: pets-sheet.sheet-by-name("pets", true)
-                              end
-                            }
-                            Just as you saw with our @code{shapes} example, this code @italic{defines a new table}. This time, it's called @code{animals-table}, and it's loaded from our Google Sheet. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
-                      }
-                      @teacher{
-                            Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
-                      }
-                }
-                @point{
-                      @student{
-                            Click "Run", and type @code{animals-table} into the Interactions Area to see what this table looks like.
-                            @itemlist[
-                              @item{How many column variables does this table have?}
-                              @item{For each column variable, is the data quantitative or categorical? }
-                              @item{For each column variable, what datatype is being used? Numbers? Strings? Images? Booleans? }
-                            ]
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                          @activity{
-                            Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table for Question 2.
-                          }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            You already know about the @code{.row-n} method, which consumes a number and produces a row from a table. But tables have other methods too! The @code{.order-by} method consumes a String (the name of the column you want to order) and a Boolean (true for ascending, false for descending). Try typing the following expressions into the Interactions Area. What do you get?
-                            @code[#:multi-line #t]{
-                                animals-table.order-by("name", true)
-                                animals-table.order-by("age", false)
-                            }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            What is the Domain of @code{.order-by}? What is the Range? Find the contract for this method in your contracts table, and make sure it makes sense!
-                      }
-                }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                            Make at least one bar-chart and at least one pie-chart, using columns from the @code{animals-table}. What do you notice? What do you wonder?
-                          }
-                      }
-                      @teacher{
-                        Have students share their noticings and wonderings. Ideally, at least one student will wonder if there's a way to make charts using only a @italic{subset} of the data!
-                      }
-                }
-                @point{
-                      @student{
-                          You may already be wondering if there's a way to make charts using only a @italic{subset} of the rows in a table. For example: what if we want to make a bar chart showing only the ages of the cats at the shelter? To do this, we need to learn how to write functions of our own, which can tell us if an animal is a cat or not, fixed or not, and so on.
-                      }
-                }
-        ]
-  }
-
-
-
-@lesson/studteach[
-     #:title "Row and Column Lookups"
-     #:duration "10 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
-     #:evidence-statements @itemlist[]
-     #:exercises (list )
-     #:product-outcomes @itemlist[]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-              @point{
-                    @student{
-                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
-                        @code[#:multi-line #t]{
-                            shapes.row-n(0)
-                        }
-                        Note: data rows start at zero!
-                        @activity{
-                            For practice, in the Interactions Area, use the @code{row-n} method to get the second and third data rows.
-                        }
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                      @student{
-                              Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
-                              @code[#:multi-line #t]{
-                                      shapes.row-n(0)["name"]      # "triangle"
-                                      shapes.row-n(0)["corners"]   # 3
-                                      shapes.row-n(0)["is-round"]  # false
-                              }
-                              @activity[#:forevidence (list "BS-DR.2&1&1")]{
-                                  How would you get the @code{name} column out of the @italic{second} row? The third?
-                              }
-                      }
-                      @teacher{
-
-                      }
-              }
-              @point{
-                      @student{
-                              Let's get some pratice playing with the @code{row-n} method, and row-accessors!
-                              @activity{
-                                 Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
-                              }
-                      }
-              }
-      ]
-}
 
   @lesson/studteach[
      #:title "Question Types"
@@ -270,14 +83,96 @@
             }
             @point{
                   @student{
-                          Lookup questions are easy to answer: just find the right row and column, and read out the answer! You learned how to do lookups in Pyret in Unit 1. This time, let's practice lookups using value definitions, where each row is defined separately.
-                          @activity{
-                              Complete the activity on @worksheet-link[#:name "Lookup-Animals"].
-                          }
+                          Lookup questions are easy to answer: just find the right row and column, and read out the answer! Let's learn how to do this in Pyret...
                   }
             }
         ]
   }
+
+  @lesson/studteach[
+     #:title "Row and Column Lookups"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
+     #:evidence-statements @itemlist[]
+     #:exercises (list )
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
+                        @code[#:multi-line #t]{
+                            animals-table.row-n(0)
+                        }
+                        Note: data rows start at zero!
+                        @activity{
+                            For practice, in the Interactions Area, use the @code{row-n} method to get the second and third data rows.
+                        }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                          What is the Domain of @code{.row-n}? What is the Range? Find the contract for this method in your contracts table. A table @vocab{method} is a special kind of function which always operates on a specific table. In our example, we always use @code{.row-n} with the animals table, so the number we pass in is @italic{always} used to grab a particular row from @code{animals-table}.
+                    }
+              }
+              @point{
+                    @student{
+                          Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                          @code[#:multi-line #t]{
+                                  animals-table.row-n(0)["name"]
+                                  animals-table.row-n(0)["age"]
+                                  animals-table.row-n(0)["fixed"]
+                          }
+                          @activity[#:forevidence (list "BS-DR.2&1&1")]{
+                              How would you get the @code{weeks} column out of the @italic{second} row? The third?
+                          }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                        Let's get some pratice playing with the @code{row-n} method, and row-accessors!
+                        @activity{
+                           Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
+                        }
+                    }
+                    @teacher{
+                    
+                    }
+              }
+              @point{
+                    @student{
+                          Tables have other methods too! The @code{.order-by} method consumes a String (the name of the column you want to order) and a Boolean (true for ascending, false for descending). Try typing the following expressions into the Interactions Area. What do you get?
+                          @code[#:multi-line #t]{
+                              animals-table.order-by("name", true)
+                              animals-table.order-by("age", false)
+                          }
+                    }
+                    @teacher{
+
+                    }
+              }
+              @point{
+                    @student{
+                          What is the Domain of @code{.order-by}? What is the Range? Find the contract for this method in your contracts table, and make sure it makes sense!
+                    }
+              }
+      ]
+}
 
   @lesson/studteach[
      #:title "Defining Values"
@@ -300,7 +195,7 @@
         @points[
             @point{
                   @student{
-                        As you've seen, Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
+                        Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
                         You can add your own definitions, for example:
                         @code[#:multi-line #t]{
                             name = "Maya"
@@ -312,7 +207,7 @@
                             @itemlist[
                               @item{Define a value with name @code{food}, whose value is a String representing your favorite food}
                               @item{Define a value with name @code{year}, whose value is a Number representing the current year}
-                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is true if you like cats and false if you don't}
+                              @item{Define a value with name @code{likes-cats}, whose value is a Boolean that is @code{true} if you like cats and @code{false} if you don't}
                             ]
                         }
 
@@ -645,7 +540,6 @@
                           @code[#:multi-line #t]{
                               animals-table.filter(is-fixed)
                               animals-table.filter(is-cat)
-                              bar-chart(animals-table.filter(is-fixed))
                           }
                     }
                     @teacher{

@@ -64,65 +64,31 @@
                                     @item{@(new-tab "http://www.salon.com/2015/07/18/how_big_data_can_help_save_the_environment_partner/" "Climate Change")}
                             ]
                     }
-             }
-             @point{
+              }
+              @point{
                     @student{
                             We'll use a @vocab{programming language} to investigate these questions. Just like any human language, programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is called @italic{Pyret}.
                     }
                     @teacher{
                             Set expectations for the class.  This course is an @italic{introduction} data science, so some questions will be out of reach!
                     }
-             }
-             @point{
-                    @student{
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Open up the @editor-link[#:public-id "1AxY9vhd2PhcKK8iaVv05BfOa8Ywr9sdF" "Shapes Starter File"]. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
-                            }
-                    }
-                    @teacher{
-                            Each student (or pair of students) should have a Google Account.
-                    }
-             }
-             @point{
-                    @student{
-                            @bitmap{images/wireframeIDE.png}
-                            This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions Area} on the left and the @vocab{Interactions Area} on the right.
-
-                            For now, we will only be writing programs in the Interactions area.
-                    }
-                    @teacher{
-                            The Definitions Area is where programmers define values and functions that they want to keep, while the Interactions Area allows them to experiment with those values and functions. This is like writing function definitions on a blackboard, and having student use those functions to compute answers on scrap paper.
-                    }
-             }
-             @point{
-                    @student{
-                            When you click "Run", Pyret reads what's written in the Definitions Area on the left, and allows us to use those definitions on the right. The first lines of code on in the Definitions Area load our Data Science library, which has some useful code that will help us in the course, as well as some libraries for working with Tables and making Images. The rest of the program defines a @vocab{Table} called @code{shapes}.
-                    }
-                    @teacher{
-
-                    }
-             }
-             @point{
-                    @student{
-                            Now that we've clicked "Run", we can play with our @code{shapes} Table. Type @code{shapes} into the Interactions Area and hit Enter...
-                    }
-                    @teacher{
-
-                    }
-             }
+              }
      ]
   }
 
+
   @lesson/studteach[
-     #:title "Exploring Tables"
-     #:duration "10 minutes"
+     #:title "The Animals Dataset"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students add rows to a Pyret table}]
-     #:standards (list )
+     #:product-outcomes @itemlist[]
+     #:standards (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")
      #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -130,88 +96,169 @@
                 )
       ]{
         @points[
-            @point{
-                    @student{
-                            What comes back is called a @vocab{Table}. Pyret allows us to define names for values, and in this case the name @code{shapes} has been defined as the table you see here. Every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. The @code{shapes} table has two columns:  the @code{name} of the shape, and the number of @code{corners}.
-                            @build-table/cols[
-                                        '("name" "corners")
-                                        '(("triangle" "square")
-                                          ("3" "4"))
-                                         (lambda (r c) (para ""))
-                                         2 2
-                            ]     
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
-                            After the header, tables can have @vocab{data rows}. Each data row has values for every column (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
-                            @build-table/cols[
-                                '("name" "corners")
-                                '(())
-                                (lambda (r c) (para ""))
-                                 2 0
+              @point{
+                  @student{
+                        Let's take a look at a real dataset!
+                        @activity[#:forevidence (list )]{
+                            @itemlist[
+                                @item{
+                                    Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
+                                }
+                                @item{
+                                    This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+                                }
+                                @item{
+                                    If you look at the bottom, you'll see that this spreadsheet contains @italic{multiple sheets}. Which sheet are we looking at?
+                                }
+                                @item{
+                                    Each sheet contains a table. For our purposes, we only care about the animals table on the @code{"pets"} sheet.
+                                }
                             ]
+                        }
+                  }
+                  @teacher{
+                      Each student (or pair of students) should have a Google Account.
+                  }
+              }
+              @point{
+                  @student{
+                      Every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. 
+                      @activity{
+                          How many variables are listed in the header row? What are they called?
+                      }
+                  }
+                  @teacher{
+
+                  }
+              }
+              @point{
+                  @student{
+                    After the header, tables can have any number of @vocab{data rows}. Each data row has values for every variable (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
+                    @build-table/cols[
+                        '("name" "species")
+                        '(())
+                        (lambda (r c) (para ""))
+                         2 0
+                    ]
+                  }
+                  @teacher{
+
+                  }
+              }
+
+              @point{
+                      @student{
+                              Data Science is all about using a smaller sample of data to make predictions about a larger population. It's important to remember that tables are only an @italic{approximation} of a larger population: this table @italic{describes} some animals, but obviously it isn't every animal in the world! If we took the average age of the animals at this particular shelter, it @italic{might} tell us something about the average age of animals in other shelters.
+                      }
+                      @teacher{
+                      }
+              }
+              @point{
+                      @student{
+                              There are two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
+                              @activity[#:forevidence (list )]{
+                                  "Age" is a categorial variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
+                              }
+                      }
+                      @teacher{
+                      }
+              }
+              @point{
+                      @student{
+                              @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "cat" is more than "lizard", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but weather it's snowing or raining is categorical.
+                              @activity[#:forevidence (list )]{
+                                  "Species" is a categorical variable, because we can ask questions like "which species does Mittens belong to?" What are some other categorical variables you see in this table?
+                              }
+                      }
+                      @teacher{
+                      }
+              }
+              @point{
+                      @student{
+                              Sometimes it can be tricky to figure out if data is categorical or quantitative, because it depends on how that data is being used!
+                              @activity[#:forevidence (list )]{
+                                  For each of the following questions, determine whether the data being used is quantitative or categorical.
+                                  @itemlist[
+                                      @item{We'd like to sort a list of numbers by area code.}
+                                      @item{We'd like to find out which car is the most expensive.}
+                                      @item{We'd like to find out which cars are red.}
+                                      @item{We'd like to find out which puppy is the youngest.}
+                                      @item{We'd like to find out which kitten is a Tabby.}
+                                      @item{We want to know which people have a ZIP code of 02907.}
+                                  ]
+                              }
+                      }
+                      @teacher{
+                              The big idea here is that some data can be both categorical @italic{and} quantitative -- what matters is how we use it!
+                      }
+              }
+              @point{
+                  @student{
+                      Open up the @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "Animals Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                  }
+                  @teacher{
+                  }
+              }
+              @point{
+                  @student{
+                          @bitmap{images/wireframeIDE.png}
+                          This screen is called the @vocab{editor}, and it looks something like the diagram you see here. There are a few buttons at the top, but most of the screen is taken up by two large boxes: the @vocab{Definitions Area} on the left and the @vocab{Interactions Area} on the right.
+
+                          For now, we will only be writing programs in the Interactions area.
+                  }
+                  @teacher{
+                          The Definitions Area is where programmers define values and functions that they want to keep, while the Interactions Area allows them to experiment with those values and functions. This is like writing function definitions on a blackboard, and having student use those functions to compute answers on scrap paper.
+                  }
+              }
+              @point{
+                    @student{
+                          The first few lines in the Definitions Area tell Pyret to @code{import} files from elsewhere, which contain tools we'll want to use for this course. We're importing a file called Bootstrap:Data Science, as well a files for working with google sheets, tables, and images:
+                          @code[#:multi-line #t]{
+                            include shared-gdrive("Bootstrap-DataScience-...")
+                            include gdrive-sheets
+                            include tables
+                            include image
+                          }
                     }
                     @teacher{
 
                     }
-            }
-            @point{
+              }
+              @point{
                     @student{
-                            It's important to remember that tables are only an approximation of the real thing: this table @italic{describes} some shapes we've observed, but obviously it isn't the shapes themselves!
-                            @activity[#:forevidence (list "BS-M&1&2" "BS-M&1&3" "BS-PL.1&1&1")]{
-                                Add rows to this table for @code{circle}, @code{ellipse}, @code{star}, and @code{rectangle}. Pay close attention to how you use commas and colons, since these are part of the program! When you're done, click "Run" and print out your new-and-improved @code{shapes} table.
-                            }
+                          After that, we see a line of code that @italic{defines} @code{shelter-sheet} to be a spreadsheet. This table is loaded from Google Drive, so now Pyret and see the same spreadsheet you do. After that, we see the following code:
+                          @code[#:multi-line #t]{
+                            # load the 'pets' sheet as a table called animals-table
+                            animals-table = load-table: name, species, age, fixed, legs
+                              source: pets-sheet.sheet-by-name("pets", true)
+                            end
+                          }
+                          This code @italic{defines} a new table. We call it @code{animals-table}, and we load it from the @code{shelter-sheet} defined above. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
+                    }
+                    @teacher{
+                          Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
+                    }
+              }
+              @point{
+                    @student{
+                        @activity{
+                          Click "Run", and type @code{animals-table} into the Interactions Area to see what the table looks like in Pyret. Is it the same table you saw in Google Sheets? What is the same? What is different?
+                        }
+                    }
+                    @teacher{
 
                     }
-                    @teacher{
-                            You may need to walk through these carefully with students, pointing out where the punctuation marks are so that they're aware of them before they start coding.
-                    }
-            }
-            @point{
+              }
+              @point{
                     @student{
-                            Before we dive into all of the cool things you can do with tables, we need to understand the two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
-                            @activity[#:forevidence (list )]{
-                                "Who is the tallest student?" is an example of a question that is answered with Quantitative Data. What are some other questions you can come up with?
-                            }
+                        @activity{
+                          Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table for Question 2.
+                        }
                     }
                     @teacher{
-                            Have students come up with columns that are quantitative (height, age, wealth, etc...)
+
                     }
-            }
-            @point{
-                    @student{
-                            @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "blue" is more than "brown", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but weather it's snowing or raining is categorical.
-                            @activity[#:forevidence (list )]{
-                                For the two columns in the @code{shapes} table, which is categorical? Which is quantitative?
-                            }
-                    }
-                    @teacher{
-                            Have students come up with examples of columns that are categorical (gender, race, diet, etc...).
-                    }
-            }
-            @point{
-                    @student{
-                            @bannerline{Data can be categorical or quantitative, depending on how it is used.} It doesn't make sense to ask whether "@code{square} is more than @code{triangle}", so most of the time we'd use the @code{name} column as categorical data. But if we wanted to sort the table in alphabetical order, suddenly we @italic{do} care whether @code{square} comes before @code{triangle}.
-                            @activity[#:forevidence (list )]{
-                                For each of the following questions, determine whether the data being used is quantitative or categorical.
-                                @itemlist[
-                                    @item{We'd like to sort a list of numbers by area code.}
-                                    @item{We'd like to find out which car is the most expensive.}
-                                    @item{We'd like to find out which cars are red.}
-                                    @item{We'd like to find out which puppy is the youngest.}
-                                    @item{We'd like to find out which kitten is a Tabby.}
-                                    @item{We want to know which people have a ZIP code of 02907.}
-                                ]
-                            }
-                    }
-                    @teacher{
-                            The big idea here is that some data can be both categorical @italic{and} quantitative -- what matters is how we use it!
-                    }
-            }
+              }
         ]
   }
 
@@ -234,7 +281,7 @@
         @points[
             @point{
                     @student{ 
-                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of corners) and Strings (the name of the shape). Let's get some practice playing with both Datatypes.
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of legs each animal has) and Strings (the name of the animal). Let's get some practice playing with both Datatypes.
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&1" "Programming 5.3.1&1&9")]{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -294,10 +341,10 @@
                             As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{<} and @code{>}? 
                             @itemlist[
                                 @item{
-                                    To sort the table by age, we need to know if one person's age is @italic{less than} someone else's.
+                                    To sort the table by age, we need to know if one animal's age is @italic{less than} another's.
                                 }
                                 @item{
-                                    To filter the table to show only young people, we need to know if one person's age is @italic{less than} 25.
+                                    To filter the table to show only young animals, we need to know if an animal's age is @italic{less than} 2.
                                 }
                             ]
                     }
@@ -324,23 +371,12 @@
                             Have students play "true or false", in which they stand if you say something true, and sit if you say something false. Start simple ("I am wearing a hat"), and gradually get complex ("I am wearing a hat, @italic{and} I am standing on one leg").
                     }
             }
-            @point{
-                    @student{
-                            You've already gotten some practice adding rows to the table. But what if we want to add a column, to track whether or not a shape has any corners or not? Which shapes have corners and which don't?
-                            @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")] {
-                                Look closely at the pattern for the columns that are already in the table. Once you see the pattern, add a new column called @code{is-round}, which has Booleans for each row indicating whether or not that shape has corners. Is this column made up of qualitative or categorical data?
-                            }
-                    }
-                    @teacher{
-
-                    }
-            }
         ]
   }
 
   @lesson/studteach[
      #:title "Applying Functions"
-     #:duration "35 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about Contracts, and how they are used in function applications}]
      #:evidence-statements @itemlist[]
@@ -491,7 +527,7 @@
                     @student{
                             These three parts make up a @vocab{contract} for each function. Let's take a look at the Name, Domain, and Range of @code{num-sqrt} and @code{triangle}:
                             @code[#:multi-line #t]{
-                                    #num-sqrt :: (n :: Number) -> Number
+                                    # num-sqrt :: (n :: Number) -> Number
                                     # triangle :: (side :: Number, mode :: String, color :: String) -> Image
                             }
                             The first part of a contract is the function's name. In this example, our functions are named @code{num-sqrt} and @code{triangle}.
@@ -551,22 +587,6 @@
             }
             @point{
                     @student{
-                            We can extend our @code{shapes} table even further, by adding a column called @code{sample}. Then, for each row, add an expression that will create an example of that shape. For example:
-                            @code[#:multi-line #t]{
-                                shapes = table: name, corners, is-round, sample
-                                  row: "triangle", 3, true, triangle(20, "solid", "green")
-                                  row: "square", ...
-                            }
-                            @activity[#:forevidence (list )]{
-                                Complete the @code{sample} column in the @code{shapes} table by applying the other relevant functions.
-                            }
-                    }
-                    @teacher{
-
-                    }
-            }
-            @point{
-                    @student{
                       Can you think of a situation when you'd want to consume a @italic{Table}, and use that to produce an image? Have you ever seen any pictures created from tables of data?
                     }
                     @teacher{
@@ -578,7 +598,7 @@
                         The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here is the contract for a function that does just that, and an example of using it:
                         @code[#:multi-line #t]{
                              # pie-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
-                             pie-chart(shapes, "name", "corners")
+                             pie-chart(animals-table, "name", "pounds")
                             }
                         @activity{
                           @itemlist[
@@ -594,19 +614,18 @@
                     }
             }
             @point{
-                      @student{
-                              @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                                  In the Interactions Area, type @code{pie-chart(shapes-table, "name", "corners")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image. 
-                              }
-                      }
-                      @teacher{
-                              Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
-                      }
-                }
+                  @student{
+                          @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
+                              In the Interactions Area, type @code{pie-chart(animals-table, "name", "pounds")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image.
+                          }
+                  }
+                  @teacher{
+                          Hovering over a pie slice or bar reveals the value or percentage of the whole, and the label.
+                  }
+            }
             @point{
                     @student{
-                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{shapes} table as our dataset, and made a pie chart showing the distribition of @code{corners} across the table. 
-                        @activity{Why aren't there any pie slices for circle or ellipse?}
+                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribition of @code{pounds} across the shelter.
                     }
                     @teacher{
                         
@@ -618,7 +637,7 @@
                         @code[#:multi-line #t]{
                              # bar-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
                         }
-                        @activity{Use this function to make a bar chart showing the number of columns for each shape in the table.}
+                        @activity{Use this function to make a bar chart showing the number of weeks it takes for each animal to be adopted.}
                     }
                     @teacher{
                         
@@ -633,6 +652,87 @@
                     }
             }
          ]
+  }
+
+  @lesson/studteach[
+     #:title "Counting Values"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
+                    @student{
+                        As you can see, this isn't a terribly useful way to use Bar and Pie-Charts:
+                        @itemlist[
+                          @item{ 
+                            With so many rows in our dataset, we wind up with tons of pie slices and bars, and it's very difficult to read.
+                          }
+                          @item{ 
+                            Hovering over any pie slice or bar tells us the name of the animal and gives us the value at that cell in the table. But is that really that much an improvement over just looking that up ourselves in the table?
+                          }
+                        ]
+                    }
+                    @teacher{
+                    }
+              }
+              @point{
+                    @student{
+                        We use charts to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
+                        @activity{
+                          If you wanted to draw this pie chart by hand, how would you do it?
+                        }
+                    }
+                    @teacher{
+                        Let students discuss for a moment - the key insight here that @italic{counting} is required.
+                    }
+              }
+              @point{
+                    @student{
+                        You'd need to first @italic{count} how many of each species was at the shelter, and make a @italic{new table} with columns for "name of the species" and "how many of that species is in the shelter". Then we'd make a @code{pie-chart} for @italic{that} table. For a table with hundreds of rows, this would take a very long time! Fortunately, Pyret has a function to do this for us! Try typing this code into the Interactions Area:
+                        @code[#:multi-line #t]{
+                          count(animals-table, "species")
+                        }
+                    }
+                    @teacher{
+                    }
+              }
+              @point{
+                    @student{
+                        @code{count} is a function that consumes a table and the name of a categorical column, and produces a @italic{new table} with exactly the columns we want: the name of the category and the number of times that category occurs in the dataset. What are the names of the columns in this new table?
+                        @activity{
+                          How can we use this alongside @code{pie-chart}?
+                        }
+                    }
+                    @teacher{
+                    }
+              }
+              @point{
+                    @student{
+                        Here are two ways to accomplish the same thing. Can you descibe what is happening in each one? Which do you like better?
+                        @code[#:multi-line #t]{
+                          # solution 1
+                          species-table = count(animals-table, "species")
+                          pie-chart(species-table, "value", "count")
+
+                          # solution 2
+                          pie-chart(count(animals-table, "species"), "value", "count")
+                        }
+                    }
+                    @teacher{
+                    }
+              }
+      ]
   }
 
   @lesson/studteach[
@@ -652,36 +752,42 @@
                 )
       ]{
         @points[
-             @point{
-                    @student{
-                        One of the skills you'll learn in this class is how to diagnose and fix errors. Some of these errors will be @italic{syntax errors}: a missing comma, an unclosed string, etc. All the other errors are @italic{contract errors}. If you see an error and you know the syntax is right, ask yourself these two questions:
-                        @itemlist[
-                            @item{
-                                What is the function that is generating that error?
-                            }
-                            @item{
-                                What is the contract for that function?
-                            }
-                            @item{
-                                Is the function getting what it needs, according to its Domain?
-                            }
-                        ]
-                    }
-                    @teacher{
+            @point{
+                  @student{
+                      Today you've learned about quantitative and categorical data. You've learned about Numbers, Strings, Booleans, and Images. You've learned about operators and functions, and how they can be used to make shapes, chart data, and even transform tables!
+                  }
+                  @teacher{
+                  }
+            }
+            @point{
+                  @student{
+                      One of the other skills you'll learn in this class is how to diagnose and fix errors. Some of these errors will be @italic{syntax errors}: a missing comma, an unclosed string, etc. All the other errors are @italic{contract errors}. If you see an error and you know the syntax is right, ask yourself these two questions:
+                      @itemlist[
+                          @item{
+                              What is the function that is generating that error?
+                          }
+                          @item{
+                              What is the contract for that function?
+                          }
+                          @item{
+                              Is the function getting what it needs, according to its Domain?
+                          }
+                      ]
+                  }
+                  @teacher{
 
-                    }
+                  }
              }
              @point{
-                    @student{
-                            By learning to use values, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in this course, by writing programs to answer data science questions.
+                  @student{
+                          By learning to use values, operations and functions, you are now familiar with the fundamental concepts needed to write simple programs.  You will have many opportunities to use these concepts in this course, by writing programs to answer data science questions.
 
-                            @activity[#:forevidence "BS-IDE&1&1"]{
-                                    Make sure to save your work, so you can go back to it later!
-                            }
-					}
-                    @teacher{
-
-					}
+                          @activity[#:forevidence "BS-IDE&1&1"]{
+                                  Make sure to save your work, so you can go back to it later!
+                          }
+				          }
+                  @teacher{
+				          }
              }
         ]
   }

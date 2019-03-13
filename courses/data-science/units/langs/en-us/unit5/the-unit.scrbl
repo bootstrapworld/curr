@@ -12,10 +12,10 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart, histogram} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, pie-chart, bar-chart}
+                                              @code{count, .row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
     Students learn how to evaluate the "shape" of a dataset in a number of ways. They measure central tendency (using mean, median, and mode), as well as variation (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.

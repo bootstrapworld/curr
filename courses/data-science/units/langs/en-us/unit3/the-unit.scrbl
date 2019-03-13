@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 3: Exploring a Dataset }
+@title{Unit 3: Exploring Datasets }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -12,10 +12,10 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n}
+                                              @code{count, .row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
       Students learn to prepare for analyzing a new dataset by considering logical subsets of that data. They begin with the Animals Dataset, and then apply what they've learned to a dataset of their own choosing. In the process, they practice using the Design Recipe to create filter functions, and come up with questions they wish to explore.
@@ -109,7 +109,7 @@
                 @point{                      
                       @student{
                           @bannerline{ 
-                            Make subsets first!
+                              Make subsets first!
                           }
                           Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards", "just males", or "just the fixed animals".
                           @activity{

@@ -3,7 +3,7 @@
 @title{Unit 6: Advanced Analysis }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{num-sqrt, num-sqr} 
+                                              @code{+, -, *, /, num-sqrt, num-sqr} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -12,10 +12,10 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart, histogram} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter}
+                                              @code{count, .row-n, .order-by, .filter, mean, median, mode}
                                               ""))]{
   @unit-descr{
      Students continue practicing the Design Recipe, and learn how to build and transform columns in a table. They also learn how to chain methods together, and define more sophisticated subsets. Finally, they are are introduced to Table Plans.

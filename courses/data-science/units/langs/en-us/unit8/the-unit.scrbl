@@ -12,11 +12,11 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart, histogram, scatter-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart, scatter-plot, scatter-plot} 
-                                                ""))]{
+                                              @code{count, .row-n, .order-by, .filter, mean, median, mode}
+                                              ""))]{
   @unit-descr{
     Students compute the "line of best fit" using linear regression, and search for correlations in their own datasets.
   }

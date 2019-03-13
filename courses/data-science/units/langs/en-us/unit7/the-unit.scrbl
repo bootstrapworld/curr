@@ -12,11 +12,11 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart, histogram} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
-                                                ""))]{
+                                              @code{count, .row-n, .order-by, .filter, mean, median, mode}
+                                              ""))]{
   @unit-descr{
     Students investigate scatter plots as a method of visualizing the relationship between two variables, and begin searching for correlations in their dataset.
   }
@@ -97,7 +97,7 @@
         ]
   }
 
-  
+
 
   @lesson/studteach[
      #:title "Looking for Relationships"
