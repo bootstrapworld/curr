@@ -53,7 +53,7 @@
                         ]
                         If you didn't have a chance to type them in from your workbook, make sure you do!
                         @activity{
-                           Take 10m and write a function @code{is-dog}.
+                           Take 10m and write a function @code{is-dog}, then type it into the Definitions Area.
                         }
                     }
                     @teacher{
@@ -113,7 +113,7 @@
                           }
                           Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
                           @activity{
-                              What subsets make sense for the animals dataset?
+                              What subsets make sense for the animals dataset? Turn to @worksheet-link[#:name "My-Dataset-Subsets"] and write down some ideas, as well as the code that would tell you if a single animal is in that subset.
                           }
                       }
                       @teacher{
@@ -163,7 +163,7 @@
                             pie-chart(count(animals-table, "species"), "value", "count")
                           }
                           @activity{
-                            Which of our subsets will give us the most accurate approximation of the original chart?
+                            Which of our subsets do you think will give us @italic{the most accurate approximation} of the original chart?
                             @code[#:multi-line #t]{
                               pie-chart(count(dogs, "species"), "value", "count")
                               pie-chart(count(cats, "species"), "value", "count")
@@ -262,23 +262,6 @@
                           Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
                       }
                 }
-                @point{
-                      @student{
-                          @activity[#:forevidence (list )]{
-                              @itemlist[
-                                  @item{
-                                      Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
-                                  }
-                                  @item{
-                                      Complete @worksheet-link[#:name "My-Dataset"]. Brainstorm a few questions you would like to ask of this dataset. What kinds of questions are they?
-                                  }
-                              ]
-                          }
-                      }       
-                      @teacher{
-                      
-                      }
-                }
         ]
   }
 
@@ -304,13 +287,16 @@
                           @activity{
                             @itemlist[
                               @item{
-                                Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"].     
+                                Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Complete @worksheet-link[#:name "My-Dataset"].
+                              }
+                              @item{
+                                Turn to @worksheet-link[#:name "My-Dataset"], and come up with at least two Lookup Questions, two Compute Questions, and two Analyze Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
                               }
                               @item{
                                 In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.
                               }
                               @item{ 
-                                Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "Dataset-Plans"]. 
+                                Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "My-Dataset-Subsets"]. 
                               }
                               @item{
                                 In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
@@ -325,7 +311,7 @@
                 @point{
                       @student{
                           @activity{
-                              Turn to @worksheet-link[#:name "Filtering-Recipes"], and use the Design Recipe to write the filter functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area and use the @code{.filter} method to define your new subset tables.
+                              Turn to @worksheet-link[#:name "Filtering-Recipes"], and use the Design Recipe to write the filter functions that you planned out on @worksheet-link[#:name "My-Dataset-Subsets"]. When the teacher has checked your work, type them into the Definitions Area and use the @code{.filter} method to define your new subset tables.
                           }
                       }
                       @teacher{

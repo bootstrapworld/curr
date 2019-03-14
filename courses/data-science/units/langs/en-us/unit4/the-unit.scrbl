@@ -54,7 +54,7 @@
                 }
                 @point{
                       @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. Instead of talking about each individual in a dataset, Data Scientists find it useful to describe the @vocab{shape} of the data. For example, a plot of the heights of various athletes might find that the overall @italic{shape} of the data is skewed upwards by very tall basketball players.
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. Instead of talking about each individual in a dataset, Data Scientists find it useful to describe the @vocab{shape} of the data. A plot of how long it takes animals to get adopted might make it easier to see trends or patterns. 
                       }
                       @teacher{
 
@@ -62,7 +62,7 @@
                 }
                 @point{
                       @student{
-                              Shape allows us to @italic{summarize} information in a dataset, to describe the data quickly and easily. In this Unit, you'll learn how to identify and talk about the "shape" of data, by looking at a new kind of chart called a histogram.
+                              Shape allows us to @italic{summarize} information in a dataset, to describe the data quickly and easily. For example, a plot of the heights of various athletes might find that the overall @italic{shape} of the data is skewed upwards by very tall basketball players. In this Unit, you'll learn how to identify and talk about the "shape" of data, by looking at a new kind of chart called a histogram.
                               @activity[#:forevidence (list "6.SP.4-5&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
                                 TODO(WORKBOOK) - show a histogram, ask about shape.
                               }
@@ -96,7 +96,14 @@
                               @bitmap{images/freq-bar.png}
                               @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 7 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 3/7 for cats and 1/7 for rabbits, or converted those fractions to percentages. The chart would look the same either way: only the numbers on the vertical axis would change.
                                @activity[#:forevidence (list "6.SP.4-5&1&1" "HSS.ID.A&1&1" "Data 3.1.3&1&1" "Data 3.1.3&1&2" "Data 3.1.3&1&3")]{
-                                  In the Interactions Area, type in the example to make a bar chart of the animals, broken down by gender. Are there more animals at the shelter that are female than male? TODO(WORKBOOK)
+                                @itemlist[
+                                  @item{
+                                    In the Interactions Area, make a bar chart of the animals, counting them by @code{gender}. Are there more animals at the shelter that are female than male?
+                                  }
+                                  @item{
+                                    In the Interactions Area, make a bar chart of the animals, counting them by @code{species}. Are there more cats than dogs?
+                                  }
+                                ]
                               }
                       }
                       @teacher{
@@ -106,6 +113,9 @@
                 @point{
                       @student{
                               These bar charts happen to show the categorical values in alphabetical order, but it would be perfectly fine to re-order them any way we wish. However, if wanted to display a quantitative variable (like @code{pounds}), we would use the horizontal axis to show increments @italic{in order}, perhaps from the lowest weight at the left to the highest at the right.
+                              @activity{
+                                In the Interactions Area, make a bar chart of the animals, counting them by @code{pounds}.
+                              }
                       }
                       @teacher{
                       
@@ -113,7 +123,7 @@
                 }
                 @point{
                       @student{
-                              Another challenge in using quantitative v. categorical data is the number of bars: there are only so many types of animal at the shelter, but there could be dozens of different weights! What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
+                              Another challenge in using quantitative v. categorical data is the number of bars: there are only so many types of animal at the shelter, but there could be dozens of different weights! The resulting bar chart really isn't useful, since every animal has a unique weight! This makes it impossible to see the @italic{shape} of the data. What we want is a way to @italic{group the values into bins}, so all the animals weighing between 0 and 20 pounds are counted together, then the animals weighing 21-40 pounds, and so on.
                       }
                       @teacher{
 
@@ -171,7 +181,7 @@
                 @point{
                       @student{
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "Data 3.1.3&1&3" "Data 3.1.3&1&4")]{
-                                  How long does it take for most animals to be adopted? Complete the Table Plan on @worksheet-link[#:name "Histogram-Adoption"].
+                                  How long does it take for most animals to be adopted? Make a histogram for the @code{"weeks"} column, for each of the subsets you created. Which one @italic{best approximates} the shape of the whole dataset? Do different subsets have very different shapes? What does this tell you? Describe your analysis and write your answers on @worksheet-link[#:name "Shape-of-Animals-Dataset"].
                               }
                       }
                       @teacher{
@@ -201,21 +211,11 @@
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            How is your dataset distributed? Choose a categorical variable and display it with a bar chart, then choose a quantitative variable and display it with a histogram. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
+                            How is your dataset distributed? Choose a categorical variable and display it with a bar chart, then choose a quantitative variable and display it with a histogram. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Shape-of-My-Dataset"].
                         }
                     }       
                     @teacher{
                         Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }
-              }
-              @point{
-                    @student{
-                        @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            What did you find? Do you need to refine your dataset further, either by filtering or building a new column? Take 10-15min to deepen your analysis, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-2"].
-                        }
-                    }
-                    @teacher{
-
                     }
               }
         ]
