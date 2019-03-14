@@ -45,9 +45,9 @@
         @points[
             @point{
                   @student{
-                          Once we have a dataset, we can start answering questions! But how do you know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
+                          Once we have a dataset, we can start asking questions! But how do we know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
                            @activity{
-                              Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and write down your own questions under section 3.
+                              Turn to @worksheet-link[#:name "Animals-Questions"] in your Student Workbook, and write down your own questions under section 3.
                           }
                   }
                   @teacher{
@@ -59,23 +59,23 @@
                           Most questions can be broken down into one of three categories:
                           @itemlist[
                               @item{
-                                @bold{Lookup questions} - These can be answered simply by looking up a particular value in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be @italic{"is Sunflower fixed?"} or @italic{"How many legs does Felix have?"}
+                                @bold{Lookup questions} - These can be answered simply by looking up a @italic{single value} in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be "is Sunflower fixed?" or "How many legs does Felix have?"
                               }
                               @item{
-                                @bold{Compute questions} - These can be answered by computing an answer across an entire row or column. Examples of computing questions might be @italic{"what is the heaviest animal?"} or @italic{"What is the average age of animals at the shelter?"}
+                                @bold{Compute questions} - These can be answered by computing an answer across a @italic{single row or column}. Examples of computing questions might be "what is the heaviest animal?" or "What is the average age of animals at the shelter?"
                               }
                               @item{
-                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple} rows or columns. Examples of analysis questions might be @italic{"Do cats tend to be adopted faster than dogs?"} or @italic{"Are older animals heavier than young ones?"}
+                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple rows or columns}. Examples of analysis questions might be "Do cats tend to be adopted faster than dogs?" or "Are older animals heavier than young ones?"
                               }
                           ]
                   }
                   @teacher{
-                      Have students come up with lots of questions under each category.
+                      Have students come up with questions for each type.
                   }
             }
             @point{
                   @student{
-                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Dataset"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Analyze question?
+                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Analyze question?
                   }
                   @teacher{
                           Have students share their findings with the class. Allow time for discussion!
@@ -147,7 +147,7 @@
                     @student{
                         Let's get some pratice playing with the @code{row-n} method, and row-accessors!
                         @activity{
-                           Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
+                           Complete the exercises on page @worksheet-link[#:name "Lookup-Animals"].
                         }
                     }
                     @teacher{
@@ -232,6 +232,17 @@
 
                   }
             }
+              @point{
+                    @student{
+                        Let's get some pratice combining Lookups with Value Definitions.
+                        @activity{
+                           Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
+                        }
+                    }
+                    @teacher{
+                    
+                    }
+              }
       ]
   }
 

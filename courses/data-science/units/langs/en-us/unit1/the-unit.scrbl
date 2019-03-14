@@ -98,17 +98,18 @@
         @points[
               @point{
                   @student{
-                        Let's take a look at a real dataset!
+                        Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+
                         @activity[#:forevidence (list )]{
                             @itemlist[
                                 @item{
-                                    Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. Take a moment to look around. What do you think this table is for?
+                                    Turn to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook. @italic{What do you notice} about this dataset? Write down your observations in the left-hand column at the top of the page.
                                 }
                                 @item{
-                                    This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+                                    Sometimes, looking at data sparks questions. @italic{What do you wonder} about this dataset? Write down your questions in the right-hand column.
                                 }
                                 @item{
-                                    If you look at the bottom, you'll see that this spreadsheet contains @italic{multiple sheets}. Which sheet are we looking at?
+                                    If you look at the bottom, you'll see that this spreadsheet contains @italic{multiple sheets} called "pets" and "README". Which sheet are we looking at?
                                 }
                                 @item{
                                     Each sheet contains a table. For our purposes, we only care about the animals table on the @code{"pets"} sheet.
@@ -117,35 +118,9 @@
                         }
                   }
                   @teacher{
-                      Each student (or pair of students) should have a Google Account.
+                      Each student (or pair of students) should have a Google Account. Have students share back their noticings (statements) and wonderings (questions), and write them on the board.
                   }
               }
-              @point{
-                  @student{
-                      Every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. 
-                      @activity{
-                          How many variables are listed in the header row? What are they called?
-                      }
-                  }
-                  @teacher{
-
-                  }
-              }
-              @point{
-                  @student{
-                    After the header, tables can have any number of @vocab{data rows}. Each data row has values for every variable (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}:
-                    @build-table/cols[
-                        '("name" "species")
-                        '(())
-                        (lambda (r c) (para ""))
-                         2 0
-                    ]
-                  }
-                  @teacher{
-
-                  }
-              }
-
               @point{
                       @student{
                               Data Science is all about using a smaller sample of data to make predictions about a larger population. It's important to remember that tables are only an @italic{approximation} of a larger population: this table @italic{describes} some animals, but obviously it isn't every animal in the world! If we took the average age of the animals at this particular shelter, it @italic{might} tell us something about the average age of animals in other shelters.
@@ -191,6 +166,16 @@
                       @teacher{
                               The big idea here is that some data can be both categorical @italic{and} quantitative -- what matters is how we use it!
                       }
+              }
+              @point{
+                    @student{
+                        @activity{
+                          On @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook, fill in the blanks for Questions 1 and 2.
+                        }
+                    }
+                    @teacher{
+
+                    }
               }
               @point{
                   @student{
@@ -250,14 +235,29 @@
                     }
               }
               @point{
-                    @student{
-                        @activity{
-                          Turn to @worksheet-link[#:name "Animals-Dataset"] in your Student Workbook, and fill in the table for Question 2.
-                        }
-                    }
-                    @teacher{
+                  @student{
+                      In Pyret, every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. 
+                      @activity{
+                          How many variables are listed in the header row? What are they called?
+                      }
+                  }
+                  @teacher{
 
-                    }
+                  }
+              }
+              @point{
+                  @student{
+                    After the header, Pyret tables can have any number of @vocab{data rows}. Each data row has values for every variable (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}, as in the table below:
+                    @build-table/cols[
+                        '("name" "species")
+                        '(())
+                        (lambda (r c) (para ""))
+                         2 0
+                    ]
+                  }
+                  @teacher{
+
+                  }
               }
         ]
   }
@@ -706,6 +706,22 @@
                     }
                     @teacher{
                     }
+              }
+              @point{
+                  @student{
+                      @activity{
+                        @itemlist[
+                          @item{
+                            Use the @code{count} function to make a table showing the number of animals of each @code{gender} at the shelter.
+                          }
+                          @item{
+                            Use the @code{count} function to make a table showing the number of animals that are @code{fixed} (or not) at the shelter.
+                          }
+                        ]
+                      }
+                  }
+                  @teacher{
+                  }
               }
               @point{
                     @student{

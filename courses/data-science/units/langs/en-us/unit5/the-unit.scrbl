@@ -61,7 +61,8 @@
                 }
                 @point{
                       @student{
-                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.} @activity[#:forevidence (list )]{
+                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.} 
+                          @activity[#:forevidence (list )]{
                             Does that mean most pets wait more than a month to find homes? Why or why not?
                           }
                       }
@@ -421,7 +422,7 @@
                       @student{
                           One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Summarizing-Weeks"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
+                              On page @worksheet-link[#:name "Interpreting-Variation"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
                           }
                       }
                       @teacher{
@@ -443,7 +444,7 @@
                       @student{
                           The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 6 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That suggests the data set has one or more outliers. Because the minimum is very close to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
                           @activity{
-                            On page @worksheet-link[#:name "Summarizing-Weeks"], write down your conclusion for this box-plot.
+                            On page @worksheet-link[#:name "Interpreting-Variation"], write down your conclusion for this box-plot.
                           }
                       }
                       @teacher{

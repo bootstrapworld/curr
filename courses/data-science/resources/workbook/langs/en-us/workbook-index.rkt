@@ -6,58 +6,49 @@
 ;;;;;;;;;;;;;;;; Unit 1 ;;;;;;;;;;;;;
  ("Unit-1-Notes" 	 			 1 )
  ("Unit-1-Blank" 	 			 2 )
- ("Numbers-and-Strings" 	   	 3 )
- ("Booleans" 					 4 )
- ("Lookup-Shapes"				 5 )
+ ("Animals-Notice-Wonder" 	 	 3 )
+ ("Numbers-and-Strings" 	   	 4 )
+ ("Booleans" 					 5 )
  ("Padding-Unit-1"               6 )
 
 ;;;;;;;;;;;;;;;; Unit 2 ;;;;;;;;;;;;;
  ("Unit-2-Notes"                 7 )
  ("Unit-2-Blank"                 8 )
- ("Animals-Dataset" 			 9 )
+ ("Animals-Questions" 			 9 )
  ("Lookup-Animals"				10 )
- ("Design-Recipe-Lookup" 		11 )
- ("Design-Recipe-Lookup2"		12 )
+ ("Lookup-Shapes"				11 )
+ ("Design-Recipe-Lookup" 		12 )
+ ("Design-Recipe-Lookup2"		13 )
+ ("Padding-Unit-2"              14 )
 
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
- ("Unit-3-Notes" 	 	 		13 )
- ("Unit-3-Blank" 	 	 		14 )
- ("Design-Recipe-3" 			15 )
- ("Playing-With-Methods" 		16 )
- ("Sorted-Age-Bar"				17 )
- ("Age-Adopted-Scatter" 		18 )
+ ("Unit-3-Notes" 	 	 		15 )
+ ("Unit-3-Blank" 	 	 		16 )
+ ("Animals-Subsets" 	 	 	17 )
+ ("My-Dataset" 					18 )
+ ("My-Dataset-Questions" 		19 )
+ ("My-Dataset-Subsets" 	 	 	20 )
+ ("Filtering-Recipes" 			21 )
+ ("Filtering-Recipes2" 			22 )
+
 
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
- ("Unit-4-Notes" 	 			19 )
- ("Unit-4-Blank" 	 			20 )
- ("Visualizing-Quantity" 		21 )
- ("Bad-Sample-Tables"			22 )
- ("pie-pounds-young"			23 )
- ("My-Dataset" 					24 )
- ("Dataset-Plans" 				25 )
- ("Filtering-Recipes" 			26 )
- ("Building-Recipes" 			27 )
- ("Visualizing-My-Dataset-1"    28 )
+ ("Unit-4-Notes" 	 			23 )
+ ("Unit-4-Blank" 	 			24 )
+ ("Visualizing-Frequency" 		25 )
+ ("Shape-of-Animals-Dataset"	26 )
+ ("Shape-of-My-Dataset"			27 )
+ ("Padding-Unit-4"              28 )
  
 ;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				29 )
  ("Unit-5-Blank" 				30 )
  ("Summarizing-Weeks" 			31 )
  ("Interpreting-Variation" 		32 )
- ("Fixed-Weeks-Box" 			33 )
- ("Summarizing-My-Dataset" 		34 )
+ ("Summarizing-My-Dataset" 		33 )
+
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
- ("Unit-6-Notes" 	 			35 )
- ("Unit-6-Blank" 	 			36 )
- ("Visualizing-Frequency" 		37 )
- ("Freq-Bar-Gender" 			38 )
- ("Histogram-Adoption" 			39 )
- ("Visualizing-My-Dataset-2"	40 )
- ("Which-Chart-Is-Best"			41 )
- ("Padding-Unit-6" 				42 )
-
-;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-7-Notes"				43 )
  ("Unit-7-Blank"				44 )
  ("Cuter-Adoption" 	 			45 )
@@ -76,6 +67,24 @@
  ("Padding-Unit-8" 				56 )
 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;
+ ("Unit-6-Notes" 	 			35 )
+ ("Unit-6-Blank" 	 			36 )
+
+
+
+
+ ("Visualizing-Quantity" 		21 )
+ ("Bad-Sample-Tables"			22 )
+ ("pie-pounds-young"			23 )
+ ("Building-Recipes" 			27 )
+ ("Visualizing-My-Dataset-1"    28 )
+ ("Design-Recipe-3" 			15 )
+ ("Playing-With-Methods" 		16 )
+ ("Sorted-Age-Bar"				17 )
+ ("Age-Adopted-Scatter" 		18 )
+ ("Freq-Bar-Gender" 			38 )
+ ("Histogram-Adoption" 			39 )
+ ("Padding-Unit-6" 				42 )
  ("Unit-9-Notes" 	 			57 )
  ("Unit-9-Blank" 	 			58 )
  ("Threats-to-Validity-1"       59 )
