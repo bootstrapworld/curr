@@ -236,9 +236,22 @@
               }
               @point{
                   @student{
-                      In Pyret, every table has as a @vocab{header} row, which identifies each variable (or "column") in the table. 
+                      @itemlist[
+                        @item{
+                          In Data Science, every table is composed of cells, which are arranged in a grid of rows and columns.
+                        }
+                        @item{
+                          Most of the cells contain data, but the first row and first column are special.
+                        }
+                        @item{
+                          The first row is called the @vocab{header} row, which gives a unique name to each each variable (or "column") in the table. 
+                        }
+                        @item{
+                          The first column in the table is the identifier column, which contains a unique ID for each row. Often, this will be a name of the people or places in the table, or sometimes just an ID number.
+                        }
+                      ]
                       @activity{
-                          How many variables are listed in the header row? What are they called?
+                          How many variables are listed in the header row? What are they called? What is being used for the identifier column in this dataset?
                       }
                   }
                   @teacher{
@@ -649,6 +662,9 @@
                         @activity{
                             Experiment with these two functions, passing in different column names for the label and data columns. If you get an error message, @italic{read it carefully!} What do you think are the rules for what kinds of columns can be used by @code{bar-chart} and @code{pie-chart}?
                         }
+                    }
+                    @teacher{
+                    
                     }
             }
          ]

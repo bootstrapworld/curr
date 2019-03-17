@@ -65,7 +65,7 @@
                                 @bold{Compute questions} - These can be answered by computing an answer across a @italic{single row or column}. Examples of computing questions might be "what is the heaviest animal?" or "What is the average age of animals at the shelter?"
                               }
                               @item{
-                                @bold{Analyze questions} - These ones take the most work, because they require looking for patterns and trends across @italic{multiple rows or columns}. Examples of analysis questions might be "Do cats tend to be adopted faster than dogs?" or "Are older animals heavier than young ones?"
+                                @bold{Relate questions} - These ones take the most work, because they require looking for relationships between @italic{multiple rows or columns}. Examples of analysis questions might be "Do cats tend to be adopted faster than dogs?" or "Are older animals heavier than young ones?"
                               }
                           ]
                   }
@@ -75,7 +75,7 @@
             }
             @point{
                   @student{
-                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Analyze question?
+                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
                   }
                   @teacher{
                           Have students share their findings with the class. Allow time for discussion!
@@ -84,6 +84,9 @@
             @point{
                   @student{
                           Lookup questions are easy to answer: just find the right row and column, and read out the answer! Let's learn how to do this in Pyret...
+                  }
+                  @teacher{
+
                   }
             }
         ]
@@ -125,6 +128,9 @@
               @point{
                     @student{
                           What is the Domain of @code{.row-n}? What is the Range? Find the contract for this method in your contracts table. A table @vocab{method} is a special kind of function which always operates on a specific table. In our example, we always use @code{.row-n} with the animals table, so the number we pass in is @italic{always} used to grab a particular row from @code{animals-table}.
+                    }
+                    @teacher{
+
                     }
               }
               @point{
@@ -169,6 +175,9 @@
               @point{
                     @student{
                           What is the Domain of @code{.order-by}? What is the Range? Find the contract for this method in your contracts table, and make sure it makes sense!
+                    }
+                    @teacher{
+
                     }
               }
       ]
@@ -444,7 +453,7 @@
                         @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2" "BS-DR.1&2&1" "BS-DR.1&2&2" "BS-DR.1&2" "BS-PL.3&1&1" "BS-PL.3&1&2"  "BS-PL.3&1&3")]{
                           Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
                           @itemlist[
-                            @item{ Is this a lookup, compute or analyze question?}
+                            @item{ Is this a Lookup, Compute or Relate question?}
                             @item{ What is the name of this function? What are it's Domain and Range? }
                             @item{ Is Sasha a cat? @italic{What did you do to get that answer?} }
                           ]
@@ -503,6 +512,9 @@
                               fun is-cat(animal): animal["species"] == "cat"
                               end
                             }
+                    }
+                    @teacher{
+                    
                     }
                 }
                 @point{

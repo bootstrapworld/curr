@@ -63,6 +63,9 @@
                     @student{
                         When your teacher has checked your work, add these two functions at the bottom of your Definitions Area, save your work, and click Run.
                     }
+                    @teacher{
+
+                    }
                 }
         ]
   }
@@ -190,6 +193,9 @@
                         Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! When chaining methods, it's important to build first, then filter, and then order. 
                         @italic{ So how do we know when we need which method, and in what order? }
                     }
+                    @teacher{
+                    
+                    }
               }
               @point{
                     @student{
@@ -243,6 +249,9 @@
                         @activity{
                           Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
                         }
+                  }
+                  @teacher{
+
                   }
               }
         ]

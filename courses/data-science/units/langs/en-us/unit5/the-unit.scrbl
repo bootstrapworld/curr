@@ -44,7 +44,7 @@
         @points[@point{
                         @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ" "new copy"].)
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1NaJoA5RRjwMwN19NOAUOSnkB8pEl9fqQ" "new copy"].)
                               }
                         }
                         @teacher{
@@ -98,6 +98,9 @@
                 @point{
                       @student{
                               Every kind of summary has situations in which it is very accurate and useful, and others where it's not accurate or useful at all. In fact, the shape of the data can play a huge role in whether or not one kind of summary is accurate!
+                      }
+                      @teacher{
+
                       }
                 }
                 @point{
@@ -437,7 +440,7 @@
                           }
                       }
                       @teacher{
-                          @math{8 - 2 = 6 weeks}
+                          @math{8 - 2 = 6} weeks
                       }
                 }
                 @point{

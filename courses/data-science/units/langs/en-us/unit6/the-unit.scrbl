@@ -94,11 +94,11 @@
                 @point{
                       @student{
                               @activity[#:forevidence (list)]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ" "new copy"].)
+                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1NaJoA5RRjwMwN19NOAUOSnkB8pEl9fqQ" "new copy"].)
                               }
                               For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
                               @activity[#:forevidence (list "S-ID.1-4&1&1")]{
-                                  Complete @worksheet-link[#:name "Make-Scatter-Plot"] in your Student Workbook.
+                                  Complete @worksheet-link[#:name "Create-Scatter-Plot"] in your Student Workbook.
                               }
                       }
                       @teacher{

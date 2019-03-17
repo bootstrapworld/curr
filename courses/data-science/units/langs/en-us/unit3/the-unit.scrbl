@@ -123,9 +123,9 @@
                 @point{
                       @student{
                           Sometimes we want to create a table that's just a @italic{random sample} of an existing table. Type the following code into the Definitions Area (left-hand side of your screen), and click "Run".
-                          @code[#:multi-line #t] {
+                          @code[#:multi-line #t]{
                               small-sample = random-rows(animals-table,  5)
-                              large-sample = random-rows(animals-table, 50)
+                              large-sample = random-rows(animals-table, 30)
                           }
                           @activity{
                               @itemlist[
@@ -145,7 +145,7 @@
                 @point{
                       @student{
                           We already know how to define values, and how to filter a dataset. So let's define some subsets, in addition to the random samples we just made:
-                          @code[#:multi-line #t] {
+                          @code[#:multi-line #t]{
                               dogs  = animals-table.filter(is-dog)
                               cats  = animals-table.filter(is-cat)
                               fixed = animals-table.filter(is-fixed)
@@ -174,6 +174,9 @@
                             }
                             Compare the charts you get from each of these. Which one is the most representative of the whole population? Why?
                           }
+                      }
+                      @teacher{
+
                       }
                 }
       ]
@@ -290,7 +293,7 @@
                                 Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Complete @worksheet-link[#:name "My-Dataset"].
                               }
                               @item{
-                                Turn to @worksheet-link[#:name "My-Dataset"], and come up with at least two Lookup Questions, two Compute Questions, and two Analyze Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
+                                Turn to @worksheet-link[#:name "My-Dataset"], and come up with at least two Lookup Questions, two Compute Questions, and two Relate Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
                               }
                               @item{
                                 In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.

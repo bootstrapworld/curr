@@ -49,10 +49,10 @@
 
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
- ("Unit-7-Notes"				43 )
- ("Unit-7-Blank"				44 )
+ ("Unit-6-Notes"				43 )
+ ("Unit-6-Blank"				44 )
  ("Cuter-Adoption" 	 			45 )
- ("Make-Scatter-Plot"  			46 )
+ ("Create-Scatter-Plot"  		46 )
  ("Age-v-Weeks-Cats" 			47 )
  ("Drawing-Predictors" 			48 )
  ("Correlations-My-Dataset" 	49 )
