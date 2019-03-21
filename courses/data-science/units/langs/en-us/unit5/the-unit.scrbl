@@ -18,7 +18,7 @@
                                               @code{count, .row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
-    Students learn how to evaluate the "shape" of a dataset in a number of ways. They measure central tendency (using mean, median, and mode), as well as variation (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
+    Students learn how to evaluate the "shape" of a dataset in a number of ways. They measure central tendency (using mean, median, and mode), as well as spread (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
   }
 }
 @unit-lessons{
@@ -105,7 +105,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Variation}. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
+                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Spread}. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
                       }
                       @teacher{
 
@@ -343,12 +343,12 @@
   }
 
   @lesson/studteach[
-     #:title "Measures of Variation"
+     #:title "Measures of Spread"
      #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[
-          @item{Students learn different measures of variation, including range, and interquartile range}
-          @item{Students practice describing variation using these concepts}]
+          @item{Students learn different measures of spread, including range, and interquartile range}
+          @item{Students practice describing spread using these concepts}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "HSS.ID.A&1&2" "6.SP.4-5" "S-ID.1-4")
@@ -363,7 +363,7 @@
         @points[
                 @point{
                       @student{
-                          Measuring the "center" of a dataset is helpful, and we've seen that shape should be taken into account. But we should also pay attention to the @italic{variation} in a data set. A teacher may report that her students averaged a 75 on a test, but it's important to know how those scores were spread out: did all of them get exactly 75, or did half score 100 and the other half 50? When Data Scientists use the mean of a sample to report on the mean of a whole population, it's important to know the spread in order to report how good or bad a job that estimate does.
+                          Measuring the "center" of a dataset is helpful, and we've seen that shape should be taken into account. But we should also pay attention to the @italic{spread} in a data set. A teacher may report that her students averaged a 75 on a test, but it's important to know how those scores were spread out: did all of them get exactly 75, or did half score 100 and the other half 50? When Data Scientists use the mean of a sample to report on the mean of a whole population, it's important to know the spread in order to report how good or bad a job that estimate does.
                       }
                       @teacher{
                           
@@ -398,7 +398,7 @@
                 @point{
                       @student{
                           @bitmap{images/box-plot.png}
-                          This plot shows us the variation in our dataset according to five numbers.
+                          This plot shows us the spread in our dataset according to five numbers.
                           @itemlist[
                               @item{ 
                                   The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 1 week.
@@ -423,9 +423,9 @@
                 }
                 @point{
                       @student{
-                          One way to summarize the variation in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest in our dataset, we use the same term.
+                          One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Interpreting-Variation"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
+                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
                           }
                       }
                       @teacher{
@@ -447,7 +447,7 @@
                       @student{
                           The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 6 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That suggests the data set has one or more outliers. Because the minimum is very close to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
                           @activity{
-                            On page @worksheet-link[#:name "Interpreting-Variation"], write down your conclusion for this box-plot.
+                            On page @worksheet-link[#:name "Interpreting-Spread"], write down your conclusion for this box-plot.
                           }
                       }
                       @teacher{
@@ -463,7 +463,7 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students describe the centers and variation in their chosen dataset}]
+     #:product-outcomes @itemlist[@item{Students describe the centers and spread in their chosen dataset}]
      #:standards (list "Data 3.2.1" "Data 3.2.1")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -476,9 +476,9 @@
         @points[
                 @point{
                       @student{
-                          Now that you're comfortable creating box plots and looking at measures of variation on the computer, it's time to put your skills to the test! 
+                          Now that you're comfortable creating box plots and looking at measures of spread on the computer, it's time to put your skills to the test! 
                           @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3")]{
-                            Turn to @worksheet-link[#:name "Interpreting-Variation"] and complete the questions you see there.
+                            Turn to @worksheet-link[#:name "Interpreting-Spread"] and complete the questions you see there.
                           }
                       }
                       @teacher{
@@ -487,7 +487,7 @@
                 }
                 @point{
                     @student{
-                        By now, you've got a good handle on how to report center, shape and variation, and it's time to apply those skills to your dataset!
+                        By now, you've got a good handle on how to report center, shape and spread, and it's time to apply those skills to your dataset!
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
                             Take 10 minutes to fill out @worksheet-link[#:name "Summarizing-My-Dataset"] in your Student Workbook. Choose a column to investigate, and write up your findings.
                         }
@@ -518,7 +518,7 @@
         @points[
                 @point{
                       @student{
-                          Data Scientists are skeptical people: they don't trust a claim unless they can see the data, or at least get some summary information about the center, shape and variation in the dataset. In the next Unit, you'll investigate new ways to visualize variation and distribution.
+                          Data Scientists are skeptical people: they don't trust a claim unless they can see the data, or at least get some summary information about the center, shape and spread in the dataset. In the next Unit, you'll investigate new ways to visualize spread and distribution.
                       }
                       @teacher{
 

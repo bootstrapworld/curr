@@ -44,11 +44,18 @@
  ("Unit-5-Notes" 				29 )
  ("Unit-5-Blank" 				30 )
  ("Summarizing-Weeks" 			31 )
- ("Interpreting-Variation" 		32 )
+ ("Interpreting-Spread" 		32 )
  ("Summarizing-My-Dataset" 		33 )
 
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
+ ("Design-Recipe-3" 			34 )
+ ("Building-Recipes" 			27 )
+ ("Bad-Sample-Tables"			22 )
+ ("Chaining-Methods" 			16 )
+ 
+
+;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-6-Notes"				43 )
  ("Unit-6-Blank"				44 )
  ("Cuter-Adoption" 	 			45 )
@@ -69,27 +76,22 @@
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;
  ("Unit-6-Notes" 	 			35 )
  ("Unit-6-Blank" 	 			36 )
-
-
-
-
- ("Visualizing-Quantity" 		21 )
- ("Bad-Sample-Tables"			22 )
- ("pie-pounds-young"			23 )
- ("Building-Recipes" 			27 )
- ("Visualizing-My-Dataset-1"    28 )
- ("Design-Recipe-3" 			15 )
- ("Playing-With-Methods" 		16 )
- ("Sorted-Age-Bar"				17 )
- ("Age-Adopted-Scatter" 		18 )
- ("Freq-Bar-Gender" 			38 )
- ("Histogram-Adoption" 			39 )
- ("Padding-Unit-6" 				42 )
  ("Unit-9-Notes" 	 			57 )
  ("Unit-9-Blank" 	 			58 )
  ("Threats-to-Validity-1"       59 )
  ("Threats-to-Validity-2"       60 )
  ("Fake-News" 		 			61 ) 
+
+
+
+
+ ("Visualizing-Quantity" 		21 )
+ ("Visualizing-My-Dataset-1"    28 )
+ ("Sorted-Age-Bar"				17 )
+ ("Age-Adopted-Scatter" 		18 )
+ ("Freq-Bar-Gender" 			38 )
+ ("Histogram-Adoption" 			39 )
+ ("Padding-Unit-6" 				42 )
  
 
 ;;;;;;;;;;;;;;; The End ;;;;;;;;;;;;;
