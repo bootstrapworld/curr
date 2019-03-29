@@ -40,7 +40,7 @@
                                     Spend one minute discussing your answer, and explaining @italic{why} you answered the way you did. Do other students agree with you?
                                 }
                                 @item{
-                                    What informationcould you @italic{collect}, to determine if your answer is right or not?
+                                    What information could you @italic{collect}, to determine if your answer is right or not?
                                 }
                             ]
                       }
@@ -70,7 +70,7 @@
                             We'll use a @vocab{programming language} to investigate these questions. Just like any human language, programming languages have their own vocabulary and grammar that you will need to learn. The language you'll be learning for data science is called @italic{Pyret}.
                     }
                     @teacher{
-                            Set expectations for the class.  This course is an @italic{introduction} data science, so some questions will be out of reach!
+                            Set expectations for the class.  This course is an @italic{introduction} to data science, so some questions will be out of reach!
                     }
               }
      ]
@@ -132,7 +132,7 @@
                       @student{
                               There are two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
                               @activity[#:forevidence (list )]{
-                                  "Age" is a categorial variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
+                                  "Age" is a categorical variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
                               }
                       }
                       @teacher{
@@ -140,7 +140,7 @@
               }
               @point{
                       @student{
-                              @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "cat" is more than "lizard", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a whether forecast, temperature is quantitative but weather it's snowing or raining is categorical.
+                              @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "cat" is more than "lizard", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a weather forecast, temperature is quantitative but whether it's snowing or raining is categorical.
                               @activity[#:forevidence (list )]{
                                   "Species" is a categorical variable, because we can ask questions like "which species does Mittens belong to?" What are some other categorical variables you see in this table?
                               }
@@ -158,7 +158,7 @@
                                       @item{We'd like to find out which car is the most expensive.}
                                       @item{We'd like to find out which cars are red.}
                                       @item{We'd like to find out which puppy is the youngest.}
-                                      @item{We'd like to find out which kitten is a Tabby.}
+                                      @item{We'd like to find out which kitten is an American Shorthair.}
                                       @item{We want to know which people have a ZIP code of 02907.}
                                   ]
                               }
@@ -192,12 +192,12 @@
                           For now, we will only be writing programs in the Interactions area.
                   }
                   @teacher{
-                          The Definitions Area is where programmers define values and functions that they want to keep, while the Interactions Area allows them to experiment with those values and functions. This is like writing function definitions on a blackboard, and having student use those functions to compute answers on scrap paper.
+                          The Definitions Area is where programmers define values and functions that they want to keep, while the Interactions Area allows them to experiment with those values and functions. This is like writing function definitions on a blackboard, and having students use those functions to compute answers on scrap paper.
                   }
               }
               @point{
                     @student{
-                          The first few lines in the Definitions Area tell Pyret to @code{import} files from elsewhere, which contain tools we'll want to use for this course. We're importing a file called Bootstrap:Data Science, as well a files for working with google sheets, tables, and images:
+                          The first few lines in the Definitions Area tell Pyret to @code{import} files from elsewhere, which contain tools we'll want to use for this course. We're importing a file called Bootstrap:Data Science, as well as files for working with Google Sheets, tables, and images:
                           @code[#:multi-line #t]{
                             include shared-gdrive("Bootstrap-DataScience-...")
                             include gdrive-sheets
@@ -244,10 +244,10 @@
                           Most of the cells contain data, but the first row and first column are special.
                         }
                         @item{
-                          The first row is called the @vocab{header} row, which gives a unique name to each each variable (or "column") in the table. 
+                          The first row is called the @vocab{header} row, which gives a unique name to each variable (or "column") in the table. 
                         }
                         @item{
-                          The first column in the table is the identifier column, which contains a unique ID for each row. Often, this will be a name of the people or places in the table, or sometimes just an ID number.
+                          The first column in the table is the identifier column, which contains a unique ID for each row. Often, this will be the name of the people or places in the table, or sometimes just an ID number.
                         }
                       ]
                       @activity{
@@ -421,7 +421,7 @@
                         }
                     }
                     @teacher{
-                        "Arguments" are the values passed into a function. This is subtley different from @italic{variables}, which are the placeholders that get replaced with those values!
+                        "Arguments" are the values passed into a function. This is subtly different from @italic{variables}, which are the placeholders that get replaced with those values!
                     }
             }
             @point{
@@ -638,7 +638,7 @@
             }
             @point{
                     @student{
-                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribition of @code{pounds} across the shelter.
+                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribution of @code{pounds} across the shelter.
                     }
                     @teacher{
                         
@@ -695,7 +695,7 @@
                             With so many rows in our dataset, we wind up with tons of pie slices and bars, and it's very difficult to read.
                           }
                           @item{ 
-                            Hovering over any pie slice or bar tells us the name of the animal and gives us the value at that cell in the table. But is that really that much an improvement over just looking that up ourselves in the table?
+                            Hovering over any pie slice or bar tells us the name of the animal and gives us the value at that cell in the table. But is that really that much of an improvement over just looking that up ourselves in the table?
                           }
                         ]
                     }
@@ -751,7 +751,7 @@
               }
               @point{
                     @student{
-                        Here are two ways to accomplish the same thing. Can you descibe what is happening in each one? Which do you like better?
+                        Here are two ways to accomplish the same thing. Can you describe what is happening in each one? Which do you like better?
                         @code[#:multi-line #t]{
                           # solution 1
                           species-table = count(animals-table, "species")
