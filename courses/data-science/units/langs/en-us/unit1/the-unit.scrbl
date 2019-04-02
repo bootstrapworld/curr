@@ -610,8 +610,8 @@
                     @student{
                         The library included at the top of the file includes some helper functions that are useful for Data Science, which we will use throughout this course. Here is the contract for a function that does just that, and an example of using it:
                         @code[#:multi-line #t]{
-                             # pie-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
-                             pie-chart(animals-table, "name", "pounds")
+                             # pie-chart :: (t :: Table, col :: String) -> Image
+                             pie-chart(animals-table, "gender")
                             }
                         @activity{
                           @itemlist[
@@ -629,7 +629,7 @@
             @point{
                   @student{
                           @activity[#:forevidence (list "Data 3.1.3&1&1" "Data 3.1.3&1&2")]{
-                              In the Interactions Area, type @code{pie-chart(animals-table, "name", "pounds")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image.
+                              In the Interactions Area, type @code{pie-chart(animals-table, "species")} and hit Enter. What happens? What happens when you hover over a slice of the pie? These plots are @italic{interactive}! This allows us to experiment with the data before generating the final image.
                           }
                   }
                   @teacher{
@@ -638,7 +638,7 @@
             }
             @point{
                     @student{
-                        The function @code{pie-chart} consumes a Table of data, along with the @italic{names of two columns in that table}. The first name tells the computer where to look to label each pie slice. The second tells the computer where to look to find out how big each pie slice should be. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribution of @code{pounds} across the shelter.
+                        The function @code{pie-chart} consumes a Table of data, along with the @italic{name of a categorical column you want to summarize}. The computer will go through the column, counting the number of times that each value appears. It will then create a pie slice for each value, with the size of the slice being the number of times it appears. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribution of @code{species} across the shelter.
                     }
                     @teacher{
                         
@@ -648,9 +648,9 @@
                     @student{
                         Here is the contract for another function:
                         @code[#:multi-line #t]{
-                             # bar-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
+                             # bar-chart :: (t :: Table, col :: String) -> Image
                         }
-                        @activity{Use this function to make a bar chart showing the number of weeks it takes for each animal to be adopted.}
+                        @activity{Use this function to make a bar chart showing the number of each gender across the shelter.}
                     }
                     @teacher{
                         
@@ -658,7 +658,7 @@
             }
             @point{
                     @student{
-                        Do you think we could use @italic{any} column for our labels? Could we use @italic{any} column for our data?
+                        Do you think we could use @italic{any} column? What about a quantitative column?
                         @activity{
                             Experiment with these two functions, passing in different column names for the label and data columns. If you get an error message, @italic{read it carefully!} What do you think are the rules for what kinds of columns can be used by @code{bar-chart} and @code{pie-chart}?
                         }
@@ -666,6 +666,19 @@
                     @teacher{
                     
                     }
+            }
+            @point{
+                    @student{
+                        Sometimes we already @italic{have} the data summary we need in the table itself. For example, we might want to see a pie chart where every animal has its own slice, and the size of the slice is already listed as the weight of the animal. For this situation, we have another function:
+                        @code[#:multi-line #t]{
+                             # pie-chart-raw :: (t :: Table, label :: String, data :: String) -> Image
+                             pie-chart-raw(animals-table, "name", "pounds")
+                        }
+                        @activity{
+                          Type this in and try it out. How would you make a bar chart based on the raw data?
+                        }
+                    }
+
             }
          ]
   }
