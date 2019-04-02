@@ -764,6 +764,14 @@
                     @teacher{
                     }
               }
+              @point{
+                    @student{
+                          Bar Charts and Pie Charts are traditionally used in this way, to @italic{summarize} the frequency of values in a categorical column. The biggest pie slice or the tallest bar immediately shows us which value occurs most frequently! (The most-frequent value is called the "mode", but we'll learn more about that later!)
+                    }
+                    @teacher{
+
+                    }
+              }
       ]
   }
 
