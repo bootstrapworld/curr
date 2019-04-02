@@ -35,10 +35,10 @@
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
  ("Unit-4-Notes" 	 			23 )
  ("Unit-4-Blank" 	 			24 )
- ("Visualizing-Frequency" 		25 )
- ("Shape-of-Animals-Dataset"	26 )
- ("Shape-of-My-Dataset"			27 )
- ("Padding-Unit-4"              28 )
+ ("Matching-Histograms" 		25 )
+ ("Making-Histograms" 			26 )
+ ("Shape-of-Animals-Dataset"	27 )
+ ("Shape-of-My-Dataset"			28 )
  
 ;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				29 )

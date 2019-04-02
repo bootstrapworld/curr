@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "15 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -114,7 +114,7 @@
 
   @lesson/studteach[
      #:title "Reviewing Bar Charts"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students review bar charts, contrasting them with histograms}]
      #:evidence-statements @itemlist[]
@@ -160,7 +160,7 @@
           ]
   }
   @lesson/studteach[
-     #:title "Shape of Histograms"
+     #:title "Describing Shape"
      #:duration "25 minutes"
      #:overview ""
     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
@@ -178,11 +178,12 @@
         @points[
                 @point{
                       @student{
-                              Let's take another look at our histogram display of the weeks that it took the various shelter animals to be adopted: 
+                              Let's take another look at our histogram of adoption times:
                               @bitmap{images/weeks-histogram.png}
-                              A more general way to summarize the shape of a data set like animal adoption times, that contains a few unusually high values, is to say that it is "@bold{skewed right, or has high outliers.}" We see this shape very often in real-life data sets, because there are many variables - like earnings or time spent talking on the phone - for which a few individuals have unusually high values. The unusually high values can't be balanced out by unusually low values because variables like earnings or phone time can't be less than zero.
+                              A more general way to summarize the shape of a data set like this, which contains a few unusually high values, is to say that it is "@bold{skewed right, or has high outliers.}" We see this shape often in the real world, because there are many variables - like "income" or "time spent on the phone" - for which a few individuals have unusually high values, which aren't balanced out by unusually low values things like "income" and "phone time" can't be less than zero.
                       }
                       @teacher{
+
                       }
                 }
                 @point{
@@ -199,7 +200,8 @@
                 @point{
                       @student{
                               Here are the most common shapes that we see for real-world data sets:
-                              @bold{Symmetric}: values are balanced on either side of the middle: it's just as likely for the variable to take a value a certain distance below the middle as it is to take a value that same distance above the middle. Examples:
+                              @bannerline{Symmetric: values are balanced on either side of the middle.} 
+                              It's just as likely for the variable to take a value a certain distance below the middle as it is to take a value that same distance above the middle. Examples:
                               @itemlist[
                                   @item{
                                       Heights of 12-year-old females would have a symmetric shape. It's just as likely for a 12-year-old girl to be a certain number of inches below average height as it is to be that number of inches above average height.
@@ -215,7 +217,8 @@
                 }
                 @point{
                         @student{
-                                @bold{Skewed left, or low outliers}: values are clumped around what's typical, but they trail off with a few unusually low values. Examples:
+                                @bannerline{Skewed left, or low outliers} 
+                                Values are clumped around what's typical, but they trail off with a few unusually low values. Examples:
                                 @itemlist[
                                     @item{
                                         Number of teeth that adults have in their mouths would be skewed left or have low outliers. Most adults will have close to a full set of 32 teeth, but a few of them with serious dental problems would have a very small number of teeth. We won't get anyone in our data set who has 10 or 20 extra teeth in their mouths!
@@ -226,15 +229,70 @@
                                 ]
                         }
                         @teacher{
-                                @bold{Skewed right, or high outliers}: values are clumped around what's typical, but they trail off with a few unusually high values. Examples:
+
+                        }
+                }
+                @point{
+                        @student{
+                                @bannerline{Skewed right, or high outliers}
+                                Values are clumped around what's typical, but they trail off with a few unusually high values. Examples:
                                 @itemlist[
                                     @item{
-                                        Age when a woman in the U.S. gives birth would be skewed right or have high outliers. A few women would be unusually old, 40 years or more above the average age of 26, but none of them could be even close to 40 years below average to balance things out!
+                                        Age when a woman in the U.S. gives birth would be skewed right or have high outliers. A few women would be unusually old, 40 years or even more @italic{above} the average age of 26 (check the tabloids!), but none of them could be even close to 40 years @italic{below} average to balance things out!
                                     }
                                     @item{
                                         A data set of earnings almost always shows right skewness or high outliers, because there are usually a few values that are so far above average, they can't be balanced out by any values that are so far below average. (Earnings can't be negative.)
                                     }
                                 ]
+                        }
+                }
+                @point{
+                        @student{
+                              Let's get some practice reading histograms, and figuring out what they mean.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Matching-Histograms"], and complete the matching activity there.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                              To build a histogram, we start by sorting all of the numbers in our column from smallest to largest, marking our x-axis from the smallest value to the largest value and dividing into equally-sized intervals, or "bins". Once we have our bins, we put each value in our dataset into the bin it belongs, and then count how many values are in each bin. This count determines the height of the bars on our y-axis.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Making-Histograms"], and try drawing a histogram from a dataset.
+                              }
+
+                        }
+                        @teacher{
+                              Note that interals on this chart include the left endpoint but not the right. If we included the right endpoint and someone had 0 teeth, we’d have to add on a bar from -5 to 0, which would be awfully strange!
+                        }
+                }
+                @point{
+                        @student{
+                              @bold{The size of the bins matters a lot!} Bins that are too small will hide the shape of the data by breaking it into too many short columns. Bins that are too large will hide the shape by squeezing the data into just a few tall columns. In this workbook exercise, the bins were provided for you. But how do you choose a good bin-size?
+                              @bannerline{ Rule of thumb: a histogram should have between 5-10 bins. }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                              Let's make a histogram for the @code{pounds} column in the animals table, sorting the animals into 20-pound bins: @code{ histogram(animals-table, "pounds", 20) }
+                              @activity{
+                                Would you describe the shape of your histogram as being skewed left/low outliers or symmetric or skewed right/high outliers? Which one of these statements is justified by the histogram’s shape?
+                                @itemlist[
+                                    @item{ A few of the animals were unusually light. } 
+                                    @item{ A few of the animals were unusually heavy. }
+                                    @item{ It was just as likely for an animal to be a certain amount below average weight as it was for an animal to be that amount above average weight. }
+                                ]
+                                Try bins of 1-pound intervals, then 100-pound intervals. Which of these three histograms best satisfies our rule of thumb?
+                              }
+                        }
+                        @teacher{
+                              
                         }
                 }
         ]
@@ -289,7 +347,7 @@
         @points[
               @point{
                     @student{
-                          You've now learned about a lot of different charts! How many can you name? When is it best to use a pie chart instead of a bar chart? What about a histogram instead of a bar chart? Each chart is good for answering different kinds of questions, and knowing when to use each kind is an important step in becoming a Data Scientist.
+                          Histograms are a powerful way to visually summarize the @vocab{shape} of a dataset. But sometimes we need to dig deeper, and summarize shape using hard numbers. In the next unit, we'll explore the concept of shape using computed values instead of visual charts.
                     }
                     @teacher{
 
