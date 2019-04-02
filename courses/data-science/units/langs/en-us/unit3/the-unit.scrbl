@@ -9,7 +9,7 @@
                                               @code{string-repeat, string-contains} 
                                               (list @code{"hello" "91"} ))
                                        (list "Boolean" 
-                                              @code{} 
+                                              @code{==, <, >, <=, >=, string-equal} 
                                               (list @code{true false} ))
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart} 
@@ -324,7 +324,7 @@
                 @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Choose one catagorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which was the most accurate?
+                            Choose one categorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which was the most accurate?
                         }
                     }       
                     @teacher{

@@ -9,7 +9,7 @@
                                               @code{string-repeat, string-contains} 
                                               (list @code{"hello" "91"} ))
                                        (list "Boolean" 
-                                              @code{} 
+                                              @code{==, <, >, <=, >=, string-equal} 
                                               (list @code{true false} ))
                                        (list "Image" 
                                               @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart} 
@@ -75,7 +75,7 @@
             }
             @point{
                   @student{
-                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
+                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
                   }
                   @teacher{
                           Have students share their findings with the class. Allow time for discussion!
@@ -151,7 +151,7 @@
               }
               @point{
                     @student{
-                        Let's get some pratice playing with the @code{row-n} method, and row-accessors!
+                        Let's get some practice playing with the @code{row-n} method, and row-accessors!
                         @activity{
                            Complete the exercises on page @worksheet-link[#:name "Lookup-Animals"].
                         }
@@ -243,7 +243,7 @@
             }
               @point{
                     @student{
-                        Let's get some pratice combining Lookups with Value Definitions.
+                        Let's get some practice combining Lookups with Value Definitions.
                         @activity{
                            Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
                         }
