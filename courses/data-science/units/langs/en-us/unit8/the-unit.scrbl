@@ -44,7 +44,7 @@
         @points[
                 @point{
                         @student{
-                                "Do lighter animals get adopted faster? Do younger animals?" We started the previous Unit with these questions, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
+                                "Do smaller animals get adopted faster? Do younger animals?" We started the previous Unit with these questions, and looked at scatter plots as a way to visualize possible @vocab{correlations} between two variables in our dataset. What did we find?
                         }
                         @teacher{
                                    
@@ -52,7 +52,7 @@
                 }
                 @point{
                         @student{
-                                Whenever there's a possible linear relationship, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line is literally graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how well the line predicts responses, based on explanatory values").
+                                Whenever there's a possible linear relationship, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line can be graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how well the line predicts responses, based on explanatory values").
                         }
                         @teacher{
 
@@ -140,11 +140,22 @@
 
                                 @code[#:multi-line #t]{
                                         # use linear regression to extract a predictor function
-                                        # lr-plot :: (t :: Table, xs :: String, ys :: String) -> Image
                                         # lr-plot :: (t :: Table, ls :: String, xs :: String, ys :: String) -> Image
                                 }
-                                @code{lr-plot} is a function that takes a Table and the names of columns to use for @code{xs} and @code{ys}, computes the line of best fit, and then draws it on top of the point cloud.
-
+                                @code{lr-plot} is a function that takes a Table and the names of @bold{3 columns}:
+                                @itemlist[
+                                    @item{ @code{ls} - the name of the column to use for @italic{labels} (e.g. "names of pets") }
+                                    
+                                    @item{ @code{xs} - the name of the column to use for @italic{x-coordinates} (e.g. "age of each pet") }
+                                    @item{ @code{ys} - the name of the column to use for @italic{y-coordinates} (e.g. "weeks for each pet to be adopted") }
+                                ]
+                        }
+                        @teacher{
+                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
+                        }
+                }
+                @point{
+                        @student{
                                 @activity[#:forevidence (list )]{
                                     In the Interactions Area, create a @code{lr-plot} for our @code{animals-table}, using @code{"names"} for the labels, @code{"age"} for the x-axis and @code{"weeks"} for the y-axis.
                                     You can learn more about how a predictor is created by watching @(new-tab "https://www.youtube.com/watch?v=lZ72O-dXhtM" "this video").
@@ -152,7 +163,7 @@
 
                         }
                         @teacher{
-                                If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
+
                         }
                 }
                 @point{
@@ -188,7 +199,7 @@
                 }
                 @point{
                         @student{
-                                The @vocab{R} value for a predictor is a number that tells us @italic{the strength and direction of a correlation}. In other words, it's a measure for how well the line fits and whether it goes up or down. If the number is positive, it means that the value in on the y-axis goes up as we move to the right. For example, we would expect a positive R value between @code{age} and @code{pounds}, because animals get heavier as they grow up. If it's negative, it means the value goes @italic{down}. @bold{An R value of zero means there is no correlationat all}, and stronger correlations will be closer to -1 or 1.
+                                The @vocab{R} value for a predictor is a number that tells us @italic{the strength and direction of a correlation}. In other words, it's a measure for how well the line fits and whether it goes up or down. If the number is positive, it means that the value in on the y-axis goes up as we move to the right. For example, we would expect a positive R value between @code{age} and @code{pounds}, because animals get heavier as they grow up. If it's negative, it means the value goes @italic{down}. @bold{The strength of a correlation is the distance from zero:} an R value of zero means there is no correlation at all, and stronger correlations will be closer to -1 or 1.
                                 @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
@@ -222,7 +233,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        In the Interactions Area, compute a scatter plot and line-of-best-fit for the following relationships:
+                                        In the Interactions Area, perform a linear regression on the following relationships:
 
                                         @itemlist[
                                                 @item{
