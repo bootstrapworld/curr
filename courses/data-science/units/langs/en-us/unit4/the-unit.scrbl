@@ -132,7 +132,7 @@
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
-                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a @vocab{categorical} variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 31 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 11/31 for cats and 15/31 for rabbits, or converted those fractions to percentages. The chart would look the same either way: only the numbers on the vertical axis would change.
+                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a @vocab{categorical} variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 31 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 11/31 for cats and 15/31 for rabbits, or converted those fractions to percentages. The display would look the same either way: only the numbers on the vertical axis would change.
                       }
                       @teacher{
                               
@@ -151,7 +151,7 @@
                 }
                 @point{
                       @student{
-                              A quick report on this bar-chart should definitely mention the fact that “dog” is the mode of the data set; the most common of the five possible species was dog, with cats being a fairly close second.
+                              A quick report on this bar chart should definitely mention the fact that “dog” is the mode of the data set; the most common of the five possible species was dog, with cats being a fairly close second.
                       }
                       @teacher{
 
@@ -266,7 +266,7 @@
 
                         }
                         @teacher{
-                              Note that interals on this chart include the left endpoint but not the right. If we included the right endpoint and someone had 0 teeth, we’d have to add on a bar from -5 to 0, which would be awfully strange!
+                              Note that interals on this display include the left endpoint but not the right. If we included the right endpoint and someone had 0 teeth, we’d have to add on a bar from -5 to 0, which would be awfully strange!
                         }
                 }
                 @point{

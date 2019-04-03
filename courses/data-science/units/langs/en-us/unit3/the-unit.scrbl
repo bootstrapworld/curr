@@ -324,7 +324,7 @@
                 @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Choose one categorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which is most representative of the entire column in the table?
+                            Choose one categorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same display for each of your subsets. Which is most representative of the entire column in the table?
                         }
                     }       
                     @teacher{

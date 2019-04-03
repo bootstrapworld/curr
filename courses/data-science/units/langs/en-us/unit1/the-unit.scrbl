@@ -719,7 +719,7 @@
               }
               @point{
                     @student{
-                        We use charts like pie-chart and bar-chart to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
+                        We use displays like pie-chart and bar-chart to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
                         @activity{
                           If you wanted to draw this pie chart by hand, how would you do it?
                         }
@@ -809,7 +809,7 @@
         @points[
             @point{
                   @student{
-                      Today you've learned about quantitative and categorical data. You've learned about Numbers, Strings, Booleans, and Images. You've learned about operators and functions, and how they can be used to make shapes, chart data, and even transform tables!
+                      Today you've learned about quantitative and categorical data. You've learned about Numbers, Strings, Booleans, and Images. You've learned about operators and functions, and how they can be used to make shapes, visually display data, and even transform tables!
                   }
                   @teacher{
                   }

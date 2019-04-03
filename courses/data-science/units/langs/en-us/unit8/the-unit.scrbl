@@ -123,10 +123,10 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list )]{
-                                  You can see this in action, in this @(new-tab "https://www.geogebra.org/m/xC6zq7Zv" "interactive simulation"). Each vertical line represents the error, or the amount the rubber band has to stretch between a single data point and the prediction line. The "Target SSE" shows how much error (specifically, "the Sum of the Squared Errors") there is in the best possible predictor line. Our goal is to match that, by moving the red line or the "guide dots" on it. 
+                                  You can see this in action, in this @(new-tab "https://www.geogebra.org/m/ZcVIxKtF" "interactive simulation"). Try moving the blue point "P", and see what effect it has on the red line.
                                   @itemlist[
                                       @item{Could the regression line ever be above or below @italic{all} the points? Why or why not?}
-                                      @item{What would the plot have to look like for SSE to be zero?}
+                                      @item{What's the largest R value you can get? What do you think that number means?}
                                   ]
                                 }
                         }
@@ -177,9 +177,9 @@
                 }
                 @point{
                         @student{
-                                These charts also include something called an @vocab{r-squared} value at the top, which always seems to be between 0 and 1. What do you think this number means? 
+                                These charts also include something called an @vocab{R} value at the top, which always seems to be between -1 and 1. What do you think this number means? 
                                 @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
-                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the chart that has the best predictor. Then, give that predictor a grade between 0 and 1.
+                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the display that has the best predictor. Then, give that predictor a grade between -1 and 1.
                                 }
                         }
                         @teacher{
@@ -188,11 +188,11 @@
                 }
                 @point{
                         @student{
-                                The @vocab{r-squared} value for a predictor is a number that tells us @italic{"how much of the spread in the scatter plot is explained by this line"}. In other words, it's a measure for how well the line fits. A perfect score of 1.0 means that 100% of the spread in the data is explained by the function and that every point falls exactly on the line. A score of 0.0 means that @italic{none} of the spread is explained by the predictor. 
+                                The @vocab{R} value for a predictor is a number that tells us @italic{the strength and direction of a correlation}. In other words, it's a measure for how well the line fits and whether it goes up or down. If the number is positive, it means that the value in on the y-axis goes up as we move to the right. For example, we would expect a positive R value between @code{age} and @code{pounds}, because animals get heavier as they grow up. If it's negative, it means the value goes @italic{down}. @bold{An R value of zero means there is no correlationat all}, and stronger correlations will be closer to -1 or 1.
                                 @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
-                                                What is the r-squared value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
+                                                What is the R value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
                                             }
                                             @item{
                                                 What does it mean when a data point is @italic{above} the line of best fit?
@@ -201,7 +201,7 @@
                                                 What does it mean when a data point is @italic{below} the line of best fit?
                                             }
                                             @item{
-                                                If you only have two data points, why will the r-squared value always be 1.0?
+                                                If you only have two data points, why will the R value always be either -1 or +1?
                                             }
                                         ]
                                         
@@ -213,7 +213,7 @@
                 }
                 @point{
                         @student{
-                                An r-squared value of 0.60 or higher is typically considered a strong correlation, and anything between 0.40 and 0.60 is "moderately correlated". Anything less than 0.40 is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-squared value of 0.50 might be considered impressively strong!
+                                An R value of @math{\pm0.65} or more is typically considered a strong correlation, and anything between @math{\pm0.35} and @math{\pm0.65} is "moderately correlated". Anything less than @math{\pm0.35} is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an R value of @math{\pm0.50} might be considered impressively strong!
                         }
                         @teacher{
 
@@ -243,7 +243,8 @@
                 }
                 @point{
                         @student{
-                                When looking at just the cats, we found that our predictor had an r-squared value of about 0.321. That means that 32.1% of the spread in adoption times is due to the age of the cats. We also saw that the slope of the predictor function was .23, meaning that for every year older a cats is, we expect a .23-week increase in the time taken to adopt that cat. Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
+                                When looking at just the cats, we also saw that the slope of the predictor function was +0.23, meaning that for every year older a cats is, we expect a +0.23-week increase in the time taken to adopt that cat. The R value was 0.566, confirming that the correlation is positive and indicating moderate strength.
+                                Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1")]{
                                       Write up two other findings from the linear regressions you performed on this dataset.
                                 }
@@ -255,11 +256,11 @@
                 @point{
                         @student{
                                 @bannerline{Correlation does NOT imply causation.}
-                                It's worth revisiting this point again. It's easy to be seduced by large r-squared values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
+                                It's worth revisiting this point again. It's easy to be seduced by large R values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
                                 @itemlist[
-                                    @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{r^2=0.952}) }
-                                    @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{r^2=0.899}) }
-                                    @item{ "Marriage rate in Wyoming" v. "Domestic production of cars" (@math{r^2=0.976}) }
+                                    @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{R=0.98}) }
+                                    @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{R=0.95}) }
+                                    @item{ "Marriage rate in Wyoming" v. "Domestic production of cars" (@math{R=0.99}) }
                                 ]
                         }
                         @teacher{
