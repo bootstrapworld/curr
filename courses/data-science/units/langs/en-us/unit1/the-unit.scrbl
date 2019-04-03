@@ -123,26 +123,25 @@
               }
               @point{
                       @student{
-                              Data Science is all about using a smaller sample of data to make predictions about a larger population. It's important to remember that tables are only an @italic{approximation} of a larger population: this table @italic{describes} some animals, but obviously it isn't every animal in the world! If we took the average age of the animals at this particular shelter, it @italic{might} tell us something about the average age of animals in other shelters.
+                              Data Science is all about using a smaller sample of data to make predictions about a larger population. It's important to remember that tables are only a @italic{sampling} of a larger population: this table @italic{describes} some animals, but obviously it isn't every animal in the world! Still, if we took the average age of the animals at this particular shelter, it @italic{might} tell us something about the average age of animals in other shelters.
                       }
                       @teacher{
                       }
               }
               @point{
                       @student{
-                              There are two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
+                              There are two different kinds of data that come up in Data Science: Categorical and Quantitative. @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "cat" is more than "lizard", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a weather forecast, temperature is quantitative but whether it's snowing or raining is categorical.
                               @activity[#:forevidence (list )]{
-                                  "Age" is a categorical variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
+                                  "Species" is a categorical variable, because we can ask questions like "which species does Mittens belong to?" What are some other categorical variables you see in this table?
                               }
                       }
                       @teacher{
                       }
               }
               @point{
-                      @student{
-                              @vocab{Categorical Data} is used to @italic{classify}, not measure. Categories aren't subject to the laws of arithmetic. For example, we couldn't ask if "cat" is more than "lizard", and it doesn't make sense to find the "average ZIP code" in a list of addresses. We use @vocab{Categorical Data} to ask "which one"? When you look at a weather forecast, temperature is quantitative but whether it's snowing or raining is categorical.
+                      @student{@vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
                               @activity[#:forevidence (list )]{
-                                  "Species" is a categorical variable, because we can ask questions like "which species does Mittens belong to?" What are some other categorical variables you see in this table?
+                                  "Age" is a quantitative variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
                               }
                       }
                       @teacher{
@@ -152,13 +151,13 @@
                       @student{
                               Sometimes it can be tricky to figure out if data is categorical or quantitative, because it depends on how that data is being used!
                               @activity[#:forevidence (list )]{
-                                  For each of the following questions, determine whether the data being used is quantitative or categorical.
+                                  For each of the following questions, determine whether the data being used is categorical or quantitative.
                                   @itemlist[
-                                      @item{We'd like to sort a list of numbers by area code.}
-                                      @item{We'd like to find out which car is the most expensive.}
-                                      @item{We'd like to find out which cars are red.}
+                                      @item{We'd like to sort a list of phone numbers by area code.}
+                                      @item{We'd like to find out the average price of cars in a lot.}
+                                      @item{We'd like to find out the most popular color for cars.}
                                       @item{We'd like to find out which puppy is the youngest.}
-                                      @item{We'd like to find out which kitten is an American Shorthair.}
+                                      @item{We'd like to find out which cats have been fixed.}
                                       @item{We want to know which people have a ZIP code of 02907.}
                                   ]
                               }
@@ -211,14 +210,14 @@
               }
               @point{
                     @student{
-                          After that, we see a line of code that @italic{defines} @code{shelter-sheet} to be a spreadsheet. This table is loaded from Google Drive, so now Pyret and see the same spreadsheet you do. After that, we see the following code:
+                          After that, we see a line of code that @italic{defines} @code{shelter-sheet} to be a spreadsheet. This table is loaded from Google Drive, so now Pyret can see the same spreadsheet you do. After that, we see the following code:
                           @code[#:multi-line #t]{
                             # load the 'pets' sheet as a table called animals-table
                             animals-table = load-table: name, species, age, fixed, legs
                               source: pets-sheet.sheet-by-name("pets", true)
                             end
                           }
-                          This code @italic{defines} a new table. We call it @code{animals-table}, and we load it from the @code{shelter-sheet} defined above. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
+                          The first line (starting with @code{#}) is called a @italic{comment}. Comments are notes for humans, which the computer ignores. The next line @italic{defines} a new table. We call it @code{animals-table}, and we load it from the @code{shelter-sheet} defined above. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
                     }
                     @teacher{
                           Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
@@ -260,7 +259,7 @@
               }
               @point{
                   @student{
-                    After the header, Pyret tables can have any number of @vocab{data rows}. Each data row has values for every variable (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}, as in the table below:
+                    After the header, Pyret tables can have any number of @vocab{data rows}. Each data row has values for every column variable (nothing can be left empty!). A table can have any number of data rows, including @italic{zero}, as in the table below:
                     @build-table/cols[
                         '("name" "species")
                         '(())
@@ -294,7 +293,7 @@
         @points[
             @point{
                     @student{ 
-                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of legs each animal has) and Strings (the name of the animal). Let's get some practice playing with both Datatypes.
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of legs each animal has) and Strings (the species of the animal). Let's get some practice playing with both Datatypes.
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&1" "Programming 5.3.1&1&9")]{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -341,7 +340,7 @@
                                     }
 
                                     @item{
-                                            An unclosed quotation mark is a problem, but so is an unmatched paren. @code{(2 + 2}, for example, will give you an error too!
+                                            An unclosed quotation mark is a problem, but so is an unmatched parentheses. For example, you'll get an error message if you type @code{(2 + 2}.
                                     }
                             ]
                     }
@@ -638,7 +637,7 @@
             }
             @point{
                     @student{
-                        The function @code{pie-chart} consumes a Table of data, along with the @italic{name of a categorical column you want to summarize}. The computer will go through the column, counting the number of times that each value appears. It will then create a pie slice for each value, with the size of the slice being the number of times it appears. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribution of @code{species} across the shelter.
+                        The function @code{pie-chart} consumes a Table of data, along with the @italic{name of a categorical column you want to display}. The computer will go through the column, counting the number of times that each value appears. It will then create a pie slice for each value, with the size of the slice being the percentage of times it appears. In this example, we used our @code{animals-table} table as our dataset, and made a pie chart showing the distribution of @code{species} across the shelter.
                     }
                     @teacher{
                         
@@ -717,7 +716,7 @@
               }
               @point{
                     @student{
-                        We use charts to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
+                        We use charts like pie-chart and bar-chart to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
                         @activity{
                           If you wanted to draw this pie chart by hand, how would you do it?
                         }

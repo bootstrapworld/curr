@@ -62,10 +62,10 @@
                                 @bold{Lookup questions} - These can be answered simply by looking up a @italic{single value} in the table and reading it out. Once you find the value, you're done! Examples of lookup questions might be "is Sunflower fixed?" or "How many legs does Felix have?"
                               }
                               @item{
-                                @bold{Compute questions} - These can be answered by computing an answer across a @italic{single row or column}. Examples of computing questions might be "what is the heaviest animal?" or "What is the average age of animals at the shelter?"
+                                @bold{Compute questions} - These can be answered by computing an answer across a @italic{single row or column}. Examples of computing questions might be "how much does the heaviest animal weigh?" or "What is the average age of animals at the shelter?"
                               }
                               @item{
-                                @bold{Relate questions} - These ones take the most work, because they require looking for relationships between @italic{multiple rows or columns}. Examples of analysis questions might be "Do cats tend to be adopted faster than dogs?" or "Are older animals heavier than young ones?"
+                                @bold{Relate questions} - These ones take the most work, because they require looking for relationships between @italic{multiple columns}. Examples of analysis questions might be "Do cats tend to be adopted faster than dogs?" or "Are older animals heavier than young ones?"
                               }
                           ]
                   }
@@ -112,7 +112,7 @@
         @points[
               @point{
                     @student{
-                        Tables have special properties, called @vocab{Methods}, which allow us to do all sorts of things. For example, we can get the first data row in a table by using the @code{.row-n} method:
+                        Tables have special functions associated with them, called @vocab{Methods}, which allow us to do all sorts of things with those tables. For example, we can get the first data row in a table by using the @code{.row-n} method:
                         @code[#:multi-line #t]{
                             animals-table.row-n(0)
                         }
@@ -153,7 +153,7 @@
                     @student{
                         Let's get some practice playing with the @code{row-n} method, and row-accessors!
                         @activity{
-                           Complete the exercises on page @worksheet-link[#:name "Lookup-Animals"].
+                           Complete the exercises on @worksheet-link[#:name "Lookup-Animals"].
                         }
                     }
                     @teacher{
@@ -207,7 +207,7 @@
                         Pyret allows us to define names for values using the @code{=} sign. In math, you're probably used to seeing definitions like @math{x = 4}, which defines the name @code{x} to be the value @code{4}. Pyret works the same way, and you've already seen two names defined in this file: @code{shelter-sheet} and @code{animals-table}. We generally write definitions on the left, in the Definitions Area.
                         You can add your own definitions, for example:
                         @code[#:multi-line #t]{
-                            name = "Maya"
+                            my-name = "Maya"
                             sum = 2 + 2
                             img = triangle(10, "solid", "red")
                         }
@@ -245,7 +245,7 @@
                     @student{
                         Let's get some practice combining Lookups with Value Definitions.
                         @activity{
-                           Complete the exercises on page @worksheet-link[#:name "Lookup-Shapes"].
+                           Complete the exercises on @worksheet-link[#:name "Lookup-Shapes"].
                         }
                     }
                     @teacher{
@@ -332,6 +332,7 @@
                               # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up the value in the fixed column
                             }
+                            Since the description is a note for humans, we add the @code{#} symbol at the front of the line to turn it into a comment.
                       }
                       @teacher{
                         Be sure to check students' contracts and purpose statements before having them move on!
@@ -465,7 +466,7 @@
                 }
                 @point{
                     @student{
-                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us out first example:
+                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us our first example:
                         @code[#:multi-line #t]{
                               # is-cat :: (animal :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
@@ -604,7 +605,7 @@
         @points[
               @point{
                     @student{
-                          Congratulations! You've explored the Animals dataset, formulated your own and begun to think critically about how questions and data shape one another. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own data.
+                          Congratulations! You've explored the Animals dataset, formulated your own questions and begun to think critically about the connections between data and the questions we ask about it. For the rest of this course, you'll be learning new programming and Data Science skills, practicing them with the Animals dataset and then applying them to your own data.
                     }
                     @teacher{
                           Have students share which dataset they chose, and pick one question they're looking at.
