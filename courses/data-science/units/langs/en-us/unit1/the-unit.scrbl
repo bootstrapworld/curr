@@ -350,8 +350,11 @@
             }
             @point{
                     @student{
-                            As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{<} and @code{>}? 
+                            As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{==}, @code{<} and @code{>}? 
                             @itemlist[
+                                @item{
+                                    To identify if an animal's @code{gender} is @code{"male"}, we need to know if the value in that column is @italic{equal to} the string "male".
+                                }
                                 @item{
                                     To sort the table by age, we need to know if one animal's age is @italic{less than} another's.
                                 }

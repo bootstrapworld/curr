@@ -61,9 +61,9 @@
                 }
                 @point{
                       @student{
-                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.} 
+                          @bannerline{According to the Animal Shelter Bureau, the average pet weighs almost 41 pounds.} 
                           @activity[#:forevidence (list )]{
-                            Does that mean most pets wait more than a month to find homes? Why or why not?
+                            Some medicines are dosed @italic{by weight}: larger animals need a larger dose. If the animal shelter wants to buy medicine for the animals, is "41 pounds" going to serve the most animals?
                           }
                       }
                       @teacher{
@@ -72,7 +72,7 @@
                 }
                 @point{
                       @student{
-                              "The average pet waits 5.8 weeks" is a statement about the entire dataset, which summarizes a whole column of values with a single number. Summarizing a big dataset means that some information gets lost, so it's important to pick and @italic{appropriate} summary. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are appropriate or not?
+                              "The average pet weighs 41 pounds" is a statement about the entire dataset, which summarizes a whole column of values with a single number. Summarizing a big dataset means that some information gets lost, so it's important to pick and @italic{appropriate} summary. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are appropriate or not?
                               @itemlist[
                                   @item{ 
                                       Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
@@ -138,7 +138,7 @@
                 @point{
                       @student{
                               @bitmap{images/points-on-line.png}
-                              If we plotted all the @code{weeks} values as points on a number line, what could we say about the average of those values? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center".
+                              If we plotted all the @code{pounds} values as points on a number line, what could we say about the average of those values? Is there a midpoint? Is there a point that shows up most often? Each of these are different ways of "measuring center".
                       }
                       @teacher{
                               Draw some sample points on a number line, and have students volunteer different ways to summarize the distribution.
@@ -169,9 +169,9 @@
                 }
                 @point{
                       @student{
-                              Type @code{mean(animals-table, "weeks")}.  What does this give us? Does this support the Bureau's claims?
+                              Type @code{mean(animals-table, "pounds")}.  What does this give us? Does this support the Bureau's claims?
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                      Open your workbooks to @worksheet-link[#:name "Summarizing-Weeks"]. We've already decided on the answer to Question 1 (@code{weeks}). Under the "measures of center" section, fill in the computed mean.
+                                      Open your workbooks to @worksheet-link[#:name "Summarizing-Pounds"]. We've already decided on the answer to Question 1 (@code{pounds}). Under the "measures of center" section, fill in the computed mean.
                               }
                       }
                       @teacher{
@@ -180,7 +180,7 @@
                 }
                 @point{
                       @student{
-                              You computed the mean of that list to be just 5.8 weeks. That IS the average, but if we look at the dots on our number line, we can see that most of the animals in the table waited for less than 5 weeks! What is throwing off the average so much?
+                              You computed the mean of that column to be almost exactly 41 pounds. That IS the average, but if we look at the dots on our number line, we can see most of the animals weight @italic{less} than 41 pounds! There are just a huge number of animals that weigh less than 13 pounds. What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.
@@ -190,7 +190,7 @@
                       @student{
                               In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with extreme outliers. The mean may also be thrown off by the presence of @vocab{skew}: a lopsided shape due to values trailing off left or right of center, but not separated by the visible gap typical of outliers.
                               @activity{
-                                  Make a @code{histogram} of the @code{weeks} column, and try different bin sizes. Can you see the skew towards the right?
+                                  Make a @code{histogram} of the @code{pounds} column, and try different bin sizes. Can you see the skew towards the right, with a huge number of animals clumped to the left?
                               }
                       }
                       @teacher{
@@ -240,7 +240,7 @@
                               @code{# median :: (t :: Table, col :: String) -> Number}
 
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                    Compute the @code{median} for the @code{weeks} column in our dataset, and add this to @worksheet-link[#:name "Summarizing-Weeks"]. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weight} and @code{age} columns.
+                                    Compute the @code{median} for the @code{pounds} column in our dataset, and add this to @worksheet-link[#:name "Summarizing-Pounds"]. Is it different than the mean? What can we conclude when the median is so much lower than the mean? For practice, compute the mean and median for the @code{weeks} and @code{age} columns.
                               }
                       }
                       @teacher{
@@ -286,7 +286,7 @@
                                     # modes :: (t :: Table, col :: String) -> List<Number>
                               }
                               @activity[#:forevidence (list "S-ID.1-4&1&1" "6.SP.1-3&1&1" "6.SP.1-3&1&2" "6.SP.1-3&1&3" "HSS.ID.A&1&2")]{
-                                  Compute the @code{modes} of the @code{weeks} column, and add it to @worksheet-link[#:name "Summarizing-Weeks"]. What did you get? The most common number of weeks an animal waits is either @code{1} or @code{3}! Both of those are well below our mean, which is further evidence of outliers or skewness.
+                                  Compute the @code{modes} of the @code{pounds} column, and add it to @worksheet-link[#:name "Summarizing-Pounds"]. What did you get? The most common number of pounds an animal weighs is @code{6.5}! That's well below our mean and even our median, which is further evidence of outliers or skewness.
                               }
                       }
                       @teacher{
@@ -297,11 +297,11 @@
                       @student{
                               At this point, we have a lot of evidence that suggests the Bureau's use of "mean" to summarize data is inaccurate. Our mean wait time agrees with their findings, but we have three reasons to suspect that @vocab{mean} isn't the best value to use:
                               @itemlist[
-                                  @item{ The median is only 4 weeks. }
-                                  @item{ The modes of our dataset are only 1 and 3, which means there are clusters of animals that are adopted in just one or three weeks. }
+                                  @item{ The median is only 13.4 pounds. }
+                                  @item{ The mode of our dataset is only 6.5 pounds, which could mean there are clusters of animals that weigh less than @italic{one-sixth} the mean. }
                                   @item{ When viewed as a histogram, we can see the rightward skew in the dataset. Mean is sensitive to highly-skewed datasets }
                               ]
-                              The Animal Shelter Bureau started with a fact: the mean wait time @italic{is} about 5.8 weeks. But then they reported a conclusion without checking to see if that was the best summary statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to settle for the Bureau's summary. This is why using tools like histograms can be so important when deciding on a summary tool.
+                              The Animal Shelter Bureau started with a fact: the mean weight @italic{is} about 41 pounds. But then they reported a conclusion without checking to see if that was the best summary statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to settle for the Bureau's summary. This is why using tools like histograms can be so important when deciding on a summary tool.
                       }
                       @teacher{
                               
@@ -371,7 +371,7 @@
                 }
                 @point{
                       @student{
-                          Suppose we lined up all of the values in the @code{weeks} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          Suppose we lined up all of the values in the @code{pounds} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
                           @activity[#:forevidence (list )]{
                               The first quartile (Q1) is the value for which 25% of animals waited that time or less. What does the third quartile represent?
                           }
@@ -382,10 +382,10 @@
                 }
                 @point{
                       @student{
-                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to display data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{weeks} column in the @code{animals-table}.
+                          We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to display data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{pounds} column in the @code{animals-table}.
                           @code[#:multi-line #t]{
                             # box-plot :: (t :: Table, column :: String) -> Image
-                            # box-plot(animals-table, "weeks")
+                            # box-plot(animals-table, "pounds")
                           }
                           @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
@@ -401,19 +401,19 @@
                           This plot shows us the spread in our dataset according to five numbers.
                           @itemlist[
                               @item{ 
-                                  The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 1 week.
+                                  The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 0.1 pounds.
                               }
                               @item{
-                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), is computed by taking @italic{the median of the smaller half of the values}. In the @code{weeks} column, that's 2.5 weeks.
+                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), is computed by taking @italic{the median of the smaller half of the values}. In the @code{pounds} column, that's 4.3 pounds.
                               }
                               @item{
-                                  The @bold{Median (Q2)} value (the line in the middle), which is the second Quartile of the whole dataset. We already computed this to be 4.
+                                  The @bold{Median (Q2)} value (the line in the middle), which is the second Quartile of the whole dataset. We already computed this to be 13.4 pounds.
                               }
                               @item{
-                                  The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 8 weeks in our dataset.
+                                  The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 68 pounds in our dataset.
                               }
                               @item{ 
-                                  The @bold{maximum} value in the dataset (at the top). In our dataset, that's 30 weeks.
+                                  The @bold{maximum} value in the dataset (at the top). In our dataset, that's 172 pounds.
                               }
                           ]
                       }
@@ -425,7 +425,7 @@
                       @student{
                           One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{weeks} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
+                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
                           }
                       }
                       @teacher{
@@ -440,12 +440,12 @@
                           }
                       }
                       @teacher{
-                          @math{8 - 2 = 6} weeks
+                          @math{68 - 4.3 = 63.7} pounds
                       }
                 }
                 @point{
                       @student{
-                          The @vocab{Range} of our dataset is 29 weeks, but the @vocab{interquartile range} is only 6 weeks! That means that @italic{50% of the animals} fall into only 19% of the range! That suggests the data set has one or more outliers. Because the minimum is very close to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
+                          The @vocab{Range} of our dataset is 172 pounds, but the @vocab{interquartile range} is only 63.7 pounds! That means that @italic{50% of the animals} fall into only less thn half the range! That suggests the data set has one or more outliers. Because the minimum is closer to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
                           @activity{
                             On page @worksheet-link[#:name "Interpreting-Spread"], write down your conclusion for this box-plot.
                           }

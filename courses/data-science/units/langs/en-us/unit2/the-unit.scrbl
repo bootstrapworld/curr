@@ -455,7 +455,7 @@
                           Define a function called @code{is-cat}, which consumes a row from the @code{animals-table} and returns true if the animal is a cat.
                           @itemlist[
                             @item{ Is this a Lookup, Compute or Relate question?}
-                            @item{ What is the name of this function? What are it's Domain and Range? }
+                            @item{ What is the name of this function? What are its Domain and Range? }
                             @item{ Is Sasha a cat? @italic{What did you do to get that answer?} }
                           ]
                         }

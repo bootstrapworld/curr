@@ -160,17 +160,17 @@
                       @student{
                           We can make a pie-chart showing how many of each species is in the shelter, by writing
                           @code[#:multi-line #t]{
-                            pie-chart(count(animals-table, "species"), "value", "count")
+                            pie-chart(animals-table, "species")
                           }
                           @activity{
                             Which of our subsets do you think will give us @italic{the most accurate approximation} of the original chart?
                             @code[#:multi-line #t]{
-                              pie-chart(count(dogs, "species"), "value", "count")
-                              pie-chart(count(cats, "species"), "value", "count")
-                              pie-chart(count(fixed, "species"), "value", "count")
-                              pie-chart(count(young, "species"), "value", "count")
-                              pie-chart(count(small-sample, "species"), "value", "count")
-                              pie-chart(count(large-sample, "species"), "value", "count")
+                              pie-chart(dogs, "species")
+                              pie-chart(cats, "species")
+                              pie-chart(fixed, "species")
+                              pie-chart(young, "species")
+                              pie-chart(small-sample, "species")
+                              pie-chart(large-sample, "species")
                             }
                             Compare the charts you get from each of these. Which one is the most representative of the whole population? Why?
                           }
