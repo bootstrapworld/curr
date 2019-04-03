@@ -18,7 +18,7 @@
                                               @code{count, .row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
-      Students learn to prepare for analyzing a new dataset by considering logical subsets of that data. They begin with the Animals Dataset, and then apply what they've learned to a dataset of their own choosing. In the process, they practice using the Design Recipe to create filter functions, and come up with questions they wish to explore.
+      Students learn to prepare for analyzing a new dataset by considering logical subsets of that data. They begin with the Animals Dataset, and then apply what they've learned to a dataset of their own choosing. In the process, they practice using the Design Recipe to create filter functions, and come up with questions they wish to explore. The focus of this unit is categorical variables, and by the end students will know how to display categorical variables.
   }
 }
 @unit-lessons{
@@ -82,14 +82,14 @@
         @points[
                 @point{
                     @student{
-                        Data Science is all about making predictions based on data. Suppose we want to survey Americans and try to predict our next president will be. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
+                        A lot of Data Science involves making predictions based on data. Suppose we want to survey Americans and try to predict our next president will be. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
                         @activity{
                             @itemlist[
                               @item{
                                 Would it be problematic to only call voters who are registered Democrats? To only call voters under 25? To only call regular churchgoers? Why or why not?
                               }
                               @item{
-                                Suppose we wanted to ask women how they feel about a particular issue. Should we still make sure we're surveying men, too? Why or why not?
+                                Suppose we are interested how in women feel about a particular issue. Should we still make sure we're surveying men, too? Why or why not?
                               }
                             ]
                         }
@@ -100,7 +100,7 @@
                 }
                 @point{
                     @student{
-                        As you can see, sampling is a complicated issue! Depending on the question we want to answer, sometimes it makes sense to carve out a subset of the data (e.g. - calling only women), and sometimes it makes sense to aim for a random sample. In this Unit, we'll be practicing what you learned about writing functions, and then using the @code{.filter} method to create subsets.
+                        As you can see, sampling is a complicated issue! Depending on the question we want to answer, sometimes it makes sense to work with an entire dataset, and sometimes it makes sense to carve out a subset of the data (e.g. - calling only women). In this Unit, we'll be practicing what you learned about writing functions, and then using the @code{.filter} method to create subsets.
                     }
                     @teacher{
 
@@ -324,7 +324,7 @@
                 @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Choose one categorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which was the most accurate?
+                            Choose one categorical column from your dataset, and try making a bar or pie-chart for the whole table. Now try making the same chart for each of your subsets. Which is most representative of the entire column in the table?
                         }
                     }       
                     @teacher{
