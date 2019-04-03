@@ -46,13 +46,15 @@
  ("Summarizing-Weeks" 			31 )
  ("Interpreting-Spread" 		32 )
  ("Summarizing-My-Dataset" 		33 )
+ ("Padding-Unit-5"              34 )
 
 
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
- ("Design-Recipe-3" 			34 )
- ("Building-Recipes" 			27 )
- ("Bad-Sample-Tables"			22 )
- ("Chaining-Methods" 			16 )
+ ("Unit-6-Notes" 				35 )
+ ("Unit-5-Blank" 				36 )
+ ("Design-Recipe-3" 			37 )
+ ("Building-Recipes" 			38 )
+ ("Chaining-Methods" 			39 )
  
 
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
