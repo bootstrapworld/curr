@@ -63,7 +63,7 @@
                 }
                 @point{
                       @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. As the saying goes, sometimes you "can't see the forest for the trees". Also, summarizing with a single number like the @vocab{average} leaves out a lot of important information. So instead of talking about each individual in a dataset, or simply reporting the average for all those individuals, Data Scientists find it useful to describe the overall @bold{shape} of the data. 
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. As the saying goes, sometimes you "can't see the forest for the trees". Also, summarizing with a single number like the average leaves out a lot of important information. So instead of talking about each individual in a dataset, or simply reporting the average for all those individuals, Data Scientists find it useful to describe the overall @bold{shape} of the data. 
                       }
                       @teacher{
 
@@ -93,7 +93,7 @@
                                       Because we see a small amount of the histogram's area trailing out to unusually high values, we can say that a couple of animals took an unusually long time to be adopted: one took even more than 30 weeks.
                                   }
                                   @item{
-                                      Most of the animals (17 out of 31) took just 5 weeks or less to be adopted. But those few unusually long adoption times pulled the average up to 5.8 weeks. Knowing about the shape gives us worthwhile information beyond the simple report of average.
+                                      More than half of the animals (17 out of 31) took just 5 weeks or less to be adopted. But those few unusually long adoption times pulled the average up to 5.8 weeks. Knowing about the shape gives us worthwhile information beyond the simple report of average.
                                   }
                               ]
                       }
@@ -103,7 +103,7 @@
                 }
                 @point{
                       @student{
-                          If someone would ask us what was typical for the adoption times, we might say: "Most of the animals were adopted in 10 weeks or less, but a couple of animals took an unusually long time to be adopted - even more than 20 or 30 weeks!" Without looking at the histogram's shape, it would have been very difficult to make this summary.
+                          If someone would ask us what was typical for the adoption times, we might say: "Almost all of the animals were adopted in 10 weeks or less, but a couple of animals took an unusually long time to be adopted - even more than 20 or 30 weeks!" Without looking at the histogram's shape, it would have been very difficult to make this summary.
                           @activity{
                               What would the histogram look like if most of the animals took more than 20 weeks to be adopted, but a couple of them were adopted in fewer than 5 weeks?
                           }
@@ -347,7 +347,7 @@
         @points[
               @point{
                     @student{
-                          Histograms are a powerful way to visually summarize the @vocab{shape} of a dataset. But sometimes we need to dig deeper, and summarize shape using hard numbers. In the next unit, we'll explore the concept of shape using computed values instead of visual charts.
+                          Histograms are a powerful way to display a data set and assess its @vocab{shape}. But shape is just one of three key aspects that tell us what's going on with a quantitative data set. In the next unit, we'll explore the other two: center and spread.
                     }
                     @teacher{
 
