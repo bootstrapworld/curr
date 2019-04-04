@@ -47,7 +47,7 @@
                   @student{
                           Once we have a dataset, we can start asking questions! But how do we know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
                            @activity{
-                              Turn to @worksheet-link[#:name "Animals-Questions"] in your Student Workbook, and write down your own questions under section 3.
+                              Turn to @worksheet-link[#:name "Animals-Questions"] in your Student Workbook, and write some questions that you have about this dataset. You can also refer back to what you wondered, on @worksheet-link[#:name "Animals-Notice-Wonder"].
                           }
                   }
                   @teacher{
@@ -75,7 +75,7 @@
             }
             @point{
                   @student{
-                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], fill in the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
+                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], circle the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
                   }
                   @teacher{
                           Have students share their findings with the class. Allow time for discussion!
@@ -531,7 +531,7 @@
                 @point{
                     @student{
                         @activity{
-                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Compute"].
+                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Lookup2"].
                         }
                     }
                     @teacher{

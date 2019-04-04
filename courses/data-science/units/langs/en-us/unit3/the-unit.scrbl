@@ -113,7 +113,7 @@
                           }
                           Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
                           @activity{
-                              What subsets make sense for the animals dataset? Turn to @worksheet-link[#:name "My-Dataset-Subsets"] and write down some ideas, as well as the code that would tell you if a single animal is in that subset.
+                              What subsets make sense for the animals dataset? Turn to @worksheet-link[#:name "Animals-Subsets"] and write down some ideas, as well as the code that would tell you if a single animal is in that subset.
                           }
                       }
                       @teacher{
@@ -124,13 +124,13 @@
                       @student{
                           Sometimes we want to create a table that's just a @italic{random sample} of an existing table. Type the following code into the Definitions Area (left-hand side of your screen), and click "Run".
                           @code[#:multi-line #t]{
-                              small-sample = random-rows(animals-table,  5)
-                              large-sample = random-rows(animals-table, 30)
+                              tiny-sample = random-rows(animals-table,  3)
+                              small-sample = random-rows(animals-table, 8)
                           }
                           @activity{
                               @itemlist[
                                   @item{
-                                    What do you get when you evaluate @code{small-sample} in the Interactions Area? @code{large-sample}?
+                                    What do you get when you evaluate @code{tiny-sample} in the Interactions Area? @code{small-sample}?
                                   }
                                   @item{
                                     What is the contract for @code{random-rows}? What does the function do?
@@ -169,8 +169,8 @@
                               pie-chart(cats, "species")
                               pie-chart(fixed, "species")
                               pie-chart(young, "species")
+                              pie-chart(tiny-sample, "species")
                               pie-chart(small-sample, "species")
-                              pie-chart(large-sample, "species")
                             }
                             Compare the charts you get from each of these. Which one is the most representative of the whole population? Why?
                           }

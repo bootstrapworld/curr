@@ -169,7 +169,7 @@
                 @point{
                         @student{
                                 @bitmap{images/lr-explained.png}
-                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} drawn on top. We can also see the equation for that line, in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that on average, each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
+                                The resulting scatterplot looks like those we've seen before, but it has a few important additions. First, we can see the @vocab{line of best fit} drawn on top. We can also see the equation for that line (in red), in the form @math{y=mx+b}. In this plot, we can see that the slope of the line is @math{0.714}, which means that on average, each extra year of age results in an extra 0.714 weeks of waiting to be adopted. By plugging in an animal's age for @math{x}, we can make a @italic{prediction} about how many weeks it will take to be adopted.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1" "HSS.ID.C&1&1" "HSS.ID.C&1&2")]{
                                     If an animal is 5 years old, how long would this line of best fit @italic{predict} they would wait to be adopted? What if they were a newborn, just 0 years old?
                                 }
@@ -188,7 +188,7 @@
                 }
                 @point{
                         @student{
-                                These charts also include something called an @vocab{R} value at the top, which always seems to be between -1 and 1. What do you think this number means? 
+                                These charts also include something called an @vocab{r}-value at the top (in blue), which always seems to be between -1 and 1. What do you think this number means? 
                                 @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
                                     Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the display that has the best predictor. Then, give that predictor a grade between -1 and 1.
                                 }
@@ -232,6 +232,14 @@
                 }
                 @point{
                         @student{
+                                (You may notice another value, called R-Squared. This is a more advanced topic, so we'll ignore it for now.)
+                        }
+                        @teacher{
+                                Discussion of R-Squared may be appropriate for older students, or in an AP Statistics class.
+                        }
+                }
+                @point{
+                        @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
                                         In the Interactions Area, perform a linear regression on the following relationships:
 
@@ -255,9 +263,8 @@
                 @point{
                         @student{
                                 When looking at just the cats, we also saw that the slope of the predictor function was +0.23, meaning that for every year older a cats is, we expect a +0.23-week increase in the time taken to adopt that cat. The r-value was 0.566, confirming that the correlation is positive and indicating moderate strength.
-                                Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1")]{
-                                      Write up two other findings from the linear regressions you performed on this dataset.
+                                      Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding. Then write up two other findings from the linear regressions you performed on this dataset.
                                 }
                         }
                         @teacher{

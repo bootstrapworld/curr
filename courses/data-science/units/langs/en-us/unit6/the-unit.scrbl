@@ -113,7 +113,7 @@
                 @point{
                       @student{
                           @activity{
-                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write the builder functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area.
+                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write some builder functions that you could imagine using with your dataset. When the teacher has checked your work, type them into the Definitions Area.
                           }
                       }
                       @teacher{
@@ -170,7 +170,7 @@
               }
               @point{
                     @student{
-                        @bannerline{Order matters.}
+                        @bannerline{Order matters: Build, Filter, Order.}
                         Suppose we want to build a column and then use it to filter our table. If we use the methods in the wrong order (trying to filter by a column that doesn't exist yet), we might wind up crashing the program. Even worse, the program might @italic{work}, but produce results that are incorrect! 
                         @bannerline{When chaining methods, it's important to build first, then filter, and then order.}
                     }
@@ -245,14 +245,11 @@
                     }
               }
               @point{
-                  @student{
-                        @activity[#:forevidence (list )]{
-                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
-                        }
-                  }
-                  @teacher{
-                        If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                  }
+                    @student{
+                          
+                    }
+                    @teacher{
+                    }
               }
               @point{
                     @student{

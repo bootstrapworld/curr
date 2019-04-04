@@ -61,11 +61,10 @@
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-6-Notes"				41 )
  ("Unit-6-Blank"				42 )
- ("Cuter-Adoption" 	 			43 )
+ ("Smaller-Adoption" 	 		43 )
  ("Create-Scatter-Plot"  		44 )
- ("Age-v-Weeks-Cats" 			45 )
- ("Drawing-Predictors" 			46 )
- ("Correlations-My-Dataset" 	47 )
+ ("Drawing-Predictors" 			45 )
+ ("Correlations-My-Dataset" 	46 )
  
 ;;;;;;;;;;;;;;;; Unit 8 ;;;;;;;;;;;;;
  ("Unit-8-Notes" 	 			47 )
@@ -73,15 +72,14 @@
  ("Grading-Predictors" 			49 )
  ("Findings-Animals" 			50 )
  ("Findings-My-Dataset" 		51 )
+ ("Unit-8-Padding" 	 			52 )
 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;
- ("Unit-6-Notes" 	 			52 )
- ("Unit-6-Blank" 	 			53 )
- ("Unit-9-Notes" 	 			54 )
- ("Unit-9-Blank" 	 			55 )
- ("Threats-to-Validity-1"       56 )
- ("Threats-to-Validity-2"       57 )
- ("Fake-News" 		 			58 )
+ ("Unit-9-Notes" 	 			53 )
+ ("Unit-9-Blank" 	 			54 )
+ ("Threats-to-Validity-1"       55 )
+ ("Threats-to-Validity-2"       56 )
+ ("Fake-News" 		 			57 )
 
 
 ;;;;;;;;;;;;;;; The End ;;;;;;;;;;;;;

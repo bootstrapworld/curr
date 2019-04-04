@@ -25,7 +25,7 @@
 
   @lesson/studteach[
      #:title "Introduction"
-     #:duration "5 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -219,18 +219,14 @@
                               Here @code{2} is the median, because it separates the "top half" (all values greater than @code{2}, which is just @code{3}), and the "bottom half" (all values less than or equal to 2).
                       }
                       @teacher{
-                              If students are not already familiar with median, we recommend the following
-                              "pencil and paper algorithm" for median finding over a list:
+                              We recommend the following "pencil and paper algorithm" for median finding:
 
                               @itemlist[
+                                      @item{ Sort the list. }
+                                      @item{ Cross out the highest number. }
+                                      @item{ Cross out the lowest number. }
                                       @item{
-                                            Cross out the highest number in the list.
-                                      }
-                                      @item{
-                                            Cross out the lowest number in the list.
-                                      }
-                                      @item{
-                                            Repeat these steps until there is only one number left in the list.  This number is the median. If there are two numbers left, @italic{take the mean of those numbers}.
+                                            Repeat until there is only one number left - the median. If there are two numbers, @italic{take the mean of those numbers}.
                                       }
                               ]
                                
@@ -260,24 +256,23 @@
                 }
                 @point{
                       @student{
+                              Often there will be just one number in the list: many data sets are what we call "unimodal". But sometimes there are exceptions! Consider the following three datasets:
                               @code[#:multi-line #t]{
                                     1, 2, 3, 4
                                     1, 2, 2, 3, 4
                                     1, 1, 2, 3, 4, 4
                               }
-
                               @itemlist[
                                 @item{
-                                    The first dataset has no mode, so our list of modes is @italic{empty}.
+                                    The first dataset has @italic{no mode at all!}.
                                 }
                                 @item{
                                     The mode of the second data set is @italic{2}, since 2 appears more than any other number.
                                 }
                                 @item{
-                                    The mode of the last data set is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
+                                    The mode of the last data set is @italic{both 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
                                 }
                               ]
-                              Often there will be just one number in the list: many data sets are what we call "unimodal".
                       }
                       @teacher{
 
@@ -429,7 +424,7 @@
                       @student{
                           One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest values in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. Find the Range of this dataset. 
+                              On page @worksheet-link[#:name "Summarizing-Pounds"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. What conclusions can you draw about the distribution of values in this column?
                           }
                       }
                       @teacher{
@@ -449,13 +444,13 @@
                 }
                 @point{
                       @student{
-                          The Range of our dataset is 172 pounds, but the @vocab{interquartile range} is only 63.7 pounds! That means that @italic{50% of the animals} fall into only less thn half the range! Because the minimum is closer to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
-                          @activity{
-                            On page @worksheet-link[#:name "Interpreting-Spread"], write down your conclusion for this box-plot.
+                          Now that you're comfortable creating box plots and looking at measures of spread on the computer, it's time to put your skills to the test! 
+                          @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3")]{
+                            Turn to @worksheet-link[#:name "Interpreting-Spread"] and complete the questions you see there.
                           }
                       }
                       @teacher{
-
+                          Review students' answers, especially to the question five.
                       }
                 }
         ]
@@ -478,17 +473,6 @@
                 )
       ]{
         @points[
-                @point{
-                      @student{
-                          Now that you're comfortable creating box plots and looking at measures of spread on the computer, it's time to put your skills to the test! 
-                          @activity[#:forevidence (list "Data 3.2.1&1&1" "Data 3.2.1&1&2" "Data 3.2.1&1&3")]{
-                            Turn to @worksheet-link[#:name "Interpreting-Spread"] and complete the questions you see there.
-                          }
-                      }
-                      @teacher{
-                          Review students' answers, especially to the question five.
-                      }
-                }
                 @point{
                     @student{
                         By now, you've got a good handle on how to report center, shape and spread, and it's time to apply those skills to your dataset!

@@ -132,7 +132,7 @@
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
-                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a @vocab{categorical} variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}. Since there are 31 animals shown in this dataset, it could also have shown @italic{relative} frequencies as 11/31 for cats and 15/31 for rabbits, or converted those fractions to percentages. The display would look the same either way: only the numbers on the vertical axis would change.
+                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a @vocab{categorical} variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
                       }
                       @teacher{
                               
@@ -140,9 +140,9 @@
                 }
                 @point{
                       @student{
-                              This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the dog bar could have been drawn before the one for cat. Unlike the numbers on a histogram's horizontal axis, the different categories on a bar-chart's horizontal axis can be "scrambled." For this reason, it makes no sense to talk about the "shape" of a categorical data set.
+                              This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the bar for "dogs" could have been drawn before the one for "cats". Unlike the numbers on a histogram's horizontal axis, there is no hard order to categories on a bar-chart's horizontal axis. For this reason, @italic{it never makes sense to talk about the "shape" of a categorical data set.}
                               @activity{
-                                  Suppose a set of people from around the country are involved in an online discussion, and we want to make a @code{bar-chart} of what time zone they live in (Central Daylight, Mountain Daylight, Mountain Standard, Pacific Daylight, Alaska Daylight, or Hawaii-Aleutian Standard). What are some of the ways that might make sense to order those six bars from left to right?
+                                  Suppose a set of people from around the country are involved in an online discussion, and we want to make a @code{bar-chart} of what time zone they live in (Eastern, Central, Mountain, Mountain, Pacific, Alaskan, or Hawaii-Aleutian). What are some of the ways that might make sense to order those six bars on the x-axis?
                               }
                       }
                       @teacher{
@@ -151,7 +151,7 @@
                 }
                 @point{
                       @student{
-                              A quick report on this bar chart should definitely mention the fact that “dog” is the mode of the data set; the most common of the five possible species was dog, with cats being a fairly close second.
+                              A quick report on this bar chart should definitely mention the fact that "dog" is the mode of the data set; the most common of the five possible species was dog, with cats being a fairly close second.
                       }
                       @teacher{
 
@@ -295,6 +295,16 @@
                               
                         }
                 }
+                @point{
+                        @student{
+                              @activity{
+                                  On @worksheet-link[#:name "Shape-of-Animals-Dataset"], describe the @code{pounds} histogram and another one you make yourself. When writing down what you notice, try to use the language Data Scientists use, and discuss skew and outliers.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
         ]
   }
 
@@ -318,11 +328,11 @@
               @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            How is your dataset distributed? Choose a categorical variable and display it with a bar chart, then choose a quantitative variable and display it with a histogram. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Shape-of-My-Dataset"].
+                            How is your dataset distributed? Choose two quantitative variables and display them with histograms. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Shape-of-My-Dataset"].
                         }
                     }       
                     @teacher{
-                        Give students 5-10min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
                     }
               }
         ]
@@ -330,7 +340,7 @@
 
   @lesson/studteach[
      #:title "Closing"
-     #:duration "15 minutes"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

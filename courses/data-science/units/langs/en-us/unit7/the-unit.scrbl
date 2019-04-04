@@ -53,7 +53,7 @@
                 @point{
                       @student{
                           @bannerline{Theory 1: smaller animals get adopted faster because they're easier to care for} 
-                          How could we test that theory? Bar and pie charts are great for showing us how the values of a single column are distributed, but they can't help us see connections between @italic{two} columns.
+                          How could we test that theory? Bar and pie charts are great for showing us how the frequency of a categorical column. Histograms and box plots are great for showing us the shape and distribution of a quantitative column. But none of these displays will help us see connections @italic{between} two columns. 
                       }
                       @teacher{
 
@@ -62,7 +62,7 @@
                 @point{
                         @student{
                                 @activity[#:forevidence (list "Data 3.1.1&1&4" "Data 3.1.1&1&5")]{
-                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center help us answer this question? Write down your hypothesis on @worksheet-link[#:name "Cuter-Adoption"], and how we could use this dataset to see if you're right.
+                                    Take a few minutes to look through the whole dataset, and see if you agree with the statement. Could any of our visualizations or measures of center help us answer this question? Write down your hypothesis on @worksheet-link[#:name "Smaller-Adoption"], and how we could use this dataset to see if you're right.
                                 }
                         }
                         @teacher{
@@ -73,7 +73,7 @@
                         @student{
                                 We've got a lot of tools in our toolkit that help us think about an entire @italic{column} of a dataset:
                                 @itemlist[
-                                    @item{ We have ways to find measures of center and spread for a given column }
+                                    @item{ We have ways to find measures of center and spread for a given column. }
                                     @item{ We have visualizations that let us see the @italic{shape} of values in a quantitative column }
                                     @item{ We have visualizations that let us see the @italic{frequencies} a categorical column }
                                 ]
@@ -129,7 +129,7 @@
         @points[
               @point{
                     @student{
-                        Fortunately, Pyret lets us make many kinds of charts, including @vocab{scatter plots}. Here's the contract for @code{scatter-plot}, as well as an example of a scatter plot that examines the relationship between weight and adoption time.
+                        Here's the contract for Pyret's @code{scatter-plot} function, as well as an example of a scatter plot that examines the relationship between weight and adoption time. Notice that the contract is written as a @italic{comment} - the @code{#} symbol means it's just a note for humans.
                         @code[#:multi-line #t]{
                             # scatter-plot :: (t :: Table, labels :: String, xs :: String, ys :: String) -> Image
                             scatter-plot(animals-table, "name", "pounds", "weeks")
@@ -143,11 +143,8 @@
               @point{
                     @student{
                         @bannerline{Theory 2: Younger animals get adopted faster because they are cuter} 
-                        But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same chart. To do this analysis, we might have to make several charts, all of which do the same thing but operate on different tables: one for cats, one for dogs, etc.
-                        @activity{
-                            Turn to @worksheet-link[#:name "Age-Adopted-Scatter"] in your Student Workbook, and practice using a Table Plan write this function. Do you see a trend in the scatterplots for all the animals? For the cats? The young animals? The fixed animals? In which group is this trend the most clear?
-                        }
-                    }
+                        But cats, dogs, rabbits and tarantulas have very different lifespans! A 5 year old tarantula is still really young, while a 5 year old rabbit is fully grown. With differences like this, it doesn't make sense to put them all on the same scatter plot. To do this analysis, we might have to make several displays, each for a different subset.
+                   }
                     @teacher{
 
                     }
@@ -241,7 +238,7 @@
                             Of course, it might not make sense to group different animals together in one plot! What if we wanted to see the relationship between @code{age} and @code{weeks} for just the dogs in our database?
 
                             @activity[#:forevidence (list "8.SP.1-4&1&2" "S-ID.5-6&1&3" "S-ID.5-6&1&4")]{
-                                    Turn to @worksheet-link[#:name "Age-v-Weeks-Cats"] in your workbook, and complete the Table Plan there. When you're done, try making a scatter plot for a different subset of your data.
+                                    Try making scatter plots for that relate @code{age} to @code{weeks}, for each of the subsets you've defined from the animals table. Does the relationship appear stronger in some of the subsets than others? Why?
                             }
                     }
                     @teacher{
