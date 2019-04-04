@@ -669,19 +669,6 @@
                     
                     }
             }
-            @point{
-                    @student{
-                        Sometimes we already @italic{have} the data summary we need in the table itself. For example, we might want to see a pie chart where every animal has its own slice, and the size of the slice is already listed as the weight of the animal. For this situation, we have another function:
-                        @code[#:multi-line #t]{
-                             # pie-chart-raw :: (t :: Table, label :: String, data :: String) -> Image
-                             pie-chart-raw(animals-table, "name", "pounds")
-                        }
-                        @activity{
-                          Type this in and try it out. How would you make a bar chart based on the raw data?
-                        }
-                    }
-
-            }
          ]
   }
 
@@ -704,36 +691,18 @@
         @points[
               @point{
                     @student{
-                        As you can see, this isn't a terribly useful way to use Bar and Pie-Charts:
-                        @itemlist[
-                          @item{ 
-                            With so many rows in our dataset, we wind up with tons of pie slices and bars, and it's very difficult to read.
-                          }
-                          @item{ 
-                            Hovering over any pie slice or bar tells us the name of the animal and gives us the value at that cell in the table. But is that really that much of an improvement over just looking that up ourselves in the table?
-                          }
-                        ]
+                        Sometimes we want to summarize a categorical column in a Table, rather than a pie chart. For example, it might be handy to have a table that has a row for dogs, cats, lizards, and rabbits, and then the count of how many of each type there are.
                     }
                     @teacher{
                     }
               }
               @point{
                     @student{
-                        We use displays like pie-chart and bar-chart to @italic{summarize} complex data into a simpler image, and to answer questions that would be difficult to answer by just staring at a table. For example, suppose we wanted to see a @code{pie-chart} showing how many of @italic{each species} was at the shelter?
-                        @activity{
-                          If you wanted to draw this pie chart by hand, how would you do it?
-                        }
-                    }
-                    @teacher{
-                        Let students discuss for a moment - the key insight here that @italic{counting} is required.
-                    }
-              }
-              @point{
-                    @student{
-                        You'd need to first @italic{count} how many of each species was at the shelter, and make a @italic{new table} with columns for "name of the species" and "how many of that species is in the shelter". Then we'd make a @code{pie-chart} for @italic{that} table. For a table with hundreds of rows, this would take a very long time! Fortunately, Pyret has a function to do this for us! Try typing this code into the Interactions Area:
+                        Pyret has a function that does exactly this! Try typing this code into the Interactions Area:
                         @code[#:multi-line #t]{
                           count(animals-table, "species")
                         }
+                        What did we get back? @code{count} is a function that consumes a table and the name of a categorical column, and produces a @italic{new table} with exactly the columns we want: the name of the category and the number of times that category occurs in the dataset. What are the names of the columns in this new table?
                     }
                     @teacher{
                     }
@@ -755,37 +724,17 @@
                   }
               }
               @point{
-                    @student{
-                        @code{count} is a function that consumes a table and the name of a categorical column, and produces a @italic{new table} with exactly the columns we want: the name of the category and the number of times that category occurs in the dataset. What are the names of the columns in this new table?
-                        @activity{
-                          How can we use this alongside @code{pie-chart}?
-                        }
-                    }
-                    @teacher{
-                    }
-              }
-              @point{
-                    @student{
-                        Here are two ways to accomplish the same thing. Can you describe what is happening in each one? Which do you like better?
-                        @code[#:multi-line #t]{
-                          # solution 1
-                          species-table = count(animals-table, "species")
-                          pie-chart(species-table, "value", "count")
-
-                          # solution 2
-                          pie-chart(count(animals-table, "species"), "value", "count")
-                        }
-                    }
-                    @teacher{
-                    }
-              }
-              @point{
-                    @student{
-                          Bar Charts and Pie Charts are traditionally used in this way, to @italic{summarize} the frequency of values in a categorical column. The biggest pie slice or the tallest bar immediately shows us which value occurs most frequently! (The most-frequent value is called the "mode", but we'll learn more about that later!)
-                    }
-                    @teacher{
-
-                    }
+                      @student{
+                          Sometimes the dataset we have is @italic{already} summarized in a table like this, and we want to make a chart from @italic{that}. In this situation, we want to use the raw values in the summary table as-is: the size of the pie slice or bar is taken directly from the @code{count} column, and the label is taken directly from the @code{value} column.
+                          When we want to use the raw values as-is, we have another function:
+                          @code[#:multi-line #t]{
+                               # pie-chart-raw :: (t :: Table, label :: String, data :: String) -> Image
+                               pie-chart-raw(count(animals-table,"species"), "value", "count")
+                          }
+                          @activity{
+                            Type this in and try it out. How would you make a bar chart based on the raw data?
+                          }
+                      }
               }
       ]
   }
