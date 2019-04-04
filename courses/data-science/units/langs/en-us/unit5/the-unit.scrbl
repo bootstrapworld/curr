@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 5: Computing the "Shape" of Data}
+@title{Unit 5: Center and Spread}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{+, -, *, /, num-sqrt, num-sqr} 
@@ -18,7 +18,7 @@
                                               @code{count, .row-n, .order-by, .filter}
                                               ""))]{
   @unit-descr{
-    Students learn how to evaluate the "shape" of a dataset in a number of ways. They measure central tendency (using mean, median, and mode), as well as spread (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
+    Students learn how to evaluate two key aspects of a quantitative data set: its center and spread. They measure central tendency (using mean, median, and mode), as well as spread (visualizing quartiles with box plots). After applying these concepts to a contrived dataset, they apply them to their own datasets and interpret the results.
   }
 }
 @unit-lessons{
@@ -29,7 +29,10 @@
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students learn about shape, and how outliers or skewness prevent a data set from being balanced or on either side of its center}]
+     #:product-outcomes @itemlist[
+      @item{Students learn about shape, and how outliers or skewness prevent a data set from being balanced or on either side of its center}
+      @item{Students learn the extent to which outliers and skewness may affect measures of center.}
+      ]
      #:standards (list )
      #:materials @itemlist[]
      #:preparation @itemlist[
@@ -53,7 +56,7 @@
                 }
                 @point{
                       @student{
-                            In the last Unit, you learned how to talk about shape by looking at histograms. In this Unit, you'll learn about the different ways of @italic{computing} shape, and how to connect those back to a visual representation.
+                            In the last Unit, you learned how to talk about shape by looking at histograms. In this Unit, you'll learn about two more key features of a quantitative data set - center and spread - and how to connect those back to a visual representation.
                       }
                       @teacher{
 
@@ -63,7 +66,7 @@
                       @student{
                           @bannerline{According to the Animal Shelter Bureau, the average pet weighs almost 41 pounds.} 
                           @activity[#:forevidence (list )]{
-                            Some medicines are dosed @italic{by weight}: larger animals need a larger dose. If the animal shelter wants to buy medicine for the animals, is "41 pounds" going to serve the most animals?
+                            Some medicines are dosed @italic{by weight}: larger animals need a larger dose. If someone at the shelter needs to give a dose of medicine to an animal, is 41 pounds the best estimate for how much it weighs?
                           }
                       }
                       @teacher{
@@ -72,7 +75,7 @@
                 }
                 @point{
                       @student{
-                              "The average pet weighs 41 pounds" is a statement about the entire dataset, which summarizes a whole column of values with a single number. Summarizing a big dataset means that some information gets lost, so it's important to pick and @italic{appropriate} summary. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are appropriate or not?
+                              "The average pet weighs 41 pounds" is a statement about the entire dataset, which summarizes a whole column of values with a single number. Summarizing a big dataset means that some information gets lost, so it's important to pick an @italic{appropriate} summary. Picking the wrong summary can have serious implications! Here are just a few examples of summary data being used for important things. Do you think these summaries are appropriate or not?
                               @itemlist[
                                   @item{ 
                                       Students are sometimes summarized by two numbers - their GPA and SAT scores - which can impact where they go to college or how much financial aid they get.
@@ -97,7 +100,7 @@
                 }
                 @point{
                       @student{
-                              Every kind of summary has situations in which it is very accurate and useful, and others where it's not accurate or useful at all. In fact, the shape of the data can play a huge role in whether or not one kind of summary is accurate!
+                              Every kind of summary has situations in which it does a good job of reporting what's typical, and others where it doesn't really do justice to the data. In fact, the shape of the data can play a huge role in whether or not one kind of summary is appropriate!
                       }
                       @teacher{
 
@@ -105,7 +108,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists often look at two kinds of summaries: Measures of @bold{Center} and @bold{Spread}. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Then you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
+                              Data Scientists  summarize quantitative data by reporting two key features: what's the typical value (@vocab{center}) and how much do the values typically vary (@vocab{spread}). Let's check the "41 pounds" claim and see if it's an appropriate measure of center.. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Later on, you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
                       }
                       @teacher{
 
@@ -124,7 +127,7 @@
       ]
      #:evidence-statements @itemlist[]
      #:exercises (list (make-exercise-locator/file "Measures-of-Center" "CritiquingFindings" "Critiquing Findings"))
-     #:product-outcomes @itemlist[@item{Students take the mean, median and mode of various columns in the animals table}]
+     #:product-outcomes @itemlist[@item{Students find the mean, median and mode of various columns in the animals table}]
      #:standards (list "S-ID.1-4" "HSS.ID.A")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -146,7 +149,7 @@
                 }
                 @point{
                       @student{
-                              The Animal Shelter Bureau used one method of summary, called the @code{mean}, or @italic{average}. To take the average of a column, we add all the numbers in that column and divide by the number of rows.
+                              The Animal Shelter Bureau used one method of summary, called the @code{mean}, or @italic{average}. In general, the mean of a data set is the sum of values divided by the number of values. To take the average of a column, we add all the numbers in that column and divide by the number of rows. 
                       }
                       @teacher{
                               This lesson does not teach the algorithm for computing averages, but this would be an appropriate time to do so.
@@ -180,7 +183,7 @@
                 }
                 @point{
                       @student{
-                              You computed the mean of that column to be almost exactly 41 pounds. That IS the average, but if we look at the dots on our number line, we can see most of the animals weight @italic{less} than 41 pounds! There are just a huge number of animals that weigh less than 13 pounds. What is throwing off the average so much?
+                              You computed the mean of that column to be almost exactly 41 pounds. That IS the average, but if we look at the dots on our number line, we can see most of the animals weigh @italic{less} than 41 pounds! that more than half of the animals weigh less than just 15 pounds. What is throwing off the average so much?
                       }
                       @teacher{
                               Point students to Kujo and Mr. Peanutbutter.
@@ -188,7 +191,7 @@
                 }
                 @point{
                       @student{
-                              In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points in a dataset are evenly distributed, but it breaks down for datasets with extreme outliers. The mean may also be thrown off by the presence of @vocab{skew}: a lopsided shape due to values trailing off left or right of center, but not separated by the visible gap typical of outliers.
+                              In this case, the mean is being thrown off by a few extreme data points. These extreme points are called @vocab{outliers}, because they fall far outside of the rest of the dataset. Calculating the mean is great when all the points are fairly balanced on either side of the middle, but it breaks down for datasets with extreme outliers. The mean may also be thrown off by the presence of @vocab{skew}: a lopsided shape due to values trailing off left or right of center, but not separated by the visible gap typical of outliers.
                               @activity{
                                   Make a @code{histogram} of the @code{pounds} column, and try different bin sizes. Can you see the skew towards the right, with a huge number of animals clumped to the left?
                               }
@@ -265,15 +268,16 @@
 
                               @itemlist[
                                 @item{
-                                    The mode of the first value is @italic{empty}, because no element is repeated at all.
+                                    The first dataset has no mode, so our list of modes is @italic{empty}.
                                 }
                                 @item{
-                                    The mode list of the second value is @italic{2}, since 2 appears more than any other number.
+                                    The mode of the second data set is @italic{2}, since 2 appears more than any other number.
                                 }
                                 @item{
-                                    The mode list of the last value is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
+                                    The mode of the last data set is @italic{a list containing 1 and 4}, because @code{1} and @code{4} both appear more often than any other element, and because they appear equally often.
                                 }
                               ]
+                              Often there will be just one number in the list: many data sets are what we call "unimodal".
                       }
                       @teacher{
 
@@ -295,10 +299,10 @@
                 }
                 @point{
                       @student{
-                              At this point, we have a lot of evidence that suggests the Bureau's use of "mean" to summarize data is inaccurate. Our mean wait time agrees with their findings, but we have three reasons to suspect that @vocab{mean} isn't the best value to use:
+                              At this point, we have a lot of evidence that suggests the Bureau's use of "mean" to summarize data isn't ideal. Our mean weight agrees with their findings, but we have three reasons to suspect that @vocab{mean} isn't the best value to use:
                               @itemlist[
                                   @item{ The median is only 13.4 pounds. }
-                                  @item{ The mode of our dataset is only 6.5 pounds, which could mean there are clusters of animals that weigh less than @italic{one-sixth} the mean. }
+                                  @item{ The mode of our dataset is only 6.5 pounds, which suggests a cluster of animals that weigh less than @italic{one-sixth} the mean. }
                                   @item{ When viewed as a histogram, we can see the rightward skew in the dataset. Mean is sensitive to highly-skewed datasets }
                               ]
                               The Animal Shelter Bureau started with a fact: the mean weight @italic{is} about 41 pounds. But then they reported a conclusion without checking to see if that was the best summary statistic to look at. As Data Scientists, we had to look deeper into the data to find out whether or not to settle for the Bureau's summary. This is why using tools like histograms can be so important when deciding on a summary tool.
@@ -325,13 +329,13 @@
 
                               @itemlist[
                                       @item{
-                                            If the data is doesn't show much skewness or have outliers, @vocab{mean} is the best summary because it incorporates data from every vlaue.
+                                            If the data is doesn't show much skewness or have outliers, @vocab{mean} is the best summary because it incorporates information from every value.
                                       }
                                       @item{
                                             If the data clearly has a lot of outliers or skewness, @vocab{median} gives a better summary of center than the mean.
                                       }
                                       @item{
-                                            If there are very few possible values, such as a set of letter grades (A, B, C, D, and F) or AP Scores (1-5), the @vocab{mode} could be a useful way to summarize the data set.
+                                            If there are very few possible values, such as AP Scores (1-5), the @vocab{mode} could be a useful way to summarize the data set.
                                       }
                               ]
                       }
@@ -363,7 +367,7 @@
         @points[
                 @point{
                       @student{
-                          Measuring the "center" of a dataset is helpful, and we've seen that shape should be taken into account. But we should also pay attention to the @italic{spread} in a data set. A teacher may report that her students averaged a 75 on a test, but it's important to know how those scores were spread out: did all of them get exactly 75, or did half score 100 and the other half 50? When Data Scientists use the mean of a sample to report on the mean of a whole population, it's important to know the spread in order to report how good or bad a job that estimate does.
+                          Measuring the "center" of a dataset is helpful, and we've seen that shape should be taken into account. But we should also pay attention to the @italic{spread} in a data set. A teacher may report that her students averaged a 75 on a test, but it's important to know how those scores were spread out: did all of them get exactly 75, or did half score 100 and the other half 50? When Data Scientists use the mean of a sample to estimate the mean of a whole population, it's important to know the spread in order to report how good or bad a job that estimate does.
                       }
                       @teacher{
                           
@@ -371,9 +375,9 @@
                 }
                 @point{
                       @student{
-                          Suppose we lined up all of the values in the @code{pounds} column from smallest to largest, and then split the line up into two equal groups by taking the median. The first group is the 50% of animals that waited the @italic{least} amount of time to be adopted. The fourth group is the 50% of animals that waited the @italic{greatest} amount of time. Now, suppose we took the medians of both groups, to divide the line into four equal sections. Data Scientists call these groups @vocab{quartiles}.
+                          Suppose we lined up all of the values in the @code{pounds} column from smallest to largest, and then split the line up into two equal groups by taking the median. We can learn something about the @vocab{spread} of the data set by taking things further: The middle of the lighter half of animals is called the first @vocab{quartile}, Q1, and the middle of the heavier half of animals is the third quartile, Q3. Once we find these numbers, we can say that the middle half of the animals' weights are spread between Q1 and Q3.
                           @activity[#:forevidence (list )]{
-                              The first quartile (Q1) is the value for which 25% of animals waited that time or less. What does the third quartile represent?
+                              The first quartile (Q1) is the value for which 25% of the animals weighed that amount or less. What does the third quartile represent?
                           }
                       }
                       @teacher{
@@ -401,7 +405,7 @@
                           This plot shows us the spread in our dataset according to five numbers.
                           @itemlist[
                               @item{ 
-                                  The @bold{minimum} value in the dataset (at the bottom). In our dataset, that's just 0.1 pounds.
+                                  The @bold{minimum} value in the dataset (at the bottom of the lower "whisker"). In our dataset, that's just 0.1 pounds.
                               }
                               @item{
                                   The @bold{First Quartile (Q1)} (the bottom edge of the box), is computed by taking @italic{the median of the smaller half of the values}. In the @code{pounds} column, that's 4.3 pounds.
@@ -413,7 +417,7 @@
                                   The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 68 pounds in our dataset.
                               }
                               @item{ 
-                                  The @bold{maximum} value in the dataset (at the top). In our dataset, that's 172 pounds.
+                                  The @bold{maximum} value in the dataset (at the top of the "whisker"). In our dataset, that's 172 pounds.
                               }
                           ]
                       }
@@ -423,9 +427,9 @@
                 }
                 @point{
                       @student{
-                          One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest in our dataset, we use the same term.
+                          One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest values in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. Find the @vocab{statistical range} of this dataset. 
+                              On page @worksheet-link[#:name "Interpreting-Spread"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. Find the Range of this dataset. 
                           }
                       }
                       @teacher{
@@ -445,7 +449,7 @@
                 }
                 @point{
                       @student{
-                          The @vocab{Range} of our dataset is 172 pounds, but the @vocab{interquartile range} is only 63.7 pounds! That means that @italic{50% of the animals} fall into only less thn half the range! That suggests the data set has one or more outliers. Because the minimum is closer to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
+                          The Range of our dataset is 172 pounds, but the @vocab{interquartile range} is only 63.7 pounds! That means that @italic{50% of the animals} fall into only less thn half the range! Because the minimum is closer to Q1, but the maximum is far above Q3, we suspect the maximum (and maybe other points in between) to be a high outlier.
                           @activity{
                             On page @worksheet-link[#:name "Interpreting-Spread"], write down your conclusion for this box-plot.
                           }
