@@ -52,7 +52,7 @@
                 }
                 @point{
                         @student{
-                                Whenever there's a possible linear relationship, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line can be graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a correlation (or "how well the line predicts responses, based on explanatory values").
+                                Whenever there's a possible linear relationship, Data Scientists try to draw the @vocab{line of best fit}, which cuts through the data cloud and can be used to make predictions. This line can be graphed on top of the scatter plot as a function, called the @vocab{predictor}. In this Unit, you'll learn how to compute the line of best fit in Pyret, and how to measure the strength of a relationship by finding the correlation.
                         }
                         @teacher{
 
@@ -101,10 +101,10 @@
                                 After our last Unit, we are left with two questions:
                                 @itemlist[
                                     @item{
-                                        How do we make the best predictions from a scatter plot? In other words, "@italic{where do we draw} the line of best fit?"
+                                        Is there a positive or negative relationship between our two variables? In other words, "@italic{where do we draw} the line of best fit?"
                                     }
                                     @item{
-                                        How do we measure the accuracy of our prediction? In other words, "@italic{how well} does that line fit?"
+                                        How do we measure the strength of that relationship? In other words, "@italic{how well} does the line allow us to make predictions?"
                                     }
                                 ]
                         }
@@ -126,7 +126,7 @@
                                   You can see this in action, in this @(new-tab "https://www.geogebra.org/m/ZcVIxKtF" "interactive simulation"). Try moving the blue point "P", and see what effect it has on the red line.
                                   @itemlist[
                                       @item{Could the regression line ever be above or below @italic{all} the points? Why or why not?}
-                                      @item{What's the largest R value you can get? What do you think that number means?}
+                                      @item{What's the largest r-value you can get? What do you think that number means?}
                                   ]
                                 }
                         }
@@ -199,11 +199,11 @@
                 }
                 @point{
                         @student{
-                                The @vocab{R} value for a predictor is a number that tells us @italic{the strength and direction of a correlation}. In other words, it's a measure for how well the line fits and whether it goes up or down. If the number is positive, it means that the value in on the y-axis goes up as we move to the right. For example, we would expect a positive R value between @code{age} and @code{pounds}, because animals get heavier as they grow up. If it's negative, it means the value goes @italic{down}. @bold{The strength of a correlation is the distance from zero:} an R value of zero means there is no correlation at all, and stronger correlations will be closer to -1 or 1.
+                                The correlation @vocab{r} is a number that tells us the direction and strength of a linear relationship between two quantitative variables. In other words, it tells us if the best-fitting line goes up or down, and how tightly clustered or loosely scattered the points are around that line. If the number is positive, it means that the y-values tend to go up as the x-values go up. For example, we would expect a positive r-value between @code{age} and @code{pounds}, because animals get heavier as they grow up. If it's negative, it means the y-values go @italic{down} as the x-values go up. @bold{The strength of a correlation is the distance from zero:} an r-value of zero means there is no correlation at all, and stronger correlations will be closer to -1 or 1.
                                 @activity[#:forevidence (list "HSS.ID.B&1&1" "HSS.ID.B&1&2" "HSS.ID.B&1&3" "HSS.ID.B&1&5")]{
                                         @itemlist[
                                             @item{
-                                                What is the R value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
+                                                What is the r-value for @code{age} vs. @code{weeks} for our entire shelter population? What about for just the cats? What does this difference mean?
                                             }
                                             @item{
                                                 What does it mean when a data point is @italic{above} the line of best fit?
@@ -212,7 +212,7 @@
                                                 What does it mean when a data point is @italic{below} the line of best fit?
                                             }
                                             @item{
-                                                If you only have two data points, why will the R value always be either -1 or +1?
+                                                If you only have two data points, why will the r-value always be either -1 or +1?
                                             }
                                         ]
                                         
@@ -224,7 +224,7 @@
                 }
                 @point{
                         @student{
-                                An R value of @math{\pm0.65} or more is typically considered a strong correlation, and anything between @math{\pm0.35} and @math{\pm0.65} is "moderately correlated". Anything less than @math{\pm0.35} is such a weak correlation that it might as well be random. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an R value of @math{\pm0.50} might be considered impressively strong!
+                                An r-value of @math{\pm0.65} or more is typically considered a strong correlation, and anything between @math{\pm0.35} and @math{\pm0.65} is "moderately correlated". Anything less than @math{\pm0.35} may be considered weak. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-value of @math{\pm0.50} might be considered impressively strong!
                         }
                         @teacher{
 
@@ -254,7 +254,7 @@
                 }
                 @point{
                         @student{
-                                When looking at just the cats, we also saw that the slope of the predictor function was +0.23, meaning that for every year older a cats is, we expect a +0.23-week increase in the time taken to adopt that cat. The R value was 0.566, confirming that the correlation is positive and indicating moderate strength.
+                                When looking at just the cats, we also saw that the slope of the predictor function was +0.23, meaning that for every year older a cats is, we expect a +0.23-week increase in the time taken to adopt that cat. The r-value was 0.566, confirming that the correlation is positive and indicating moderate strength.
                                 Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1")]{
                                       Write up two other findings from the linear regressions you performed on this dataset.
@@ -267,7 +267,7 @@
                 @point{
                         @student{
                                 @bannerline{Correlation does NOT imply causation.}
-                                It's worth revisiting this point again. It's easy to be seduced by large R values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
+                                It's worth revisiting this point again. It's easy to be seduced by large r-values, but Data Scientists know that correlation can be accidental! Here are some real-life correlations that have absolutely no causal relationship:
                                 @itemlist[
                                     @item{ "Number of people who drowned after falling out of a fishing boat" v. "Marriage rate in Kentucky" (@math{R=0.98}) }
                                     @item{ "Average per-person consumption of chicken" v. "US crude oil imports" (@math{R=0.95}) }
