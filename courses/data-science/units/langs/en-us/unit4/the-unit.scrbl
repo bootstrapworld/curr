@@ -142,7 +142,7 @@
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
-                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a @vocab{categorical} variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
+                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
                       }
                       @teacher{
                               

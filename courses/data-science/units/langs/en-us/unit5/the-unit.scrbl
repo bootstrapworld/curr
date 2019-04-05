@@ -108,7 +108,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists  summarize quantitative data by reporting two key features: what's the typical value (@vocab{center}) and how much do the values typically vary (@vocab{spread}). Let's check the "41 pounds" claim and see if it's an appropriate measure of center.. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Later on, you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
+                              Data Scientists  summarize quantitative data by reporting two key features: what's the typical value (center) and how much do the values typically vary (spread). Let's check the "41 pounds" claim and see if it's an appropriate measure of center.. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Later on, you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
                       }
                       @teacher{
 
@@ -451,6 +451,14 @@
                       }
                       @teacher{
                           Review students' answers, especially to the question five.
+                      }
+                }
+                @point{
+                      @student{
+                          Just as pie and bar charts are ways of visualizing categorical data, box plots and histograms are both ways of visualizing the shape of quantitative data. Box plots make it easy to see the 5-number summary, and compare the Range and Interquartile Range. Histograms make it easier to see outliers, and offer more granularity when using smaller bins.
+                      }
+                      @teacher{
+
                       }
                 }
         ]
