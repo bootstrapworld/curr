@@ -188,10 +188,7 @@
                 }
                 @point{
                         @student{
-                                These charts also include something called an @vocab{r}-value at the top (in blue), which always seems to be between -1 and 1. What do you think this number means? 
-                                @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
-                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the display that has the best predictor. Then, give that predictor a grade between -1 and 1.
-                                }
+                                These charts also include something called an @vocab{r}-value at the top (in blue), which always seems to be between -1 and 1. What do you think this number means?
                         }
                         @teacher{
                                 
@@ -225,6 +222,9 @@
                 @point{
                         @student{
                                 An r-value of @math{\pm0.65} or more is typically considered a strong correlation, and anything between @math{\pm0.35} and @math{\pm0.65} is "moderately correlated". Anything less than @math{\pm0.35} may be considered weak. However, these cutoffs are not an exact science! Different types of data may be "noisier" than others, and in some fields an r-value of @math{\pm0.50} might be considered impressively strong!
+                                @activity[#:forevidence (list "8.SP.1-4&1&1" "8.SP.1-4&1&2" "8.SP.1-4&1&3" "8.SP.1-4&1&4")]{
+                                    Turn to @worksheet-link[#:name "Grading-Predictors"]. For each plot, circle the display that has the best predictor. Then, give that predictor a grade between -1 and 1.
+                                }
                         }
                         @teacher{
 

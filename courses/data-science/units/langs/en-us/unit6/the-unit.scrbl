@@ -40,34 +40,8 @@
               )
     ]{
       @points[
-                @point{
-                    @student{
-                        You've had a lot of practive writing Boolean-producing functions, which we use to filter tables into subsets. Let's practice the Design Recipe by writing other kinds of functions.
-                        @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.1&1&2"  "BS-DR.2&1&1" "BS-DR.2&1&2")]{
-                          Turn to @worksheet-link[#:name "Design-Recipe-3"], and see if you can solve the following word problems:
-                            @itemlist[
-                              @item{ 
-                                  Define a function called @code{birth-year}, which prints out each animal's name in big red letters.
-                              }
-                              @item{ 
-                                  Define a function called @code{nametag}, which consumes a Row of the @code{animals-table} and produces the year the animal was born.
-                              }
-                            ]
-                          }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        When your teacher has checked your work, add these two functions at the bottom of your Definitions Area, save your work, and click Run.
-                    }
-                    @teacher{
-
-                    }
-                }
-        ]
+                
+      ]
   }
 
 
@@ -88,28 +62,6 @@
                 )
       ]{
         @points[
-                @point{
-                      @student{
-                              Suppose we have a table of points scored in every quarter of a game, and we want to compute the total points. Or suppose we want to convert the @code{pounds} column in our animals table to kilograms, or perform some other kind of transformation. Sometimes we want to @italic{add a column} to a Table, and we can use the @code{.build-column} method to do just that. The contract for this method is shown below, along with an example expression that adds a "label" column to the @code{animals-table} using your @code{nametag} function.
-                              @code[#:multi-line #t]{
-                                    # <Table>.build-column :: (col :: String, builder :: (Row -> Value)) -> Table
-                                    animals-table.build-column("label", nametag)
-                              }
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              @activity[#:forevidence (list "BS-IDE&1&1" "Data 3.1.1&1&3" "Data 3.1.1&1&4")]{
-                                  In the Interactions Area, use the @code{.build-column} method to produce a table that includes a @code{born} column, which contains the year each animal was born.
-                              }
-                      }
-                      @teacher{
-                              
-                      }
-                }
                 @point{
                       @student{
                           @activity{

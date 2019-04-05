@@ -65,7 +65,7 @@
 
   @lesson/studteach[
      #:title "Making Subsets"
-     #:duration "20 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -113,7 +113,7 @@
                           }
                           Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
                           @activity{
-                              What subsets make sense for the animals dataset? Turn to @worksheet-link[#:name "Animals-Subsets"] and write down some ideas, as well as the code that would tell you if a single animal is in that subset.
+                              What subsets might make sense for the animals dataset?
                           }
                       }
                       @teacher{

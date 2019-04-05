@@ -24,8 +24,8 @@
 @unit-lessons{
 
   @lesson/studteach[
-     #:title "Introduction"
-     #:duration "10 minutes"
+     #:title "Review"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -45,76 +45,41 @@
                 @point{
                         @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file, and click "Run". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1NaJoA5RRjwMwN19NOAUOSnkB8pEl9fqQ" "new copy"].)
+                                Open your "Animals Starter File", and click "Run". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
                               }
                         }
                         @teacher{
                                 
                         }
                 }
-                @point{
-                      @student{
-                          @bannerline{According to the Animal Shelter Bureau, the average pet waits 5.8 weeks to be adopted.}
-                          Does this mean that most of the animals wait about 5.8 weeks to find homes? Why or why not?
-                      }
-                      @teacher{
-                          Let students discuss.
-                      }
-                }
-                @point{
-                      @student{
-                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. As the saying goes, sometimes you "can't see the forest for the trees". Also, summarizing with a single number like the average leaves out a lot of important information. So instead of talking about each individual in a dataset, or simply reporting the average for all those individuals, Data Scientists find it useful to describe the overall @bold{shape} of the data. 
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                              A display of how long it takes animals to get adopted can make it easier to get an idea of what adoption times were most common, and if there were any unusually long or short times that it took for an animal to be adopted. Looking at the shape of a @vocab{histogram} of adoption times is the best way to see what was typical and what was unusual. Let's take a look at a histogram of the @code{weeks} it takes an animal to be adopted. Type the following into the interactions area:
-                              @code[#:multi-line #t]{histogram(animals-table, “weeks”, 5)}
+                @point{ 
+                        @student{
+                              Let's get some more practice working with the Design Recipe, as we prepare to do more complex analysis.
                               @activity{
-                                Look at the histogram and count how many animals took between 0 and 5 weeks to be adopted. How many took between 5 and 10 weeks? What else do you Notice? What do you Wonder?
+                                  Turn to @worksheet-link[#:name "Building-Recipes"], and write the functions you see there. When you're ready, type the contracts, purpose statements, examples and definitions into the Definitions Area.
                               }
-                      }
-                      @teacher{
-                              Display this histogram for students to see, as well.
-                      }
+                        }
+                        @teacher{
+
+                        }
                 }
                 @point{
-                      @student{
-                              @bitmap{images/weeks-histogram.png}
-                              From this display, we can draw several conclusions:
-                              @itemlist[
-                                  @item{
-                                      Because we see most of the histogram's area encompassed by the two bars between 0 and 10 weeks, we can say it was most common for an animal to be adopted in 10 weeks or less.
-                                  }
-                                  @item{
-                                      Because we see a small amount of the histogram's area trailing out to unusually high values, we can say that a couple of animals took an unusually long time to be adopted: one took even more than 30 weeks.
-                                  }
-                                  @item{
-                                      More than half of the animals (17 out of 31) took just 5 weeks or less to be adopted. But those few unusually long adoption times pulled the average up to 5.8 weeks. Knowing about the shape gives us worthwhile information beyond the simple report of average.
-                                  }
-                              ]
-                      }
-                      @teacher{
-                          Can students draw any other conclusions?
-                      }
+                        @student{
+                              @activity{
+                                  Use the @code{.build-column} method to add a new column to the animals table, showing the weight of every animal in kilograms.
+                              }
+                        }
+                        @teacher{
+
+                        }
                 }
-                @point{
-                      @student{
-                          If someone would ask us what was typical for the adoption times, we might say: "Almost all of the animals were adopted in 10 weeks or less, but a couple of animals took an unusually long time to be adopted - even more than 20 or 30 weeks!" Without looking at the histogram's shape, it would have been very difficult to make this summary.
-                          @activity{
-                              What would the histogram look like if most of the animals took more than 20 weeks to be adopted, but a couple of them were adopted in fewer than 5 weeks?
-                          }
-                      }
-                }
+                
         ]
   }
 
   @lesson/studteach[
-     #:title "Reviewing Bar Charts"
-     #:duration "15 minutes"
+     #:title "Bar Charts v. Histograms"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students review bar charts, contrasting them with histograms}]
      #:evidence-statements @itemlist[]
@@ -142,7 +107,7 @@
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
-                              @vocab{Bar charts}, as you've seen before, use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
+                              @vocab{Bar charts}, like the one of the bottom-left of @worksheet-link[#:name "Bar-vs-Histogram"], use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
                       }
                       @teacher{
                               
@@ -151,9 +116,6 @@
                 @point{
                       @student{
                               This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the bar for "dogs" could have been drawn before the one for "cats". Unlike the numbers on a histogram's horizontal axis, there is no hard order to categories on a bar-chart's horizontal axis. For this reason, @italic{it never makes sense to talk about the "shape" of a categorical data set.}
-                              @activity{
-                                  Suppose a set of people from around the country are involved in an online discussion, and we want to make a @code{bar-chart} of what time zone they live in (Eastern, Central, Mountain, Mountain, Pacific, Alaskan, or Hawaii-Aleutian). What are some of the ways that might make sense to order those six bars on the x-axis?
-                              }
                       }
                       @teacher{
                       
@@ -161,10 +123,66 @@
                 }
                 @point{
                       @student{
-                              A quick report on this bar chart should definitely mention the fact that "dog" is the mode of the data set; the most common of the five possible species was dog, with cats being a fairly close second.
+                              A quick report on this bar chart should definitely mention the fact that "dog" is the mode of the data set: the most common of the five possible species was dog, with cats being a fairly close second.
                       }
                       @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
+                              The display on the bottom-right is called a @vocab{histogram}. Histograms show the distribution of @italic{quantitative} data. Since quantitative data can be ordered from smallest-to-largest, histograms allow us to see the shape of a data set.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. As the saying goes, sometimes you "can't see the forest for the trees". Summarizing with a single number like the average alsi leaves out a lot of important information. So instead of talking about each individual in a dataset, or simply reporting the average for all those individuals, Data Scientists find it useful to describe the overall @bold{shape} of the data. 
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              A display of how long it takes animals to get adopted can make it easier to get an idea of what adoption times were most common, and if there were any unusually long or short times that it took for an animal to be adopted. Let's take a look at a histogram of the @code{weeks} it takes an animal to be adopted. Type the following into the interactions area:
+                              @code[#:multi-line #t]{histogram(animals-table, "weeks", 5)}
+                              @activity{
+                                  Look at the histogram and count how many animals took between 0 and 5 weeks to be adopted. How many took between 5 and 10 weeks? What else do you Notice? What do you Wonder?
+                              }
+                      }
+                      @teacher{
+                              Display this histogram for students to see.
+                      }
+                }
+                @point{
+                      @student{
+                              @bitmap{images/weeks-histogram.png}
+                              What do you Notice about this histogram? What can you conclude? Here are a few conclusions to get you started:
+                              @itemlist[
+                                  @item{
+                                      Because we see most of the histogram's area encompassed by the two bars between 0 and 10 weeks, we can say it was most common for an animal to be adopted in 10 weeks or less.
+                                  }
+                                  @item{
+                                      Because we see a small amount of the histogram's area trailing out to unusually high values, we can say that a couple of animals took an unusually long time to be adopted: one took even more than 30 weeks.
+                                  }
+                                  @item{
+                                      More than half of the animals (17 out of 31) took just 5 weeks or less to be adopted. But those few unusually long adoption times pulled the average up to 5.8 weeks. Knowing about the shape gives us worthwhile information beyond the simple report of average.
+                                  }
+                              ]
+                      }
+                      @teacher{
+                          
+                      }
+                }
+                @point{
+                      @student{
+                          If someone would ask us what was typical for the adoption times, we might say: "Almost all of the animals were adopted in 10 weeks or less, but a couple of animals took an unusually long time to be adopted - even more than 20 or 30 weeks!" Without looking at the histogram's shape, it would have been very difficult to make this summary.
+                          @activity{
+                              What would the histogram look like if most of the animals took more than 20 weeks to be adopted, but a couple of them were adopted in fewer than 5 weeks?
+                          }
                       }
                 }
           ]
@@ -173,7 +191,7 @@
      #:title "Describing Shape"
      #:duration "30 minutes"
      #:overview ""
-    #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
+     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students create histograms using the animals dataset}]
      #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
@@ -187,24 +205,24 @@
       ]{
         @points[
                 @point{
-                      @student{
-                              Let's take another look at our histogram of adoption times:
-                              @bitmap{images/weeks-histogram.png}
-                              A more general way to summarize the shape of a data set like this, which contains a few unusually high values, is to say that it is "@bold{skewed right, or has high outliers.}" We see this shape often in the real world, because there are many variables - like "income" or "time spent on the phone" - for which a few individuals have unusually high values, which aren't balanced out by unusually low values things like "income" and "phone time" can't be less than zero.
-                      }
-                      @teacher{
+                        @student{
+                              Let's get some practice reading histograms, and figuring out what they mean.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Matching-Histograms"], and complete the matching activity there.
+                              }
+                        }
+                        @teacher{
 
-                      }
+                        }
                 }
                 @point{
                       @student{
-                              Shape is one way to @italic{summarize} information in a dataset, to quickly describe what values are more or less common. For example, we might be interested in a data set for all the countries around the world, telling their average life expectancy (how long the people in that country live, on average). Someone could produce a histogram of the data and then say that in most countries people live to be in their seventies, on average, but the shape is "@bold{skewed left, with low outliers.}"
-                              @activity{
-                                  Knowing that the life expectancy histogram is skewed left with low outliers, what can we say about what kind of life expectancies are common or unusual?
-                              } 
+                              Shape is one way to @italic{summarize} information in a dataset, to quickly describe what values are more or less common.
+                              @bitmap{images/weeks-histogram.png}
+                              A more general way to summarize the shape of a data set like this, which contains a few unusually high values, is to say that it is @bold{"skewed right, or has high outliers."}
                       }
                       @teacher{
-                              There are some countries in Africa with a life expectancy in the low 50's, which is ~25 years below average. But the longest life expectancy (Japan), is only ~10 years above average.
+
                       }
                 }
                 @point{
@@ -214,7 +232,7 @@
                               It's just as likely for the variable to take a value a certain distance below the middle as it is to take a value that same distance above the middle. Examples:
                               @itemlist[
                                   @item{
-                                      Heights of 12-year-old females would have a symmetric shape. It's just as likely for a 12-year-old girl to be a certain number of inches below average height as it is to be that number of inches above average height.
+                                      Heights of 12-year-olds would have a symmetric shape. It's just as likely for a 12-year-old to be a certain number of inches below average height as it is to be that number of inches above average height.
                                   }
                                   @item{
                                       In a standardized test, most students score fairly close to what's average. Also, we see just as many students scoring a certain number of points above average as we see scoring that same number of points below average. The shape is symmetric (and bulges in the middle because most students score fairly close to what's average).                 
@@ -231,7 +249,7 @@
                                 Values are clumped around what's typical, but they trail off with a few unusually low values. Examples:
                                 @itemlist[
                                     @item{
-                                        Number of teeth that adults have in their mouths would be skewed left or have low outliers. Most adults will have close to a full set of 32 teeth, but a few of them with serious dental problems would have a very small number of teeth. We won't get anyone in our data set who has 10 or 20 extra teeth in their mouths!
+                                        Number of teeth that adults have in their mouths would be skewed left or have low outliers. Most adults will have close to a full set of 32 teeth, but a few of them with serious dental problems would have a very small number of teeth. We won't get anyone in our data set who has 10 or 20 @italic{extra} teeth in their mouths!
                                     }
                                     @item{
                                         If most students did pretty well on an exam, but a few students performed very badly, then we'd see a shape that has left skewness and/or low outliers.
@@ -245,7 +263,7 @@
                 @point{
                         @student{
                                 @bannerline{Skewed right, or high outliers}
-                                Values are clumped around what's typical, but they trail off with a few unusually high values. Examples:
+                                Values are clumped around what's typical, but they trail off with a few unusually high values. We see this shape often in the real world, because there are many variables - like "income" or "time spent on the phone" - for which a few individuals have unusually high values, which aren't balanced out by unusually low values (things like "income" and "phone time" can't be less than zero). Examples:
                                 @itemlist[
                                     @item{
                                         Age when a woman in the U.S. gives birth would be skewed right or have high outliers. A few women would be unusually old, 40 years or even more @italic{above} the average age of 26 (check the tabloids!), but none of them could be even close to 40 years @italic{below} average to balance things out!
@@ -254,17 +272,6 @@
                                         A data set of earnings almost always shows right skewness or high outliers, because there are usually a few values that are so far above average, they can't be balanced out by any values that are so far below average. (Earnings can't be negative.)
                                     }
                                 ]
-                        }
-                }
-                @point{
-                        @student{
-                              Let's get some practice reading histograms, and figuring out what they mean.
-                              @activity{
-                                  Turn to @worksheet-link[#:name "Matching-Histograms"], and complete the matching activity there.
-                              }
-                        }
-                        @teacher{
-
                         }
                 }
                 @point{
@@ -320,7 +327,7 @@
 
   @lesson/studteach[
      #:title "Your Dataset"
-     #:duration "30 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]

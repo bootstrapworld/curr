@@ -80,12 +80,12 @@
                                 What column is this question asking about?
                         }
                         @teacher{
-                                Use this as an opportunity to review what these measures and visualizations are. Redirect students back to their contracts page! Point out that this question is asking about both @code{age} and @code{weeks}.
+                                Use this as an opportunity to review what these measures and visualizations are. Redirect students back to their contracts page! Point out that this question is asking about both @code{pounds} and @code{weeks}.
                         }
                 }
                 @point{
                         @student{
-                                This question is asking about @italic{two columns} in our dataset. Specifically, it's asking @bold{if there is a relationship} between @code{age} and @code{weeks}. Fortunately, there are other tools that let us visualize a relationship between two quantitative columns!
+                                This question is asking about @italic{two columns} in our dataset. Specifically, it's asking @bold{if there is a relationship} between @code{pounds} and @code{weeks}. Fortunately, there are other tools that let us visualize a relationship between two quantitative columns!
                         }
                         @teacher{
                                 If time allows, ask students how we might visualize this relationship.
@@ -96,7 +96,7 @@
                               @activity[#:forevidence (list)]{
                                 Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1NaJoA5RRjwMwN19NOAUOSnkB8pEl9fqQ" "new copy"].)
                               }
-                              For each animal in the shelter, there are two data points we care about: their @code{age} and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
+                              For each animal in the shelter, there are two data points we care about: how many @code{pounds} they weight, and the number of @code{weeks} it took to be adopted. We can use these points to plot each animal as a point on the x- and y-axes. Eventually, we'll have a whole cloud of points, which show us the relationship between the two columns for all the animals at the shelter.
                               @activity[#:forevidence (list "S-ID.1-4&1&1")]{
                                   Complete @worksheet-link[#:name "Create-Scatter-Plot"] in your Student Workbook.
                               }
@@ -176,7 +176,7 @@
                 }
                 @point{
                     @student{
-                            In this case, we're looking for a correlation between an animal's @code{age} and how many @code{weeks} it takes for them to be adopted. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}, and it turns out to be really useful for making predictions. For example, we can use the line to predict how long a new dog would wait at the shelter, if the dog is 4 years old.
+                            In this case, we're looking for a correlation between @code{pounds} and @code{weeks}. This relationship can be graphed as a line, which tries to cut through the "middle" of the cloud. This line is called the @vocab{line of best fit}, and it turns out to be really useful for making predictions. For example, we can use the line to predict how long a new dog would wait at the shelter, if the dog weighs 68 pounds.
                     }
                     @teacher{
 
@@ -221,10 +221,10 @@
                                                     The @code{age} of an animal vs the @code{pounds} of the animal
                                             }
                                             @item{
-                                                    The @code{pounds} of an animal vs the number of @code{weeks} to be adopted
+                                                    The @code{legs} of an animal vs the number of @code{weeks} to be adopted
                                             }
                                             @item{
-                                                    The @code{pounds} vs the number of @code{legs} it has.
+                                                    The @code{age} vs the number of @code{legs} it has.
                                             }
                                     ]
                             }
@@ -275,7 +275,7 @@
                                     @item{ A @italic{positive correlation} means that the variable on the y-axis increases as the variable on the x-axis goes up. For example, "the older the animal, the more weeks it generally takes to get adopted". }
                                     @item{ A @italic{negative correlation} means that the variable on the y-axis decreases as the variable on the x-axis goes down. For example, "the longer an animal is at the shelter, the less they generally weigh." }
                                 ]
-                                Do you see a correlation in the age-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
+                                Do you see a correlation in the pounds-vs-weeks scatter plot? If so, is it positive or negative? What correlations, if any, did you see in the other scatterplots you created?
                         }
                         @teacher{
 

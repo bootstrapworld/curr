@@ -4,7 +4,7 @@
 
 @unit-overview/auto[#:lang-table (list (list "" @code{} ""))]{
     @unit-descr{
-        Students are introduced to Tables in Pyret, and learn about Numbers, Strings, Types, Operations, Contracts, and Function Application.
+        Students are introduced to the Animals Dataset, and learn about Table, Categorical and Quantitative data. They begin to program as well, and learn about Numbers, Strings, Types, Operations, Contracts, and Function Application.
     }
 }
 @unit-lessons{
@@ -350,7 +350,7 @@
             }
             @point{
                     @student{
-                            As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like @code{==}, @code{<} and @code{>}? 
+                            As you've seen, operators like @code{+} and @code{-} behave exactly the way in Pyret that they do in math class: they add and subtract Numbers, and produce new Numbers! But what about operators like greater-than and less-than-or-equal?
                             @itemlist[
                                 @item{
                                     To identify if an animal's @code{gender} is @code{"male"}, we need to know if the value in that column is @italic{equal to} the string "male".
@@ -369,7 +369,7 @@
             }
             @point{
                     @student{
-                            Those come in handy when comparing quantitative data, so how do they work in Pyret?
+                            Those come in handy when comparing quantitative data, and Pyret has them, too: Equals (@code{==}), less-than (@code{<}), greater-than (@code{>}), as well as greater-than-or-equal (@code{>=}) and less-than-or-equal (@code{<=}).
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&5")]{
                                 With your partner(s), complete @worksheet-link[#:name "Booleans"]. Talk about the answers to each question, and write down your answers when required.
                             }

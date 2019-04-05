@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Working with Data }
+@title{Unit 2: Questions and Definitions }
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
                                               @code{num-sqrt, num-sqr} 
@@ -18,7 +18,7 @@
                                               @code{count}
                                               ""))]{
   @unit-descr{
-      Students are introduced to the Animals dataset, practice making some charts of the data, and consider the kinds of questions that can be asked about a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset.
+      Students continue to explore the Animals Dataset, and consider the kinds of questions that can be asked about a dataset. They also learn to define values, and to define functions using a structured approach to problem solving called the "Design Recipe". They then use these functions to filter the animals dataset, using methods.
   }
 }
 @unit-lessons{
@@ -27,7 +27,7 @@
 
   @lesson/studteach[
      #:title "Question Types"
-     #:duration "20 minutes"
+     #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about different categories of questions}]
      #:evidence-statements @itemlist[]
@@ -94,7 +94,7 @@
 
   @lesson/studteach[
      #:title "Row and Column Lookups"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students extend their understanding of function application}]
      #:evidence-statements @itemlist[]
@@ -185,7 +185,7 @@
 
   @lesson/studteach[
      #:title "Defining Values"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn about value definitions in Pyret}]
      #:evidence-statements @itemlist[]
@@ -542,8 +542,8 @@
   }
 
   @lesson/studteach[
-     #:title "Filtering Tables"
-     #:duration "10 minutes"
+     #:title "More Table Methods"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -580,6 +580,17 @@
                     }
                     @teacher{
                           If time allows: have them make a pie chart using a table of @italic{only cats}, or a bar chart of @italic{only the animals that have been fixed}.
+                    }
+              }
+              @point{
+                    @student{
+                          Sometimes we want to @italic{add a column} to a table. For example, we could add a boolean column called "young" to the table, which is @code{true} if the animal is less than four years old and @code{false} if it's not. Pyret has another method for this.
+                          @code[#:multi-line #t]{
+                              animals-table.build-column("young", is-young)
+                          }
+                          @activity{
+                              Type this into the Interactions Area and hit Enter. What did you get back?
+                          }
                     }
               }
         ]

@@ -18,29 +18,28 @@
  ("Lookup-Animals"				10 )
  ("Lookup-Shapes"				11 )
  ("Design-Recipe-Lookup" 		12 )
- ("Design-Recipe-Lookup2"		13 )
+ ("Design-Recipe-Compute"		13 )
  ("Padding-Unit-2"              14 )
 
 ;;;;;;;;;;;;;;;; Unit 3 ;;;;;;;;;;;;;
  ("Unit-3-Notes" 	 	 		15 )
  ("Unit-3-Blank" 	 	 		16 )
- ("Animals-Subsets" 	 	 	17 )
- ("My-Dataset" 					18 )
- ("My-Dataset-Questions" 		19 )
- ("My-Dataset-Subsets" 	 	 	20 )
- ("Filtering-Recipes" 			21 )
- ("Filtering-Recipes2" 			22 )
-
+ ("My-Dataset" 					17 )
+ ("My-Dataset-Questions" 		18 )
+ ("My-Dataset-Subsets" 	 	 	19 )
+ ("Filtering-Recipes" 			20 )
+ ("Filtering-Recipes2" 			21 )
+ ("Padding-Unit-3"              22 )
 
 ;;;;;;;;;;;;;;;; Unit 4 ;;;;;;;;;;;;;
  ("Unit-4-Notes" 	 			23 )
  ("Unit-4-Blank" 	 			24 )
- ("Bar-vs-Histogram" 			25 )
- ("Matching-Histograms" 		26 )
- ("Making-Histograms" 			27 )
- ("Shape-of-Animals-Dataset"	28 )
- ("Shape-of-My-Dataset"			29 )
- ("Padding-Unit-4"              30 )
+ ("Building-Recipes" 			25 )
+ ("Bar-vs-Histogram" 			26 )
+ ("Matching-Histograms" 		27 )
+ ("Making-Histograms" 			28 )
+ ("Shape-of-Animals-Dataset"	29 )
+ ("Shape-of-My-Dataset"			30 )
  
 ;;;;;;;;;;;;;;;; Unit 5 ;;;;;;;;;;;;;
  ("Unit-5-Notes" 				31 )
@@ -54,9 +53,9 @@
 ;;;;;;;;;;;;;;;; Unit 6 ;;;;;;;;;;;;;
  ("Unit-6-Notes" 				37 )
  ("Unit-5-Blank" 				38 )
- ("Design-Recipe-3" 			39 )
- ("Building-Recipes" 			40 )
- ("Chaining-Methods" 			41 )
+ ("Chaining-Methods" 			39 )
+ ("Chaining-Methods2" 			40 )
+ ("???" 						41 )
  ("Padding-Unit-6" 				42 )
 
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;

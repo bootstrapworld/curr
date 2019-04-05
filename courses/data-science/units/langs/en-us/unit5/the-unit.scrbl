@@ -435,7 +435,11 @@
                       @student{
                           Data Scientists subtract the 1st quartile from the 3rd quartile to compute the range of the "middle half" of the dataset, also called the @vocab{interquartile range}.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              Find the @vocab{interquartile range} of this dataset. @bold{ What percentage of animals fall within the interquartile range? }
+                              Find the @vocab{interquartile range} of this dataset. 
+                              @itemlist[
+                                @item{ What percentage of animals fall within the interquartile range? }
+                                @item{ What percentage of animals fall within any of the quartiles? }
+                              ]
                           }
                       }
                       @teacher{
