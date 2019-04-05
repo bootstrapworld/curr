@@ -114,7 +114,7 @@
 
   @lesson/studteach[
      #:title "Reviewing Bar Charts"
-     #:duration "10 minutes"
+     #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students review bar charts, contrasting them with histograms}]
      #:evidence-statements @itemlist[]
@@ -129,6 +129,16 @@
                 )
       ]{
         @points[
+                @point{
+                      @student{
+                              @activity{
+                                  Let's explore two different ways of visualizing data. Complete @worksheet-link[#:name "Bar-vs-Histogram"].
+                              }
+                      }
+                      @teacher{
+                              Have students share their observations.
+                      }
+                }
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
@@ -161,7 +171,7 @@
   }
   @lesson/studteach[
      #:title "Describing Shape"
-     #:duration "25 minutes"
+     #:duration "30 minutes"
      #:overview ""
     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
