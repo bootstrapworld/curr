@@ -424,7 +424,7 @@
                       @student{
                           One way to summarize the spread in the dataset is to measure the distance between the largest value and the smallest value. When we talk about functions having many possible outputs, we use the term "Range" to describe them. (@bold{Note:} the term "Range" means something different in statistics than it does in algebra and programming!) When we look at the distance between the smallest and largest values in our dataset, we use the same term.
                           @activity[#:forevidence (list "HSS.ID.A&1&2")]{
-                              On page @worksheet-link[#:name "Summarizing-Pounds"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. What conclusions can you draw about the distribution of values in this column?
+                              Turn to @worksheet-link[#:name "Summarizing-Pounds"], and fill in the five-number summary for the @code{pounds} column, and sketch the box-plot. What conclusions can you draw about the distribution of values in this column?
                           }
                       }
                       @teacher{

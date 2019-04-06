@@ -443,7 +443,7 @@
                 }
                 @point{
                     @student{
-                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But suppose we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Lookup2"].
+                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But suppose we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
                     }
                     @teacher{
 

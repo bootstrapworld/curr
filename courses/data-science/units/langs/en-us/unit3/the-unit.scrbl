@@ -293,7 +293,7 @@
                                 Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Complete @worksheet-link[#:name "My-Dataset"].
                               }
                               @item{
-                                Turn to @worksheet-link[#:name "My-Dataset"], and come up with at least two Lookup Questions, two Compute Questions, and two Relate Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
+                                Turn to @worksheet-link[#:name "My-Dataset-Questions"], and come up with at least two Lookup Questions, two Compute Questions, and two Relate Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
                               }
                               @item{
                                 In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.

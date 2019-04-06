@@ -368,7 +368,7 @@
         @points[
                 @point{
                         @student{
-                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Cuter-Adoption"]? Perhaps you need more information, or to see the analysis broken down separately by animal. 
+                              After looking at the scatter plot for our animal shelter, do you still agree with the claim on @worksheet-link[#:name "Smaller-Adoption"]? Perhaps you need more information, or to see the analysis broken down separately by animal. 
                         }
                         @teacher{
                         
