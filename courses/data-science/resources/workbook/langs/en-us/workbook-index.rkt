@@ -70,9 +70,9 @@
  ("Unit-8-Notes" 	 			49 )
  ("Unit-8-Blank" 	 			50 )
  ("Grading-Predictors" 			51 )
- ("Findings-Animals" 			52 )
- ("Findings-My-Dataset" 		53 )
- ("Unit-8-Padding" 	 			54 )
+ ("Reading-Regression" 			52 )
+ ("Findings-Animals" 			53 )
+ ("Findings-My-Dataset" 		54 )
 
 ;;;;;;;;;;;;;;;; Unit 9 ;;;;;;;;;;;;
  ("Unit-9-Notes" 	 			55 )
