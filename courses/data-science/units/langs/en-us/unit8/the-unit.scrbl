@@ -264,11 +264,22 @@
                         @student{
                                 When looking at just the cats, we also saw that the slope of the predictor function was +0.23, meaning that for every year older a cats is, we expect a +0.23-week increase in the time taken to adopt that cat. The r-value was 0.566, confirming that the correlation is positive and indicating moderate strength.
                                 @activity[#:forevidence (list "S-ID.7-9&1&1")]{
-                                      Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up this finding. Then write up two other findings from the linear regressions you performed on this dataset.
+                                      Turn to @worksheet-link[#:name "Findings-Animals"] to see how Data Scientists would write up the finding involving cats' age and adoption time. Write up two other findings from the linear regressions you performed on this dataset.
                                 }
                         }
                         @teacher{
                                 Have students read their text aloud, to get comfortable with the phrasing.
+                        }
+                }
+                @point{
+                        @student{
+                                How well can you interpret the results of a linear regression analysis? 
+                                @activity{
+                                    Turn to @worksheet-link[#:name "Reading-Regression"], and match the write up on the left with the line of best fit and r-value on the right.
+                                }
+                        }
+                        @teacher{
+                        
                         }
                 }
                 @point{
