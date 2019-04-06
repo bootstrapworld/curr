@@ -62,7 +62,7 @@
             @point{
                   @student{
                           @activity{
-                              On this page @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
+                              On @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
                           }
                           
                   }
@@ -73,6 +73,9 @@
             @point{
                   @student{
                           Life is messy, and there are @italic{always} threats to validity. Data Science is about doing the best you can to minimize those threats, and to be up front about what they are whenever you publish a finding. When you do your own analysis, make sure you include a discussion of the threats to validity!
+                          @activity{
+                              On @worksheet-link[#:name "Fake-News"], you'll find some deliberately misleading claims made by slimy Data Scientists. Can you figure out @italic{why these claims should not be trusted?} Once you've finished, consider your own dataset and analysis: what misleading claims could someone make about your work? Turn to @worksheet-link[#:name "Lies-Darned-Lies"], and come up with four misleading claims based on data or displays from your work. Then trade papers with another group, and see if you can figure out why each other's claims are not to be trusted!
+                          }
                   }
                   @teacher{
 

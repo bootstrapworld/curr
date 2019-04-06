@@ -531,7 +531,7 @@
                 @point{
                     @student{
                         @activity{
-                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Lookup2"].
+                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Compute"].
                         }
                     }
                     @teacher{
