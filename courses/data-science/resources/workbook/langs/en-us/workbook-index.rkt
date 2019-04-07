@@ -55,8 +55,8 @@
  ("Unit-5-Blank" 				38 )
  ("Chaining-Methods" 			39 )
  ("Chaining-Methods2" 			40 )
- ("???" 						41 )
- ("Padding-Unit-6" 				42 )
+ ("Trust-but-Verify" 			41 )
+ ("Trust-but-Verify2" 			42 )
 
 ;;;;;;;;;;;;;;;; Unit 7 ;;;;;;;;;;;;;
  ("Unit-6-Notes"				43 )
