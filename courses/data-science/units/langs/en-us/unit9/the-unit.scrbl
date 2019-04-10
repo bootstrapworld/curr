@@ -105,7 +105,7 @@
                         @student{
                               Now that you've completed your analysis, it's time to write up your findings! 
                               @activity{
-                                Open the @(hyperlink "https://docs.google.com/document/d/1tNoeLK7Us6dZcxpxwedFjLlnBMDzOdgkG7txAWuP4nQ/" "Research Paper") template, and save a copy to your Google Drive.
+                                Open the @(hyperlink "https://docs.google.com/document/d/1JoF83vm9xh9VvB9prmRsOsNgfSXjT0orHgfNGSymAnc/edit" "Research Paper") template, and save a copy to your Google Drive.
                               }
                         }
                         @teacher{
