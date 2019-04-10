@@ -108,7 +108,7 @@
                 }
                 @point{
                       @student{
-                              Data Scientists  summarize quantitative data by reporting two key features: what's the typical value (center) and how much do the values typically vary (spread). Let's check the "41 pounds" claim and see if it's an appropriate measure of center.. Finding ways to summarize data @italic{appropriately} is essential. Let's check the "5.8 week" claim made by the Animal Shelter Bureau, and see if it's an appropriate way to summarize the data. Later on, you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
+                              Data Scientists  summarize quantitative data by reporting two key features: what's the typical value (center) and how much do the values typically vary (spread). Let's check the "41 pounds" claim and see if it's an appropriate measure of center. Later on, you'll have a chance to apply what you've learned to your own dataset, to find the best way to provide an overall summary of the data.
                       }
                       @teacher{
 
