@@ -75,10 +75,10 @@
             }
             @point{
                   @student{
-                          To the right of the questions you wrote on @worksheet-link[#:name "Animals-Questions"], circle the @italic{type of question} you are asking. Is it a Lookup, Compute, or Relate question?
+                          Turn back to the Wonders you wrote on @worksheet-link[#:name "Animals-Notice-Wonder"]. Are any of these Lookup, Compute, or Relate questions? Can you come up with additional examples for each type of question?
                   }
                   @teacher{
-                          Have students share their findings with the class. Allow time for discussion!
+                          Have students share their questions with the class. Allow time for discussion!
                   }
             }
             @point{
