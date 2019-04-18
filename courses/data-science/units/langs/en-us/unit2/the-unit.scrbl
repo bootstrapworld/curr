@@ -287,11 +287,22 @@
                         }
                 }
                 @point{
-                      @student{
-                            Lookups are easy, but they can get really repetitive! 
+                        @student{
+                              Let's try finding all the fixed animals by hand.
+                              @activity{
+                                  Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet"), and find all the animals that are fixed.
+                              }
+                        }
+                        @teacher{
+                              Give students 2min to find all the fixed animals they can.
+                        }
+                }
+                @point{
+                        @student{
+                            What did you do to complete this activity? You went through the table one row at a time, and for @bold{each row} you did a lookup on the @code{fixed} column. Lookups are easy, but they can get really repetitive! 
                             @activity{
                                 In the Interactions Area, type the code that will look up if @code{animalA} is fixed or not.
-                                Then type the code to look up if @code{animalB} is fixed or not. Repeat for @code{animalC} and @code{animalD}. Suppose I wanted to do this for every animal in the table?
+                                Then type the code to look up if @code{animalB} is fixed or not. Repeat for @code{animalC} and @code{animalD}. Suppose I wanted to do this for every animal in the table, just as you did by hand?
                             }
                             This seems really repetitive, doesn't it? We keep typing the same thing over and over, but all that's really changing is the animal. Wouldn't it be great if Pyret had a function called @code{is-fixed}, that would do this for us?
                       }
