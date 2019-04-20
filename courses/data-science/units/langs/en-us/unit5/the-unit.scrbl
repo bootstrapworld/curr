@@ -400,19 +400,19 @@
                           This plot shows us the spread in our dataset according to five numbers.
                           @itemlist[
                               @item{ 
-                                  The @bold{minimum} value in the dataset (at the bottom of the lower "whisker"). In our dataset, that's just 0.1 pounds.
+                                  The @bold{minimum} value in the dataset (at the left of "whisker"). In our dataset, that's just 0.1 pounds.
                               }
                               @item{
-                                  The @bold{First Quartile (Q1)} (the bottom edge of the box), is computed by taking @italic{the median of the smaller half of the values}. In the @code{pounds} column, that's 4.3 pounds.
+                                  The @bold{First Quartile (Q1)} (the left edge of the box), is computed by taking @italic{the median of the smaller half of the values}. In the @code{pounds} column, that's 4.3 pounds.
                               }
                               @item{
                                   The @bold{Median (Q2)} value (the line in the middle), which is the second Quartile of the whole dataset. We already computed this to be 13.4 pounds.
                               }
                               @item{
-                                  The @bold{Third Quartile (Q3)} (the top edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 68 pounds in our dataset.
+                                  The @bold{Third Quartile (Q3)} (the right edge of the box), which is computed by taking  @italic{the median of the larger half of the values}. That's 68 pounds in our dataset.
                               }
                               @item{ 
-                                  The @bold{maximum} value in the dataset (at the top of the "whisker"). In our dataset, that's 172 pounds.
+                                  The @bold{maximum} value in the dataset (at the right of the "whisker"). In our dataset, that's 172 pounds.
                               }
                           ]
                       }
