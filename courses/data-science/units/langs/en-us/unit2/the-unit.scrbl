@@ -47,7 +47,7 @@
                   @student{
                           Once we have a dataset, we can start asking questions! But how do we know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
                            @activity{
-                              Turn to @worksheet-link[#:name "Animals-Questions"] in your Student Workbook, and write some questions that you have about this dataset. You can also refer back to what you wondered, on @worksheet-link[#:name "Animals-Notice-Wonder"].
+                              Turn to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook, and look at the "Wonder" questions that you wrote about this dataset. What are some other questions you might ask of this dataset?
                           }
                   }
                   @teacher{
@@ -75,7 +75,7 @@
             }
             @point{
                   @student{
-                          Turn back to the Wonders you wrote on @worksheet-link[#:name "Animals-Notice-Wonder"]. Are any of these Lookup, Compute, or Relate questions? Can you come up with additional examples for each type of question?
+                          Look back at the Wonders you wrote on @worksheet-link[#:name "Animals-Notice-Wonder"]. Are any of these Lookup, Compute, or Relate questions? Can you come up with additional examples for each type of question?
                   }
                   @teacher{
                           Have students share their questions with the class. Allow time for discussion!
@@ -135,7 +135,7 @@
               }
               @point{
                     @student{
-                          Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{shapes} table:
+                          Pyret also has a way for us to get at individual @italic{columns} of a Row, by using a @italic{Row Accessor}. Row accessors start with a @code{Row} value, followed by square brackets and the name of the column where the value can be found. Here are three examples that use row accessors to get at different columns from the first row in the @code{animals-table}:
                           @code[#:multi-line #t]{
                                   animals-table.row-n(0)["name"]
                                   animals-table.row-n(0)["age"]

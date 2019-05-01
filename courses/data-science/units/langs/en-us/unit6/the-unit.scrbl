@@ -44,37 +44,6 @@
       ]
   }
 
-
-  @lesson/studteach[
-     #:title "Building Columns"
-     #:duration "30 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[@item{Students learn how to compute new columns in Pyret}]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students extend the animals table using functions they've defined earlier}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-        @points[
-                @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write some builder functions that you could imagine using with your dataset. When the teacher has checked your work, type them into the Definitions Area.
-                          }
-                      }
-                      @teacher{
-                          It's okay if the functions they design aren't useful - this is for practice.
-                      }
-                }
-        ]
-  }
-
   @lesson/studteach[
      #:title "Chaining Methods"
      #:duration "15 minutes"
@@ -132,7 +101,7 @@
               }
               @point{
                       @student{
-                          How well do you know your table methods? Complete @worksheet-link[#:name "Chaining-Methods"] in your Student Workbook to find out.
+                          How well do you know your table methods? Complete @worksheet-link[#:name "Chaining-Methods"] and @worksheet-link[#:name "Chaining-Methods2"] in your Student Workbook to find out.
                       }
                       @teacher{
                           Have students discuss their answers.

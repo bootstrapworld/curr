@@ -65,7 +65,7 @@
 
   @lesson/studteach[
      #:title "Making Subsets"
-     #:duration "15 minutes"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -113,18 +113,17 @@
                           }
                           Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
                           @activity{
-                              What subsets might make sense for the animals dataset?
+                              A "kitten" is an animal whose @code{species == "cat"} and whose @code{age < 2}. How would you make a subset of just kittens? Turn to @worksheet-link[#:name "Animals-Dataset-Subsets"], and see what code will compute whether or not an animal is a kitten. Can you fill in the code for the other subsets?
                           }
                       }
                       @teacher{
-                          Collect student responses, and write them on the board. 
                       }
                 }
                 @point{
                       @student{
                           Sometimes we want to create a table that's just a @italic{random sample} of an existing table. Type the following code into the Definitions Area (left-hand side of your screen), and click "Run".
                           @code[#:multi-line #t]{
-                              tiny-sample = random-rows(animals-table,  3)
+                              tiny-sample  = random-rows(animals-table, 3)
                               small-sample = random-rows(animals-table, 8)
                           }
                           @activity{
@@ -257,7 +256,7 @@
                                 MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy" "Starter file"])
                               }
                               @item{
-                                  Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video")] for help importing your own data into Pyret.
+                                  Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
                               }
                           ]
                       }
@@ -290,19 +289,16 @@
                           @activity{
                             @itemlist[
                               @item{
-                                Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Complete @worksheet-link[#:name "My-Dataset"].
+                                Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}? Complete @worksheet-link[#:name "My-Dataset"], making sure to have at least two Lookup Questions, two Compute Questions, and two Relate Questions.
                               }
                               @item{
-                                Turn to @worksheet-link[#:name "My-Dataset-Questions"], and come up with at least two Lookup Questions, two Compute Questions, and two Relate Questions. You may already have some from your "wonder" section on @worksheet-link[#:name "My-Dataset"]. 
-                              }
-                              @item{
-                                In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{small-sample}, @code{medium-sample}, and @code{large-sample}.
-                              }
-                              @item{ 
-                                Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "My-Dataset-Subsets"]. 
+                                In the Definitions Area, use @code{random-rows} to define @bold{at least three} tables of different sizes: @code{tiny-sample}, @code{small-sample}, and @code{medium-sample}.
                               }
                               @item{
                                 In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
+                              }
+                              @item{ 
+                                Take a minute to think about subsets that might be useful for your dataset. Name these subsets and write the Pyret code to test an individual row from your dataset on @worksheet-link[#:name "My-Dataset-Subsets"]. 
                               }
                             ]
                           }

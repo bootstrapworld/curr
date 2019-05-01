@@ -315,6 +315,13 @@
                 @point{
                         @student{
                               @activity{
+                                  @bold{Challenge:} Compare histograms for @code{pounds} of cats vs. dogs in the dataset. Are their shapes different? If so, how?
+                              }
+                        }
+                }
+                @point{
+                        @student{
+                              @activity{
                                   On @worksheet-link[#:name "Shape-of-Animals-Dataset"], describe the @code{pounds} histogram and another one you make yourself. When writing down what you notice, try to use the language Data Scientists use, and discuss skew and outliers.
                               }
                         }

@@ -673,7 +673,7 @@
   }
 
   @lesson/studteach[
-     #:title "Counting Values"
+     #:title "(Optional) Counting Values"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]

@@ -47,7 +47,7 @@
         @points[@point{
                         @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1NaJoA5RRjwMwN19NOAUOSnkB8pEl9fqQ" "new copy"].)
+                                Open your "Animals Starter File". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
                               }
                         }
                         @teacher{
@@ -384,7 +384,7 @@
                           We can use @vocab{box plots} to visualize these quartiles. These plots can easily be represented using @bold{just five numbers}, which makes them convenient ways to display data. Below is the contract for @code{box-plot}, along with an example that will make a box plot for the @code{pounds} column in the @code{animals-table}.
                           @code[#:multi-line #t]{
                             # box-plot :: (t :: Table, column :: String) -> Image
-                            # box-plot(animals-table, "pounds")
+                            box-plot(animals-table, "pounds")
                           }
                           @activity[#:forevidence (list "S-ID.1-4&1&2" "HSS.ID.A&1&1" "HSS.ID.A&1&2" "6.SP.4-5&1&1" "S-ID.1-4&1&1")]{
                               Type in this expression in the Interactions Area, and see the resulting plot.
@@ -460,6 +460,17 @@
                 @point{
                       @student{
                           Just as pie and bar charts are ways of visualizing categorical data, box plots and histograms are both ways of visualizing the shape of quantitative data. Box plots make it easy to see the 5-number summary, and compare the Range and Interquartile Range. Histograms make it easier to see outliers, and offer more granularity when using smaller bins.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                          Box-plots and Histograms can both tell us a lot about the shape of a dataset, but they do so by @italic{grouping} data quite differently. A box-plot @italic{always} has four quartiles, which may fall on differently-sized intervals but all contain the same number of points. A histogram, on the other hand, has identically-sized intervals which can contain very different numbers of points.
+                          @activity{
+                              Turn to @worksheet-link[#:name "Box-Histogram-Match"] and see if you can identify which box-plot matches which histogram.
+                          }
                       }
                       @teacher{
 

@@ -61,7 +61,7 @@
                 @point{
                         @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1eYSZKxTbnnNQ82VJRBA5XEszucdJXZ" "new copy"].)
+                                Open your "Animals Dataset" starter file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
                               }
                         }
                         @teacher{
@@ -232,7 +232,7 @@
                 }
                 @point{
                         @student{
-                                (You may notice another value, called R-Squared. This is a more advanced topic, so we'll ignore it for now.)
+                                (You may notice another value, called R-Squared. We'll ignore this for now - it's a more advanced topic.)
                         }
                         @teacher{
                                 Discussion of R-Squared may be appropriate for older students, or in an AP Statistics class.
@@ -241,17 +241,17 @@
                 @point{
                         @student{
                                 @activity[#:forevidence "BS-IDE&1&1"]{
-                                        In the Interactions Area, perform a linear regression on the following relationships:
+                                        In the Interactions Area, use linear regression to answer the following questions:
 
                                         @itemlist[
                                                 @item{
-                                                        The @code{age} vs. @code{weeks} waiting for adoption, but just for the cats in the shelter.
+                                                        What correlates @italic{most strongly} with the time it takes an animal to be adopted: the animal's age, or weight?
                                                 }
                                                 @item{
-                                                        The @code{pounds} vs. @code{weeks} waiting for adoption, but just for young animals in the shelter.
+                                                        Is age more strongly correlated with adoption time for dogs than for cats?
                                                 }
                                                 @item{
-                                                        The @code{age} vs. @code{pounds} of the animals, but just for animals that have been fixed.
+                                                        Is age more strongly correlated with weight for dogs than for cats?
                                                 }
                                         ]
                                 }
