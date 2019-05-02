@@ -246,7 +246,7 @@
 
   @lesson/studteach[
      #:title "Rolling up our sleeves"
-     #:duration "5 minutes"
+     #:duration "25 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
