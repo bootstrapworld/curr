@@ -45,9 +45,13 @@
         @points[
                 @point{
                         @student{
-                          Take a minute to look back at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] you saw at the beginning of the class, and choose another one that interests you.
+                          You've learned a lot in this class about how to analyze data. What questions matter to you?
                           @activity[#:forevidence (list "6.SP.1-3&1&1")]{
-                            Using what you know now, what information would you need to collect in order to answer it? What analysis would you need to perform?
+                            @itemlist[
+                                @item{ Come up with a question that you want answered about the world around you. }
+                                @item{ Using what you know now, what information would you need to collect in order to answer it? }
+                                @item{ What subsets would you need to create? What analysis would you need to perform? }
+                            ]
                           }
                         }
                         @teacher{

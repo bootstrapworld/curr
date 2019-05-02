@@ -25,7 +25,7 @@
 
 @lesson/studteach[
    #:title "Review"
-   #:duration "20 minutes"
+   #:duration "15 minutes"
    #:overview ""
    #:learning-objectives @itemlist[]
    #:evidence-statements @itemlist[]
@@ -40,13 +40,37 @@
               )
     ]{
       @points[
-                
+            @point{
+                    @student{
+                      Take a minute to look back at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] you saw at the beginning of the class, and choose another one that interests you.
+                      @activity[#:forevidence (list "6.SP.1-3&1&1")]{
+                        Using what you know now, what information would you need to collect in order to answer it? What subsets would you need to create? What analysis would you need to perform?
+                      }
+                    }
+                    @teacher{
+                      Debrief as a class.         
+                    }
+            }
+            @point{
+                  @student{
+                      @activity{
+                        @itemlist[
+                          @item{ What kinds of displays and charts have you learned about so far? }
+                          @item{ What does each kind of display tell us about a dataset? }
+                          @item{ When would you use each kind of display? }
+                        ]
+                      }
+                  }
+                  @teacher{
+                      Spend some time on this - let students discuss amongst themselves, and facilitate as necessary.
+                  }
+            }
       ]
   }
 
   @lesson/studteach[
      #:title "Chaining Methods"
-     #:duration "15 minutes"
+     #:duration "30 minutes"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students learn the syntax for chaining methods together}]
      #:evidence-statements @itemlist[]
@@ -131,13 +155,16 @@
 
               @point{
                     @student{
-                        Sample Tables are about a lot more than checking our code. They can also be about checking the inferences we make in our analysis! Data Analysis is often used to make @italic{predictions}, and if the sample dataset is bad those predictions can be wrong - and sometimes, really @italic{really} wrong!
+                        Data Analysis is often used to make @italic{predictions} based on some sample data. For example, we might look at the Animals Dataset and try to make predictions about @italic{other} animal shelters based on that sample. But if the sample dataset doesn't represent the full population, those predictions can be wrong - and sometimes, really @italic{really} wrong!
                         @itemlist[
                             @item{ 
                               Uber and Google are making self-driving cars, which use artificial intelligence to interpret sensor data and make predictions about whether a car should speed up, slow down, or slam on the brakes.  This AI is trained on a lot of sample data, which it learns from. What might be the problem if the sample data only included roads in California?
                             }
                             @item{
                               Law enforcement in many towns has started using facial-recognition software to automatically detect whether someone has a warrant out for their arrest. A lot of facial-recognition software, however, has been trained on sample data containing mostly white faces. As a result, it has gotten really good at telling white people apart, but @(hyperlink "http://www.theweek.co.uk/95383/is-facial-recognition-racist" "often can't tell the difference between people who aren't white"). Why might this be a problem? 
+                            }
+                            @item{
+                              Why might it be a bad thing to only test medicines only on men (or only on women), before prescribing them to the general public?
                             }
                         ]
                     }
@@ -148,7 +175,7 @@
               @point{
                     @student{
                         @bannerline{Sample Data Matters!}
-                        Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
+                        A good Sample Table should be @italic{representative} of the population, and @italic{relevant} to what's being analyzed.
                         @itemlist[
                               @item{
                                   @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
@@ -157,7 +184,7 @@
                                   A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
                               }
                               @item{
-                                  A good Sample Table has rows in apparently random order, so that we'll notice if we need to order the table or not.
+                                  A good Sample Table has rows in mostly random order, so that we'll notice if our analysis winds up sorting them.
                               }
                         ]
                     }
@@ -167,25 +194,58 @@
               }
               @point{
                     @student{
-                          
+                        Sample Tables can also be used to @italic{verify} that a certain analysis is correct. For example: suppose you've been given a function that is supposed to filter a table and @italic{show only the cats}. If you test it on a Sample Table that only has cats to begin with, will that tell you whether or not the function works?
                     }
                     @teacher{
+                        You'll need a table with cats and non-cats.
                     }
               }
               @point{
                     @student{
-
+                        @activity{
+                            Suppose you have a function that takes in a table of animals and shows @italic{only the kittens}. What would your Sample Table need to have in order to verify this function?
+                        }
                     }
                     @teacher{
-
+                        You'll need a table with cats and non-cats, as well as cats under the age of 2.
+                    }
+              }
+              @point{
+                    @student{
+                        @activity{
+                            Suppose you have a function that takes in a table of animals and shows @italic{only the kittens}, sorted in ascending order by weight. What would your Sample Table need to have in order to verify this function?
+                        }
+                    }
+                    @teacher{
+                        You'll need a table with cats and non-cats, as well as cats under the age of 2, with the rows ordered randomly.
+                    }
+              }
+              @point{
+                    @student{
+                        Turn to @worksheet-link[#:name "Trust-but-Verify"] in your student workbook. On each page, you've been given a function called @code{fixed-cats} and a description of what it @italic{claims to do}.
+                        @activity{
+                          List the names of the animals that you would use in a Sample Table to verify whether the function works as-advertised. When you've finished, open the @editor-link[#:public-id "1VVz4l0P6GLwbcpYyAGYJuRgBxj69R52Z" "Trust-but-Verify"] Starter File. There are three versions of @code{fixed-cats} here. Are they all correct? If not, which ones are broken?
+                        }
+                    }
+                    @teacher{
+                      Debrief with the class.
+                    }
+              }
+              @point{
+                    @student{
+                          @activity{
+                            Turn to @worksheet-link[#:name "Trust-but-Verify2"]. Using the same Starter File, construct a Sample Table and figure out which (if any) of the functions are correct!
+                          }
+                    }
+                    @teacher{
+                      Debrief with the class.
                     }
               }
         ]
     }
 
-
   @lesson/studteach[
-     #:title "Closing"
+     #:title "Rolling up our sleeves"
      #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -203,10 +263,10 @@
         @points[
               @point{
                     @student{
-                           
+                        Use this time to continue your analysis, and try using Method Chaining to make your code simpler or easier to read. For example, now you can chain together two simple filter functions instead of having to write a third one!
                     }
                     @teacher{
-                      
+                        
                    }
               }
         ]
