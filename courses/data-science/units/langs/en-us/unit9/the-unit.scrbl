@@ -24,6 +24,38 @@
 @unit-lessons{
 
   
+  @lesson/studteach[
+     #:title "Review"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                          Take a minute to look back at the @resource-link[#:path "OpeningQuestions.pdf" #:label "opening questions"] you saw at the beginning of the class, and choose another one that interests you.
+                          @activity[#:forevidence (list "6.SP.1-3&1&1")]{
+                            Using what you know now, what information would you need to collect in order to answer it? What analysis would you need to perform?
+                          }
+                        }
+                        @teacher{
+                          Debrief as a class.         
+                        }
+                }
+        ]
+  }
 
   @lesson/studteach[
      #:title "Threats to Validity"
