@@ -618,7 +618,7 @@
                         @code[#:multi-line #t]{
                              # bar-chart :: (t :: Table, label-col :: String, data-col :: String) -> Image
                         }
-                        @activity{Use this function to make a bar chart showing the number of columns for each shape in the table.}
+                        @activity{Use this function to make a bar chart showing the number of corners for each shape in the table.}
                     }
                     @teacher{
                         
