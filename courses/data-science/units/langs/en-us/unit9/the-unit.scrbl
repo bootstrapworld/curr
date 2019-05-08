@@ -69,6 +69,9 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
+     #:exercises (list  (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-1")
+                        (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-2")
+                        (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-3"))
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]
      #:pacings (list 

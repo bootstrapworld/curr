@@ -80,7 +80,37 @@
                   | <a href="protected/solutions/WhatData2-Sols.pdf">answers</a>]
                 </span>
               </li>
+            </ul>
 
+            <h3><a href="../../units/unit7/">Unit 5</a></h3>
+            <ul>
+              <li>Critiquing Findings
+                <span class="links">
+                  [<a href="exercises/CritiquingFindings.pdf">original</a>
+                  | <a href="protected/solutions/CritiquingFindings-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+
+            <h3><a href="../../units/unit10/">Unit 8</a></h3>
+            <ul>
+              <li>Describing Relationships 1
+                <span class="links">
+                  [<a href="exercises/Relationships1.pdf">original</a>
+                  | <a href="protected/solutions/Relationships1-Sols.pdf">answers</a>]
+                </span>
+              </li>
+
+              <li>Describing Relationships 2
+                <span class="links">
+                  [<a href="exercises/Relationships2.pdf">original</a>
+                  | <a href="protected/solutions/Relationships2-Sols.pdf">answers</a>]
+                </span>
+              </li>
+            </ul>
+            
+            <h3><a href="../../units/unit9/">Unit 9</a></h3>
+            <ul>
               <li>Threats to Validity 1
                 <span class="links">
                   [<a href="exercises/Threats1.pdf">original</a>
@@ -103,34 +133,6 @@
               </li>
             </ul>
 
-            <h3><a href="../../units/unit7/">Unit 7</a></h3>
-            <ul>
-              <li>Critiquing Findings
-                <span class="links">
-                  [<a href="exercises/CritiquingFindings.pdf">original</a>
-                  | <a href="protected/solutions/CritiquingFindings-Sols.pdf">answers</a>]
-                </span>
-              </li>
-            </ul>
-
-
-            <h3><a href="../../units/unit10/">Unit 10</a></h3>
-            <ul>
-              <li>Describing Relationships 1
-                <span class="links">
-                  [<a href="exercises/Relationships1.pdf">original</a>
-                  | <a href="protected/solutions/Relationships1-Sols.pdf">answers</a>]
-                </span>
-              </li>
-
-              <li>Describing Relationships 2
-                <span class="links">
-                  [<a href="exercises/Relationships2.pdf">original</a>
-                  | <a href="protected/solutions/Relationships2-Sols.pdf">answers</a>]
-                </span>
-              </li>
-            </ul>
-            
             <div class="item clearfix">
               <span class="anchor" id="sourceFiles"></span>
               <h2>Workshop Files</h2>
