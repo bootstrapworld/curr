@@ -55,7 +55,7 @@
     (copyright-names-phys "Bootstrap:Physics by Emmanuel Schanzer, Shriram Krishnamurthi, and Sam Dooman is licensed under a ")
      ;Translator; Names listed at bottom of most pages in the data-science curriculum, included in the copyright statement
     ;Developler; copyright for data-science
-    (copyright-names-data "Bootstrap:Data Science by Emmanuel Schanzer, Sam Dooman, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+    (copyright-names-data "Bootstrap:Data Science by Emmanuel Schanzer, Nancy Pfenning, Emma Youndtsmith, Jennifer Poole, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
 
     
     ;Translator; This is the hyperlink listed within the copyright statement at the bottom of most pages.

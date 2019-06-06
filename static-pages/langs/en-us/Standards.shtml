@@ -31,6 +31,7 @@
       function showTable(id){
         document.getElementById('practice').style.display = 'none';
         document.getElementById('content').style.display  = 'none';
+        document.getElementById('ngss').style.display = 'none';
         document.getElementById('TEKS').style.display = 'none';
         document.getElementById('csta').style.display = 'none';
         document.getElementById('k12cs').style.display = 'none';
@@ -55,16 +56,16 @@
     
     
     <div class="item">
-      <h1>What's Covered in 25 Hours?</h1>
-      <input type="button" onclick="showTable('practice')"  value="Mathematical Practice Standards"/>
-      <input type="button" onclick="showTable('content')"   value="Mathematical Content Standards"/>
+      <input type="button" onclick="showTable('practice')"  value="CC Math Practice"/>
+      <input type="button" onclick="showTable('content')"   value="CC Math Content"/>
+      <input type="button" onclick="showTable('ngss')"      value="NGSS"/>
       <input type="button" onclick="showTable('k12cs')"     value="K12CS"/>
       <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
       <table width="100%" id="practice">
         <thead>
-          <tr><td><h2>Practice Standard</h2></td>
+          <tr><td><h2>Standard</h2></td>
             <td><h2>Alignment</h2></td></tr>
         </thead>
         <tr>
@@ -82,25 +83,25 @@
         <tr class="">
           <td><span>MP.3:</span> Construct viable arguments and critique the reasoning of others</td>
           <td>
-            Teachers engage students in discussion about each step in the Design Recipe, asking them to explain how they move from one step to another. In addition, students are challenged to debug the code of others, not just by identifying programmatic flaws but by also identifying faulty reasoning.
+            Teachers engage students in discussion about each step in the Design Recipe, asking them to explain how they move from one step to another. In addition, students are challenged to debug the code of others, not just by identifying programmatic flaws but by also identifying faulty reasoning. In Bootstrap:Data Science, students go even further, writing entire research papers based on their findings and then critiquing their peers' findings as well.
           </td>
         </tr>
         <tr>
           <td><span>MP.4:</span> Model with mathematics</td>
           <td>
-            When Bootstrap students want their characters to move, to stay onscreen or collide with one another, they must first model that behavior mathematically. And since the programming language is purely algebraic, these models become the programs themselves!
+            When students in Bootstrap:Algebra or Reactive want their characters to move, to stay onscreen or collide with one another, they must first model that behavior mathematically. In Data Science, they construct predictive models using linear regression. And since the programming language is purely algebraic, these models become the programs themselves!
           </td>
         </tr>
         <tr>
           <td><span>MP.5:</span> Use appropriate tools strategically</td>
           <td>
-            Even programmers know that a computer isn't the perfect tool for every situation. Bootstrap students draw graphical diagrams, write out written examples, and use the computer <i>when the situation calls for it</i>.
+            Even programmers know that a computer isn't the perfect tool for every situation. Bootstrap students draw graphical diagrams, write out written examples, and use the computer <i>when the situation calls for it</i>. Bootstrap:Reactive allows students to construct and apply appropriate data structures to suit their needs, and Data Science students learn to use visualizations such a bar and pie-charts strategically.
           </td>
         </tr>
         <tr>
           <td><span>MP.6:</span> Attend to precision</td>
           <td>
-            Communicating precisely is key, whether you're a mathematician or a professional programmer. In Bootstrap, students consider datatypes, select clear function and variable names, and write comments for their code.
+            Communicating precisely is key, whether you're a mathematician or a professional programmer. In every Bootstrap class, students consider datatypes, select clear function and variable names, and write comments for their code. In Reactive, they construct their own data structures precisely based on their needs, and in Data Science they must precisely validate other people's code and consider everything from sampling error to confounding variables.
           </td>
         </tr>
         <tr>
@@ -119,7 +120,7 @@
       
       <table width="100%" id="content">
         <thead>
-          <tr><td><h2>Algebra Standard</h2></td>
+          <tr><td><h2>Standard</h2></td>
             <td><h2>Bootstrap Units</h2></td>
           </tr>
         </thead>
@@ -128,99 +129,252 @@
         <!-- Number System -->
         <tr class="NS">
           <td><span>N-Q:</span> Reason quantitatively and use units to solve problems.</td>
-          <td>Units 1, 2, 3 and 5</td>
+          <td><b>Algebra</b> Units 1, 2, 3 and 5</td>
         </tr>
         <tr class="NS">
           <td><span>6.NS.5-8:</span> Apply and extend previous understandings of numbers to the system of rational numbers.</td>
-          <td>Unit 1</td>
+          <td><b>Algebra</b> Unit 1</td>
         </tr>
         
         <!-- Expressions and Equations -->
         <tr class="EE">
           <td><span>7.EE.1-4:</span> The student uses numerical and algebraic expressions and equations to solve real-life and mathematical problems.</td>
-          <td>Units 3 and 6</td>
+          <td><b>Algebra</b> Units 3 and 6</td>
         </tr>
         
         <!-- Functions -->
         <tr class="F">
           <td><span>8.F.1-3:</span> Define, evaluate, and compare functions.</td>
-          <td>Unit 4, 6 and 8</td>
+          <td><b>Algebra</b> Unit 4, 6 and 8</td>
         </tr>
         
         <!-- Seeing Structure in Expressions -->
         <tr class="A-SSE">
           <td><span>A-SSE.1-2:</span> Interpret the structure of expressions</td>
-          <td>Units 1, 2, 3, 7 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 1, 2, 3, 7 and Supplemental Lessons</td>
         </tr>
         <tr class="A-SSE">
           <td><span>A-SSE.3-4:</span> Write expressions in equivalent forms to solve problems</td>
-          <td>Units 1, 2 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 1, 2 and Supplemental Lessons</td>
         </tr>
         
         <!-- Creating Equations -->
         <tr class="A-CED">
           <td><span>A-CED.1-4:</span> Create equations that describe numbers or relationships</td>
-          <td>Units 3, 4, 5, 6, 7, 8 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 3, 4, 5, 6, 7, 8 and Supplemental Lessons</td>
         </tr>
         
         <!-- Reasoning with Equations and Inequalities -->
         <tr class="A-REI">
           <td><span>A-REI.1-2:</span> Understand solving equations as a process of reasoning and explain the reasoning</td>
-          <td>Units 1, 2 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 1, 2 and Supplemental Lessons</td>
         </tr>
         <tr class="A-REI">
           <td><span>A-REI.3-4:</span> Solve equations and inequalities in one variable</td>
-          <td>Unit 6</td>
+          <td><b>Algebra</b> Unit 6</td>
         </tr>
         <tr class="A-REI">
           <td><span>A-REI.10-12:</span> Represent and solve equations and inequalities graphically</td>
-          <td>Unit 6</td>
+          <td><b>Algebra</b> Unit 6</td>
         </tr>
         
         <!-- Geometry -->
         <tr class="G">
           <td><span>8.G.6-8:</span> Understand and apply the Pythagorean Theorem</td>
-          <td>Unit 8</td>
+          <td><b>Algebra</b> Unit 8</td>
         </tr>
         
         <!-- Interpreting Functions -->
         <tr class="F_IF">
           <td><span>F-IF.1-3:</span> Understand the concept of a function and use function notation</td>
-          <td>Units 2-9 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 2-9 and Supplemental Lessons</td>
         </tr>
         <tr class="F-IF">
           <td><span>F-IF.4-6:</span> Interpret functions that arise in applications in terms of the context</td>
-          <td>Units 3, 4, 6, 8 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 3, 4, 6, 8 and Supplemental Lessons</td>
         </tr>
         <tr class="F-IF">
           <td><span>F.IF.7-9:</span> Analyze functions using different representations</td>
-          <td>Units 3-9 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 3-9 and Supplemental Lessons</td>
         </tr>
         
         <!-- Building Functions -->
         <tr class="F-BF">
           <td><span>F-BF.1-2:</span> Build a function that models a relationship between two quantities</td>
-          <td>Units 3-9 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 3-9 and Supplemental Lessons</td>
         </tr>
         <tr class="F-BF">
           <td><span>F-BF.3-4:</span> Build new functions from existing functions</td>
-          <td>Units 6, 7, 8 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Units 6, 7, 8 and Supplemental Lessons</td>
         </tr>
         
         <!-- Linear, Quadratic, and Exponential Models -->
         <tr class="F_LE">
           <td><span>F-LE.1-4:</span> Construct and compare linear, quadratic, and exponential models and solve problems</td>
-          <td>Unit 3</td>
+          <td><b>Algebra</b> Unit 3</td>
         </tr>
         <tr class="F-LE">
           <td><span>F-LE.5:</span> Interpret expressions for functions in terms of the situation they model</td>
-          <td>Unit 5 and Supplemental Lessons</td>
+          <td><b>Algebra</b> Unit 5 and Supplemental Lessons</td>
         </tr>
         
         <!-- Trigonometric Functions -->
         <tr class="F-TF">
           <td><span>F-TF.5:</span> Model periodic phenomena with trigonometric functions</td>
-          <td>Supplemental Lessons</td>
+          <td><b>Algebra</b> Supplemental Lessons</td>
+        </tr>
+
+        <!-- Statistics -->
+        <tr class="SP">
+          <td><span>6.SP.A.1:</span> Recognize a statistical question as one that anticipates variability in the data related to the question and accounts for it in the answers.</td>
+          <td>
+            <b>Data Science</b> Units 1-3
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>6.SP.A.2:</span> Understand that a set of data collected to answer a statistical question has a distribution which can be described by its center, spread, and overall shape.</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>6.SP.A.3:</span> Recognize that a measure of center for a numerical data set summarizes all of its values with a single number, while a measure of variation describes how its values vary with a single number.</td>
+          <td>
+            <b>Data Science</b> Unit 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>6.SP.A.4:</span> Display numerical data in plots on a number line, including dot plots, histograms, and box plots.</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>6.SP.B.5:</span> Summarize numerical data sets in relation to their context, by: (A) Reporting the number of observations, (B) describing the nature of the attribute under investigation, including how it was measured and its units of measuremen, (C) giving quantitative measures of center (median and/or mean) and variability (interquartile range and/or mean absolute deviation), as well as describing any overall pattern and any striking deviations from the overall pattern with reference to the context in which the data were gathered, and (D) relating the choice of measures of center and variability to the shape of the data distribution and the context in which the data were gathered.</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>7.SP.A.1:</span> Understand that statistics can be used to gain information about a population by examining a sample of the population; generalizations about a population from a sample are valid only if the sample is representative of that population. Understand that random sampling tends to produce representative samples and support valid inferences.</td>
+          <td>
+            <b>Data Science</b> Units 1, 3, 6 and 9
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>8.SP.B.1:</span> Construct and interpret scatter plots for bivariate measurement data to investigate patterns of association between two quantities. Describe patterns such as clustering, outliers, positive or negative association, linear association, and nonlinear association.</td>
+          <td>
+            <b>Data Science</b> Units 7 and 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>8.SP.A.2:</span> Know that straight lines are widely used to model relationships between two quantitative variables. For scatter plots that suggest a linear association, informally fit a straight line, and informally assess the model fit by judging the closeness of the data points to the line.</td>
+          <td>
+            <b>Data Science</b> Units 7 and 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>8.SP.A.3:</span> Use the equation of a linear model to solve problems in the context of bivariate measurement data, interpreting the slope and intercept. For example, in a linear model for a biology experiment, interpret a slope of 1.5 cm/hr as meaning that an additional hour of sunlight each day is associated with an additional 1.5 cm in mature plant height.</td>
+          <td>
+            <b>Data Science</b> Unit 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.A.1:</span> Represent data with plots on the real number line (dot plots, histograms, and box plots).</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.B.6:</span> Represent data on two quantitative variables on a scatter plot, and describe how the variables are related.</td>
+          <td>
+            <b>Data Science</b> Unit 7
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.B.6.A:</span> Fit a function to the data; use functions fitted to data to solve problems in the context of the data. Use given functions or choose a function suggested by the context. Emphasize linear, quadratic, and exponential models. </td>
+          <td>
+            <b>Data Science</b> Unit 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.B.6.C:</span> Fit a linear function for a scatter plot that suggests a linear association.</td>
+          <td>
+            <b>Data Science</b> Unit 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.C.7:</span> Interpret the slope (rate of change) and the intercept (constant term) of a linear model in the context of the data.</td>
+          <td>
+            <b>Data Science</b> Unit 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.C.8:</span> Compute (using technology) and interpret the correlation coefficient of a linear fit.</td>
+          <td>
+            <b>Data Science</b> Units 7 and 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.C.9:</span> Distinguish between correlation and causation.</td>
+          <td>
+            <b>Data Science</b> Units 7 and 9
+          </td>
+        </tr>
+      </table>
+
+      <table width="100%" id="ngss">
+        <thead>
+          <tr><td><h2>Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>HS-ETS1-1 and/or MS-LS1-2:</span> Develop and use a model to describe phenomena.</td>
+          <td>
+            <b>Data Science</b> Unit 8
+          </td>
+        </tr>
+        <tr>
+          <td><span>RST.9-10.7:</span> Translate quantitative or technical information expressed in words in a text into visual form (e.g., a table or chart) and translate information expressed visually or mathematically (e.g., in an equation) into words. (HS-PS1-1)</td>
+          <td>
+            <b>Data Science</b> Units 1, 4, 5, 7 and 8
+          </td>
+        </tr>
+        <tr>
+          <td><span>RST.11-12.8:</span> Evaluate the hypotheses, data, analysis, and conclusions in a science or technical text, verifying the data when possible and corroborating or challenging conclusions with other sources of information.</td>
+          <td>
+            <b>Data Science</b> Units 5 and 7
+          </td>
+        </tr>
+        <tr>
+          <td><span>HS-PS1-3:</span> Plan and conduct an investigation individually and collaboratively to produce data to serve as the basis for evidence, and in the design: decide on types, how much, and accuracy of data needed to produce reliable measurements and consider limitations on the precision of the data (e.g., number of trials, cost, risk, time), and refine the design accordingly. (HS-PS1-3)</td>
+          <td>
+            <b>Data Science</b> Units 5-8
+          </td>
+        </tr>
+        <tr>
+          <td><span>HS-PS1-7:</span> Use mathematical representations of phenomena to support claims.</td>
+          <td>
+            <b>Data Science</b> Unit 5
+          </td>
+        </tr>
+        <tr>
+          <td><span>HS-PS2-1:</span> Represent data with plots on the real number line (dot plots, histograms, and box plots)</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr>
+          <td><span>WHST.9-12.7:</span> Conduct short as well as more sustained research projects to answer a question (including a self-generated question) or solve a problem; narrow or broaden the inquiry when appropriate; synthesize multiple sources on the subject, demonstrating understanding of the subject under investigation.</td>
+          <td>
+            <b>Data Science</b> Units 3-7
+          </td>
+        </tr>
+        <tr>
+          <td><span>HSN-Q.A.1:</span> Use units as a way to understand problems and to guide the solution of multi-step problems; choose and interpret units consistently in formulas; choose and interpret the scale and the origin in graphs and data displays.</td>
+          <td>
+            <b>Data Science</b> Unit 4
+          </td>
         </tr>
       </table>
       
@@ -230,367 +384,453 @@
               <td>Alignment</td></tr>
         </thead>
         <tr>
-            <td><span>1A (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to apply mathematics to problems arising in everyday life, society, and the workplace
+            <td><span>Math 1A (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to apply mathematics to problems arising in everyday life, society, and the workplace
             </td>
-            <td>Units 3-8</td>
+            <td><b>Algebra</b> Units 3-8</td>
+            <td><b>Data Science</b> Units 1-9</td>
         </tr>
         <tr>
-          <td><span>1B (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to use a problem-solving model that incorporates analyzing given information, formulating a plan or strategy, determining a solution, justifying the solution, and evaluating the problem-solving process and the reasonableness of the solution
+          <td><span>Math 1B (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to use a problem-solving model that incorporates analyzing given information, formulating a plan or strategy, determining a solution, justifying the solution, and evaluating the problem-solving process and the reasonableness of the solution
           </td>
-          <td>Units 3-8</td>
+          <td><b>Algebra</b> Units 3-8</td>
+          <td><b>Data Science</b> Units 3-8</td>
         </tr>
         <tr>
-            <td><span>1C (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to select tools, including real objects, manipulatives, paper and pencil, and technology as appropriate, and techniques, including mental math, estimation, and number sense as appropriate, to solve problems;
+            <td><span>Math 1C (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to select tools, including real objects, manipulatives, paper and pencil, and technology as appropriate, and techniques, including mental math, estimation, and number sense as appropriate, to solve problems;
             </td>
-            <td>Units 3-8</td>
+            <td><b>Algebra</b> Units 3-8</td>
+            <td><b>Data Science</b> Units 2-7</td>
         </tr>
         <tr>
-          <td><span>1D (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to communicate mathematical ideas, reasoning, and their implications using multiple representations, including symbols, diagrams, graphs, and language as appropriate
+          <td><span>Math 1D (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to communicate mathematical ideas, reasoning, and their implications using multiple representations, including symbols, diagrams, graphs, and language as appropriate
           </td>
-          <td>Units 3-8</td>
+          <td><b>Algebra</b> Units 3-8</td>
+          <td><b>Data Science</b> Units 2-7</td>
         </tr>
         <tr>
-          <td><span>1F (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to analyze mathematical relationships to connect and communicate mathematical ideas
+          <td><span>Math 1F (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to analyze mathematical relationships to connect and communicate mathematical ideas
           </td>
-          <td>Units 3-8</td>
+          <td><b>Algebra</b> Units 3-8</td>
+          <td><b>Data Science</b> Units 7-8</td>
         </tr>
         <tr>
-          <td><span>1G (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to display, explain, and justify mathematical ideas and arguments using precise mathematical language in written or oral communication
+          <td><span>Math 1G (all grades):</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. The student is expected to display, explain, and justify mathematical ideas and arguments using precise mathematical language in written or oral communication
           </td>
-          <td>Units 3-8</td>
+          <td><b>Algebra</b> Units 3-8</td>
+          <td><b>Data Science</b> Units 5, 7, and 8</td>
         </tr>
         <tr>
-            <td><span>5.4F:</span> Algebraic reasoning. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to simplify numerical expressions that do not involve exponents, including up to two levels of grouping.
+            <td><span>Math 5.4F:</span> Algebraic reasoning. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to simplify numerical expressions that do not involve exponents, including up to two levels of grouping.
             </td>
-            <td>Units 1-2</td>
+            <td><b>Algebra</b> Units 1-2</td>
         </tr>
         <tr>
-            <td><span>5.8A:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the key attributes of the coordinate plane, including perpendicular number lines (axes) where the intersection (origin) of the two lines coincides with zero on each number line and the given point (0, 0); the x-coordinate, the first number in an ordered pair, indicates movement parallel to the x-axis starting at the origin; and the y-coordinate, the second number, indicates movement parallel to the y-axis starting at the origin.
+            <td><span>Math 5.8A:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the key attributes of the coordinate plane, including perpendicular number lines (axes) where the intersection (origin) of the two lines coincides with zero on each number line and the given point (0, 0); the x-coordinate, the first number in an ordered pair, indicates movement parallel to the x-axis starting at the origin; and the y-coordinate, the second number, indicates movement parallel to the y-axis starting at the origin.
             </td>
-            <td>Unit 1</td>
+            <td><b>Algebra</b> Unit 1</td>
         </tr>
         <tr>
-            <td><span>5.8B:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the process for graphing ordered pairs of numbers in the first quadrant of the coordinate plane.
+            <td><span>Math 5.8B:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to describe the process for graphing ordered pairs of numbers in the first quadrant of the coordinate plane.
             </td>
-            <td>Unit 1</td>
+            <td><b>Algebra</b> Unit 1</td>
         </tr>
         <tr>
-            <td><span>5.8C:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to graph in the first quadrant of the coordinate plane ordered pairs of numbers arising from mathematical and real-world problems, including those generated by number patterns or found in an input-output table.
+            <td><span>Math 5.8C:</span> Geometry and measurement. The student applies mathematical process standards to identify locations on a coordinate plane. The student is expected to graph in the first quadrant of the coordinate plane ordered pairs of numbers arising from mathematical and real-world problems, including those generated by number patterns or found in an input-output table.
             </td>
-            <td>Units 1-2</td>
+            <td><b>Algebra</b> Units 1-2</td>
         </tr>
         <tr>
-            <td><span>6.2C:</span> Number and operations. The student applies mathematical process standards to represent and use rational numbers in a variety of forms. The student is expected to locate, compare, and order integers and rational numbers using a number line.
+            <td><span>Math 6.2C:</span> Number and operations. The student applies mathematical process standards to represent and use rational numbers in a variety of forms. The student is expected to locate, compare, and order integers and rational numbers using a number line.
             </td>
-            <td>Units 1-2</td>
+            <td><b>Algebra</b> Units 1-2</td>
         </tr>
         <tr>
-            <td><span>6.4B:</span> Proportionality. The student applies mathematical process standards to develop an understanding of proportional relationships in problem situations. The student is expected to apply qualitative and quantitative reasoning to solve prediction and comparison of real-world problems involving ratios and rates.
+            <td><span>Math 6.4B:</span> Proportionality. The student applies mathematical process standards to develop an understanding of proportional relationships in problem situations. The student is expected to apply qualitative and quantitative reasoning to solve prediction and comparison of real-world problems involving ratios and rates.
             </td>
-            <td>Units 4-5</td>
+            <td><b>Algebra</b> Units 4-5</td>
         </tr>
         <tr>
-            <td><span>6.6A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to describe algebraic relationships. The student is expected to identify independent and dependent quantities from tables and graphs.
+            <td><span>Math 6.6A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to describe algebraic relationships. The student is expected to identify independent and dependent quantities from tables and graphs.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>6.6B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to write an equation that represents the relationship between independent and dependent quantities from a table.
+            <td><span>Math 6.6B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use multiple representations to write an equation that represents the relationship between independent and dependent quantities from a table.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>6.7A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to generate equivalent numerical expressions using order of operations, including whole number exponents, and prime factorization.
+            <td><span>Math 6.7A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop concepts of expressions and equations. The student is expected to generate equivalent numerical expressions using order of operations, including whole number exponents, and prime factorization.
             </td>
-            <td>Units 1-2</td>
+            <td><b>Algebra</b> Units 1-2</td>
         </tr>
         <tr>
-            <td><span>6.9A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to represent situations. The student is expected to write one-variable, one-step equations and inequalities to represent constraints or conditions within problems.
+            <td><span>Math 6.9A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to represent situations. The student is expected to write one-variable, one-step equations and inequalities to represent constraints or conditions within problems.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>6.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to model and solve one-variable, one-step equations and inequalities that represent problems, including geometric concepts.
+            <td><span>Math 6.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to model and solve one-variable, one-step equations and inequalities that represent problems, including geometric concepts.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>6.10B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to determine if the given value(s) make(s) one-variable, one-step equations or inequalities true.
+            <td><span>Math 6.10B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use equations and inequalities to solve problems. The student is expected to determine if the given value(s) make(s) one-variable, one-step equations or inequalities true.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>6.11A:</span> Measurement and data. The student applies mathematical process standards to use coordinate geometry to identify locations on a plane. The student is expected to graph points in all four quadrants using ordered pairs of rational numbers.
+            <td><span>Math 6.11A:</span> Measurement and data. The student applies mathematical process standards to use coordinate geometry to identify locations on a plane. The student is expected to graph points in all four quadrants using ordered pairs of rational numbers.
             </td>
-            <td>Unit 2</td>
+            <td><b>Algebra</b> Unit 2</td>
         </tr>
         <tr>
-            <td><span>7.5C:</span> Proportionality. The student applies mathematical process standards to use geometry to describe or solve problems involving proportional relationships. The student is expected to solve mathematical and real-world problems involving similar shape and scale drawings.
+            <td><span>Math 7.5C:</span> Proportionality. The student applies mathematical process standards to use geometry to describe or solve problems involving proportional relationships. The student is expected to solve mathematical and real-world problems involving similar shape and scale drawings.
             </td>
-            <td>Units 2-3</td>
+            <td><b>Algebra</b> Units 2-3</td>
         </tr>
         <tr>
-            <td><span>7.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use one-variable equations and inequalities to represent situations. The student is expected to write one-variable, two-step equations and inequalities to represent constraints or conditions within problems.
+            <td><span>Math 7.10A:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use one-variable equations and inequalities to represent situations. The student is expected to write one-variable, two-step equations and inequalities to represent constraints or conditions within problems.
             </td>
-            <td>Units 6, 8</td>
+            <td><b>Algebra</b> Units 6, 8</td>
         </tr>
         <tr>
             <td><span>7.11B:</span> Expressions, equations, and relationships. The student applies mathematical process standards to solve one-variable equations and inequalities. The student is expected to determine if the given value(s) make(s) one-variable, two-step equations and inequalities true.
             </td>
-            <td>Units 6, 8</td>
+            <td><b>Algebra</b> Units 6, 8</td>
         </tr>
         <tr>
-            <td><span>8.3A:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to generalize that the ratio of corresponding sides of similar shapes are proportional, including a shape and its dilation.
+            <td><span>Math 8.3A:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to generalize that the ratio of corresponding sides of similar shapes are proportional, including a shape and its dilation.
             </td>
-            <td>Unit 2, Supplemental Units</td>
+            <td><b>Algebra</b> Unit 2, Supplemental Units</td>
         </tr>
         <tr>
-            <td><span>8.3B:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to compare and contrast the attributes of a shape and its dilation(s) on a coordinate plane.
+            <td><span>Math 8.3B:</span> Proportionality. The student applies mathematical process standards to use proportional relationships to describe dilations. The student is expected to compare and contrast the attributes of a shape and its dilation(s) on a coordinate plane.
             </td>
-            <td>Unit 2, Supplemental Units</td>
+            <td><b>Algebra</b> Unit 2, Supplemental Units</td>
         </tr>
         <tr>
-            <td><span>8.5I:</span> Proportionality. The student applies mathematical process standards to use proportional and non-proportional relationships to develop foundational concepts of functions. The student is expected to write an equation in the form y = mx + b to model a linear relationship between two quantities using verbal, numerical, tabular, and graphical representations.
+            <td><span>Math 8.5I:</span> Proportionality. The student applies mathematical process standards to use proportional and non-proportional relationships to develop foundational concepts of functions. The student is expected to write an equation in the form y = mx + b to model a linear relationship between two quantities using verbal, numerical, tabular, and graphical representations.
             </td>
-            <td>Units 4-5</td>
+            <td><b>Algebra</b> Units 4-5</td>
         </tr>
         <tr>
-            <td><span>8.6C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop mathematical relationships and make connections to geometric formulas. The student is expected to use models and diagrams to explain the Pythagorean theorem.
+            <td><span>Math 8.6C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to develop mathematical relationships and make connections to geometric formulas. The student is expected to use models and diagrams to explain the Pythagorean theorem.
             </td>
-            <td>Unit 8</td>
+            <td><b>Algebra</b> Unit 8</td>
         </tr>
         <tr>
-            <td><span>8.7C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to use the Pythagorean theorem and its converse to solve problems.
+            <td><span>Math 8.7C:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to use the Pythagorean theorem and its converse to solve problems.
             </td>
-            <td>Unit 8</td>
+            <td><b>Algebra</b> Unit 8</td>
         </tr>
         <tr>
-            <td><span>8.7D:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to determine the distance between two points on a coordinate plane using the Pythagorean theorem.
+            <td><span>Math 8.7D:</span> Expressions, equations, and relationships. The student applies mathematical process standards to use geometry to solve problems. The student is expected to determine the distance between two points on a coordinate plane using the Pythagorean theorem.
             </td>
-            <td>Unit 8</td>
+            <td><b>Algebra</b> Unit 8</td>
         </tr>
         <tr>
-            <td><span>A.2A:</span> Linear functions, equations, and inequalities. The student applies the mathematical process standards when using properties of linear functions to write and represent in multiple ways, with and without technology, linear equations, inequalities, and systems of equations. The student is expected to determine the domain and range of a linear function in mathematical problems; determine reasonable domain and range values for real-world situations, both continuous and discrete; and represent domain and range using inequalities.
+            <td><span>Math A.2A:</span> Linear functions, equations, and inequalities. The student applies the mathematical process standards when using properties of linear functions to write and represent in multiple ways, with and without technology, linear equations, inequalities, and systems of equations. The student is expected to determine the domain and range of a linear function in mathematical problems; determine reasonable domain and range values for real-world situations, both continuous and discrete; and represent domain and range using inequalities.
             </td>
-            <td>Units 4-8</td>
+            <td><b>Algebra</b> Units 4-8</td>
         </tr>
         <tr>
-            <td><span>A.6A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using properties of quadratic functions to write and represent in multiple ways, with and without technology, quadratic equations. The student is expected to determine the domain and range of quadratic functions and represent the domain and range using inequalities.
+            <td><span>Math A.6A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using properties of quadratic functions to write and represent in multiple ways, with and without technology, quadratic equations. The student is expected to determine the domain and range of quadratic functions and represent the domain and range using inequalities.
             </td>
-            <td>Units 4, Supplemental Units</td>
+            <td><b>Algebra</b> Units 4, Supplemental Units</td>
         </tr>
         <tr>
-            <td><span>A.7A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using graphs of quadratic functions and their related transformations to represent in multiple ways and determine, with and without technology, the solutions to equations. The student is expected to graph quadratic functions on the coordinate plane and use the graph to identify key attributes, if possible, including x-intercept, y-intercept, zeros, maximum value, minimum values, vertex, and the equation of the axis of symmetry.
+            <td><span>Math A.7A:</span> Quadratic functions and equations. The student applies the mathematical process standards when using graphs of quadratic functions and their related transformations to represent in multiple ways and determine, with and without technology, the solutions to equations. The student is expected to graph quadratic functions on the coordinate plane and use the graph to identify key attributes, if possible, including x-intercept, y-intercept, zeros, maximum value, minimum values, vertex, and the equation of the axis of symmetry.
             </td>
-            <td>Units 4, Supplemental Units</td>
+            <td><b>Algebra</b> Units 4, Supplemental Units</td>
         </tr>
         <tr>
-            <td><span>G.2A:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures.
+            <td><span>Math G.2A:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures.
             </td>
-            <td>Unit 8</td>
+            <td><b>Algebra</b> Unit 8</td>
         </tr>
         <tr>
             <td><span>G.2B:</span> Coordinate and transformational geometry. The student uses the process skills to understand the connections between algebra and geometry and uses the one- and two-dimensional coordinate systems to verify geometric conjectures. The student is expected to derive and use the distance, slope, and midpoint formulas to verify geometric relationships, including congruence of segments and parallelism or perpendicularity of pairs of lines.
             </td>
-            <td>Unit 8</td>
+            <td><b>Algebra</b> Unit 8</td>
         </tr>
         <tr>
             <td><span>G.3A:</span> Coordinate and transformational geometry. The student uses the process skills to generate and describe rigid transformations (translation, reflection, and rotation) and non-rigid transformations (dilations that preserve similarity and reductions and enlargements that do not preserve similarity). The student is expected to describe and perform transformations of figures in a plane using coordinate notation.
             </td>
-            <td>Unit 2, Supplemental Units</td>
+            <td><b>Algebra</b> Unit 2, Supplemental Units</td>
         </tr>
         <tr>
             <td><span>G.4B:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to identify and determine the validity of the converse, inverse, and contrapositive of a conditional statement and recognize the connection between a biconditional statement and a true conditional statement with a true converse
             </td>
-            <td>Unit 7</td>
+            <td><b>Algebra</b> Unit 7</td>
         </tr>
         <tr>
             <td><span>G.4C:</span> Logical argument and constructions. The student uses the process skills with deductive reasoning to understand geometric relationships. The student is expected to verify that a conjecture is false using a counterexample.
             </td>
-            <td>Unit 7</td>
+            <td><b>Algebra</b> Unit 7</td>
         </tr>
-       </table>
+        <tr>
+            <td><span>ELA 17:</span> Writing/Expository and Procedural Texts. Students write expository and procedural or work-related texts to communicate ideas and information to specific audiences for specific purposes.
+            </td>
+            <td><b>Data Science</b> Units 3-9</td>
+        </tr>
+        <tr>
+            <td><span>ELA 18:</span> Writing/Persuasive Texts. Students write persuasive texts to influence the attitudes or actions of a specific audience on specific issues. Students are expected to write persuasive essays for appropriate audiences that establish a position and include sound reasoning, detailed and relevant evidence, and consideration of alternatives.
+            </td>
+            <td><b>Data Science</b> Units 3-9</td>
+        </tr>
+        <tr>
+            <td><span>ELA 22:</span> Research/Research Plan. Students ask open-ended research questions and develop a plan for answering them.
+            </td>
+            <td><b>Data Science</b> Units 3-9</td>
+        </tr>
+        <tr>
+            <td><span>ELA 24-25:</span> Research/Synthesizing Information. Students clarify research questions and evaluate and synthesize collected information. Students organize and present their ideas and information according to the purpose of the research and their audience.
+            </td>
+            <td><b>Data Science</b> All Units</td>
+        </tr>
+        <tr>
+            <td><span>ELA 28:</span> Listening and Speaking/Teamwork. Students work productively with others in teams. Students will continue to apply earlier standards with greater complexity. Students are expected to participate productively in discussions, plan agendas with clear goals and deadlines, set time limits for speakers, take notes, and vote on key issues.
+            </td>
+            <td><b>Data Science</b> All Units</td>
+        </tr>
+        <tr>
+            <td><span>Math (Grade 6 &amp; 8) 12-13:</span> Measurement and data. The student applies mathematical process standards to use numerical or graphical representations to analyze problems. The student applies mathematical process standards to use numerical or graphical representations to solve problems. The student applies mathematical process standards to use statistical representations to analyze data. 
+            </td>
+            <td><b>Data Science</b> Unit 3, 4, 5, 6</td>
+        </tr>
+        <tr>
+            <td><span>Math (HS) 1:</span> Mathematical process standards. The student uses mathematical processes to acquire and demonstrate mathematical understanding. 
+            </td>
+            <td><b>Data Science</b> All Units</td>
+        </tr>
+        <tr>
+            <td><span>Math (HS) 2:</span> Numeric reasoning. The student applies the process standards in mathematics to generate new understandings by extending existing knowledge. The student generates new mathematical understandings through problems involving numerical data that arise in everyday life, society, and the workplace. The student extends existing knowledge and skills to analyze real-world situations.
+            </td>
+            <td><b>Data Science</b> All Units</td>
+        </tr>
+        <tr>
+            <td><span>Math (HS) 8:</span> Data. The student applies mathematical processes to analyze data, select appropriate models, write corresponding functions, and make predictions
+            </td>
+            <td><b>Data Science</b> Units 3-9</td>
+        </tr>
+        <tr>
+            <td><span>Math (HS) 9:</span> Mathematical modeling in social sciences. The student applies mathematical processes and mathematical models to analyze data as it applies to social sciences.
+            </td>
+            <td><b>Data Science</b> All Units</td>
+        </tr>
+        <tr>
+            <td><span>Math (HS) 10:</span> Mathematical modeling in social sciences. The student applies mathematical processes to design a study and use graphical, numerical, and analytical techniques to communicate the results of the study.
+            </td>
+            <td><b>Data Science</b> Units 4-9</td>
+        </tr>
+      <!--
+        <tr>
+            <td><span>code:</span> Description
+            </td>
+            <td><b>Data Science</b> Units </td>
+        </tr>
+        <tr>
+            <td><span>code:</span> Description
+            </td>
+            <td><b>Data Science</b> Units </td>
+        </tr>
+        <tr>
+            <td><span>code:</span> Description
+            </td>
+            <td><b>Data Science</b> Units </td>
+        </tr>
+        <tr>
+            <td><span>code:</span> Description
+            </td>
+            <td><b>Data Science</b> Units </td>
+        </tr>
+        <tr>
+            <td><span>code:</span> Description
+            </td>
+            <td><b>Data Science</b> Units </td>
+        </tr>
+      -->
+      </table>
 	   
-	       <table width="100%" id="csta">
-	         <thead>
-	           <tr><td><h2>CSTA Standard</h2></td>
-	             <td><h2>Alignment</h2></td></tr>
-	         </thead>
-	         <tr>
-	           <td><span>2-DA-07:</span> Represent data using multiple encoding schemes.
-	           </td>
-	           <td>
-   <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-     <br/>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	             Students encode data using multiple mathematical representations (Algebra), data structures (Reactive), and tabular or visual representations (Data Science).
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-DA-08:</span> Collect data using computational tools and transform the data to make it more useful and reliable.
-	           </td>
-	           <td>
-	 <strong>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	           Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions. 
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-DA-09:</span> Refine computational models based on the data they have generated.
-	           </td>
-	           <td>
-	 <strong>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	             Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-AP-11:</span> Create clearly named variables that represent different data types and perform operations on their values.
-	           </td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 2-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	           All Bootstrap courses cover functions and variables, including named values and inputs to built-in and user-defined functions. 
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-AP-13:</span> Decompose problems and subproblems into parts to facilitate the design, implementation, and review of programs
-	           </td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 5-8
-	 <br/>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and/or data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems. Bootstrap:Algebra and Bootstrap:Reactive introduce the idea of top-down or bottom-up strategies for decomposition.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-AP-14:</span> Create procedures with parameters to organize code and make it easier to reuse.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	 		  Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations. Bootstrap:Reactive moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
-	 		  Bootstrap:Data Science introduces the idea of writing functions over tabular data to answer meaningful questions about that data.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-AP-17:</span> Systematically test and refine programs using a range of test cases.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Design and execution of test cases is emphasized throughout all Bootstrap courses. Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>2-AP-19:</span> Document programs in order to make them easier to follow, test, and debug.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Bootstrap's Design Recipe emphasizes design, documentation, coding, and testing throughout every course. The process is explicit in Bootstrap's worksheets and exercises, and student-generated documentation is assessed along with the code it explains.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3A-DA-11:</span> Create interactive data visualizations using software tools to help others better understand real-world phenomena.</td>
-	           <td>
-	 <strong>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	           Bootstrap:Data Science introduces students to pie charts, bar charts, histograms, scatterplots, and more as a way of answering questions about, and better understanding real-world datasets. The course culminates in students writing a research paper incorporating these data visualizations about a topic they care about.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3A-AP-16:</span> Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.</td>
-	           <td>
-	 <strong>Bootstrap:Reactive - Units 3-5</strong>
-	 <br/>
-	           Bootstrap:Reactive introduces the concept of reactors and event-driven programming, requiring students to write programs that respond to the passage of time, keypresses, and (optionally) mouse clicks and movement.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3A-AP-17:</span> Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 5-8
-	 <br/>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3A-AP-18:</span> Create artifacts by using procedures within a program, combinations of data and procedures, or independent but interrelated programs.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	           All Bootstrap courses culminate in a final project. For Bootstrap:Algebra and Reactive, the project is a video game or animation that makes use of multiple student-created functions to handle movement and interactivity. In Bootstrap:Data Science, students create a research paper and data science project as a result of analyzing, transforming, and interpreting data with functions.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3A-AP-23:</span> Document design decisions using text, graphics, presentations, and/or demonstrations in the development of complex programs.</td>
-	           <td>
-	 <strong>Bootstrap:Data Science - Units 4-9</strong>
-	 <br/>
-	             The final project for Bootstrap:Data Science is a research paper written by each student which incorporates text, code, and data visualizations to demonstrate their process of analyzing, transforming, and interpreting data to answer meaningful questions.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3B-NI-05:</span> Use data analysis tools and techniques to identify patterns in data representing complex systems.</td>
-	           <td>
-	 <strong>Bootstrap:Data Science - Units 1-9</strong>
-	 <br/>
-	           Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3B-NI-07:</span> Evaluate the ability of models and simulations to test and support the refinement of hypotheses.</td>
-	           <td>
-	 <strong>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Bootstrap:Data Science has students examine various issues affecting data collection and analysis, including collection bias, threats to validity, and outliers. Using linear regression methods, students can test and refine their hypotheses about relationships in their dataset.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3B-AP-14:</span> Construct solutions to problems using student-created components, such as procedures, modules and/or objects.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 5-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
+      <table width="100%" id="csta">
+       <thead>
+         <tr><td><h2>CSTA Standard</h2></td>
+           <td><h2>Alignment</h2></td></tr>
+       </thead>
+       <tr>
+         <td><span>2-DA-07:</span> Represent data using multiple encoding schemes.
+         </td>
+         <td>
+           <strong>Bootstrap:Algebra - Units 3-8
+           <br/>Bootstrap:Reactive - Units 1-5
+             <br/>Bootstrap:Data Science - Units 1-9</strong>
+           <br/>
+           Students encode data using multiple mathematical representations (Algebra), data structures (Reactive), and tabular or visual representations (Data Science).
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-DA-08:</span> Collect data using computational tools and transform the data to make it more useful and reliable.
+         </td>
+         <td>
+      	 <strong>Bootstrap:Data Science - Units 1-9</strong>
+      	 <br/>
+         Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions. 
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-DA-09:</span> Refine computational models based on the data they have generated.
+         </td>
+         <td>
+      	 <strong>Bootstrap:Reactive - Units 3-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+           Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-AP-11:</span> Create clearly named variables that represent different data types and perform operations on their values.
+         </td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 2-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 1-9</strong>
+      	 <br/>
+         All Bootstrap courses cover functions and variables, including named values and inputs to built-in and user-defined functions. 
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-AP-13:</span> Decompose problems and subproblems into parts to facilitate the design, implementation, and review of programs
+         </td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 5-8
+      	 <br/>Bootstrap:Reactive - Units 3-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and/or data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems. Bootstrap:Algebra and Bootstrap:Reactive introduce the idea of top-down or bottom-up strategies for decomposition.
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-AP-14:</span> Create procedures with parameters to organize code and make it easier to reuse.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 3-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+  	 		  Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations. Bootstrap:Reactive moves into larger programs that get decomposed into subproblems, which are designed, implemented, and tested independently.
+  	 		  Bootstrap:Data Science introduces the idea of writing functions over tabular data to answer meaningful questions about that data.
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-AP-17:</span> Systematically test and refine programs using a range of test cases.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 3-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Design and execution of test cases is emphasized throughout all Bootstrap courses. Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+         </td>
+       </tr>
+       <tr>
+         <td><span>2-AP-19:</span> Document programs in order to make them easier to follow, test, and debug.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 3-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Bootstrap's Design Recipe emphasizes design, documentation, coding, and testing throughout every course. The process is explicit in Bootstrap's worksheets and exercises, and student-generated documentation is assessed along with the code it explains.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3A-DA-11:</span> Create interactive data visualizations using software tools to help others better understand real-world phenomena.</td>
+         <td>
+      	 <strong>Bootstrap:Data Science - Units 1-9</strong>
+      	 <br/>
+         Bootstrap:Data Science introduces students to pie charts, bar charts, histograms, scatterplots, and more as a way of answering questions about, and better understanding real-world datasets. The course culminates in students writing a research paper incorporating these data visualizations about a topic they care about.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3A-AP-16:</span> Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.</td>
+         <td>
+      	 <strong>Bootstrap:Reactive - Units 3-5</strong>
+      	 <br/>
+         Bootstrap:Reactive introduces the concept of reactors and event-driven programming, requiring students to write programs that respond to the passage of time, keypresses, and (optionally) mouse clicks and movement.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3A-AP-17:</span> Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 5-8
+      	 <br/>Bootstrap:Reactive - Units 3-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Bootstrap introduces students to programming problems that benefit from decomposition into multiple functions and data structures. The Design Recipe provides some structured guidance on when to introduce new functions when decomposing problems.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3A-AP-18:</span> Create artifacts by using procedures within a program, combinations of data and procedures, or independent but interrelated programs.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 3-8
+      	 <br/>Bootstrap:Reactive - Units 3-5
+      	 <br/>Bootstrap:Data Science - Units 1-9</strong>
+      	 <br/>
+         All Bootstrap courses culminate in a final project. For Bootstrap:Algebra and Reactive, the project is a video game or animation that makes use of multiple student-created functions to handle movement and interactivity. In Bootstrap:Data Science, students create a research paper and data science project as a result of analyzing, transforming, and interpreting data with functions.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3A-AP-23:</span> Document design decisions using text, graphics, presentations, and/or demonstrations in the development of complex programs.</td>
+         <td>
+        	 <strong>Bootstrap:Data Science - Units 4-9</strong>
+        	 <br/>
+           The final project for Bootstrap:Data Science is a research paper written by each student which incorporates text, code, and data visualizations to demonstrate their process of analyzing, transforming, and interpreting data to answer meaningful questions.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3B-NI-05:</span> Use data analysis tools and techniques to identify patterns in data representing complex systems.</td>
+         <td>
+      	 <strong>Bootstrap:Data Science - Units 1-9</strong>
+      	 <br/>
+         Bootstrap:Data Science introduces students to a number of data analysis methods, encouraging them to ask questions of large datasets and then sort, filter, and define functions over data to answer those questions.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3B-NI-07:</span> Evaluate the ability of models and simulations to test and support the refinement of hypotheses.</td>
+         <td>
+      	 <strong>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Bootstrap:Data Science has students examine various issues affecting data collection and analysis, including collection bias, threats to validity, and outliers. Using linear regression methods, students can test and refine their hypotheses about relationships in their dataset.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3B-AP-14:</span> Construct solutions to problems using student-created components, such as procedures, modules and/or objects.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 5-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
 	 		  Bootstrap:Algebra introduces the core idea of functions as abstractions over repeated computations, and has students document, test, and code multiple functions to create a video game. Bootstrap:Reactive moves into larger programs that get decomposed into sub-problems and helper functions, which are designed, implemented and tested independently. Bootstrap:Data Science introduces the idea of writing functions over tabular data to answer meaningful questions about that data.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3B-AP-21:</span> Develop and use a series of test cases to verify that a program performs according to its design specifications.</td>
-	           <td>
-	 <strong>Bootstrap:Algebra - Units 3-8
-	 <br/>Bootstrap:Reactive - Units 1-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Design and execution of test cases is emphasized throughout all Bootstrap courses. Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
-	           </td>
-	         </tr>
-	         <tr>
-	           <td><span>3B-AP-22:</span> Modify an existing program to add additional functionality and discuss intended and unintended implications (e.g., breaking other functionality).</td>
-	           <td>
-	 <strong>Bootstrap:Reactive - Units 3-5
-	 <br/>Bootstrap:Data Science - Units 2-9</strong>
-	 <br/>
-	           Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
-	           </td>
-	         </tr>
-
-	       </table> 
-
+         </td>
+       </tr>
+       <tr>
+         <td><span>3B-AP-21:</span> Develop and use a series of test cases to verify that a program performs according to its design specifications.</td>
+         <td>
+      	 <strong>Bootstrap:Algebra - Units 3-8
+      	 <br/>Bootstrap:Reactive - Units 1-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Design and execution of test cases is emphasized throughout all Bootstrap courses. Students are required to write multiple test cases (including expected answers for each) for each function; our software helps them track which tests are passing and which are failing.
+         </td>
+       </tr>
+       <tr>
+         <td><span>3B-AP-22:</span> Modify an existing program to add additional functionality and discuss intended and unintended implications (e.g., breaking other functionality).</td>
+         <td>
+      	 <strong>Bootstrap:Reactive - Units 3-5
+      	 <br/>Bootstrap:Data Science - Units 2-9</strong>
+      	 <br/>
+         Bootstrap:Reactive has students walk through an iterative design process for adding and refining elements in their programs based on what things will be changing within their programs. Bootstrap:Data Science has students refine data sets by sorting, filtering, and defining functions over data, as well as thinking critically about the need to remove outliers in their data.
+         </td>
+       </tr>
+      </table> 
 
       <table width="100%" id="k12cs">
         <thead>

@@ -12,11 +12,11 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-chart, pie-chart, bar-chart-raw, pie-chart-raw, histogram, scatter-plot, lr-plot} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
                                        (list "Table"
-                                              @code{.row-n, .order-by, .filter, .build-column, num-sqr, mean, median, modes, bar-chart, pie-chart} 
-                                                ""))]{
+                                              @code{count, .row-n, .order-by, .filter, mean, median, mode}
+                                              ""))]{
   @unit-descr{
     Students consider possible threats to the validity of their analysis
   }
@@ -24,15 +24,54 @@
 @unit-lessons{
 
   
+  @lesson/studteach[
+     #:title "Review"
+     #:duration "10 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[]
+     #:standards (list)
+     #:materials @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+                @point{
+                        @student{
+                          You've learned a lot in this class about how to analyze data. What questions matter to you?
+                          @activity[#:forevidence (list "6.SP.1-3&1&1")]{
+                            @itemlist[
+                                @item{ Come up with a question that you want answered about the world around you. }
+                                @item{ Using what you know now, what information would you need to collect in order to answer it? }
+                                @item{ What subsets would you need to create? What analysis would you need to perform? }
+                            ]
+                          }
+                        }
+                        @teacher{
+                          Debrief as a class.         
+                        }
+                }
+        ]
+  }
 
   @lesson/studteach[
      #:title "Threats to Validity"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[@item{Students learn about threats to validity, such as sample size, confounding variables, etc.}]
+     #:learning-objectives @itemlist[@item{Students learn about threats to validity, such as sample size, selection bias, sample error, and confounding variables.}]
+     #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
+     #:exercises (list  (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-1")
+                        (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-2")
+                        (make-exercise-locator/file "Threats-to-Validity" "Threats1" "Identifying Threats-3"))
      #:materials @itemlist[]
      #:preparation @itemlist[@item{}]
      #:pacings (list 
@@ -62,7 +101,7 @@
             @point{
                   @student{
                           @activity{
-                              On this page @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
+                              On @worksheet-link[#:name "Threats-to-Validity-1"] and @worksheet-link[#:name "Threats-to-Validity-2"], you'll find four different claims backed by four different datasets. Each one of those claims suffers from a serious threat to validity. Can you figure out what those threats are?
                           }
                           
                   }
@@ -73,6 +112,9 @@
             @point{
                   @student{
                           Life is messy, and there are @italic{always} threats to validity. Data Science is about doing the best you can to minimize those threats, and to be up front about what they are whenever you publish a finding. When you do your own analysis, make sure you include a discussion of the threats to validity!
+                          @activity{
+                              On @worksheet-link[#:name "Fake-News"], you'll find some deliberately misleading claims made by slimy Data Scientists. Can you figure out @italic{why these claims should not be trusted?} Once you've finished, consider your own dataset and analysis: what misleading claims could someone make about your work? Turn to @worksheet-link[#:name "Lies-Darned-Lies"], and come up with four misleading claims based on data or displays from your work. Then trade papers with another group, and see if you can figure out why each other's claims are not to be trusted!
+                          }
                   }
                   @teacher{
 
@@ -102,7 +144,7 @@
                         @student{
                               Now that you've completed your analysis, it's time to write up your findings! 
                               @activity{
-                                Open the @(hyperlink "https://docs.google.com/document/d/1tNoeLK7Us6dZcxpxwedFjLlnBMDzOdgkG7txAWuP4nQ/" "Research Paper") template, and save a copy to your Google Drive.
+                                Open the @(hyperlink "https://docs.google.com/document/d/1JoF83vm9xh9VvB9prmRsOsNgfSXjT0orHgfNGSymAnc/edit" "Research Paper") template, and save a copy to your Google Drive.
                               }
                         }
                         @teacher{

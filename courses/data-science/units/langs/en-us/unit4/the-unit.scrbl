@@ -1,9 +1,9 @@
 #lang curr/lib
 
-@title{Unit 4: Choosing Your Dataset }
+@title{Unit 4: Visualizing the "Shape" of Data}
 
 @unit-overview/auto[#:lang-table (list (list "Number" 
-                                              @code{num-sqrt, num-sqr} 
+                                              @code{+, -, *, /, num-sqrt} 
                                               @code{4, -1.2. 2/3})
                                        (list "String" 
                                               @code{string-repeat, string-contains} 
@@ -12,76 +12,29 @@
                                               @code{} 
                                               (list @code{true false} ))
                                        (list "Image" 
-                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay} 
+                                              @code{triangle, circle, star, rectangle, ellipse, square, text, overlay, bar-char pie-chart} 
                                               (list @bitmap{images/imgValue1.png} @bitmap{images/imgValue2.png}))
-                                       )]{
+                                       (list "Table"
+                                              @code{count, .row-n, .order-by, .filter} 
+                                              ""))]{
   @unit-descr{
-    Students deepen their understanding of Table Plans, learning how to write a good sample table. They also choose their own datasets, and explore them by writing filters and column builders using the Design Recipe.
+    Students explore new visualizations in Pyret, this time focusing on the frequency of observations in a quantitative dataset. They learn how to see the shape of a histogram, understand the difference between bar charts and histograms, construct histograms by hand and with Pyret, experiment with these visualizations in a contrived dataset, apply them to their own research, and interpret the results.
   }
 }
 @unit-lessons{
 
-
   @lesson/studteach[
-   #:title "Review"
-     #:duration "10 minutes"
+     #:title "Review"
+     #:duration "20 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
-     #:standards (list "BS-DR.1" "BS-DR.2" "BS-PL.3")
+     #:standards (list )
      #:materials @itemlist[]
-     #:preparation @itemlist[]
-     #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{}]}
-                )
-      ]{
-      @points[
-            @point{
-                    @student{
-                          @activity[#:forevidence "BS-IDE&1&1"]{
-                            Open your "Animals Dataset (w/Functions)" file. (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1mhIjMpk3PM6D9EeY8-6VI95kDLVAPFy5" "new copy"].)
-                          }
-                    }
-                    @teacher{
-                            
-                    }
-            }
-            @point{
-                @student{
-                    @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                        Look at the pie and bar charts on @worksheet-link[#:name "Visualizing-Quantity"], and write down what you notice and wonder. @bold{ Why are some questions easier to answer with one kind of chart or another? }
-                    }
-                }       
-                @teacher{
-                    Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                }              
-            }
-            @point{
-                  @student{
-                          You've now seen two kinds of charts for visualizing @italic{quantity}: @vocab{bar charts} and @vocab{pie charts}. Both charts involve quantities and labels: each bar and slice is a measure of a quantitative column, and each one has a label. Both charts help us look at the whole dataset at once, and answer questions about @italic{quantity}. As you've observed, bar charts are great when we want to know exactly "how much" of a thing is contained in a single row. Pie charts, on the other hand, are best when we want to know "what percent" of the thing in our table is contained in a single row.
-                  }
-                  @teacher{
-                  
-                  }
-            }
-      ]
-  }
-
-
-
-  @lesson/studteach[
-     #:title "Table Plan"
-     #:duration "20 minutes"
-     #:overview ""
-     #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students use Table Plans to answer questions using pie and bar charts}]
-     #:standards (list)
-     #:materials @itemlist[]
-     #:preparation @itemlist[]
+     #:preparation @itemlist[
+        @item{Computer for each student (or pair), with access to the internet}
+        @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbooks"], and something to write with}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -89,76 +42,51 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                        Sample Tables are about a lot more than checking our work. Data Analysis is often used to make @italic{predictions}, and if the sample dataset is bad those predictions can be wrong - and sometimes, really @italic{really} wrong!
-                        @itemlist[
-                            @item{ 
-                              Uber and Google are making self-driving cars, which use artificial intelligence to interpret sensor data and make predictions about whether a car should speed up, slow down, or slam on the breaks.  This AI is trained on a lot of sample data, which it learns from. What might be the problem if the sample data only included roads in California?
-                            }
-                            @item{
-                              Law enforcement in many towns has started using facial-recognition software to automatically detect whether someone has a warrant out for their arrest. A lot of facial-recognition software, however, has been trained on sample data containing mostly white faces. As a result, it has gotten really good at telling white people apart, but @(hyperlink "http://www.theweek.co.uk/95383/is-facial-recognition-racist" "often can't tell the difference between people who aren't white"). Why might this be a problem? 
-                            }
-                        ]
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                    @student{
-                        @bannerline{Sample Data Mattters!}
-                        Even for simple analysis, it is @italic{critical} to think carefully about the sample tables you use.
-                        Up to now, the Sample Table has been provided for you. But for our next Table Plan, you'll need to make one of your own! A good Sample Table should have:
-                        @itemlist[
-                              @item{
-                                  @italic{At least} the columns that matter - whether we'll be ordering or filtering by those columns.
+                @point{
+                        @student{
+                              @activity[#:forevidence "BS-IDE&1&1"]{
+                                Open your "Animals Starter File", and click "Run". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
                               }
-                              @item{
-                                  A good Sample Table has enough rows to be a representative sample of the dataset. If our dataset has a mix of dogs and cats, for example, we want at least one of each in this table.
-                              }
-                              @item{
-                                  A good Sample Table has rows in random order, so that we'll notice if we need to order the table or not.
-                              }
-                        ]
-                    }
-                    @teacher{
-
-                    }
-              }
-              @point{
-                  @student{
-                        @activity[#:forevidence (list )]{
-                              It will take some practice for you to get good at making Sample Tables, but you can start by identifying @italic{bad} ones! turn to @worksheet-link[#:name "Bad-Sample-Tables"], and write down what's wrong with each of these tables.
                         }
-                  }
-                  @teacher{
-                        If you're teaching a math or statistics class, go deeper to discuss sampling techniques and sample errors.
-                  }
-              }
-              @point{
-                  @student{
-                        Can you come up with a good sample table of your own? 
-                        @activity{
-                          Turn to @worksheet-link[#:name "pie-pounds-young"]. Here is a mostly-complete Table Plan, but it's missing some important parts! Complete this table plan by filling in the Contract, constructing a good sample table, and drawing the result.
+                        @teacher{
+                                
                         }
-                  }
-              }
+                }
+                @point{ 
+                        @student{
+                              Let's get some more practice working with the Design Recipe, as we prepare to do more complex analysis.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Building-Recipes"], and write the functions you see there. When you're ready, type the contracts, purpose statements, examples and definitions into the Definitions Area.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                              @activity{
+                                  Use the @code{.build-column} method to add a new column to the animals table, showing the weight of every animal in kilograms.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
+                
         ]
   }
 
-
-
   @lesson/studteach[
-     #:title "Choose Your Dataset"
+     #:title "Bar Charts v. Histograms"
      #:duration "20 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students review bar charts, contrasting them with histograms}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
-     #:standards (list)
+     #:product-outcomes @itemlist[]
+     #:standards (list "Data 3.1.3" "6.SP.4-5" "HSS.ID.A")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -168,102 +96,107 @@
         @points[
                 @point{
                       @student{
-                          So far, you've had a chance to run some simple analyses on the Animals Dataset. You've made charts, written functions using the Design Recipe and then used them with methods to filter rows and build columns. You've used Table Plans to map out your analysis, tying together the Design Recipe and methods.
+                              @activity{
+                                  Let's explore two different ways of visualizing data. Complete @worksheet-link[#:name "Bar-vs-Histogram"].
+                              }
                       }
                       @teacher{
-                          If students need more practice with the Design Recipe, now's the time. Do NOT proceed past this point without making sure they are comfortable writing simple functions.
+                              Have students share their observations.
                       }
                 }
                 @point{
                       @student{
-                          Now it's time to choose a dataset of your own! Throughout this course, you'll be analyzing this dataset and writing up your findings. As you learn new tools for data science, you'll continue to refine this analysis, answering questions and raising new ones of your own!
-                          Take 10 minutes to look through the following datasets, and choose one that interests you:
-                          @itemlist[
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1SaR2M6Z-s40UuRg3u1aQU-G1GVdcm0RgHpqQ9LNmSQk" "Movies Dataset") (and the @editor-link[#:public-id "18y_TnH69lbvT1lQVh5k-cTEB9aVHaame" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1yHPM-poscv6azh59aMwElfUP67P3fMESorVjtMwsFa0" "School Dataset") (and the @editor-link[#:public-id "1419VGxyYjd3XDPbgObUa-LMufZe3KDZa" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw" "US Income Dataset") (and the @editor-link[#:public-id "1VylyurhJru_0g3C3ne3SK04j16bGYbEW" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/14er5Mh443Lb5SIFxXZHdAnLCuQZaA8O6qtgGlibQuEg" "US Presidents Dataset") (and the @editor-link[#:public-id "1HHKNnHAdY1BuDrjAJmjVhchPaV77YKk9" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1lOFsofXJNIMKAM8g4Zn688jIdbAK68ovAnzmfuwFd9M" "Countries of the World Dataset") (and the @editor-link[#:public-id "1ONLmATLi5r6GA9nGPx50I9pWA3ZCx2OA" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1-mrDSjS-rWMdiMAIptFS_PHVUFO06lUpYNCiGkYj51s" "Music") (and the @editor-link[#:public-id "1f6yqemcHqLkQzmhYILuTMxL3m4qhTvX0" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1HJ6wR4IH9j0hqbaP4OXeChOVMbVMyV0vBMu25NUiw1w" "State Demographics") (and the @editor-link[#:public-id "1KvMTb2mQrpUL9DSe675t-1DpNr5J1CO5" "Starter file"] for this dataset)
-                              }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/182UAmtxaBjIY3cGB9fy8tsl1q3ZJ0fcP4m38i9Sr5l0" "New York City Restaurant Health Inspections") (and the @editor-link[#:public-id "12jtxwxPNSrdhA4a1YZ4RNzw-I8HPXzD6" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1F5Q2HwyhrhzMBivKNA2qpgUroqGWpDTUKcF3p82pVDA" "Pokemon Characters") (and the @editor-link[#:public-id "1LnwYrEVX6TU2C6dNxxXPYJZuwkPccWlA" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/126sJLFP8kenombJx5CtR-9D88jgbI_vKlYq30PWT41g" "IGN Video Game Reviews Dataset") (and the @editor-link[#:public-id "1jwd0kQqElgUMmXtvVk6vU-sZgxTm_fEJ" "Starter file"] for this dataset)
-                                   }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1WMJMNqkwuo1vbL0O_C81BPA-R2TFcLWEMUi7cn_ptow" "2016 Presidential Primary Election Dataset") (and the @editor-link[#:public-id "1gy32BVXdlyS1KqZ5pXcqg5APbJoqZsWJ" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "US Cancer Rates Dataset") (and the @editor-link[#:public-id "1phjRq-YMs8ceo0vJE8iWQZeigBtb1QBU" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/19bmTJd2soUvg6FUDIW546jPtiWOERFm2o9z7TLBNTbc" "Summer Olympic Medals Dataset") (and the @editor-link[#:public-id "1kOV5CEDMl622am-BGa2oZxQxRsthYQA8" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  @(new-tab "https://docs.google.com/spreadsheets/d/1ZJ9d4BtF6xOqyBdGgjW-vCeJ7-rOHWIhGMiBNwqCEVo" "Winter Olympic Medals Dataset") (and the @editor-link[#:public-id "1r_aCTPYC9y1GVcqCEoB1_EGdPITqIMKZ" "Starter file"] for this dataset)
-                                     }
-
-                              @item{
-                                @(new-tab "https://docs.google.com/spreadsheets/d/157Bi2kniAJybuV1X_9h4Z6DaZSVPK3vPf697feXcyv8" "MLB Hitting Stats Dataset") (and the @editor-link[#:public-id "1cyBkKP9SzKwsDJD4C7XOx51qjbetTMBs" "Starter file"] for this dataset)
-                                     }
-                              @item{
-                                  Or find your own dataset, and use this (@editor-link[#:public-id "1eiT69ktb7vXndMd63K68WB5DACJfoWeN" "Blank Starter file"]) for your project.
-                              }
-                          ]
+                              @bitmap{images/species-bar-chart.png}
+                              @vocab{Bar charts}, like the one of the bottom-left of @worksheet-link[#:name "Bar-vs-Histogram"], use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
                       }
                       @teacher{
-                          Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
+                              
                       }
                 }
                 @point{
                       @student{
-                          @activity[#:forevidence (list )]{
-                              @itemlist[
-                                  @item{
-                                      Once you've found a Starter file for a dataset that interests you, click "Save a Copy" and save the project to your own account. 
-                                  }
-                                  @item{
-                                      Complete @worksheet-link[#:name "My-Dataset"]. Brainstorm a few questions you would like to ask of this dataset. What kinds of questions are they?
-                                  }
-                              ]
-                          }
-                      }       
+                              This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the bar for "dogs" could have been drawn before the one for "cats". Unlike the numbers on a histogram's horizontal axis, there is no hard order to categories on a bar-chart's horizontal axis. For this reason, @italic{it never makes sense to talk about the "shape" of a categorical data set.}
+                      }
                       @teacher{
                       
                       }
                 }
-        ]
-  }
+                @point{
+                      @student{
+                              A quick report on this bar chart should definitely mention the fact that "dog" is the mode of the data set: the most common of the five possible species was dog, with cats being a fairly close second.
+                      }
+                      @teacher{
 
+                      }
+                }
+                @point{
+                      @student{
+                              The display on the bottom-right is called a @vocab{histogram}. Histograms show the distribution of @italic{quantitative} data. Since quantitative data can be ordered from smallest-to-largest, histograms allow us to see the shape of a data set.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              Animal shelters make decisions about food, capacity and policies based on how long it takes for animals to be adopted. But looking at each value in the @code{weeks} column is tedious, and isn't always the easiest way to make sense of the data. As the saying goes, sometimes you "can't see the forest for the trees". Summarizing with a single number like the average alsi leaves out a lot of important information. So instead of talking about each individual in a dataset, or simply reporting the average for all those individuals, Data Scientists find it useful to describe the overall @bold{shape} of the data. 
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                              A display of how long it takes animals to get adopted can make it easier to get an idea of what adoption times were most common, and if there were any unusually long or short times that it took for an animal to be adopted. Let's take a look at a histogram of the @code{weeks} it takes an animal to be adopted. Type the following into the interactions area:
+                              @code[#:multi-line #t]{histogram(animals-table, "weeks", 5)}
+                              @activity{
+                                  Look at the histogram and count how many animals took between 0 and 5 weeks to be adopted. How many took between 5 and 10 weeks? What else do you Notice? What do you Wonder?
+                              }
+                      }
+                      @teacher{
+                              Display this histogram for students to see.
+                      }
+                }
+                @point{
+                      @student{
+                              @bitmap{images/weeks-histogram.png}
+                              What do you Notice about this histogram? What can you conclude? Here are a few conclusions to get you started:
+                              @itemlist[
+                                  @item{
+                                      Because we see most of the histogram's area encompassed by the two bars between 0 and 10 weeks, we can say it was most common for an animal to be adopted in 10 weeks or less.
+                                  }
+                                  @item{
+                                      Because we see a small amount of the histogram's area trailing out to unusually high values, we can say that a couple of animals took an unusually long time to be adopted: one took even more than 30 weeks.
+                                  }
+                                  @item{
+                                      More than half of the animals (17 out of 31) took just 5 weeks or less to be adopted. But those few unusually long adoption times pulled the average up to 5.8 weeks. Knowing about the shape gives us worthwhile information beyond the simple report of average.
+                                  }
+                              ]
+                      }
+                      @teacher{
+                          
+                      }
+                }
+                @point{
+                      @student{
+                          If someone would ask us what was typical for the adoption times, we might say: "Almost all of the animals were adopted in 10 weeks or less, but a couple of animals took an unusually long time to be adopted - even more than 20 or 30 weeks!" Without looking at the histogram's shape, it would have been very difficult to make this summary.
+                          @activity{
+                              What would the histogram look like if most of the animals took more than 20 weeks to be adopted, but a couple of them were adopted in fewer than 5 weeks?
+                          }
+                      }
+                }
+          ]
+  }
   @lesson/studteach[
-     #:title "Exploring Your Dataset"
-     #:duration "40 minutes"
+     #:title "Describing Shape"
+     #:duration "30 minutes"
      #:overview ""
-     #:learning-objectives @itemlist[]
+     #:learning-objectives @itemlist[@item{Students are introduced to histograms}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students choose a dataset they are interested in}]
-     #:standards (list)
+     #:product-outcomes @itemlist[@item{Students create histograms using the animals dataset}]
+     #:standards (list "S-ID.1-4" "HSS.ID.A" "Data 3.1.3")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -272,70 +205,162 @@
       ]{
         @points[
                 @point{
+                        @student{
+                              Let's get some practice reading histograms, and figuring out what they mean.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Matching-Histograms"], and complete the matching activity there.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
                       @student{
-                          @activity{
-                            Look at the spreadsheet for your data. What do you @bold{notice}? What do you @bold{wonder}?
-                            Write down your noticings and wonderings on @worksheet-link[#:name "Unit-3-Blank"]. 
-                          }
+                              Shape is one way to @italic{summarize} information in a dataset, to quickly describe what values are more or less common.
+                              @bitmap{images/weeks-histogram.png}
+                              A more general way to summarize the shape of a data set like this, which contains a few unusually high values, is to say that it is @bold{"skewed right, or has high outliers."}
                       }
                       @teacher{
-                          Have students share back.
+
                       }
                 }
                 @point{
                       @student{
-                          Think about all the different ways you might want to look at your dataset. Would you want to sort it by one column or another? Filter it into different subsets, like we did with the Animals Dataset? Would you want to build new columns?
-                          @activity{
+                              Here are the most common shapes that we see for real-world data sets:
+                              @bannerline{Symmetric: values are balanced on either side of the middle.} 
+                              It's just as likely for the variable to take a value a certain distance below the middle as it is to take a value that same distance above the middle. Examples:
                               @itemlist[
-                                  @item{ 
-                                      Take a minute to think about how you'd like to experiment with your dataset, and write your plans on @worksheet-link[#:name "Dataset-Plans"]. 
+                                  @item{
+                                      Heights of 12-year-olds would have a symmetric shape. It's just as likely for a 12-year-old to be a certain number of inches below average height as it is to be that number of inches above average height.
                                   }
                                   @item{
-                                      In the Interactions Area, use @code{.order-by} to sort your dataset according to what you wrote on @worksheet-link[#:name "Dataset-Plans"].
-                                  }
-                                  @item{
-                                      In the Definitions Area, use @code{.row-n} to define @bold{at least three} values, representing different rows in your table.
+                                      In a standardized test, most students score fairly close to what's average. Also, we see just as many students scoring a certain number of points above average as we see scoring that same number of points below average. The shape is symmetric (and bulges in the middle because most students score fairly close to what's average).                 
                                   }
                               ]
-                          }
-                      }
-                      @teacher{
+                        }
+                        @teacher{
 
-                      }
+                        }
                 }
                 @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Filtering-Recipes"], and use the Design Recipe to write the filter functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area and use the @code{.filter} method to define your new tables.
-                          }
-                      }
-                      @teacher{
+                        @student{
+                                @bannerline{Skewed left, or low outliers} 
+                                Values are clumped around what's typical, but they trail off with a few unusually low values. Examples:
+                                @itemlist[
+                                    @item{
+                                        Number of teeth that adults have in their mouths would be skewed left or have low outliers. Most adults will have close to a full set of 32 teeth, but a few of them with serious dental problems would have a very small number of teeth. We won't get anyone in our data set who has 10 or 20 @italic{extra} teeth in their mouths!
+                                    }
+                                    @item{
+                                        If most students did pretty well on an exam, but a few students performed very badly, then we'd see a shape that has left skewness and/or low outliers.
+                                    }
+                                ]
+                        }
+                        @teacher{
 
-                      }
+                        }
                 }
                 @point{
-                      @student{
-                          @activity{
-                              Turn to @worksheet-link[#:name "Building-Recipes"], and use the Design Recipe to write the builder functions that you planned out on @worksheet-link[#:name "Dataset-Plans"]. When the teacher has checked your work, type them into the Definitions Area.
-                          }
-                      }
-                      @teacher{
-                          It's okay if the functions they design aren't useful - this is for practice.
-                      }
+                        @student{
+                                @bannerline{Skewed right, or high outliers}
+                                Values are clumped around what's typical, but they trail off with a few unusually high values. We see this shape often in the real world, because there are many variables - like "income" or "time spent on the phone" - for which a few individuals have unusually high values, which aren't balanced out by unusually low values (things like "income" and "phone time" can't be less than zero). Examples:
+                                @itemlist[
+                                    @item{
+                                        Age when a woman in the U.S. gives birth would be skewed right or have high outliers. A few women would be unusually old, 40 years or even more @italic{above} the average age of 26 (check the tabloids!), but none of them could be even close to 40 years @italic{below} average to balance things out!
+                                    }
+                                    @item{
+                                        A data set of earnings almost always shows right skewness or high outliers, because there are usually a few values that are so far above average, they can't be balanced out by any values that are so far below average. (Earnings can't be negative.)
+                                    }
+                                ]
+                        }
                 }
                 @point{
+                        @student{
+                              To build a histogram, we start by sorting all of the numbers in our column from smallest to largest, marking our x-axis from the smallest value to the largest value and dividing into equally-sized intervals, or "bins". Once we have our bins, we put each value in our dataset into the bin it belongs, and then count how many values are in each bin. This count determines the height of the bars on our y-axis.
+                              @activity{
+                                  Turn to @worksheet-link[#:name "Making-Histograms"], and try drawing a histogram from a dataset.
+                              }
+
+                        }
+                        @teacher{
+                              Note that interals on this display include the left endpoint but not the right. If we included the right endpoint and someone had 0 teeth, we’d have to add on a bar from -5 to 0, which would be awfully strange!
+                        }
+                }
+                @point{
+                        @student{
+                              @bold{The size of the bins matters a lot!} Bins that are too small will hide the shape of the data by breaking it into too many short columns. Bins that are too large will hide the shape by squeezing the data into just a few tall columns. In this workbook exercise, the bins were provided for you. But how do you choose a good bin-size?
+                              @bannerline{ Rule of thumb: a histogram should have between 5-10 bins. }
+                        }
+                        @teacher{
+
+                        }
+                }
+                @point{
+                        @student{
+                              Let's make a histogram for the @code{pounds} column in the animals table, sorting the animals into 20-pound bins: @code{ histogram(animals-table, "pounds", 20) }
+                              @activity{
+                                Would you describe the shape of your histogram as being skewed left/low outliers or symmetric or skewed right/high outliers? Which one of these statements is justified by the histogram’s shape?
+                                @itemlist[
+                                    @item{ A few of the animals were unusually light. } 
+                                    @item{ A few of the animals were unusually heavy. }
+                                    @item{ It was just as likely for an animal to be a certain amount below average weight as it was for an animal to be that amount above average weight. }
+                                ]
+                                Try bins of 1-pound intervals, then 100-pound intervals. Which of these three histograms best satisfies our rule of thumb?
+                              }
+                        }
+                        @teacher{
+                              
+                        }
+                }
+                @point{
+                        @student{
+                              @activity{
+                                  @bold{Challenge:} Compare histograms for @code{pounds} of cats vs. dogs in the dataset. Are their shapes different? If so, how?
+                              }
+                        }
+                }
+                @point{
+                        @student{
+                              @activity{
+                                  On @worksheet-link[#:name "Shape-of-Animals-Dataset"], describe the @code{pounds} histogram and another one you make yourself. When writing down what you notice, try to use the language Data Scientists use, and discuss skew and outliers.
+                              }
+                        }
+                        @teacher{
+
+                        }
+                }
+        ]
+  }
+
+  @lesson/studteach[
+     #:title "Your Dataset"
+     #:duration "20 minutes"
+     #:overview ""
+     #:learning-objectives @itemlist[]
+     #:evidence-statements @itemlist[]
+     #:product-outcomes @itemlist[@item{Students create visualizations of frequency using their chosen dataset, and write up their findings}]
+     #:standards (list "Data 3.1.2")
+     #:materials @itemlist[]
+     #:preparation @itemlist[]
+     #:pacings (list 
+                @pacing[#:type "remediation"]{@itemlist[@item{}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{}]}
+                )
+      ]{
+        @points[
+              @point{
                     @student{
                         @activity[#:forevidence (list "Data 3.1.2&1&1" "Data 3.1.2&1&2" "Data 3.1.2&1&3" "Data 3.1.2&1&4" "Data 3.1.2&1&5")]{
-                            Take 10min to make at least one bar and pie chart of columns in one of your tables, and write up your findings on @worksheet-link[#:name "Visualizing-My-Dataset-1"]. 
+                            How is your dataset distributed? Choose two quantitative variables and display them with histograms. Explain what you learn by looking at these displays. If you're looking at a particular subset of the data, make sure you write that up in your findings on @worksheet-link[#:name "Shape-of-My-Dataset"].
                         }
                     }       
                     @teacher{
-                        Have students share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
-                    }              
+                        Give students 10-15min to make their next set, and have them share back. Encourage students to read their observations aloud, to make sure they get practice saying and hearing these observations.
+                    }
               }
         ]
   }
- 
 
   @lesson/studteach[
      #:title "Closing"
@@ -346,7 +371,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -356,14 +381,12 @@
         @points[
               @point{
                     @student{
-                     @activity[#:forevidence "BS-IDE&1&1"]{
-                            Make sure to save your work.  Hit the Save button in the top left. This will save your program in the code.pyret.org folder within your Google Drive.
-                  }
-              }
+                          Histograms are a powerful way to display a data set and assess its @vocab{shape}. But shape is just one of three key aspects that tell us what's going on with a quantitative data set. In the next unit, we'll explore the other two: center and spread.
+                    }
                     @teacher{
-                             If your students are working in groups, make sure that each student has access to a version of the program.  Students can share their program with anyone by hitting the Publish button in the top left, choosing "Publish a new copy", then clicking the "Share Link" option.
-                   }
+
+                    }
               }
         ]
-    }
+  }
 }
