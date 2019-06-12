@@ -37,7 +37,7 @@
      #:preparation @itemlist[@item{Los estudiantes están registrados en WeScheme.org, o han abierto DrRacket.}
                              @item{"Luigi's Pizza" [LuigisPizza.rkt de @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") |
-@(hyperlink "https://www.wescheme.org/openEditor?publicId=LFlefmAYLU" "WeScheme")] precargado en las máquinas de los estudiantes y en el proyector.}
+@(hyperlink "https://www.wescheme.org/openEditor?publicId=5jBc52gFTV" "WeScheme")] precargado en las máquinas de los estudiantes y en el proyector.}
                               @item{REQUERIDO: Reparta la @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Hoja de Actividades de la Pizza de Luigi").}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 

@@ -116,7 +116,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1-3")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "https://www.wescheme.org/openEditor?publicId=48low6MazC" "WeScheme")] preloaded on student machines}
+     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip")  @(hyperlink "https://www.wescheme.org/openEditor?publicId=0elP8WrmfM" "WeScheme")] preloaded on student machines}
                             @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2de279b263be77d88f0e54" "Desmos Activity: Unit 6 Review")}
                             @item{OPTIONAL: @(hyperlink "https://quizizz.com/admin/quiz/5a15ddbc4cfd311100865126?from=quizEditor" "Quizizz: Unit 6 Review")}
      ]

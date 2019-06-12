@@ -36,7 +36,7 @@
      #:preparation @itemlist[@item{Students are logged into WeScheme.org, OR have opened DrRacket}
                              @item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") | 
-@(hyperlink "https://www.wescheme.org/openEditor?publicId=LFlefmAYLU" "WeScheme")] preloaded on students' machines, and on the projector}
+@(hyperlink "https://www.wescheme.org/openEditor?publicId=5jBc52gFTV" "WeScheme")] preloaded on students' machines, and on the projector}
                               @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet")}
                               @item{OPTIONAL: @(hyperlink "https://teacher.desmos.com/activitybuilder/custom/5a2ddf70edfc8975f63b14b7" "Desmos Activity: Unit 7 & 8 Review")}]
      #:prerequisites (list "The Design Recipe" "and/or")
