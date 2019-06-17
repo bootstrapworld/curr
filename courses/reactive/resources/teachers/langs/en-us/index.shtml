@@ -12,10 +12,10 @@
             <div class="item">
               <h1>Teacher Resources</h1>
               <ul>
-                 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workbook Solutions</span> [<a href="../teachers/protected/solutions/StudentWorkbookSols.pdf">PDF</a>] Completed exercises for the entire Student Workbook.</p></a>
-	             <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapReactiveWorkshopSlides.pptx">PPT</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the sample-teaching session.</p></li>
-				 <li><p class="BSUnitSummary"><span class="BSUnitTitle">Assessment Guidelines</span> [<a href="https://docs.google.com/document/d/1hoTuWqlQDzYH8uAmZadplhCO9FMbuJO58ihAza5E1d4/edit?usp=sharing">Google Doc</a>] - Guidance for teachers on how to review and assess a Bootstrap:Reactive program.</p></li>
-                <li><p class="BSUnitSummary"><span class="BSUnitTitle"><a href="https://discourse.bootstrapworld.org">Online Community</a></span> - Want to ask a question or pose a lesson idea for other Bootstrap teachers? Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Our new discussion forum is the place to do it. If you're a Bootstrap veteran, <a href="https://groups.google.com/d/forum/bootstrap-discuss">the old google group</a> is still available.</p></li>
+				<li><p class="BSUnitSummary"><span class="BSUnitTitle">Online Community</span> [<a href="https://discourse.bootstrapworld.org">link</a>] - Want to ask a question or pose a lesson idea for other Bootstrap teachers? Want to be kept up-to-date about Bootstrap events, workshops, and curricular changes? Our new discussion forum is the place to do it. If you're a Bootstrap veteran, <a href="https://groups.google.com/d/forum/bootstrap-discuss">the old google group</a> is still available.</p></li>
+                <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workbook Solutions</span> [<a href="../teachers/protected/solutions/StudentWorkbookSols.pdf">PDF</a>] Completed exercises for the entire Student Workbook.</p></a>
+	            <li><p class="BSUnitSummary"><span class="BSUnitTitle">Workshop Slides</span> [<a href="BootstrapReactiveWorkshopSlides.pptx">PPT</a>] - The slide deck we use in our PD workshops, in PowerPoint format. This includes the background and context slides, as well as all slides used during the sample-teaching session.</p></li>
+			 	<li><p class="BSUnitSummary"><span class="BSUnitTitle">Assessment Guidelines</span> [<a href="https://docs.google.com/document/d/1hoTuWqlQDzYH8uAmZadplhCO9FMbuJO58ihAza5E1d4/edit?usp=sharing">Google Doc</a>] - Guidance for teachers on how to review and assess a Bootstrap:Reactive program.</p></li>
              </ul>
 				
 				<h2>Sample Animations</h2>
