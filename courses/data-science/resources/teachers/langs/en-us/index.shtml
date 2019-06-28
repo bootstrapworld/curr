@@ -139,7 +139,10 @@
               <ul>
                 <li><a target="_blank" href="https://code.pyret.org/editor#share=1IntcU5lWgBuzlhk6DypExsFU-J7DiiN6">Shapes Starter File</a></li>
                 <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM">Animals Dataset</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L">Animals Dataset Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L">Animals Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1OPGwXA40V5JfS6qi7Ip7U5gNdP7HV3yX&v=01bb5ff">Animals Starter File (w/function)</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1VVz4l0P6GLwbcpYyAGYJuRgBxj69R52Z&v=bf92f5e">Trust, but Verify</a></li>
+                <li><a target="_blank" href="bit.ly/ExploreLR19">Playing with Predictors</a></li>
               </ul>
 
               <h2>Project Files</h2>
@@ -219,25 +222,25 @@
                 </li>
                 <li>
                     <b>Summer Olympic Medals </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1YgM_-06BWTbm0J4853OFSX7LY9OpY4IyflVB9WN57_o" ">Dataset</a>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1YgM_-06BWTbm0J4853OFSX7LY9OpY4IyflVB9WN57_o">Dataset</a>
                     | <a target="_blank" href="https://code.pyret.org/editor#share=1sksPktTVvid4iCPY0HRt7zau6zb5-2Lp">Starter File</a>]
                 </li>
                 <li>
                     <b>Winter Olympic Medals </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1LoDnM1aP7bUyPXN7i_U0pDMFsRrX1WjzL0P8nOb2tuo" ">Dataset</a>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1LoDnM1aP7bUyPXN7i_U0pDMFsRrX1WjzL0P8nOb2tuo">Dataset</a>
                     | <a target="_blank" href="https://code.pyret.org/editor#share=1o7AVBM2YFbcho3L5wgFK_3NuP-VUrmIF">Starter File</a>]
                 </li>
                 <li>
                     <b>MLB Hitting Stats </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" ">Dataset</a>
+                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg">Dataset</a>
                     | <a target="_blank" href="https://code.pyret.org/editor#share=1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy">Starter File</a>]
                 </li>
               </ul>
-			  
+        
               <h2>Other Links</h2>
               <ul>
-				<li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> <b>Registered for a Bootstrap workshop?</b> Please fill out this survey prior to your first day.</li>
-			</ul>
+        <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> <b>Registered for a Bootstrap workshop?</b> Please fill out this survey prior to your first day.</li>
+      </ul>
             </div>
         </div>
     </body>
