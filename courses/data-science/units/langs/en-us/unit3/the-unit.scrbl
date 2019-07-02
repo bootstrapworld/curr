@@ -256,6 +256,9 @@
                                 MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy" "Starter file"])
                               }
                               @item{
+                                Spotify Top Songs (@(new-tab "https://docs.google.com/spreadsheets/d/18Yb3zWIIensRdz1C1iqqtZ4aXjbKOD7z2SSL09Zm1Xc" "Dataset") | @editor-link[#:public-id "1p50-4vj6pGqsuX4ExTCT9s3nVwcr_lWm" "Starter file"])
+                              }
+                              @item{
                                   Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
                               }
                           ]
