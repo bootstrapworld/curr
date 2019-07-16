@@ -232,10 +232,10 @@
                 }
                 @point{
                         @student{
-                                (You may notice another value, called R-Squared. We'll ignore this for now - it's a more advanced topic.)
+                                You may notice another value, called @math{\mathrm{R}^2}. This value describes the @italic{percentage of the variation in the y-axis that is explained by variation on the x-axis}. In other words, an @math{\mathrm{R}^2} value of 0.42 could mean that "42% of the variation in dog adoption time is explained by the age of the dog."
                         }
                         @teacher{
-                                Discussion of R-Squared may be appropriate for older students, or in an AP Statistics class.
+                                Discussion of @math{\mathrm{R}^2} may be appropriate for older students, or in an AP Statistics class.
                         }
                 }
                 @point{
