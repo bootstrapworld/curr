@@ -247,10 +247,10 @@
                                   Cereals (@(new-tab "https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4" "Dataset") | @editor-link[#:public-id "1YT-DLYzptb6_SzQ0fgo51jgd_D_iZolw" "Starter file"])
                               }
                               @item{
-                                  Summer Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1YgM_-06BWTbm0J4853OFSX7LY9OpY4IyflVB9WN57_o" "Dataset") | @editor-link[#:public-id "1sksPktTVvid4iCPY0HRt7zau6zb5-2Lp" "Starter file"])
+                                  Summer Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1ee30kHpV35zAO5MNQKk_nXP6iym2mX-bv_cgt-8q_oo" "Dataset") | @editor-link[#:public-id "1IXaH3Ga5toAcIUY4EwSBf8AU0Z-6Jrv6" "Starter file"])
                               }
                               @item{
-                                  Winter Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1LoDnM1aP7bUyPXN7i_U0pDMFsRrX1WjzL0P8nOb2tuo" "Dataset") | @editor-link[#:public-id "1o7AVBM2YFbcho3L5wgFK_3NuP-VUrmIF" "Starter file"])
+                                  Winter Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1-xYW4C0IRB7cDI2K8dMyVTlsQjFmB_Z4XBsHsB-TAbs" "Dataset") | @editor-link[#:public-id "1kFV_BmSDTSAbNDdm-IFZrGdI1I6K4-aL" "Starter file"])
                               }
                               @item{
                                 MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy" "Starter file"])
