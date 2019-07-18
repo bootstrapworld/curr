@@ -243,17 +243,16 @@
               }
         ]
     }
-
-  @lesson/studteach[
-     #:title "Rolling up our sleeves"
-     #:duration "25 minutes"
+@lesson/studteach[
+     #:title "Closing"
+     #:duration "5 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{}]
+     #:preparation @itemlist[]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -263,11 +262,11 @@
         @points[
               @point{
                     @student{
-                        Use this time to continue your analysis, and try using Method Chaining to make your code simpler or easier to read. For example, now you can chain together two simple filter functions instead of having to write a third one!
+                          As our analysis gets more complex, method chaining is a great way to keep the code simple. But complex analysis also has more room for mistakes, so it's critical to think about a Sample Table that allows us to @italic{trust} that our code really does what it's supposed to!
                     }
                     @teacher{
-                        
-                   }
+
+                    }
               }
         ]
   }

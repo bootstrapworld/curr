@@ -98,18 +98,21 @@
         @points[
               @point{
                   @student{
-                        Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab. This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
+                        Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet") in a new tab, or turn to @worksheet-link[#:name "Animals-Dataset"]. This is some data from an animal shelter, listing animals that have been adopted. We'll be using this as an example throughout the course, but you'll be applying what you learn to @italic{a dataset you choose} as well.
 
                         @activity[#:forevidence (list )]{
                             @itemlist[
                                 @item{
-                                    Turn to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook. @italic{What do you notice} about this dataset? Write down your observations in the left-hand column at the top of the page.
+                                    Turn to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook. @italic{What do you notice} about this dataset? Write down your observations in the first column.
                                 }
                                 @item{
-                                    Sometimes, looking at data sparks questions. @italic{What do you wonder} about this dataset? Write down your questions in the right-hand column.
+                                    Sometimes, looking at data sparks questions. @italic{What do you wonder} about this dataset? Write down your questions in the second column.
                                 }
                                 @item{
-                                    If you look at the bottom, you'll see that this spreadsheet contains @italic{multiple sheets} called "pets" and "README". Which sheet are we looking at?
+                                    There's a third column, called "Question Type" - we're going to return to that later, so you can ignore it for now.
+                                }
+                                @item{
+                                    If you look at the bottom of the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "spreadsheet file"), you'll see that this document contains @italic{multiple sheets} called "pets" and "README". Which sheet are we looking at?
                                 }
                                 @item{
                                     Each sheet contains a table. For our purposes, we only care about the animals table on the @code{"pets"} sheet.
@@ -141,7 +144,13 @@
               @point{
                       @student{@vocab{Quantitative Data} is used to measure an @italic{amount} of something, or to compare two pieces of data to see which is @italic{less or more}. If we want to ask "how much" or "which is most", we're talking about Quantitative Data.
                               @activity[#:forevidence (list )]{
-                                  "Age" is a quantitative variable, because we can ask questions like "who is the oldest animal?" or "what is the average age of the animals?" What are some other quantitative variables you see in this table?
+                                  What kind of data - categorical or quantitative - are the following columns?
+                                  @itemlist[
+                                    @item{ Hair color }
+                                    @item{ Age }
+                                    @item{ ZIP Code }
+                                    @item{ Date }
+                                  ]
                               }
                       }
                       @teacher{
@@ -240,7 +249,7 @@
                           In Data Science, every table is composed of cells, which are arranged in a grid of rows and columns.
                         }
                         @item{
-                          Most of the cells contain data, but the first row and first column are special.
+                          Most of the cells contain data, but @italic{the first row and first column} are special.
                         }
                         @item{
                           The first row is called the @vocab{header} row, which gives a unique name to each variable (or "column") in the table. 
@@ -293,7 +302,7 @@
         @points[
             @point{
                     @student{ 
-                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of legs each animal has) and Strings (the species of the animal). Let's get some practice playing with both Datatypes.
+                            Pyret lets us use many different kinds of data. In this table, for example, you can see Numbers (the number of legs each animal has), Strings (the species of the animal), and Booleans (whether it is true or false than animal is fixed). Let's get some practice playing with these Datatypes.
                             @activity[#:forevidence (list "BS-PL.1&1&1" "Programming 5.5.1&1&1" "Programming 5.3.1&1&9")]{
                                 With your partner(s), go through the questions on @worksheet-link[#:name "Numbers-and-Strings"]. Talk about the answers to each question, and write down your answers when required.
                             }
@@ -673,7 +682,7 @@
   }
 
   @lesson/studteach[
-     #:title "(Optional) Counting Values"
+     #:title "(Optional) Exploring other plots"
      #:duration "10 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -689,6 +698,23 @@
                 )
       ]{
         @points[
+              @point{
+                      @student{
+                          OPTIONAL: there are lots of other functions, for all different kinds of charts and plots. Even if you don't know what these plots are for yet, see if you can use your knowledge of Contracts to figure out how to use them. What do you think they mean?
+                          @itemlist[
+                            @item{ How many columns are needed to make a @code{histogram}? }
+                            @item{ Are @code{histogram}s made from quantitative or categorical columns? }
+                            @item{ What do you think a @code{histogram} tells us about the data?}
+                            @item{ How many columns are needed to make a @code{box-plot}? }
+                            @item{ Are @code{box-plots}s made from quantitative or categorical columns? }
+                            @item{ What do you think a @code{box-plot} tells us about the data?}
+                            @item{ Can you answer the same questions for other plots? }
+                          ]
+                      }
+                      @teacher{
+
+                      }
+              }
               @point{
                     @student{
                         Sometimes we want to summarize a categorical column in a Table, rather than a pie chart. For example, it might be handy to have a table that has a row for dogs, cats, lizards, and rabbits, and then the count of how many of each type there are.

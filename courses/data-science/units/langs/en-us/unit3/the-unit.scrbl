@@ -82,7 +82,7 @@
         @points[
                 @point{
                     @student{
-                        A lot of Data Science involves making predictions based on data. Suppose we want to survey Americans and try to predict our next president will be. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
+                        A lot of Data Science involves making predictions based on data. Suppose we want to survey Americans and try to predict who our next president will be. Obviously, it would take too long to ask everyone who they're voting for! Instead, pollsters try to take a @italic{sample} of Americans, and generalize the opinion of the sample to estimate how Americans as a whole feel.
                         @activity{
                             @itemlist[
                               @item{
@@ -111,7 +111,7 @@
                           @bannerline{ 
                               Make subsets first!
                           }
-                          Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some logical subsets, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males".
+                          Data Scientists don't always know what the interesting questions are right away. So whenever they explore a dataset, one of the first things do is define some @italic{logical subsets}, just to have them handy later. Someone looking at our animals dataset might want to consider "just the lizards" or "just males". This also helps them reason about the data, without being biased by a particular question.
                           @activity{
                               A "kitten" is an animal whose @code{species == "cat"} and whose @code{age < 2}. How would you make a subset of just kittens? Turn to @worksheet-link[#:name "Animals-Dataset-Subsets"], and see what code will compute whether or not an animal is a kitten. Can you fill in the code for the other subsets?
                           }
@@ -258,10 +258,8 @@
                               @item{
                                 Spotify Top Songs (@(new-tab "https://docs.google.com/spreadsheets/d/18Yb3zWIIensRdz1C1iqqtZ4aXjbKOD7z2SSL09Zm1Xc" "Dataset") | @editor-link[#:public-id "1p50-4vj6pGqsuX4ExTCT9s3nVwcr_lWm" "Starter file"])
                               }
-                              @item{
-                                  Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
-                              }
                           ]
+                          Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
                       }
                       @teacher{
                           Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.

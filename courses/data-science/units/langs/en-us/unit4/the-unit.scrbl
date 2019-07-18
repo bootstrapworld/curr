@@ -45,7 +45,7 @@
                 @point{
                         @student{
                               @activity[#:forevidence "BS-IDE&1&1"]{
-                                Open your "Animals Starter File", and click "Run". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
+                                Open your Animals Starter File, and click "Run". (If you do not have this file, or if something has happened to it, you can always make a @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "new copy"].)
                               }
                         }
                         @teacher{
@@ -107,7 +107,7 @@
                 @point{
                       @student{
                               @bitmap{images/species-bar-chart.png}
-                              @vocab{Bar charts}, like the one of the bottom-left of @worksheet-link[#:name "Bar-vs-Histogram"], use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency}, which can be shown as absolute numbers or percentages of the total.
+                              @vocab{Bar charts}, like the one of the bottom-left of @worksheet-link[#:name "Bar-vs-Histogram"], use the horizontal axis to show values of a categorical variable (in the diagram on the right, @code{species}). The vertical axis here shows @vocab{frequency} of that value in the dataset, which can be shown as absolute numbers or percentages of the total.
                       }
                       @teacher{
                               
@@ -115,18 +115,10 @@
                 }
                 @point{
                       @student{
-                              This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the bar for "dogs" could have been drawn before the one for "cats". Unlike the numbers on a histogram's horizontal axis, there is no hard order to categories on a bar-chart's horizontal axis. For this reason, @italic{it never makes sense to talk about the "shape" of a categorical data set.}
+                              This bar chart happens to show the categorical values in alphabetical order from left to right, but it would be perfectly fine to re-order them any way we wish. For instance, the bar for "dogs" could have been drawn before the one for "cats". Unlike the numbers on a histogram's horizontal axis, there is no objective order to categories on a bar-chart's horizontal axis. For this reason, @italic{it never makes sense to talk about the "shape" of a categorical data set.}
                       }
                       @teacher{
                       
-                      }
-                }
-                @point{
-                      @student{
-                              A quick report on this bar chart should definitely mention the fact that "dog" is the mode of the data set: the most common of the five possible species was dog, with cats being a fairly close second.
-                      }
-                      @teacher{
-
                       }
                 }
                 @point{

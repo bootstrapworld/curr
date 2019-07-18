@@ -47,7 +47,7 @@
                   @student{
                           Once we have a dataset, we can start asking questions! But how do we know what questions to ask? There's an art to asking the right questions, and good Data Scientists think hard about what kind of questions can and can't be answered.
                            @activity{
-                              Turn to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook, and look at the "Wonder" questions that you wrote about this dataset. What are some other questions you might ask of this dataset?
+                              Turn to back to @worksheet-link[#:name "Animals-Notice-Wonder"] in your Student Workbook, and look at the "Wonder" questions that you wrote about this dataset.
                           }
                   }
                   @teacher{
@@ -75,7 +75,7 @@
             }
             @point{
                   @student{
-                          Look back at the Wonders you wrote on @worksheet-link[#:name "Animals-Notice-Wonder"]. Are any of these Lookup, Compute, or Relate questions? Can you come up with additional examples for each type of question?
+                          Look back at the Wonders you wrote on @worksheet-link[#:name "Animals-Notice-Wonder"]. Are any of these Lookup, Compute, or Relate questions? Circle the question type that's appropriate. Can you come up with additional examples for each type of question?
                   }
                   @teacher{
                           Have students share their questions with the class. Allow time for discussion!
@@ -110,6 +110,14 @@
                 )
       ]{
         @points[
+            @point{
+                  @student{
+                          Open @editor-link[#:public-id "1PTPxKGyUfsMpy4GzFtYS_JGntiHOL0Yu" "Animals Starter File - Unit 2"], save a copy, and click "Run". This is the same program you saw before, but with one extra line of code. Which line is new, and what do you think it does?
+                  }
+                  @teacher{
+
+                  }
+            }
               @point{
                     @student{
                         Tables have special functions associated with them, called @vocab{Methods}, which allow us to do all sorts of things with those tables. For example, we can get the first data row in a table by using the @code{.row-n} method:
@@ -288,10 +296,7 @@
                 }
                 @point{
                         @student{
-                              Let's try finding all the fixed animals by hand.
-                              @activity{
-                                  Open the @(new-tab "https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM/" "Animals Spreadsheet"), and find all the animals that are fixed.
-                              }
+                              Let's try finding all the fixed animals by hand. Turn to @worksheet-link[#:name "Animals-Dataset"], and walk down the table one row at a time, putting a check next to each animal that is fixed.
                         }
                         @teacher{
                               Give students 2min to find all the fixed animals they can.
@@ -310,16 +315,12 @@
                             Have a student @italic{act out} the @code{is-fixed} function. You give them an animal, and they tell you what they would type to find out if it is fixed.
                       }
                 }
-                @point{ 
+                @point{
                       @student{
+                            Look back to the Definitions Area, and find the line that starts with @code{fun is-fixed}. This function isn't built into Pyret, but it's @italic{defined} here in the program, so we can use it just as if it were built into the language!
                             @activity{
-                                @itemlist[
-                                    @item{ What is the name of our function? }
-                                    @item{ What type of data did we have to give it? }
-                                    @item{ What type of data did it give us back? }
-                                ]
+                                Type @code{is-fixed(animalA)} into the Interactions Area. What did the function do?
                             }
-                            Unfortunately, Pyret doesn't have a function like this. But it has something even better: it lets us @italic{define new functions of our own!}
                       }
                       @teacher{
 
@@ -327,6 +328,26 @@
                 }
                 @point{
                       @student{
+                            You already know about the @code{.row-n} and @code{.order-by} methods. But suppose you want to get a table of only animals that have been fixed? Try typing this expression into the Interactions Area. What do you get?
+                            @code[#:multi-line #t]{
+                                animals-table.filter(is-fixed)
+                            }
+                      }
+                      @teacher{
+                            If time allows, ask students to explain what they think is going on.
+                      }
+                }
+                @point{
+                      @student{
+                            The filter method walks through the table, applying whatever function it was given to each row, and producing a @italic{new table} containing all the rows for which the function returned @code{true}. In this case, we gave it the @code{is-fixed} function, so the new table had only rows for fixed animals.
+                      }
+                      @teacher{
+
+                      }
+                }
+                @point{
+                      @student{
+                            @bannerline{But how do we define functions like this?}
                             To build our own functions, we'll use a series of steps called the @bold{Design Recipe}. The Design Recipe is a way to think through the behavior of a function, to make sure we don't make any mistakes with the animals that depend on us! The Design Recipe has three steps, and we'll go through them together for our first function. 
                             @activity{
                               Turn to page @worksheet-link[#:name "Design-Recipe-Lookup"] in your Student Workbook.
@@ -338,12 +359,13 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 1: Contract and Purpose} The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function tells us if an animal is fixed or not, so we'll call it @code{is-fixed}. It consumes an animal (represented by a @code{Row} in our table), and look up the value in the @code{fixed} column. A Purpose Statement is just a description of what the function does:
+                            @bannerline{Step 1: Contract and Purpose} 
+                            The first thing we do is write a Contract for this function. You already know a lot about contracts: they tell us the Name, Domain and Range of the function. Our function is named @code{is-fixed}, and it consumes a row from the animals table. It looks up the value in the @code{fixed} column, which will always be a Boolean. A Purpose Statement is just a description of what the function does:
                             @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up the value in the fixed column
                             }
-                            Since the description is a note for humans, we add the @code{#} symbol at the front of the line to turn it into a comment.
+                            Since the contract and purpose statement are notes for humans, we add the @code{#} symbol at the front of the line to turn it into a comment.
                       }
                       @teacher{
                         Be sure to check students' contracts and purpose statements before having them move on!
@@ -351,58 +373,29 @@
                 }
                 @point{
                       @student{
-                            @bannerline{Step 2: Write Examples} Examples are a way for us to tell the computer how our function should behave for a @italic{specific} input. We can write as many examples as we want, but they must all be wrapped in an @code{examples:} block and an @code{end} statement. Examples start with the name of the function we're writing, followed by an example input. Let's use some two pets we defined earlier for our first example.
+                            @bannerline{Step 2: Write Examples} Examples are a way for us to tell the computer how our function should behave for a @italic{specific} input. We can write as many examples as we want, but they must all be wrapped in an @code{examples:} block and an @code{end} statement. Examples start with the name of the function we're writing, followed by an example input. Suppose we have two animals defined, where @code{animalA} is fixed and @code{animalB} isn't. What work do we have to do on each row to look up whether they are fixed? What is will the result be for each animal?
                             @code[#:multi-line #t]{
-                              # is-fixed :: (animal :: Row) -> Boolean
+                              # is-fixed :: (r :: Row) -> Boolean
                               # Consumes an animal, and looks up the value in the fixed column
                               examples:
-                                is-fixed(animalA) is animalA["fixed"]
-                                is-fixed(animalB) is animalB["fixed"]
+                                is-fixed(animalA) is true
+                                is-fixed(animalB) is false
                               end
                             }
                       }
                       @teacher{
-                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{sasha} and @code{fritz} came from the Domain in our contract, that (3) @code{animalA["fixed"]} came from our purpose statement, and the label also came from the variable name in our contract.
-                      }
-                }
-                @point{
-                      @student{
-                            Why didn't we just write @code{true} or @code{false} after the @code{is}? In programming, just like in any other class, it's more important to @italic{show your work} than to just write down the answer. This helps programmers organize their thinking, and can be a useful way of fixing bugs later on. (If you never wrote down what you were thinking, how will you know where you went wrong?)
-                      }
-                      @teacher{
-
-                      }
-                }
-                @point{
-                      @student{
-                            @activity[#:forevidence (list "BS-PL.3&1&2")]{
-                                @itemlist[
-                                  @item{
-                                      In the examples where we show our work, do you notice a pattern? Most of the code for these examples is exactly the same, and only a small bit is changing: @code{animalA} and @code{animalB}.
-                                  }
-                                  @item{
-                                      Circle all of the parts in your example block that are changing.
-                                  }
-                                  @item{
-                                      What does the stuff you circled represent? Are @code{animalA} and @code{animalB} years? Legs? No - they are @italic{animals}! Let's label them...
-                                  }
-                                ]
-                                  
-                            }
-                      }
-                      @teacher{
-                            
+                            Make sure students understand (1) that @code{is-fixed} came from the Name in our contract, (2) that @code{animalA} and @code{animalB} came from the Domain in our contract, and (3) that the Booleans are determined by whether those animals are fixed or not.
                       }
                 }
                 @point{
                     @student{
-                          @bannerline{Step 3: Define the Function} After having written our examples, this part is easy! The part of the examples before @code{is} tells us how to begin. We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{mittens}, we'll use the @italic{label} that we gave it. Then we add a colon (@code{:}) in place of @code{is}, and continue to follow our examples, replacing anything we circled with the label. Finally, we finish with the @code{end} keyword.
+                          @bannerline{Step 3: Define the Function} We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{animalA} or @code{animalB}, we'll use the @italic{label} from our Domain. Then we add a colon (@code{:}) in place of @code{is}, and write out the work we did to get the answers for our examples. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
                               # Consumes an animal, and looks up the value in the fixed column
                               examples:
-                                is-fixed(animalA) is animalA["fixed"]
-                                is-fixed(animalB) is animalB["fixed"]
+                                is-fixed(animalA) is true
+                                is-fixed(animalB) is false
                               end
                               fun is-fixed(animal): animal["fixed"]
                               end
@@ -413,39 +406,23 @@
                     }
                 }
                 @point{
-                    @student{
-                          Now that we've defined our function, we can click "Run" and actually use it!
-                          @activity[#:forevidence (list "BS-PL.3&1&3")]{
-                              After you've clicked run, try typing in the following expressions, and see what happens:
-                              @code[#:multi-line #t]{
-                                  is-fixed(animalA)
-                                  is-fixed(animalB)
-                                  is-fixed(animals-table.row-n(8))
-                                  is-fixed(animals-table.row-n(11))
-                              }
-                          }
-                    }
-                    @teacher{
-
-                    }
-                }
-                @point{
-                    @student{
-                        Our @code{examples:} block is a helpful way to @italic{check our work}, so we don't make mistakes. Suppose we made a mistake in our function definition, and accessed the wrong column:
-                        @code[#:multi-line #t]{
-                            fun is-fixed(animal): animal["age"]
-                            end
-                        }
-                        When we click "Run", the computer will tell us that our examples don't match the definition! It will literally @italic{check your work for you!}
-                    }
-                    @teacher{
-
-                    }
+                      @student{
+                            This program is missing examples! Add an examples block in the Definitions Area, using your @code{animalA} and @code{animalB}. Check the Animals Dataset to make sure that your Booleans are correct for @italic{your} animals. If you click "Run", you'll see a report on whether the examples are correct. Make sure both of them pass!
+                      }
+                      @teacher{
+                            Walk around to make sure everyone's examples pass.
+                      }
                 }
                 @point{
                     @student{
                         @activity{
-                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Lookup"].
+                            Now let's try coming up with a totally new function, and use the Design Recipe to help us write it. 
+                            @itemlist[
+                              @item{ Solve the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Lookup"]. } 
+                              @item{ Type in the Contract, Purpose Statement, Examples and Definition into the Definitions Area. }
+                              @item{ Click "Run", and make sure all your examples pass! }
+                              @item{ Type @code{gender(animalA)} into the Interactions Area.} 
+                            ]
                         }
                     }
                     @teacher{
@@ -454,7 +431,7 @@
                 }
                 @point{
                     @student{
-                        So far, our functions have been pretty simple: they consume a row, and they produce one column from that row as-is. But suppose we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
+                        So far, our functions have been pretty simple: they consume a row, and they look up one column from that row as-is. But suppose we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
                     }
                     @teacher{
 
@@ -477,33 +454,21 @@
                 }
                 @point{
                     @student{
-                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. This gives us our first example:
+                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. Suppose @code{animalA} is a cat and @code{animalB} is a lizard. What should our examples look like?
                         @code[#:multi-line #t]{
-                              # is-cat :: (animal :: Row) -> Boolean
+                              # is-cat :: (r :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
-                                is-cat(animalA) is animalA["species"] == "cat"
+                                is-cat(animalA) is true
+                                is-cat(animalB) is false
                               end
                             }
-                        @activity{ Add a second example. }
+                        @activity{ 
+                          Write two examples for @italic{your} defined animals. Make sure one is a cat and one isn't!
+                        }
                     }
                     @teacher{
-                        Have students share their examples. Point out that the code is the same for all examples, aside from the name of the animal being tested.
-                    }
-                }
-                @point{
-                    @student{
-                        Just we've done before, let's look at our examples and circle the things that are changed from one to the other.
-                        @itemlist[
-                          @item{ Do all our examples use @code{is-cat}? }
-                          @item{ Do all our examples use the same inputs? }
-                          @item{ Do all our examples look at the same column? }
-                          @item{ Do all our examples compare that column value to "cat"? }
-                        ]
-                        @activity{ What label should we use here? }
-                    }
-                    @teacher{
-                        Make sure students realize that the label is specified in the Domain.
+                        Have students share their examples.
                     }
                 }
                 @point{
@@ -515,11 +480,11 @@
                           @item{ What do we do in the body in the function? }
                         ]
                         @code[#:multi-line #t]{
-                              # is-cat :: (animal :: Row) -> Boolean
+                              # is-cat :: (r :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
-                                is-cat(animalA) is animalA["species"] == "cat"
-                                is-cat(animalB) is animalB["species"] == "cat"
+                                is-cat(animalA) is true
+                                is-cat(animalB) is false
                               end
                               fun is-cat(animal): animal["species"] == "cat"
                               end
@@ -532,7 +497,7 @@
                 @point{
                     @student{
                         @activity{
-                          Type this definition - and its examples! - into the Definitions Area, then click "Run" and try using it.
+                          Type this definition - and its examples! - into the Definitions Area, then click "Run" and try using it to filter the @code{animals-table}.
                         }
                     }
                     @teacher{
@@ -542,7 +507,7 @@
                 @point{
                     @student{
                         @activity{
-                            For practice, try solving the word problem at the bottom of @worksheet-link[#:name "Design-Recipe-Compute"].
+                            For practice, try solving the word problem for @code{is-young} at the bottom of @worksheet-link[#:name "Design-Recipe-Compute"].
                         }
                     }
                     @teacher{
@@ -553,7 +518,7 @@
   }
 
   @lesson/studteach[
-     #:title "More Table Methods"
+     #:title "More About Table Methods"
      #:duration "15 minutes"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -569,18 +534,6 @@
                 )
       ]{
         @points[
-              @point{
-                    @student{
-                          You already know about the @code{.row-n} and @code{.order-by} methods. But suppose you want to get a table of only cats? Or a table of only animals that have been fixed? Try typing these expressions into the Interactions Area. What do you get?
-                          @code[#:multi-line #t]{
-                              animals-table.filter(is-fixed)
-                              animals-table.filter(is-cat)
-                          }
-                    }
-                    @teacher{
-                          If time allows, ask students to explain what they think is going on.
-                    }
-              }
               @point{
                     @student{
                           Find the contract for @code{.filter} in your contracts page. The @code{.filter} method is taking in a @italic{function}, calling it on every row in the table, and producing a new table with only the rows for which it returns @code{true}.

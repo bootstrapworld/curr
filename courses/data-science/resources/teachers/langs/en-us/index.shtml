@@ -12,7 +12,6 @@
         height: 220px;
       }
     div#teacherVideos b{height: 44px; display: block;}
-    ul#final li b {display: inline-block; width: 200px;}
     </style>
   </head>
   <body>
@@ -135,118 +134,155 @@
 
             <div class="item clearfix">
               <span class="anchor" id="sourceFiles"></span>
-              <h2>Workshop Files</h2>
-              <ul>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1IntcU5lWgBuzlhk6DypExsFU-J7DiiN6">Shapes Starter File</a></li>
-                <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM">Animals Dataset</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L">Animals Starter File</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1OPGwXA40V5JfS6qi7Ip7U5gNdP7HV3yX&v=01bb5ff">Animals Starter File (w/function)</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1VVz4l0P6GLwbcpYyAGYJuRgBxj69R52Z&v=bf92f5e">Trust, but Verify</a></li>
-                <li><a target="_blank" href="bit.ly/ExploreLR19">Playing with Predictors</a></li>
-                <li><i><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfj24nCBA18zvjK19OwS_DZfwFZpHoPtPcd-2ADiUDfevkaSA/viewform">Homework Submission</a></i>
-              </ul>
-
               <h2>Project Files</h2>
               <ul id="final">
-                <li><a target="_blank" href="https://docs.google.com/document/d/1JoF83vm9xh9VvB9prmRsOsNgfSXjT0orHgfNGSymAnc/edit">Blank Research Paper</a></li>
-                <li><a target="_blank" href="https://code.pyret.org/editor#share=1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t">Blank Starter File</a></li>
-
                 <li>
-                    <b>Movies </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1ldK-Xte5xCAPd6hz2wreBaJzuw-voe4q6ui9QkFGz8w">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1jn4q9ZXJ643Rmk0sQ443CLaTIF2vAN38">Starter File</a>]
+                    <a target="_blank" href="https://docs.google.com/document/d/1JoF83vm9xh9VvB9prmRsOsNgfSXjT0orHgfNGSymAnc/edit"><b>Blank Research Paper</b></a>
                 </li>
                 <li>
-                    <b>Schools </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1XeeyAuF_mtpeCw2HVCKjvwW1rreNvztoQ3WeBlEaDl0">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1SA8ENBl0ayfyxoFHSUpMJ-PPiSxzipS3">Starter File</a>]
+                    <a target="_blank" href="https://code.pyret.org/editor#share=1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t"><b>Blank Starter File</b></a>
+                </li>
                 </li>
                 <li>
-                    <b>US Income </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1qSK5KX7cfwM4c6XtJFg5gPcVp9OBSbOU">Starter File</a>]
+                    <b>Movies</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1ldK-Xte5xCAPd6hz2wreBaJzuw-voe4q6ui9QkFGz8w">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1jn4q9ZXJ643Rmk0sQ443CLaTIF2vAN38">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>US Presidents </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Frt37-nBHHxvJVBKzKLRD3kbjPLhc8CYUaIlNeNWl94">Dataset</a>
-                     | <a target="_blank" href="https://code.pyret.org/editor#share=1bXtJ7oH1XvBHqHcAYvaOM-g0Z1Qm5xv8">Starter File</a>]
+                    <b>Schools</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1XeeyAuF_mtpeCw2HVCKjvwW1rreNvztoQ3WeBlEaDl0">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1SA8ENBl0ayfyxoFHSUpMJ-PPiSxzipS3">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Countries of the World </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=14TwfS8kvwEgQRsl2CTzyLyN9uKwbDYTu">Starter File</a>]
+                    <b>US Income</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1qSK5KX7cfwM4c6XtJFg5gPcVp9OBSbOU">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Music </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1UUvwXUMWAEWSlWF1ST4BvQOrUpyxqgwh">Starter File</a>]
+                    <b>US Presidents</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1Frt37-nBHHxvJVBKzKLRD3kbjPLhc8CYUaIlNeNWl94">Dataset</a>
+                       | <a target="_blank" href="https://code.pyret.org/editor#share=1bXtJ7oH1XvBHqHcAYvaOM-g0Z1Qm5xv8">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>New York City Restaurant Health Inspections </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1inK0kq8bNeN1vYbx0HpNZ8xHOp5pmP2FoLcfK9pQhJI">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1hiXWzF06SmgaF_r8DlQrzBm4e96Xpm9_">Starter File</a>]
+                    <b>Countries of the World</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=14TwfS8kvwEgQRsl2CTzyLyN9uKwbDYTu">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Pokemon Characters </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1S8jf4Qf94TJKGLCcTA-Fqn4YXE7dGf_PIxv5MUeUPVo">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1zxltGamxQ07jwz24ZGzRwOi8STPi5rcq">Starter File</a>]
+                    <b>Music</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1UUvwXUMWAEWSlWF1ST4BvQOrUpyxqgwh">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>IGN Video Game Reviews </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1i9ZlsGccUJ08ralo1FPgRjFALAZNnetr">Starter File</a>]
+                    <b>NYC Restaurant Health Inspections</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1inK0kq8bNeN1vYbx0HpNZ8xHOp5pmP2FoLcfK9pQhJI">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1hiXWzF06SmgaF_r8DlQrzBm4e96Xpm9_">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>2016 Presidential Primary Election </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1fgIREXT5lAaAPWqrNP3S191ID_ecoXDjBe_gAC00-M4">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=11_Ogov1gClfqHC5JBDh9mnzni66SyurS">Starter File</a>]
+                    <b>Pokemon Characters</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1S8jf4Qf94TJKGLCcTA-Fqn4YXE7dGf_PIxv5MUeUPVo">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1zxltGamxQ07jwz24ZGzRwOi8STPi5rcq">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>US Cancer Rates </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1rpGtXWTPZltkcAmIsB_2S8DYAaD5-VwU">Starter File</a>]
+                    <b>IGN Video Game Reviews</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1i9ZlsGccUJ08ralo1FPgRjFALAZNnetr">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>US State Demographics </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1AwoBUlqGbrE77gdjd8tOIPrVO9Vmzs6YB1zLVmJkM7M">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1YNYMgohYCkYq76xERwYyX1Vw3zmxk_vu">Starter File</a>]
+                    <b>2016 Presidential Primary Election</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1fgIREXT5lAaAPWqrNP3S191ID_ecoXDjBe_gAC00-M4">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=11_Ogov1gClfqHC5JBDh9mnzni66SyurS">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Sodas </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1vWLU4hkojnMrq4omDnS50vB4Fwxv5YmA">Starter File</a>]
+                    <b>US Cancer Rates</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1rpGtXWTPZltkcAmIsB_2S8DYAaD5-VwU">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Cereals </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1YT-DLYzptb6_SzQ0fgo51jgd_D_iZolw">Starter File</a>]
+                    <b>US State Demographics</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1AwoBUlqGbrE77gdjd8tOIPrVO9Vmzs6YB1zLVmJkM7M">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1YNYMgohYCkYq76xERwYyX1Vw3zmxk_vu">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Summer Olympic Medals </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1ee30kHpV35zAO5MNQKk_nXP6iym2mX-bv_cgt-8q_oo">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1IXaH3Ga5toAcIUY4EwSBf8AU0Z-6Jrv6">Starter File</a>]
+                    <b>Sodas</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1vWLU4hkojnMrq4omDnS50vB4Fwxv5YmA">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Winter Olympic Medals </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1-xYW4C0IRB7cDI2K8dMyVTlsQjFmB_Z4XBsHsB-TAbs">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1kFV_BmSDTSAbNDdm-IFZrGdI1I6K4-aL">Starter File</a>]
+                    <b>Cereals</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1YT-DLYzptb6_SzQ0fgo51jgd_D_iZolw">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>MLB Hitting Stats </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy">Starter File</a>]
+                    <b>Summer Olympic Medals</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1ee30kHpV35zAO5MNQKk_nXP6iym2mX-bv_cgt-8q_oo">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1IXaH3Ga5toAcIUY4EwSBf8AU0Z-6Jrv6">Starter File</a>]
+                    </span>
                 </li>
                 <li>
-                    <b>Spotify Top Songs </b>
-                    [ <a target="_blank" href="https://docs.google.com/spreadsheets/d/18Yb3zWIIensRdz1C1iqqtZ4aXjbKOD7z2SSL09Zm1Xc">Dataset</a>
-                    | <a target="_blank" href="https://code.pyret.org/editor#share=1p50-4vj6pGqsuX4ExTCT9s3nVwcr_lWm">Starter File</a>]
+                    <b>Winter Olympic Medals</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1-xYW4C0IRB7cDI2K8dMyVTlsQjFmB_Z4XBsHsB-TAbs">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1kFV_BmSDTSAbNDdm-IFZrGdI1I6K4-aL">Starter File</a>]
+                    </span>
+                </li>
+                <li>
+                    <b>MLB Hitting Stats</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy">Starter File</a>]
+                    </span>
+                </li>
+                <li>
+                    <b>Spotify Top Songs</b>
+                    <span class="links">
+                      [<a target="_blank" href="https://docs.google.com/spreadsheets/d/18Yb3zWIIensRdz1C1iqqtZ4aXjbKOD7z2SSL09Zm1Xc">Dataset</a>
+                      | <a target="_blank" href="https://code.pyret.org/editor#share=1p50-4vj6pGqsuX4ExTCT9s3nVwcr_lWm">Starter File</a>]
+                    </span>
                 </li>
               </ul>
-        
-              <h2>Other Links</h2>
+
+              <h2>Workshop Files</h2>
               <ul>
-        <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> <b>Registered for a Bootstrap workshop?</b> Please fill out this survey prior to your first day.</li>
-      </ul>
+                <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScaKOQ1L0Ni-sVuMY9tRhbAFcAcSFLA28lqPXQAJ03cUkSYYg/viewform">Pre-PD Survey</a> - Please fill out this survey prior to your first day.</li>
+                <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/19m1bUCQo3fCzmSEmWMjTfnmsNIMqiByLytHE0JYtnQM">Animals Dataset</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L">Animals Starter File</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1PTPxKGyUfsMpy4GzFtYS_JGntiHOL0Yu">Animals Starter File - Unit 2</a></li>
+                <li><a target="_blank" href="https://code.pyret.org/editor#share=1VVz4l0P6GLwbcpYyAGYJuRgBxj69R52Z&v=bf92f5e">Trust, but Verify</a></li>
+                <li><a target="_blank" href="https://www.geogebra.org/m/ZcVIxKtF">Playing with Predictors</a></li>
+                <li><i><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfj24nCBA18zvjK19OwS_DZfwFZpHoPtPcd-2ADiUDfevkaSA/viewform">Homework Submission</a></i>
+                <li><a target="_blank" href="https://docs.google.com/a/bootstrapworld.org/forms/d/e/1FAIpQLSdTWp7SxbilC2qaPMgSmtoovQRMsQ1jYrqtxykkBjm6BagB4A/viewform">Post-PD Survey</a> - Give us some feedback!</li>
+              </ul>
+        
             </div>
         </div>
     </body>
