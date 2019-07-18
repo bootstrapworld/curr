@@ -12,6 +12,7 @@
         height: 220px;
       }
     div#teacherVideos b{height: 44px; display: block;}
+    ul.hover li:hover {background: #eee;}
     </style>
   </head>
   <body>
@@ -33,7 +34,7 @@
 
             <h2>Exercises and Solutions</h2>
             <h3><a href="../../units/unit1/">Unit 1</a></h3>
-            <ul>
+            <ul class="hover">
               <li>Practicing Contracts 1
                 <span class="links">
                   [<a href="exercises/Contracts1.pdf">original</a>
@@ -65,7 +66,7 @@
 
 
             <h3><a href="../../units/unit2/">Unit 2</a></h3>
-            <ul>
+            <ul class="hover">
               <li>What Data Would You Need? 1
                 <span class="links">
                   [<a href="exercises/WhatData1.pdf">original</a>
@@ -82,7 +83,7 @@
             </ul>
 
             <h3><a href="../../units/unit5/">Unit 5</a></h3>
-            <ul>
+            <ul class="hover">
               <li>Critiquing Findings
                 <span class="links">
                   [<a href="exercises/CritiquingFindings.pdf">original</a>
@@ -92,7 +93,7 @@
             </ul>
 
             <h3><a href="../../units/unit8/">Unit 8</a></h3>
-            <ul>
+            <ul class="hover">
               <li>Describing Relationships 1
                 <span class="links">
                   [<a href="exercises/Relationships1.pdf">original</a>
@@ -109,7 +110,7 @@
             </ul>
             
             <h3><a href="../../units/unit9/">Unit 9</a></h3>
-            <ul>
+            <ul class="hover">
               <li>Threats to Validity 1
                 <span class="links">
                   [<a href="exercises/Threats1.pdf">original</a>
@@ -135,7 +136,7 @@
             <div class="item clearfix">
               <span class="anchor" id="sourceFiles"></span>
               <h2>Project Files</h2>
-              <ul id="final">
+              <ul class="hover">
                 <li>
                     <a target="_blank" href="https://docs.google.com/document/d/1JoF83vm9xh9VvB9prmRsOsNgfSXjT0orHgfNGSymAnc/edit"><b>Blank Research Paper</b></a>
                 </li>

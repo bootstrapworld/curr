@@ -114,7 +114,7 @@
                 }
                 @point{
                         @student{
-                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our regression line on a scatter plot, we can imagine a rubber bands stretching vertically between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the statistics behind the line of best fit.
+                                Data scientists use a statistical method called @vocab{linear regression} to search for certain kinds of relationships in a dataset. When we draw our regression line on a scatter plot, we can imagine a rubber bands stretching vertically between the line itself and each point in the plot - every point pulls the line a little "up" or "down". Linear regression is the math behind the line of best fit.
                         }
                         @teacher{
 
@@ -152,6 +152,14 @@
                         }
                         @teacher{
                                 If you want to teach students the algorithm for linear regression (calculating ordinary least squares), now is the time. However, this algorithm is not a core portion of Bootstrap:Data Science.
+                        }
+                }
+                @point{
+                        @student{
+                                Our goal is to figure out how strongly or weakly the variable on our x-axis @italic{explains} the change in the variable on our y-axis, the x-variable is sometimes referred to as the @italic{explanitory variable} and the y-variable is referred to as the @italic{response or "outcome" variable.}
+                        }
+                        @teacher{
+                        
                         }
                 }
                 @point{
