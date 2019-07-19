@@ -431,7 +431,7 @@
                 }
                 @point{
                     @student{
-                        So far, our functions have been pretty simple: they consume a row, and they look up one column from that row as-is. But suppose we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through a more complex Design Recipe together, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
+                        So far, our functions have all been Lookup Functions: they consume a row, and they look up one column from that row as-is. And @bold{as long as that row contains Boolean values, we can use that function with the @code{.filter} method}. But what if we want to filter by a Boolean @italic{expression}? For example, what if we want to find out specifically whether or not an animal is a cat, or whether it's young? Let's walk through an example of a Compute Function using the Design Recipe, by turning to @worksheet-link[#:name "Design-Recipe-Compute"].
                     }
                     @teacher{
 
