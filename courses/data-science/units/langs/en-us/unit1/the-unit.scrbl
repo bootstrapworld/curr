@@ -187,7 +187,7 @@
               }
               @point{
                   @student{
-                      Open up the @editor-link[#:public-id "1gaYAyYhvlKBm6VJuvJDcnoINBw76pL-L" "Animals Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
+                      Open up the @editor-link[#:public-id "1uK9VO5WO1RAH7g65DU_pkXZTyOnlno_-" "Animals Starter File"] in a new tab. Click "Connect to Google Drive" to sign into your Google account, and then click the "Save as" button. This will save a copy of the file into your own account, so that you can make changes and retrieve them later.
                   }
                   @teacher{
                   }

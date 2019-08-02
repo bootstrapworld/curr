@@ -205,10 +205,10 @@
                           Take 10 minutes to look through the following datasets, and choose one that interests you:
                           @itemlist[
                               @item{
-                                  Movies (@(new-tab "https://docs.google.com/spreadsheets/d/1ldK-Xte5xCAPd6hz2wreBaJzuw-voe4q6ui9QkFGz8w" "Dataset") | @editor-link[#:public-id "1jn4q9ZXJ643Rmk0sQ443CLaTIF2vAN38" "Starter file"])
+                                  Movies (@(new-tab "https://docs.google.com/spreadsheets/d/1ldK-Xte5xCAPd6hz2wreBaJzuw-voe4q6ui9QkFGz8w" "Dataset") | @editor-link[#:public-id "1rR2Obd01i7o7TcIM4NKtLylfC1Vx5O8W" "Starter file"])
                               }
                               @item{
-                                  Schools (@(new-tab "https://docs.google.com/spreadsheets/d/1XeeyAuF_mtpeCw2HVCKjvwW1rreNvztoQ3WeBlEaDl0" "Dataset") | @editor-link[#:public-id "12ONifI6YaFtXbYQzwlRWisDUsot_ctDE" "Starter file"])
+                                  Schools (@(new-tab "https://docs.google.com/spreadsheets/d/1XeeyAuF_mtpeCw2HVCKjvwW1rreNvztoQ3WeBlEaDl0" "Dataset") | @editor-link[#:public-id "1IPw7VGfzpJ2WdJZSR-CKcMj14wV-s5DE" "Starter file"])
                               }
                               @item{
                                   US Income (@(new-tab "https://docs.google.com/spreadsheets/d/1cIxBSQebGejWK7S_Iy6cDFSIpD-60x8oG7IvrfCtHbw/" "Dataset") | @editor-link[#:public-id "1qSK5KX7cfwM4c6XtJFg5gPcVp9OBSbOU" "Starter file"])
@@ -217,34 +217,31 @@
                                   US Presidents (@(new-tab "https://docs.google.com/spreadsheets/d/1Frt37-nBHHxvJVBKzKLRD3kbjPLhc8CYUaIlNeNWl94" "US Presidents Dataset") | @editor-link[#:public-id "1bXtJ7oH1XvBHqHcAYvaOM-g0Z1Qm5xv8" "Starter file"])
                               }
                               @item{
-                                  Countries of the World (@(new-tab "https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs" "Dataset") | @editor-link[#:public-id "14TwfS8kvwEgQRsl2CTzyLyN9uKwbDYTu" "Starter file"])
+                                  Countries of the World (@(new-tab "https://docs.google.com/spreadsheets/d/19VoYxPw0tmuSViN1qFIkyUoepjNSRsuQCe0TZZDmrZs" "Dataset") | @editor-link[#:public-id "1b-9DJs8ga5jsGm-XPs8EE43kxsuIsmAY" "Starter file"])
                               }
                               @item{
-                                  Music (@(new-tab "https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w" "Dataset") | @editor-link[#:public-id "1UUvwXUMWAEWSlWF1ST4BvQOrUpyxqgwh" "Starter file"])
+                                  Music (@(new-tab "https://docs.google.com/spreadsheets/d/1Yzo8GuGhMDVNyAI5OacmKZ53xJplZbXF5FT6Lwitp0w" "Dataset") | @editor-link[#:public-id "1VHxayiW_8IbfpVYkRqUl4-s4gmKYhVnB" "Starter file"])
                               }
                               @item{
-                                  New York City Restaurant Health Inspections (@(new-tab "https://docs.google.com/spreadsheets/d/1inK0kq8bNeN1vYbx0HpNZ8xHOp5pmP2FoLcfK9pQhJI" "Dataset") | @editor-link[#:public-id "1hiXWzF06SmgaF_r8DlQrzBm4e96Xpm9_" "Starter file"])
+                                  New York City Restaurant Health Inspections (@(new-tab "https://docs.google.com/spreadsheets/d/1inK0kq8bNeN1vYbx0HpNZ8xHOp5pmP2FoLcfK9pQhJI" "Dataset") | @editor-link[#:public-id "1HPQGAOPMGkeX22iMYzmzFg8_XZwYrgI_" "Starter file"])
                               }
                               @item{
-                                  Pokemon Characters (@(new-tab "https://docs.google.com/spreadsheets/d/1S8jf4Qf94TJKGLCcTA-Fqn4YXE7dGf_PIxv5MUeUPVo" "Dataset") | @editor-link[#:public-id "1zxltGamxQ07jwz24ZGzRwOi8STPi5rcq" "Starter file"])
+                                  Pokemon Characters (@(new-tab "https://docs.google.com/spreadsheets/d/1S8jf4Qf94TJKGLCcTA-Fqn4YXE7dGf_PIxv5MUeUPVo" "Dataset") | @editor-link[#:public-id "1QryTW7USeJ5_Rv5itvG52_KIPs8-oTtA" "Starter file"])
                               }
                               @item{
-                                  IGN Video Game Reviews (@(new-tab "https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw" "Dataset") | @editor-link[#:public-id "1i9ZlsGccUJ08ralo1FPgRjFALAZNnetr" "Starter file"])
+                                  IGN Video Game Reviews (@(new-tab "https://docs.google.com/spreadsheets/d/1Ss221kjz2WJUsTlxK7TcnsXLPoSbnfUKv-JP8gCiGRw" "Dataset") | @editor-link[#:public-id "125PuXjRVRBKTI7qIMPcfE9qQM-0AA5KD" "Starter file"])
                               }
                               @item{
-                                  2016 Presidential Primary Election (@(new-tab "https://docs.google.com/spreadsheets/d/1fgIREXT5lAaAPWqrNP3S191ID_ecoXDjBe_gAC00-M4" "Dataset") | @editor-link[#:public-id "11_Ogov1gClfqHC5JBDh9mnzni66SyurS" "Starter file"])
-                              }
-                              @item{
-                                  US Cancer Rates (@(new-tab "https://docs.google.com/spreadsheets/d/1Fyp-h8sSggYPHIpvrtBzSrKGa6bZioy1lMTKIC--RH0" "Dataset") | @editor-link[#:public-id "1rpGtXWTPZltkcAmIsB_2S8DYAaD5-VwU" "Starter file"])
+                                  2016 Presidential Primary Election (@(new-tab "https://docs.google.com/spreadsheets/d/1fgIREXT5lAaAPWqrNP3S191ID_ecoXDjBe_gAC00-M4" "Dataset") | @editor-link[#:public-id "16i3Rm2Ckftg05sDNXFZsJtCSRdqiL015" "Starter file"])
                               }
                               @item{
                                   US State Demographics (@(new-tab "https://docs.google.com/spreadsheets/d/1AwoBUlqGbrE77gdjd8tOIPrVO9Vmzs6YB1zLVmJkM7M" "Dataset") | @editor-link[#:public-id "1YNYMgohYCkYq76xERwYyX1Vw3zmxk_vu" "Starter File"])
                               }
                               @item{
-                                  Sodas (@(new-tab "https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs" "Dataset") | @editor-link[#:public-id "1vWLU4hkojnMrq4omDnS50vB4Fwxv5YmA" "Starter file"])
+                                  Sodas (@(new-tab "https://docs.google.com/spreadsheets/d/15n0dLqBWffE2JNOmYHcvavqMwvHXpy5_UyZfT3Q7pfs" "Dataset") | @editor-link[#:public-id "1yXn9VDlvlWTDkNefEFG5nKBUKsYKq37w" "Starter file"])
                               }
                               @item{
-                                  Cereals (@(new-tab "https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4" "Dataset") | @editor-link[#:public-id "1YT-DLYzptb6_SzQ0fgo51jgd_D_iZolw" "Starter file"])
+                                  Cereals (@(new-tab "https://docs.google.com/spreadsheets/d/1y3AoywSnyGpu-QmmEwKvW-xstZ6B9JhH5gTUx5XYTo4" "Dataset") | @editor-link[#:public-id "1go2vX15t1DFrzXKEunRe3fu3tdkNNZfH" "Starter file"])
                               }
                               @item{
                                   Summer Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1ee30kHpV35zAO5MNQKk_nXP6iym2mX-bv_cgt-8q_oo" "Dataset") | @editor-link[#:public-id "1IXaH3Ga5toAcIUY4EwSBf8AU0Z-6Jrv6" "Starter file"])
@@ -253,13 +250,13 @@
                                   Winter Olympic Medals (@(new-tab "https://docs.google.com/spreadsheets/d/1-xYW4C0IRB7cDI2K8dMyVTlsQjFmB_Z4XBsHsB-TAbs" "Dataset") | @editor-link[#:public-id "1kFV_BmSDTSAbNDdm-IFZrGdI1I6K4-aL" "Starter file"])
                               }
                               @item{
-                                MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ZqtQdMEL6hLsnsrnHaS-lKumDErd6wcy" "Starter file"])
+                                MLB Hitting Stats (@(new-tab "https://docs.google.com/spreadsheets/d/1xjC1XZWACvQtfwHdGk_BlE2jm4aleMADHTt6PEocCjg" "Dataset") | @editor-link[#:public-id "1ww7j81jZoqu1zFpTDe2ZDZCJg3uMrEnZ" "Starter file"])
                               }
                               @item{
                                 Spotify Top Songs (@(new-tab "https://docs.google.com/spreadsheets/d/18Yb3zWIIensRdz1C1iqqtZ4aXjbKOD7z2SSL09Zm1Xc" "Dataset") | @editor-link[#:public-id "1p50-4vj6pGqsuX4ExTCT9s3nVwcr_lWm" "Starter file"])
                               }
                           ]
-                          Or find your own dataset, and use this (@editor-link[#:public-id "1jJioYONDaN3qx5VHFTHHy2U62kBvTu5t" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
+                          Or find your own dataset, and use this (@editor-link[#:public-id "112j5-gF_BLpDWI_qzgaOseOhp6YbteD8" "Blank Starter file"]) for your project. See @(new-tab "https://youtu.be/K4n9hTSqcyw" "this tutorial video") for help importing your own data into Pyret.
                       }
                       @teacher{
                           Make sure students realize this is a firm commitment! The farther they go in the course, the harder it will be to change datasets.
