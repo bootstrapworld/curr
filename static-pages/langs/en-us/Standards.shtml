@@ -29,9 +29,10 @@
     
     <script>
       function showTable(id){
-        document.getElementById('practice').style.display = 'none';
-        document.getElementById('content').style.display  = 'none';
-        document.getElementById('ngss').style.display = 'none';
+        document.getElementById('ccss_practice').style.display = 'none';
+        document.getElementById('ccss_content').style.display  = 'none';
+        document.getElementById('ngss_practice').style.display = 'none';
+        document.getElementById('ngss_content').style.display = 'none';
         document.getElementById('TEKS').style.display = 'none';
         document.getElementById('csta').style.display = 'none';
         document.getElementById('k12cs').style.display = 'none';
@@ -56,14 +57,15 @@
     
     
     <div class="item">
-      <input type="button" onclick="showTable('practice')"  value="CC Math Practice"/>
-      <input type="button" onclick="showTable('content')"   value="CC Math Content"/>
-      <input type="button" onclick="showTable('ngss')"      value="NGSS"/>
+      <input type="button" onclick="showTable('ccss_practice')"  value="CC Math Practice"/>
+      <input type="button" onclick="showTable('ccss_content')"   value="CC Math Content"/>
+      <input type="button" onclick="showTable('ngss_practice')"  value="NGSS Practice"/>
+      <input type="button" onclick="showTable('ngss_content')"   value="NGSS Content"/>
       <input type="button" onclick="showTable('k12cs')"     value="K12CS"/>
       <input type="button" onclick="showTable('TEKS')"      value="TEKS"/>
       <input type="button" onclick="showTable('csta')"      value="CSTA"/>
 
-      <table width="100%" id="practice">
+      <table width="100%" id="ccss_practice">
         <thead>
           <tr><td><h2>Standard</h2></td>
             <td><h2>Alignment</h2></td></tr>
@@ -118,7 +120,7 @@
         </tr>
       </table>
       
-      <table width="100%" id="content">
+      <table width="100%" id="ccss_content">
         <thead>
           <tr><td><h2>Standard</h2></td>
             <td><h2>Bootstrap Units</h2></td>
@@ -286,6 +288,18 @@
           </td>
         </tr>
         <tr class="SP">
+          <td><span>HSS.ID.A.2:</span> Use statistics appropriate to the shape of the data distribution to compare center (median, mean) and spread (interquartile range, standard deviation) of two or more different data sets.</td>
+          <td>
+            <b>Data Science</b> Unit 5
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.ID.A.3:</span> Interpret differences in shape, center, and spread in the context of the data sets, accounting for possible effects of extreme data points (outliers).</td>
+          <td>
+            <b>Data Science</b> Units 4 and 5
+          </td>
+        </tr>
+        <tr class="SP">
           <td><span>HSS.ID.B.6:</span> Represent data on two quantitative variables on a scatter plot, and describe how the variables are related.</td>
           <td>
             <b>Data Science</b> Unit 7
@@ -321,9 +335,21 @@
             <b>Data Science</b> Units 7 and 9
           </td>
         </tr>
+        <tr class="SP">
+          <td><span>HSS.IC.A.1:</span> Understand statistics as a process for making inferences about population parameters based on a random sample from that population.</td>
+          <td>
+            <b>Data Science</b> Units 3 - 8
+          </td>
+        </tr>
+        <tr class="SP">
+          <td><span>HSS.IC.B.6:</span> Evaluate reports based on data.</td>
+          <td>
+            <b>Data Science</b> Units 5 and 8
+          </td>
+        </tr>
       </table>
 
-      <table width="100%" id="ngss">
+      <table width="100%" id="ngss_content">
         <thead>
           <tr><td><h2>Standard</h2></td>
             <td><h2>Alignment</h2></td></tr>
@@ -377,6 +403,68 @@
           </td>
         </tr>
       </table>
+
+      <table width="100%" id="ngss_practice">
+        <thead>
+          <tr><td><h2>Standard</h2></td>
+            <td><h2>Alignment</h2></td></tr>
+        </thead>
+        <tr>
+          <td><span>Asking Questions and Defining Problems</span> Ask questions to determine relationships, including quantitative relationships, between independent and dependent variables. Evaluate a question to determine if it is testable and relevant. Ask and/or evaluate questions that challenge the premise(s) of an argument, the interpretation of a data set, or the suitability of the design. Define a design problem that involves the development of a process or system with interacting components and criteria and constraints that may include social, technical and/or environmental considerations.
+          </td>
+          <td>
+            <b>Data Science</b> Units 2, 6 and Final Project
+          </td>
+        </tr>
+        <tr>
+          <td><span>Developing and Using Models</span> Evaluate merits and limitations of two different models of the same proposed tool, process, mechanism, or system in order to select or revise a model that best fits the evidence or design criteria. Design a test of a model to ascertain its reliability. Develop, revise, and/or use a model based on evidence to illustrate and/or predict the relationships between systems or between components of a system.
+          </td>
+          <td>
+            <b>Data Science</b> Units 4 - 7
+          </td>
+        </tr>
+        <tr>
+          <td><span>Planning and Carrying Out Investigations</span> Select appropriate tools to collect, record, analyze, and evaluate data. Make directional hypotheses that specify what happens to a dependent variable when an independent variable is manipulated.
+          </td>
+          <td>
+            <b>Data Science</b> Units 2 - 7
+          </td>
+        </tr>
+        <tr>
+          <td><span>Analyzing and Interpreting Data</span> Apply concepts of statistics and probability (including determining function fits to data, slope, intercept, and correlation coefficient for linear fits) to scientific and engineering questions and problems, using digital tools when feasible. Consider limitations of data analysis (e.g., measurement error, sample selection) when analyzing and interpreting data.
+          </td>
+          <td>
+            <b>Data Science</b> Units 7 - 9
+          </td>
+        </tr>
+        <tr>
+          <td><span>Mathematical and Computational Thinking</span> Use mathematical, computational, and/or algorithmic representations of phenomena or design solutions to describe and/or support claims and/or explanations. Apply techniques of algebra and functions to represent and solve scientific and engineering problems. Use simple limit cases to test mathematical expressions, computer programs, algorithms, or simulations of a process or system to see if a model "makes sense" by comparing the outcomes with what is known about the real world.
+          </td>
+          <td>
+            <b>Data Science</b> Units 2 - 9
+          </td>
+        </tr>
+        <tr>
+          <td><span>Constructing Explanations and Designing Solutions</span> Make a quantitative and/or qualitative claim regarding the relationship between dependent and independent variables. Apply scientific reasoning, theory, and/or models to link evidence to the claims to assess the extent to which the reasoning and data support the explanation or conclusion.
+          </td>
+          <td>
+            <b>Data Science</b> Units 7, 8 and Final Project.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Engaging in Argument From Evidence</span> Respectfully provide and/or receive critiques on scientific arguments by probing reasoning and evidence and challenging ideas and conclusions, responding thoughtfully to diverse perspectives, and determining what additional information is required to resolve contradictions. Make and defend a claim based on evidence about the natural world or the effectiveness of a design solution that reflects scientific knowledge, and student-generated evidence.
+          <td>
+            <b>Data Science</b> Unit 6 and Final Project.
+          </td>
+        </tr>
+        <tr>
+          <td><span>Obtaining, Evaluating, and Communicating Information</span> Communicate scientific and/or technical information or ideas (e.g. about phenomena and/or the process of development and the design and performance of a proposed process or system) in multiple formats (including orally, graphically, textually, and mathematically).
+          <td>
+            <b>Data Science</b> Final Project.
+          </td>
+        </tr>
+      </table>
+      
       
       <table width="100%" id="TEKS">
         <thead>
