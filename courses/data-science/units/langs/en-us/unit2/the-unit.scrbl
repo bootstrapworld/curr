@@ -389,6 +389,14 @@
                 }
                 @point{
                     @student{
+                        @bold{ When writing examples, we replace the look-up operation with the @italic{actual value} in the table. }
+                    }
+                    @teacher{
+                        This is a MAJOR point. Make sure students see it (and maybe even repeat it!).
+                    }
+                }
+                @point{
+                    @student{
                           @bannerline{Step 3: Define the Function} We start with the @code{fun} keyword (short for "function"), followed by the name of our function and a set of parentheses. This is exactly how all of our examples started, too. But instead of writing @code{animalA} or @code{animalB}, we'll use the @italic{label} from our Domain. Then we add a colon (@code{:}) in place of @code{is}, and write out the work we did to get the answers for our examples. Finally, we finish with the @code{end} keyword.
                           @code[#:multi-line #t]{
                               # is-fixed :: (animal :: Row) -> Boolean
@@ -454,13 +462,13 @@
                 }
                 @point{
                     @student{
-                        To find out if an animal is a cat, we look at the @code{species} column and check to see if that value is @italic{equal to} @code{"cat"}. Suppose @code{animalA} is a cat and @code{animalB} is a lizard. What should our examples look like?
+                        To find out if an animal is a cat, we @italic{look-up the @code{species} column} and check to see if that value is @italic{equal to} @code{"cat"}. Suppose @code{animalA} is a cat and @code{animalB} is a lizard. What should our examples look like? @bold{ Remember: we replace any lookup with the actual value, and check to see if it is equal to @code{"cat"}. }
                         @code[#:multi-line #t]{
                               # is-cat :: (r :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
-                                is-cat(animalA) is true
-                                is-cat(animalB) is false
+                                is-cat(animalA) is "cat" == "cat"
+                                is-cat(animalB) is "dog" == "cat"
                               end
                             }
                         @activity{ 
@@ -468,7 +476,7 @@
                         }
                     }
                     @teacher{
-                        Have students share their examples.
+                        Note that the string on the left is the @italic{lookup value}: the actual species for that specific animal.
                     }
                 }
                 @point{
@@ -483,8 +491,8 @@
                               # is-cat :: (r :: Row) -> Boolean
                               # Consumes an animal, and compute whether the species is "cat"
                               examples:
-                                is-cat(animalA) is true
-                                is-cat(animalB) is false
+                                is-cat(animalA) is "cat" == "cat"
+                                is-cat(animalB) is "dog" == "cat"
                               end
                               fun is-cat(animal): animal["species"] == "cat"
                               end
