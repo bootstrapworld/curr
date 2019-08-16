@@ -24,7 +24,7 @@
      #:product-outcomes @itemlist[]
      #:exercises (list )
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
+     #:materials @itemlist[@item{Computers w/ code.pyret.org}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}

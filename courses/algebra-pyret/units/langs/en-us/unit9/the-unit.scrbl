@@ -24,7 +24,7 @@
                                      @item{Students will be able to explain how Piecewise Functions are used in their game}]
      #:product-outcomes @itemlist[@item{A poster illustrating a key component of a game program}]
      #:standards (list)
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
+     #:materials @itemlist[@item{Computers w/ code.pyret.org}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}
@@ -65,7 +65,7 @@
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
+     #:materials @itemlist[@item{Computers w/ code.pyret.org}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}

@@ -184,8 +184,8 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
      #:exercises (list)
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
+     #:materials @itemlist[@item{Editing environment (code.pyret.org)}]
+     #:preparation @itemlist[@item{Computer for each student (or pair), running code.pyret.org}
                               @item{Student Workbooks, and something to write with}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
