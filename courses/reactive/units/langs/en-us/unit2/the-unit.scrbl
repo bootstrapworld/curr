@@ -7,7 +7,7 @@
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / num-sqr num-sqrt} "1 ,4 ,44.6") 
                                        (list "String" @code{string-append string-length} " \"hello\" ")                          
                                        (list "Image" @code{rectangle circle triangle ellipse star text} "circle(25, \"solid\", \"red\")"))]{
-@unit-descr{Students discover the need for compound date - data structures - using 2-dimentionsal
+@unit-descr{Students discover the need for compound data - data structures - using 2-dimensional
             animation. They learn the syntax for data blocks, constructors and dot-accessors, and
             practice each by creating a "digital bakery".}
 }
