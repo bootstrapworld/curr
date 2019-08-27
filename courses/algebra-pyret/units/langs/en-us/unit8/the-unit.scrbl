@@ -19,7 +19,7 @@
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-PL.4" "6.NS.5-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
+     #:materials @itemlist[@item{Computers w/ code.pyret.org}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                            @item{Class posters (List of rules, basic skills, course calendar)}
@@ -77,7 +77,7 @@
                                     ]
      #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
      #:standards (list "8.G.6-8" "BS-PL.4" "BS-DR.3")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
+     #:materials @itemlist[@item{Computers w/ code.pyret.org}
                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
                            @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster of students working together}

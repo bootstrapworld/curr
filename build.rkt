@@ -704,7 +704,7 @@
         (solutions-mode-off)
         (putenv "RELEASE-STATUS" "mature")
         (process-teacher-contributions)
-        (when (or (equal? course "algebra") (equal? course "algebra-pyret"))
+        (when (equal? course "algebra")
           (putenv "TARGET-LANG" "racket")
           (if (build-exercises?)
               (begin (build-exercise-handouts) ; not needed for reactive
@@ -714,7 +714,7 @@
                      )
               (workbook-styling-on))
           )
-        (when (equal? course "reactive")
+        (when (or (equal? course "reactive") (equal? course "algebra-pyret"))
           (putenv "TARGET-LANG" "pyret")
           ;; formerly set "RESLEASE-STATUS" to "beta" here
           )
@@ -729,7 +729,7 @@
           )
         (textbook-styling-on)
         (update-resource-paths)
-        (when (member course '("algebra" "algebra-pyret" "data-science"))
+        (when (member course '("algebra" "data-science"))
           (workbook-styling-on)
           (build-extra-pdf-exercises)
           (textbook-styling-on))

@@ -159,12 +159,12 @@
                              }
                      @teacher{}
                      }
-              @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Racket definitions:
+              @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Pyret definitions:
                                        @itemlist[@item{@math{dollars = 16.50}}
                                                  @item{@math{feet = 2 \times 3}}
                                                   @item{@math{inches = feet \times 12}}]
                                        }}
-                      @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other.
+                      @teacher{For this activity write all Pyret expressions on one side of the board, and all algebra expressions on the other.
                               You'll want to line them up as closely as possible, to reinforce the connection between the two languages.}
                      }
             @point{@student{@activity{Turn to @worksheet-link[#:name "Translating-to-Algebra"] in your workbooks. 
@@ -258,9 +258,7 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
 
-     #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1-im")
-                       (make-exercise-locator "Defining-Functions" "create-contracts-examples1-im")
-                       (make-exercise-locator "Defining-Functions" "create-contracts-examples2-im"))
+     #:exercises (list)
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[]
@@ -308,9 +306,9 @@
                                               @code[#:multi-line ""]{gt :: Number -> Image}
                                              }
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
-                                             contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket 
-                                             sees a semicolon, it ignores the rest of the line after the semicolon.  This means that you will never get an 
-                                             error message from Racket for a malformed comment.  That also means that you have to check your students' 
+                                             contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Pyret: whenever Pyret 
+                                             sees a pound sign (@code{#}), it ignores the rest of the line after the semicolon.  This means that you will never get an 
+                                             error message from Pyret for a malformed comment.  That also means that you have to check your students' 
                                              contracts more closely, because the computer will not check anything about them (format or contents).}
                                     }
                             @point{@student{Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
@@ -482,17 +480,17 @@ fun dot( color) :  circle(15, "solid",  color) end}}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{You've seen many functions defined in Racket, for example: 
+      ]{@points[@point{@student{You've seen many functions defined in Pyret, for example: 
                                 @code{fun f(x): x + 1 end}
                         @activity[#:forevidence (list  "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{@itemlist[@item{What is the name of this function?}
                                              @item{How many variables does it take?}
                                              @item{What is the name of the variable(s)?}
                                              @item{What does this function do to the variable @code{x}?}
                                              @item{Define a function @code{g}, which takes in a variable @code{q} and multiplies it by 20.}]}}
-                        @teacher{Make sure students understand that the function is named @italic{f}, and not "fx" or "f of x". Have students practice other function definitions, to make sure they're comfortable translating a verbal description into Racket syntax.}
+                        @teacher{Make sure students understand that the function is named @italic{f}, and not "fx" or "f of x". Have students practice other function definitions, to make sure they're comfortable translating a verbal description into Pyret syntax.}
                         }
                  @point{@student{To translate these functions into algebra, we do something similar to what we did with the values. Here is the same function @code{f}, written in algebra syntax: @math{f(x) = x + 1}                                                                                                      @activity{Translate the function @code{g} into algebra, using the translation of @code{f} as a model. Once that is complete try defining a function @math{h}, which takes in a variable @code{x} and divides it by 2.}}
-                         @teacher{Have students practice this translation with a few other functions, again translating from a verbal description (rather than Racket syntax).}}
+                         @teacher{Have students practice this translation with a few other functions, again translating from a verbal description (rather than Pyret syntax).}}
                  @point{@student{@activity{Translate the rest of the functions, listed on @worksheet-link[#:name "Translating-to-Algebra"] of your workbook.}}
                          @teacher{}
                          }]

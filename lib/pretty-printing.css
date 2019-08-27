@@ -59,20 +59,20 @@ Define coloring for basic WeScheme types, and re-use them for our CM instances
 /************************************************
 Define coloring for basic Pyret types, and re-use them for our CM instances 
 */
-.cm-s-default.CodeMirror      { color: black; }
-.cm-comment     { color: #cd7054; }
-.cm-boolean     { color: darkred; }
-.cm-builtin     { color: #555; }
-.cm-variable    { color: #4d5966; }
-.cm-keyword     { color: black; font-weight: bold; }
-.cm-number      { color: navy; }
-.cm-roughnum    { color: blue; }
-.cm-bad-number  { color: red; font-weight: bold; }
-.cm-string      { color: forestgreen; }
-.cm-type        { color: #374049; }
-.cm-function-name { color: #374049; }
-.cm-unterminated-string { color: red; font-weight: bold; }
-.cptteach-fixed { line-height: 1.5; background: #ddd; }
+.cm-s-pyret .CodeMirror      { color: black; }
+.cm-s-pyret .cm-comment, .cm-comment     { color: #cd7054; }
+.cm-s-pyret .cm-boolean, .cm-boolean     { color: darkred; }
+.cm-s-pyret .cm-builtin, .cm-builtin     { color: #555; }
+.cm-s-pyret .cm-variable, .cm-variable    { color: #4d5966; }
+.cm-s-pyret .cm-keyword, .cm-keyword     { color: black; font-weight: bold; }
+.cm-s-pyret .cm-number, .cm-number      { color: navy; }
+.cm-s-pyret .cm-roughnum, .cm-roughnum    { color: blue; }
+.cm-s-pyret .cm-bad-number, .cm-bad-number  { color: red; font-weight: bold; }
+.cm-s-pyret .cm-string, .cm-string      { color: forestgreen; }
+.cm-s-pyret .cm-type, .cm-type        { color: #374049; }
+.cm-s-pyret .cm-function-name, .cm-function-name { color: #374049; }
+.cm-s-pyret .cm-unterminated-string, .cm-unterminated-string { color: red; font-weight: bold; }
+.cm-s-pyret .cptteach-fixed { line-height: 1.5; background: #ddd; }
 
 /* CM-only stuff */
 span.cm-scheme-punctuation                 {color: black;}
