@@ -157,6 +157,9 @@ html, body{background: white; width: 7.5in; position: absolute;}
 /* Copyright at the end of the file */
 .BootstrapCopyright img{ float:right; }
 
+/* Hide the out-of-date DIV for printed pages */
+#outOfDate{display: none;}
+
 
 /********************************************************************
  Print adjustments
