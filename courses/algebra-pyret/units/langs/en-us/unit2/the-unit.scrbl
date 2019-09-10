@@ -92,7 +92,7 @@ include other datatypes, including Strings and Images.}
                              }
                     @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
                     }
-             @point{@student{@activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
+             @point{@student{@activity[#:forevidence "BS-PL.1&1&2"]{On the @emph{left-hand side} (Definitions window), add the code @code{include image} to the program, then click "Run". Then type the code from above, @code{star(50, "solid", "red")} into the Interactions window, and hit "Return". What did you get back?
                                                                     @itemlist[@item{What does the @code{star} function do?}
                                                                                @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
                                                                                @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
