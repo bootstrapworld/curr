@@ -46,16 +46,16 @@
 
         ;Translator; Names listed at bottom of most pages in the algebra curriculum, included in the copyright statement
     ;Developler; copyright for algebra
-    (copyright-names-alg "Bootstrap:Algebra by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, and Shriram Krishnamurthi is licensed under a ")
+    (copyright-names-alg "Bootstrap:Algebra by Emmanuel Schanzer, Emma Youndtsmith, Kathi Fisler, and Shriram Krishnamurthi was developed partly through support of the National Science Foundation, (awards 1042210, 1535276, 1648684, and 1738598), and is licensed under a ")
      ;Translator; Names listed at bottom of most pages in the reactive curriculum, included in the copyright statement
     ;Developler; copyright for reactive
-    (copyright-names-reac "Bootstrap:Reactive by Emma Youndtsmith, Emmanuel Schanzer, Kathi Fisler, Shriram Krishnamurthi, and Joe Politz is licensed under a ")
+    (copyright-names-reac "Bootstrap:Reactive by Emma Youndtsmith, Emmanuel Schanzer, Kathi Fisler, Shriram Krishnamurthi, and Joe Politz was developed partly through support of the National Science Foundation, (awards 1042210, 1535276, 1648684, and 1738598), and is licensed under a ")
     ;Translator; Names listed at bottom of most pages in the physics curriculum, included in the copyright statement
     ;Developler; copyright for physics
     (copyright-names-phys "Bootstrap:Physics by Emmanuel Schanzer, Shriram Krishnamurthi, and Sam Dooman is licensed under a ")
      ;Translator; Names listed at bottom of most pages in the data-science curriculum, included in the copyright statement
     ;Developler; copyright for data-science
-    (copyright-names-data "Bootstrap:Data Science by Emmanuel Schanzer, Nancy Pfenning, Emma Youndtsmith, Jennifer Poole, Shriram Krishnamurthi, Joe Politz and Ben Lerner is licensed under a ")
+    (copyright-names-data "Bootstrap:Data Science by Emmanuel Schanzer, Nancy Pfenning, Emma Youndtsmith, Jennifer Poole, Shriram Krishnamurthi, Joe Politz and Ben Lerner was developed partly through support of the National Science Foundation, (awards 1535276, 1647486, and 1738598), and is licensed under a ")
 
     
     ;Translator; This is the hyperlink listed within the copyright statement at the bottom of most pages.
