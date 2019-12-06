@@ -229,7 +229,7 @@
                           The first line (starting with @code{#}) is called a @italic{comment}. Comments are notes for humans, which the computer ignores. The next line @italic{defines} a new table. We call it @code{animals-table}, and we load it from the @code{shelter-sheet} defined above. You can see the names we are giving to each of the columns, called @code{name}, @code{species}, @code{gender}, @code{age}, @code{fixed}, @code{legs}, @code{pounds} and @code{weeks}. (We could use any names we want for these columns, but it's always a good idea to pick names that make sense!)
                     }
                     @teacher{
-                          Have students look back at the column names in the Google Sheet, and in the @code{load-table} function. Point out that they refer to the same columns, even though they have different names!
+                          Have students look back at the column names in the Google Sheet, and in the @code{load-table} @vocab{function}. Point out that they refer to the same columns, even though they have different names!
                     }
               }
               @point{
