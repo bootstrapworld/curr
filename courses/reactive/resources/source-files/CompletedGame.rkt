@@ -22,7 +22,7 @@
 (define NEXT (make-world "asleep" 40 210 580 820 100))
 
 ;; GRAPHICS
-(define BACKGROUND (bitmap "Teachpacks/teachpack-images/BG.jpg"))
+(define BACKGROUND (bitmap "Teachpacks/teachpack-images/bg.jpg"))
 (define DANGER (scale .7 (bitmap "Teachpacks/teachpack-images/wumpus.png")))
 (define FLOCK (bitmap "Teachpacks/teachpack-images/bats.png"))
 (define PLAYER (scale .7 (bitmap "Teachpacks/teachpack-images/archer.png")))
